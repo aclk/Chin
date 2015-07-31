@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persons>
+	<person>
+		<id>person0</id>
+		<name>name0</name>
+	</person>
+	<person>
+		<id>person1</id>
+		<name>name1</name>
+	</person>
+	<person>
+		<id>person2</id>
+		<name>name2</name>
+	</person>
+	<person>
+		<id>person3</id>
+		<name>name3</name>
+	</person>
+	<person>
+		<id>person4</id>
+		<name>name4</name>
+	</person>
+	<person>
+		<id>person5</id>
+		<name>name5</name>
+	</person>
+</persons>
