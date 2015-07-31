@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <!-- BTPRemoteのBehaviorをBXPに見せかけbuild-jcl起動させるための設定 -->
+    <bean id="btpRemote2BxpAdapter"
+        class="murata.co.btpremote2bxp.BtpRemote2BxpAdapter">
+
+        <!-- Behaviorオブジェクト
+            ※プロダクト個々に設定して下さい。-->
+        <property name="behavior" ref="sao0900_01Behavior" />
+
+        <!-- Behaviorのexecute()メソッドに放り込むVOオブジェクト -->
+        <property name="remoteVo" ref="remoteVo" />
+    </bean>
+
+    <!--
+        RomoteVOの値設定
+        ※プロダクト個々に設定して下さい。
+        ※VOの型は murata-co-mqesvo-?.?.?.jar ライブラリに登録されているものから、プロダクトに最適なものを選んで、記述して下さい。
+    -->
+    <bean id="remoteVo" class="murata.co.mqesvo.Rsao09001_01VO">
+
+        <!-- インボイスＮＯ．[no05346] -->
+        <property name="no05346" value="イィィイィンヴォーイッッス！！" />
+
+    </bean>
+
+</beans>

@@ -1,0 +1,11 @@
+//キーボードマクロのファイル
+S_ReplaceAll('2010.*', '', 4);	// 
+S_ReplaceAll('Tests	run:	', '', 4);	// 
+S_ReplaceAll('Failures:	', '', 4);	// 
+S_ReplaceAll('Errors:	', '', 4);	// 
+S_ReplaceAll('Skipped:	', '', 4);	// 
+S_ReplaceAll('Time	elapsed:	', '', 4);	// 
+S_ReplaceAll('sec	', '', 4);	// 
+S_ReplaceAll('<<<	', '', 4);	// 
+S_ReplaceAll('\\t\\n', '\\r\\n', 4);	// 
+S_ReDraw(0);	// 再描画

@@ -1,0 +1,226 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="examples">
+      <zeroOrMore>
+        <ref name="example" />
+      </zeroOrMore>
+    </element>
+  </start>
+
+  <define name="example">
+    <element name="example">
+      <attribute name="name">
+        <data type="ID"/>
+      </attribute>
+      <attribute name="tutorial">
+        <ref name="boolean"/>
+      </attribute>
+      <ref name="html"/>
+      <optional>
+        <ref name="appstate"/>
+      </optional>
+      <optional>
+        <ref name="commands"/>
+      </optional>
+    </element>
+  </define>
+
+  <define name="html">
+    <element name="html">
+      <zeroOrMore>
+        <choice>
+          <ref name="s"/>
+          <ref name="br"/>
+          <ref name="link"/>
+          <ref name="font"/>
+          <ref name="unicode"/>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="s">
+    <element name="s">
+      <empty/>
+    </element>
+  </define>
+  
+  <define name="br">
+    <element name="br">
+      <empty/>
+    </element>
+  </define>
+  
+  <define name="link">
+    <element name="link">
+      <attribute name="href">
+        <data type="string">
+          <param name="minLength">1</param>
+        </data>
+      </attribute>
+      <zeroOrMore>
+        <choice>
+          <ref name="s"/>
+          <ref name="font"/>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="font">
+    <element name="font">
+      <attribute name="color">
+        <choice>
+          <value>highlight1</value>
+          <value>highlight2</value>
+          <value>explain</value>
+          <value>code</value>
+          <value>error</value>
+        </choice>
+      </attribute>
+      <zeroOrMore>
+        <choice>
+          <ref name="s"/>
+          <ref name="br"/>
+          <ref name="link"/>
+          <text/>
+        </choice>
+      </zeroOrMore>
+    </element>
+  </define>
+  
+  <define name="unicode">
+    <element name="unicode">
+      <attribute name="start">
+        <data type="string">
+          <param name="length">4</param>
+          <param name="pattern">[0-9a-fA-F]+</param>
+        </data>
+      </attribute>
+      <attribute name="end">
+        <data type="string">
+          <param name="length">4</param>
+          <param name="pattern">[0-9a-fA-F]+</param>
+        </data>
+      </attribute>
+    </element>
+  </define>
+  
+  <define name="appstate">
+    <element name="appstate">
+      <element name="regex">
+        <text/>
+      </element>
+      <element name="inputChars">
+        <text/>
+      </element>
+      <element name="replacement">
+        <text/>
+      </element>
+      <optional>
+        <group>
+          <element name="findIndex">
+            <ref name="onlyIntAttribute"/>
+          </element>
+          <element name="regionStart">
+            <ref name="onlyIntAttribute"/>
+          </element>
+          <element name="regionEnd">
+            <ref name="onlyIntAttribute"/>
+          </element>
+          <ref name="modemusk"/>
+          <element name="anchoringBounds">
+            <ref name="onlyBooleanAttribute"/>
+          </element>
+          <element name="transparentBounds">
+            <ref name="onlyBooleanAttribute"/>
+          </element>
+          <element name="crlf">
+            <ref name="onlyBooleanAttribute"/>
+          </element>
+        </group>
+      </optional>
+    </element>
+  </define>
+  
+  <define name="onlyIntAttribute">
+    <attribute name="value">
+      <data type="int"/>
+    </attribute>
+    <empty/>
+  </define>
+  
+  <define name="onlyBooleanAttribute">
+    <attribute name="value">
+      <ref name="boolean"/>
+    </attribute>
+    <empty/>
+  </define>
+  
+  <define name="boolean">
+    <choice>
+      <value>true</value>
+      <value>false</value>
+    </choice>
+  </define>
+  
+  <define name="modemusk">
+    <element name="modemusk">
+      <choice>
+        <value>DO_NOTHING</value>
+        <value>DEFAULT</value>
+        <group>
+          <list>
+            <zeroOrMore>
+              <choice>
+                <value>MULTILINE</value>
+                <value>DOTALL</value>
+                <value>COMMENTS</value>
+                <value>LITERAL</value>
+                <value>UNIX_LINES</value>
+                <value>UNICODE_CASE</value>
+                <value>CASE_INSENSITIVE</value>
+                <value>CANON_EQ</value>
+              </choice>
+            </zeroOrMore>
+          </list>
+        </group>
+      </choice>
+    </element>
+  </define>
+
+  <define name="commands">
+    <element name="commands">
+      <list>
+        <zeroOrMore>
+          <choice>
+            <value>CLEAR_SOURCE</value>
+            <value>CLEAR_REPLACEMENT_BUF</value>
+            <value>RESET</value>
+            <value>LOOKING_AT</value>
+            <value>MATCHES</value>
+            <value>FIND</value>
+            <value>FIND_INT</value>
+            <value>APPEND_REPLACEMENT</value>
+            <value>APPEND_TAIL</value>
+            <value>REPLACE_FIRST</value>
+            <value>REPLACE_ALL</value>
+            <value>REGION</value>
+            <value>GROUP0</value>
+            <value>GROUP1</value>
+            <value>GROUP2</value>
+            <value>GROUP3</value>
+            <value>GROUP4</value>
+          </choice>
+        </zeroOrMore>
+      </list>
+    </element>
+  </define>
+</grammar>
+
+

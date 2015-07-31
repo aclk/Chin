@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="metachars">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="metachar"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="metachar">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="chars"/>
+        <xs:element ref="summary"/>
+        <xs:element minOccurs="0" ref="example"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="chars">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="summary">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="example">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+</xs:schema>

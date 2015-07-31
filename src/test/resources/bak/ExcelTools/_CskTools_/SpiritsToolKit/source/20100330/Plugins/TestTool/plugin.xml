@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="SpiritsToolKit.contribution1"
+            objectClass="org.eclipse.core.resources.IProject">
+         <menu
+               label="SpiritsToolKit -&gt;"
+               path="additions"
+               id="SpiritsToolKit.menu">
+            <separator name="group1"/>
+         </menu>
+         <action
+               label="Util -&gt; Running Start [ convert TP -&gt; TR... ]"
+               class="spiritstoolkit.testutil.popup.actions.Convert"
+               menubarPath="SpiritsToolKit.menu/group1"
+               enablesFor="1"
+               id="SpiritsToolKit.convert">
+         </action>
+         <action
+               class="spiritstoolkit.testutil.popup.actions.Template"
+               enablesFor="1"
+               id="SpiritsToolKit.template"
+               label="Util -&gt; Running Start [ template Create... ]"
+               menubarPath="SpiritsToolKit.menu/group1"/>
+      </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="SpiritsToolKit.objectContribution1"
+            objectClass="org.eclipse.core.resources.IFolder">
+         <menu
+               id="SpiritsToolKit.menu"
+               label="SpiritsToolKit -&gt;"
+               path="additions">
+            <separator name="group1"/>
+         </menu>
+         <action
+               class="spiritstoolkit.testutil.popup.actions.TpCreate"
+               enablesFor="1"
+               id="SpiritsToolKit.TpCreate"
+               label="Util -&gt; Running Start [ convert TR -&gt; TP... ]"
+               menubarPath="SpiritsToolKit.menu/group1"/>
+      </objectContribution>
+      <objectContribution
+            adaptable="true"
+            id="SpiritsToolKit.objectContribution2"
+            objectClass="org.eclipse.core.resources.IFile">
+         <menu
+               id="SpiritsToolKit.menu"
+               label="SpiritsToolKit -&gt;"
+               path="additions">
+            <separator name="group1"/>
+         </menu>
+         <action
+               class="spiritstoolkit.testutil.popup.actions.TpCreate"
+               enablesFor="*"
+               id="SpiritsToolKit.TpCreate"
+               label="Util -&gt; Running Start [ convert TR -&gt; TP... ]"
+               menubarPath="SpiritsToolKit.menu/group1"/>
+      </objectContribution>
+   </extension>
+
+</plugin>

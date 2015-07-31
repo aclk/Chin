@@ -1,0 +1,2 @@
+D:\workspace\rewriter\src\test\resources\pom.xml:業務中分類ベースライン以外の依存記述があります。[murata-baseline]
+D:\workspace\rewriter\src\test\resources\pom.xml:強制的にmurata-baselineのバージョンを置換しました。[murata-baseline→0.6.0]

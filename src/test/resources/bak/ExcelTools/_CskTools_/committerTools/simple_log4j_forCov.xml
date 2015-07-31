@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- Appender -->
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+        <!--
+        <param name="ConversionPattern" value="%5p [%t] (%F:%L) - %m%n"/>
+         -->
+        <!--
+            <param name="ConversionPattern" value="%-5p [%d] %m%n"/>
+            -->
+            <!-- <param name="ConversionPattern" value="%d %-5p [%t] %C{10} (%F:%L) - %m%n"/> -->
+            <param name="ConversionPattern" value="%d %-5p [%t] (%F:%L) - %m%n"/>
+        </layout>
+    </appender>
+	<!--
+    <category name="murata.co.inspection">
+        <priority value="INFO" />
+    </category>
+    -->
+    <category name="murata.ss">
+        <priority value="DEBUG" />
+    </category>
+    <category name="murata.dbm">
+        <priority value="DEBUG" />
+    </category>
+    <category name="murata.ps">
+        <priority value="DEBUG" />
+    </category>
+    <category name="murata.ms">
+        <priority value="DEBUG" />
+    </category>
+    <!-- Root -->
+    <root>
+        <priority value ="OFF" />
+        <!--
+        <appender-ref ref="STDOUT" />
+        -->
+    </root>
+
+</log4j:configuration>

@@ -1,0 +1,8 @@
+[Desktop Entry]
+Categories=Development
+Exec=jregexanalyser
+Name=jRegExAnalyser
+GenericName=Regular Expression Analyser
+Icon=/usr/share/pixmaps/jregexanalyser.png
+Terminal=false
+Type=Application

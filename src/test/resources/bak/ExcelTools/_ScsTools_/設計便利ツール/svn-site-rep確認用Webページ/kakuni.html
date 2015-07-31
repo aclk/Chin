@@ -1,0 +1,191 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+function debug(str) {
+//	alert(str);
+}
+function getTarget(defaultTarget) {
+	var isnewwindow = document.getElementById("isnewwindow").checked;
+	debug(isnewwindow);
+	if (isnewwindow) {
+		return "_blank";
+	}
+	return defaultTarget;
+}
+function renderUrl(url, divname) {
+	debug('renderUrl()' + url);
+   oElement = document.getElementById(divname);
+   oElement.innerText = url;
+}
+/*
+ * murata- 接頭子を付与する
+ * bmcの場合は、サブシステムの接頭子も付与する
+ */
+function addmurata(str) {
+	debug('addmurata()' + str);
+	// 既についている場合は、何もしない
+	if (str.match("murata-")) {
+		return str;
+	} else {
+		// プロダクトの場合は、"murata-"のみ
+		if (isProduct(str)) {
+			return "murata-" + str;
+		} else {
+			// BMCの場合
+			if (str.match("bmc")) {
+				// 全体共通
+				if (str.match("whole") && !str.match("co-bmc-")) {
+					return "murata-co-bmc-" + str;
+				}
+				// SS
+				else if (str.search("ss") == 0 && !str.match("ss-bmc-")) {
+					return "murata-ss-bmc-" + str;
+				}
+				// PS
+				else if (str.search("ps") == 0 && !str.match("ps-bmc-")) {
+					return "murata-ps-bmc-" + str;
+				}
+				// MS
+				else if (str.search("ms") == 0 && !str.match("ms-bmc-")) {
+					return "murata-ms-bmc-" + str;
+				}
+				// DBM
+				else if (str.search("dbm") == 0 && !str.match("dbm-bmc-")) {
+					return "murata-dmb-bmc-" + str;
+				}
+			}
+			return "murata-" + str;
+		}
+	}
+}
+function pid4svn(str) {
+	debug('pid4svn(str)' + str);
+	debug(str.match("products"));
+	if (str.match("products") || str.match("baseline") || str.match("bmc") || str.match("bsp")) {
+		return addmurata(str);
+	}
+	return str;
+}
+function mvnrepo(tgt, divname) {
+	debug("mvnrepo");
+	var url = "http://m6f1b012:9999/repository/murata/" + addmurata(window.pid.value.toLowerCase()) + "/";
+	renderUrl(url, divname);
+	window.open(url, getTarget(tgt));
+}
+function site(tgt, divname) {
+	debug('site()');
+	var pid = window.pid.value;
+	if (isProduct(pid.toLowerCase())) {
+		var url = "http://m6f1b012/maven/site/murata-app-parent/" + addmurata(pid.toLowerCase());
+	} else {
+		var url = "http://m6f1b012/maven/site/" + addmurata(window.pid.value.toLowerCase());
+	}
+	renderUrl(url, divname);
+	window.open(url, getTarget(tgt));
+}
+function tagz(tgt, divname) {
+	debug("tagz()");
+	var svnUriPhrase = getSvnUriPhrase(window.pid.value);
+	if (svnUriPhrase == null) {
+		alert("指定されたPIDでは開けません");
+		return;
+	}
+	var url = "http://m6svn01/svn/prod/spirits/" + svnUriPhrase + "/tags/" + pid4svn(window.pid.value) + "/";
+	renderUrl(url, divname);
+	window.open(url, getTarget(tgt));
+}
+function trunk(tgt, divname) {
+	debug('trunk()');
+	var svnUriPhrase = getSvnUriPhrase(window.pid.value);
+	//alert(svnUriPhrase);
+	if (svnUriPhrase == null) {
+		alert("指定されたPIDでは開けません");
+		return;
+	}
+	var url = "http://m6svn01/svn/prod/spirits/" + svnUriPhrase + "/trunk/" + pid4svn(window.pid.value);
+	renderUrl(url, divname);
+	window.open(url, getTarget(tgt));
+}
+function isProduct(str) {
+	debug('isProduct()');
+	if (str.match("bmc") || str.match("baseline") || str.match("entity") || str.match("ddl") || str.match("mqesvo-")) {
+		return false;
+	} else {
+		return true;
+	}
+}
+function getSvnUriPhrase(str) {
+	debug("getSvnUriPhrase("+str+")");
+	if (isProduct(str.toLowerCase()) == true) {
+		if (str.substring(0, 1).toUpperCase() == "S") {
+			return 'ss';
+		} else if (str.substring(0, 1).toUpperCase() == "P") {
+			return 'ps';
+		} else if (str.substring(0, 1).toUpperCase() == "M") {
+			return 'ms';
+		} else if (str.substring(0, 1).toUpperCase() == "G") {
+			return 'dbm';
+		} else if (str.substring(0, 1).toUpperCase() == "V") {
+			return 'vs';
+		}
+	} else if (str.match("bmc")) {
+			return 'bmc';
+	} else if (str.match("entity")) {
+			return 'entity';
+	} else {
+		return null;
+	}
+}
+function anotherWindow(divname) {
+	oElement = document.getElementById(divname);
+	var url = oElement.innerText;
+	debug(url);
+	window.open(url, '_blank');
+}
+//-->
+</script>
+<title>らふてー</title>
+</head>
+<body>
+<table border="0px" height="100%">
+  <tr height="50%">
+    <td width="200px" valign="top">
+
+    別窓？<input type="checkbox" id="isnewwindow"><br/>
+    pid
+    <br/>
+    <input type="text" size="27" name="pid" value="murata-entity"/><br/>
+	<input type="button" onclick="site('_if', 'urldiv');" value="site" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="mvnrepo('_if', 'urldiv');" value="maven-repository" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="trunk('_if', 'urldiv');" value="svn trunk" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="tagz('_if', 'urldiv');" value="svn tags" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="anotherWindow('urldiv');" value="another window" style="width:100%;"/><br/><br/>
+	<br/>
+    </td>
+    <td width="100%">
+    <div id="urldiv">?</div><br/>
+    <iframe name="_if" frameborder="0" width="100%" height="90%" style="border-style:none;">
+    </iframe>
+    </td>
+  </tr>
+  <tr height="50%">
+    <td width="200px" valign="top">
+    pid
+    <br/>
+    <input type="button" onclick="site('_if2', 'urldiv2');" value="site" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="mvnrepo('_if2', 'urldiv2');" value="maven-repository" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="trunk('_if2', 'urldiv2');" value="svn trunk" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="tagz('_if2', 'urldiv2');" value="svn tags" style="width:100%;"/><br/><br/>
+    <input type="button" onclick="anotherWindow('urldiv2');" value="another window" style="width:100%;"/><br/><br/>
+	<br/>
+    </td>
+    <td width="100%">
+    <div id="urldiv2">?</div><br/>
+    <iframe name="_if2" frameborder="0" width="100%" height="90%" style="border-style:none;">
+    </iframe>
+    </td>
+  </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ======================================================================
+    antベースのJCL。
+    ${userhome}/.ant/libまたはant/libに
+    murata-co,murata-co-antjcl,ant-contrib,spring,commons-loggingが必要です。
+     ====================================================================== -->
+<project name="BTPREMOTE2BXP" default="MAIN">
+    <description>
+       「BTP-Remoteのトレース用JCL」
+    </description>
+
+    <!-- JCL 実行に必要なリソースを定義 -->
+    <taskdef
+      resource="JCLResources.properties"/>
+
+    <!-- ClassPathはテスト側のbeanRefContextから -->
+    <context id="context" beanRefXml="springconf/testBeanRefContext.xml" />
+
+    <!-- 参照XMLの指定 -->
+    <appcontext-args>
+        <list>
+            <!-- ====================== -->
+            <!--       プロダクト       -->
+            <!-- ====================== -->
+            <!-- BehaviorとRemoteVOの設定ファイル -->
+            <value>springconf/btpRemote2BxpAdapter.xml</value>
+            <value>springconf/applicationContext-antrunner.xml</value>
+
+        </list>
+    </appcontext-args>
+
+    <!-- ジョブ -->
+    <target name="MAIN" description="--> ジョブの基本実行単位"
+        depends="init">
+        <!-- ジョブステップ -->
+        <EXEC PGM="btpRemote2BxpAdapter" props="SPIRITS" />
+    </target>
+
+    <!-- ジョブ初期処理 -->
+    <target name="init" description="--> ジョブ初期処理" >
+    </target>
+</project>

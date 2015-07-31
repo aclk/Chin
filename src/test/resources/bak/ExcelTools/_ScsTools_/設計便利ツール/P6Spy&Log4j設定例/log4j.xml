@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+    <!-- Appender -->
+    <appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+        <layout class="org.apache.log4j.PatternLayout">
+        <!--
+        <param name="ConversionPattern" value="%5p [%t] (%F:%L) - %m%n"/>
+         -->
+        <!--
+            <param name="ConversionPattern" value="%-5p [%d] %m%n"/>
+            -->
+            <!-- <param name="ConversionPattern" value="%d %-5p [%t] %C{10} (%F:%L) - %m%n"/> -->
+            <param name="ConversionPattern" value="%d %-5p [%t] (%F:%L) - %m%n"/>
+        </layout>
+    </appender>
+
+    <!-- ファイルへの出力用アペンダ(テスト時、Log.debug()の出力を拾うために使用 -->
+    <appender name="fileout" class="org.apache.log4j.FileAppender">
+      <param name="file" value="src/test/resources/murata/ps/pw/bsp/data/evidence/execute.log"/>
+      <param name="append" value="false" />
+      <layout class="org.apache.log4j.PatternLayout">
+         <param name="ConversionPattern" value="[%p]%d{yyyy/MM/dd HH:mm:ss} - %m at %c%n"/>
+      </layout>
+    </appender>
+
+    <!-- Category -->
+    <category name="org">
+        <priority value="WARN" />
+    </category>
+    <category name="com">
+        <priority value="WARN" />
+    </category>
+    <category name="net">
+        <priority value="WARN" />
+    </category>
+
+    <category name="murata.co">
+        <priority value="INFO" />
+    </category>
+
+    <!-- 自身BSP内のLog.debug()の出力を拾いファイルに書き出す -->
+    <!-- ※以下の category name= を、拾いたいクラスのパッケージ名を指定してください。 -->
+    <category name="murata.ps.pw.bsp">
+        <priority value="debug" />
+        <appender-ref ref="fileout" />
+    </category>
+
+    <!-- Root -->
+    <root>
+        <priority value ="INFO" />
+        <!--
+        <priority value ="warn" />
+         -->
+        <appender-ref ref="STDOUT" />
+    </root>
+</log4j:configuration>

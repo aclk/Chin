@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="method-info">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element maxOccurs="unbounded" ref="class"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="class">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="method"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="method">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="name"/>
+        <xs:element ref="declaration"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="param"/>
+        <xs:element minOccurs="0" ref="return"/>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="exception"/>
+        <xs:element ref="explain"/>
+      </xs:sequence>
+      <xs:attribute name="id" use="required" type="xs:ID"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="name" type="xs:NCName"/>
+  <xs:element name="declaration">
+    <xs:simpleType>
+      <xs:restriction base="xs:string">
+        <xs:minLength value="1"/>
+      </xs:restriction>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="param" type="xs:string"/>
+  <xs:element name="return" type="xs:string"/>
+  <xs:element name="exception" type="xs:string"/>
+  <xs:element name="explain">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="br"/>
+        <xs:element ref="link"/>
+        <xs:element ref="font"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="s">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="br">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="link">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="font"/>
+      </xs:choice>
+      <xs:attribute name="href" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="font">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="br"/>
+        <xs:element ref="link"/>
+      </xs:choice>
+      <xs:attribute name="color" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="highlight1"/>
+            <xs:enumeration value="highlight2"/>
+            <xs:enumeration value="explain"/>
+            <xs:enumeration value="code"/>
+            <xs:enumeration value="error"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

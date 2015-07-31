@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <artifactId>murata-app-parent</artifactId>
+    <groupId>murata</groupId>
+    <version>0.3.10</version>
+  </parent>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>${groupId}</groupId>
+  <artifactId>${artifactId}</artifactId>
+  <packaging>${packaging}</packaging>
+  <name>muRata ${productId}</name>
+  <version>${version}</version>
+  <build>
+    <plugins>
+      <plugin>
+        <artifactId>maven-jar-plugin</artifactId>
+        <configuration>
+          <archive>
+            <manifest>
+              <addClasspath>true</addClasspath>
+              <classpathPrefix>dependency</classpathPrefix>
+              <mainClass>tools.RdConvMojo</mainClass>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+  <dependencies>
+    <dependency>
+      <groupId>org.apache.maven</groupId>
+      <artifactId>maven-plugin-api</artifactId>
+      <version>2.0</version>
+    </dependency>
+    <dependency>
+      <groupId>murata</groupId>
+      <artifactId>murata-baseline</artifactId>
+      <version>0.5.89-sys-028</version>
+      <type>pom</type>
+      <optional>true</optional>
+    </dependency>
+    <dependency>
+        <groupId>murata</groupId>
+        <artifactId>murata-ps-baseline</artifactId>
+        <version>(,0.5.52-sys-999)</version>
+        <type>pom</type>
+        <optional>true</optional>
+    </dependency>
+  </dependencies>
+  <properties>
+    <version>1.0.2</version>
+    <groupId>murata</groupId>
+    <productId>maven-rdconv-plugin</productId>
+    <createChecksum>true</createChecksum>
+    <packaging>maven-plugin</packaging>
+    <artifactId>maven-rdconv-plugin</artifactId>
+  </properties>
+</project>
+

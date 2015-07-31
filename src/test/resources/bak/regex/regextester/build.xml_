@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="RegexTester" default="createjar">
+  
+  <!-- 
+    オリジナルのjavaソースはwindows-31jで記述されている。 
+    Shift_JISとして扱っても問題ありません（互換性のない文字は使っていない）。
+    このプロパティはコンパイル時にも使用されるので${src}にあるJavaソースの文字セットを変更した場合には必ずこの値も変更する必要がある。
+  -->
+  <property name="java_source.charset" value="windows-31j"/>
+  
+  <!--以下のプロパティは変更不用-->
+  <property name="src" value="src"/>
+  <property name="build" value="build"/>
+  <property name="docs" value="docs"/>
+  <property name="jarfile" value="regextester.jar"/>
+  <property name="mainClass" value="jp.gr.java_conf.boj.app.regex.Main"/>
+
+  <!--${build}ディレクトリを作成。前回コンパイル分があれば削除-->
+  <target name="init">
+    <mkdir dir="${build}"/>
+    <delete dir="${build}/classes"/>
+  </target>
+  
+  <!--コンパイルする。 ログはjavaclog.txtに出力-->
+  <target name="compile" depends="init">
+    <mkdir dir="${build}/classes"/>
+    <record name="javaclog.txt" action="start"/>
+    <javac srcdir="${src}" 
+           destdir="${build}/classes" 
+           encoding="${java_source.charset}"/>
+    <record name="javaclog.txt" action="stop"/>
+  </target>
+  
+  <!-- リソースをクラスファイルの出力先にコピー -->
+  <target name="copyresources" depends="compile">
+    <copy todir="${build}/classes/jp/gr/java_conf/boj/app/regex">
+      <fileset dir="${src}/jp/gr/java_conf/boj/app/regex">
+        <exclude name="*.java"/>
+        <exclude name="regextester_ja.sjis"/>
+        <exclude name="regextester_ja.eucjp"/>
+        <exclude name="regextester_ja.source"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <!-- Jarファイルの作成 -->
+  <target name="createjar" depends="copyresources">
+    <jar destfile="${jarfile}">
+      <fileset dir="${build}/classes"/>
+      <manifest>
+        <attribute name="Main-Class" value="${mainClass}"/>
+      </manifest>
+    </jar>
+  </target>
+  
+  
+  <!--regextester_ja.sjis の内容でプロパティファイルを更新してコンパイルし、Jarファイルを作成-->
+  <target name="create_sjis" depends="updatesjisproperties,createjar"/>
+  
+  
+  <!--regextester_ja.eucjp の内容でプロパティファイルを更新してコンパイルし、Jarファイルを作成-->
+  <target name="create_eucjp" depends="updateeucjpproperties,createjar"/>
+  
+  
+  <!-- 初期状態のプロパティファイルの内容にしてコンパイルし、Jar ファイルを作成 -->
+  <target name="defaultproperties" depends="initproperties,createjar"/>
+  
+  <!-- src ディレクトリを Java ソースの文字セットを EUC-JP へ、すべてのテキストの改行文字を LF にして forunix ディレクトリにコピーする。-->
+  <target name="forunix" depends="cschangedef">
+    <record name="cschange_log.txt" action="start"/>
+    <cschange srcdir="${src}" destdir="forunix" deep="true">
+      <charsetinfo extensions="java" 
+                   in="${java_source.charset}" 
+                   out="EUC-JP" 
+                   outls="LF"/>
+      <charsetinfo extensions="properties rng xsd xml" 
+                   in="UTF-8" 
+                   out="UTF-8" 
+                   outls="LF"/>
+    </cschange>
+    <record name="cschange_log.txt" action="stop"/>
+  </target>
+  
+  <!--src ディレクトリをすべてのテキストの改行文字を LF にしながらformac ディレクトリにコピーする。-->
+  <target name="formac" depends="cschangedef">
+    <record name="cschange_log.txt" action="start"/>
+    <cschange srcdir="${src}" destdir="formac" deep="true">
+      <charsetinfo extensions="java" 
+                   in="${java_source.charset}" 
+                   out="windows-31j" 
+                   outls="LF"/>
+      <charsetinfo extensions="properties rng xsd xml" 
+                   in="UTF-8" 
+                   out="UTF-8" 
+                   outls="LF"/>
+    </cschange>
+    <record name="cschange_log.txt" action="stop"/>
+  </target>
+
+  <!-- 
+    src ディレクトリを拡張子で指定したテキストの文字セットを EUC-JP に改行文字を LF にして alleucjp ディレクトリにコピーする。
+    XML を UTF-8 以外にするので alleucjp ディレクトリのソースをコンパイルしてもプログラムは実行できない。
+  -->
+  <target name="alleucjp" depends="cschangedef">
+    <record name="cschange_log.txt" action="start"/>
+    <cschange srcdir="${src}" destdir="alleucjp" deep="true">
+      <charsetinfo extensions="java" 
+                   in="${java_source.charset}" 
+                   out="EUC-JP" 
+                   outls="LF"/>
+      <charsetinfo extensions="properties rng xsd xml" 
+                   in="UTF-8" 
+                   out="EUC-JP" 
+                   outls="LF"/>
+    </cschange>
+    <record name="cschange_log.txt" action="stop"/>
+  </target>
+  
+  <!-- 
+    src ディレクトリを拡張子で指定したテキストの文字セットを windows-31j に改行文字を CRLF にして allsjis ディレクトリにコピーする。
+    XML を UTF-8 以外にするので allsjis ディレクトリのソースをコンパイルしてもプログラムは実行できない。
+  -->
+  <target name="allsjis" depends="cschangedef">
+    <record name="cschange_log.txt" action="start"/>
+    <cschange srcdir="${src}" destdir="allsjis" deep="true">
+      <charsetinfo extensions="java" 
+                   in="${java_source.charset}" 
+                   out="windows-31j" 
+                   outls="CRLF"/>
+      <charsetinfo extensions="properties rng xsd xml" 
+                   in="UTF-8" 
+                   out="windows-31j" 
+                   outls="CRLF"/>
+    </cschange>
+    <record name="cschange_log.txt" action="stop"/>
+  </target>
+  
+  
+  <!--Shift_JIS で記述されている regextester_ja.sjisをユニコードエスケープしてからregextester_ja.propertiesを上書き-->
+  <target name="updatesjisproperties">
+    <delete file="${src}/jp/gr/java_conf/boj/app/regex/regextester_ja.properties"/>
+    <native2ascii encoding="windows-31j" 
+                  includes="regextester_ja.sjis" 
+                  ext=".properties" 
+                  src="${src}/jp/gr/java_conf/boj/app/regex" 
+                  dest="${src}/jp/gr/java_conf/boj/app/regex"/>
+  </target>
+  
+  <!--EUC-JP で記述されているregextester_ja.eucjpをユニコードエスケープしてからregextester_ja.propertiesを上書き-->
+  <target name="updateeucjpproperties">
+    <delete file="${src}/jp/gr/java_conf/boj/app/regex/regextester_ja.properties"/>
+    <native2ascii encoding="EUC-JP" 
+                  includes="regextester_ja.eucjp" 
+                  ext=".properties" 
+                  src="${src}/jp/gr/java_conf/boj/app/regex" 
+                  dest="${src}/jp/gr/java_conf/boj/app/regex"/>
+  </target>
+  <!-- 初期状態のプロパティファイルに戻す。-->
+  <target name="initproperties">
+    <delete file="${src}/jp/gr/java_conf/boj/app/regex/regextester_ja.properties"/>
+    <native2ascii encoding="ascii" 
+                  includes="regextester_ja.source" 
+                  ext=".properties" 
+                  src="${src}/jp/gr/java_conf/boj/app/regex" 
+                  dest="${src}/jp/gr/java_conf/boj/app/regex"/>
+  </target>
+  <!--文字セットや改行文字を変更しながらディレクトリをコピーするタスクを使えるようにする。-->
+  <target name="cschangedef">
+    <taskdef name="cschange"
+             classname="jp.gr.java_conf.boj.anttask.cschanger.CharsetChanger"/>
+  </target>
+  
+</project>

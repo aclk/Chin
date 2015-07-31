@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN"
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <!-- エビデンス取得用クラス -->
+  <bean id="dbManager"
+      class="murata.co.jointest.manager.JoinTestManager">
+
+    <!-- 以下の情報は変更しないでください -->
+    <property name="dataSource" ref="dataSource"/>
+
+    <!-- 以下の情報は必要に応じて変更してください -->
+    <property name="owner" value="SCHM_M001_SCS"/>
+    <property name="tableIds" value="ME0039,MR0008,ME1028,ME0009,ME1029,CR0006,MR0016,CR1004"/>
+    <property name="whereQLs" value=""/>
+    <property name="template" value=""/>
+    <property name="inputPath" value="C:\root\work\070607_jointest\join-test-template\out"/>
+    <property name="outputPath" value=""/>
+    <property name="productId" value=""/>
+    <property name="testCaseId" value=""/>
+    <property name="number" value=""/>
+    <property name="capture" value="false"/>
+  </bean>
+
+</beans>

@@ -1,0 +1,9 @@
+# crontab -e などで、以下の設定をCron登録(例は22時ですがお好みでどうぞ)
+
+0 22 * * 1-6 ~/ps_daily_regression_kick_01.bsh      # PS全回帰-その１ 平日22時実行(パラレル実行)
+0 22 * * 1-6 ~/ps_daily_regression_kick_02.bsh      # PS全回帰-その２ 平日22時実行(パラレル実行)
+0 19 * * 2,4 ~/weekly_dbschema_update.bsh           # DBスキーマ更新(回帰テスト用)	火・木の19時実行
+0  7 * * 3,5 ~/weekly_dbschema_update_release.bsh   # DBスキーマ更新(リリース用)	水・金の07時(早朝)実行
+0  0 * * 0   ~/weekly_dbschema_update_user.bsh      # DBスキーマ更新(一般ユーザ用)	日曜の00時(深夜)実行
+# 0 22 * * 1-6 ~/ss_daily_regression_kick.bsh       # SS全回帰 平日20時実行(現在休止中)
+

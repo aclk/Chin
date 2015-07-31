@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<project name="spirits" default="help">
+       <!-- property -->
+       <property name="local.dir"  value="${base_dir}/${project_name}" />
+       
+       <!-- taskdef -->
+       <taskdef name="svn" classname="org.tigris.subversion.svnant.SvnTask" />
+
+       <!-- help -->
+       <target name="help">
+              <echo>echo sample</echo>
+       </target>
+       
+       <!-- target -->
+       <target name="prepare"
+              description="Prepare the dirs for other tasks">
+              <delete dir="${local.dir}" />
+              <mkdir dir="${local.dir}" />
+       </target>
+       
+       <!-- checkout -->
+       <target name="checkout" depends="prepare">
+              <svn javahl="true" username="A1M4MEM075" password="A1M4MEM075" >
+                     <checkout url="${svn_path}/${project_name}" destPath="${local.dir}" />
+              </svn>
+       </target>
+       
+</project>

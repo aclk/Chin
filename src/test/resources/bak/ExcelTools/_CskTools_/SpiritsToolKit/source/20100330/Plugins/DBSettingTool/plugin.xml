@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="SpiritsToolKit.contribution3"
+            objectClass="org.eclipse.core.resources.IProject">
+         <menu
+               id="SpiritsToolKit.menu"
+               label="SpiritsToolKit -&gt;"
+               path="additions">
+            <separator name="group1"/>
+         </menu>
+         <action
+               label="DB Settings -&gt; Running Start"
+               class="spiritstoolkit.popup.actions.DBSettingTool"
+               menubarPath="SpiritsToolKit.menu/group1"
+               enablesFor="1"
+               id="SpiritsToolKit.DBSettingTool">
+         </action>
+      </objectContribution>
+   </extension>
+
+</plugin>

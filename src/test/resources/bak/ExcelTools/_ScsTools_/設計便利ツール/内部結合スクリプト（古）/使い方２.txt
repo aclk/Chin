@@ -1,0 +1,33 @@
+2008/08/26 
+
+前提：
+	Eclipseのワークスペースに以下のファイルを保存。
+	
+		copyproduct.xml
+		copy_product.bat
+		
+	※ ワークスペース内には結合したいプロダクトが存在すること。
+
+
+1.ワークスペースに、スタートキットを展開しておき、適当にリネームする。
+
+2.copy_product.bat をメモ帳で開き、4～7行目までを環境にあわせ設定。
+
+	
+	ECLIPSE_HOME        → Eclipseのインストールディレクトリ
+	DEST                → 結合（上記手順1.で作成したもの）
+	PRODUCTS=C:\ms\meo* → 対象プロダクト（ワイルドカードで複数指定可能）
+	TARGET=             → ANTターゲット。基本的には"copy"でOK。
+
+
+3.copy_product.bat を起動、
+
+	"Input ProductID you want to copy and press enter key.>"
+	
+と聞かれるので、個別にプロダクト指定する場合はプロダクトIDを、
+上記手順2.で複数指定したプロダクトを結合したい場合は"all"を入力。
+
+
+4.手マージが必要なファイル（web.xml、frameMenuMock.jsp） は
+プロダクト毎に毎回メモ帳で編集状態になるので、手でマージしてください。
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN"
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+
+  <bean id="dbManager"
+      class="murata.co.jointest.manager.JoinTestManager">
+
+    <property name="dataSource" ref="dataSource"/>
+
+    <property name="owner" value="SCHM_C00D"/>
+    <property name="tableIds" value="CR0101"/>
+    <property name="whereQLs" value=""/>
+    <property name="template" value=""/>
+    <property name="inputPath" value="C:\root\work\080225_join-test-template\"/>
+    <property name="outputPath" value=""/>
+    <property name="productId" value=""/>
+    <property name="testCaseId" value=""/>
+    <property name="number" value=""/>
+    <property name="capture" value="false"/>
+  </bean>
+
+</beans>

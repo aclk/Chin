@@ -1,0 +1,28 @@
+Alternatively, the CDATA section can be couched within comments so as to be able to work in either application/xhtml+xml or text/html:
+
+<script type="text/javascript">
+//<![CDATA[
+        ...
+//]]>
+</script>
+
+<!-- (For styles, it is different) -->
+
+<style type="text/css">
+/*<![CDATA[*/
+        ...
+/*]]>*/
+</style>
+
+
+if you really need compatibility with very old browsers that do not recognize the script or style tags resulting in their contents displayed on the page, you can use this:
+
+<script type="text/javascript"><!--//--><![CDATA[//><!--
+        ...
+//--><!]]></script>
+
+<!-- (For styles, it is different) -->
+
+<style type="text/css"><!--/*--><![CDATA[/*><!--*/
+        ...
+/*]]>*/--></style>

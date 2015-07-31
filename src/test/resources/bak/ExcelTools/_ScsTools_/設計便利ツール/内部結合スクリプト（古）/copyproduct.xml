@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project name="copy product" default="init" basedir=".">
+
+  <!-- copy directory -->
+  <property name="dest.main.java"       value="${dest.product}/src/main/java"/>
+  <property name="dest.main.resources"  value="${dest.product}/src/main/resources" />
+  <property name="dest.main.webapp"     value="${dest.product}/src/main/webapp"/>
+
+  <property name="src.main.java"        value="${src.product}/src/main/java"/>
+  <property name="src.main.resources"   value="${src.product}/src/main/resources" />
+  <property name="src.main.webapp"      value="${src.product}/src/main/webapp"/>
+  
+  <target name="init" description="initialize something.">
+  </target>
+
+  <!-- copy product -->
+  <target name="copy" depends="init" description="copy product.">
+    <echo>***** Now copying ${src.product} to ${dest.product} ... *****</echo>
+    <copy todir="${dest.main.java}" overwrite="true">
+      <fileset dir="${src.main.java}" >
+        <include name="**/*.java" />
+      </fileset>
+    </copy>
+    <copy todir="${dest.main.resources}" overwrite="true">
+      <fileset dir="${src.main.resources}">
+        <include name="**/*.xml" />
+        <include name="**/*.properties" />
+        <exclude name="jdbc.properties" />
+        <exclude name="log4j.xml" />
+        <exclude name="**/applicationContext-datasource-local.xml" />
+      </fileset>
+    </copy>
+    <copy todir="${dest.main.webapp}/WEB-INF/pages/contents" overwrite="true">
+      <fileset dir="${src.main.webapp}/WEB-INF/pages/contents">
+        <include name="**/*" />
+        <exclude name="co" />
+        <exclude name="mock" />
+      </fileset>
+    </copy>
+    <copy todir="${dest.main.webapp}/WEB-INF/strutsconf" overwrite="true">
+      <fileset dir="${src.main.webapp}/WEB-INF/strutsconf">
+        <include name="**/*" />
+        <exclude name="co" />
+        <exclude name="mock" />
+      </fileset>
+    </copy>
+  </target>
+  
+  <!-- copy bsp -->
+  <target name="bsp" depends="init" description="copy bsp.">
+    <echo>***** Now copying ${src.product} to ${dest.product} ... *****</echo>
+    <copy todir="${dest.main.java}" overwrite="true">
+      <fileset dir="${src.main.java}" >
+        <include name="**/*.java" />
+      </fileset>
+    </copy>
+    <copy todir="${dest.main.resources}" overwrite="true">
+      <fileset dir="${src.main.resources}">
+        <include name="**/*.xml" />
+        <exclude name="**/*bean.xml" />
+        <exclude name="**/*criteria.xml" />
+      </fileset>
+    </copy>
+  </target>
+  
+  <!-- edit files to merge. -->
+  <target name="edit" depends="copy" description="open web.xml with editor.">
+    <exec executable="notepad">
+    <!--
+    <exec executable="sakura">
+    -->
+      <arg line="${src.main.webapp}/WEB-INF/web.xml " />
+    </exec>
+    <exec executable="notepad">
+    <!--
+    <exec executable="sakura">
+    -->
+      <arg line="${src.main.webapp}/mock/frameMenuMock.jsp" />
+    </exec>
+  </target>
+
+  <!-- get MessageResources -->
+  <target name="message_resources" depends="init" description="get MessageResources using http.">
+    <property name="rms.url" value="http://m0tuwb00/rms" />
+    <!-- common -->
+    <get src="${rms.url}/MessagePropertiesDL.do?fileType=4" dest="messageResources.tmp" verbose="true" usetimestamp="false" ignoreerrors="true" />
+    
+    <!-- MS -->
+    <get src="${rms.url}/MessagePropertiesDL.do?fileType=0" dest="msMessageResources.tmp" verbose="true" usetimestamp="false" ignoreerrors="true" />
+
+    <!-- native2ascii -->
+    <native2ascii encoding="UTF-8" src="." dest="${dest.main.resources}/resources" includes="messageResources.tmp" ext=".properties" reverse="false" />
+    <native2ascii encoding="UTF-8" src="." dest="${dest.main.resources}/murata/ms/resources" includes="msMessageResources.tmp" ext=".properties" reverse="false" />
+    <delete>
+      <fileset dir="." includes="msMessageResources.tmp"/>
+      <fileset dir="." includes="messageResources.tmp"/>
+    </delete>
+  </target>
+</project>
+

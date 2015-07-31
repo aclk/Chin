@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="style/common.css">
+<title>jRegExAnalyser/reference</title>
+</head>
+<body>
+<h1><a href="index.html">jRegExAnalyser</a></h1>
+
+<div dir="ltr" id="content" lang="en">
+<p class="line867">
+<h2 id="Reference">Reference</h2>
+<p class="line867">
+<h3 id="Tool_Bar">Tool Bar</h3>
+<p class="line867"><img src="images/ref-toolbar.png"/> <p class="line867">
+<h4 id="New_Window">New Window</h4>
+<p class="line874">Create a new jRegExAnalyser main window. The new window will run in the same process. <p class="line867">
+<h4 id="Exit">Exit</h4>
+<p class="line874">Close jRegExAnalyser main window. The process ends when all main windows are closed. <p class="line867">
+<h4 id="Clear_History">Clear History</h4>
+<p class="line874">Clear history of last used regular expressions. If multi line editing mode was activated, this also re-enables single line editing of regular expressions. <p class="line867">
+<h4 id="Import_Test_Text">Import Test Text</h4>
+<p class="line874">Import test text. The character set used to load the text can be specified in the preferences. <p class="line867">
+<h4 id="Recent_Test_Text">Recent Test Text</h4>
+<p class="line874">Import a recently used test text again. <p class="line867">
+<h4 id="Visualise_Pattern">Visualise Pattern</h4>
+<p class="line867"><img src="images/visualise-pattern.png"/><br>
+ Visualises the compiled structure of the regular expression. To get an impression of the compiled pattern this should be self explanatory. The detailed mechanics of expression matching are beyond the scope of this document. If you're interested just have a look at the <tt class="backtick">Pattern.Node</tt> subclasses. <p class="line862">Note, that also the <em>Pattern Explorer</em> in the <em>Matching</em> tab provides a view on the compiled pattern. The <em>Pattern Explorer</em> view is simpler, but highlights the corresponding entries for a selected item in the <em>Matcher Operations</em> table (see <em>Regular Expression Results</em>). <p class="line862">A working <a class="http" href="http://www.graphviz.org/">Graphviz</a> installation is required. The pattern is exported in the dot filed format as a directed graph. Then the <em>dot</em> utility is called to convert the graph into a PNG image file, which is opened and displayed. <p class="line874">Multiple visualisations in the same session will use the same file names and therefore subsequently overwrite previous dot files and PNG images. After closing jRegExAnalyser these files will be deleted automatically. The file name actually used is displayed in the status line. To keep or edit these files simply copy them away before closing jRegExAnalyser. <p class="line867">
+<h4 id="Preferences">Preferences</h4>
+<p class="line874">Set the desired charset for text import, the Look'n'Feel and the history size. <p class="line874">If line wrap is enabled the test text and the replacement result text lines will wrap around. Otherwise the text is not wrapped and scrolled instead, which is the default. <p class="line862">The <em>Permanent Matching</em> setting enables or disables the live update of matching results when the regular expression, the test text or other options are changed. If you enable this feature (which is the default), you won't need the apply function for most cases. <p class="line874">To analyze large documents or very long running expressions you can disable this feature. <p class="line862">On start-up as standalone application (not via <a class="nonexistent" href="/wiki/WebStart">WebStart</a>) jRegExanalyser checks if a newer version is available and displays a message box in this case. If you do not like this feature it can be disabled. <p class="line867">
+<h4 id="Help_.26_About">Help &amp; About</h4>
+<p class="line867"><em>Help</em> opens the jRegExAnalyser home page. If your Java environment does not support this functionality, an information popup is displayed instead.<br>
+ <em>About</em> shows the about box. <p class="line867">
+<h3 id="Regular_Expression_Entry">Regular Expression Entry</h3>
+<p class="line867"><img src="images/ref-entry.png"/><br>
+ Regular Expressions can be entered directly into the combo box. <p class="line874">If you need multi line edit functionality, open the edit dialogue.<br>
+ <img src="images/ref-multiline.png"/> <img src="images/ref-multiline-entry.png"/> <p class="line862">You might also consider setting the <tt class="backtick">COMMENTS</tt> flag (i.e. ignoring whitespace and comments in the expression) if using multi line regular expressions. <p class="line874">If you enter a multi line expression, the combo box line edit is disabled and this control just features the history.  <p class="line874">To get the single line edit in the combo box back, clean the history using the toolbar function. <p class="line874">Contrary to Java source code, you do not use an additional level of escaping. You just enter the regular expression. To search for example for a literal <tt class="backtick">.</tt> you have to enter the expression <tt class="backtick">\.</tt>. <p class="line867"><img src="images/ref-literal.png"/><br>
+ Using the <em>convert to string literal</em> button you get your regular expression ready to paste into Java source code, <tt class="backtick">Pattern&nbsp;p&nbsp;=&nbsp;Pattern.compile("\\.");</tt> in this example. <p class="line867"><img src="images/ref-apply.png"/><br>
+ To apply the regular expression to the test text use the <em>apply</em> button. In case of an syntax error, you get an error message. Otherwise the expression is compiled, and the results are displayed. <p class="line862">For an explanation of all the checkbox options see the <a class="http" href="http://download-llnw.oracle.com/javase/6/docs/api/index.html?java/util/regex/Pattern.html">corresponding Java API documentation</a>. Every check box just turns on the corresponding flag. <p class="line862">The mode choice determines if the whole pattern has to match (one <tt class="backtick">match()</tt> operation), or the pattern is searched multiple times (several <tt class="backtick">find()</tt> operations). <p class="line867">
+<h3 id="Regular_Expression_Results">Regular Expression Results</h3>
+<p class="line862">After applying a regular expression, all matches are highlighted.<br>
+ <img src="images/tutorial-01-s.png"/> <p class="line874">The Matches tree shows all matches, and for matches containing groups every matching group. Depending on the selection in the match tree, the relevant text gets highlighted.<br>
+ <img src="images/tutorial-match-groups.png"/> <p class="line862">Like the <em>Visualise Pattern</em> function, the pattern explorer tree provides a view of the compiled structure of the regular expression. <br>
+ <img src="images/ref-pattern-trace.png"/> <p class="line874">The matcher operations table shows all the steps of the pattern matching engine which where necessary to apply the expression. If you select an operation, the corresponding text position (column 'Pos') is highlighted in the text area and the node in the pattern explorer is highlighted. The last column shows the boolean result ('T' true, 'F' false) of the matching step. This helps to determine why a specific pattern does match or does not match. If the position jumps back to a lower value in succeeding lines (so called backtracking) this may indicate a slowly performing pattern, if this happens ridiculously often. <p class="line862">If the <em>Permanent Matching</em> feature is enabled, you won't need the apply function very often. For example to add a pattern to the history the apply button is still needed, or if you decide to disable <em>Permanent Matching</em> for large documents or long running patterns. <p class="line867">
+<h3 id="Search_and_Replace">Search and Replace</h3>
+<p class="line867"><img src="images/tutorial-replacement.png"/><br>
+ In the replacing tab you can enter a replacement string and see the resulting text. This is helpful if you like to investigate replacements, especially if they contain back-references. <p class="line867">
+<h3 id="Split_Results">Split Results</h3>
+<p class="line867"><img src="images/ref-split.png"/><br>
+ The split tab shows the result from splitting up the test text with the regular expression using the given limit value with the <tt class="backtick">Pattern.split(input,&nbsp;limit)</tt> operation. <p class="line862">A limit of 0, which is also the default behavior of <tt class="backtick">String</tt>'s <tt class="backtick">split()</tt> method, will discard trailing empty strings. A positive limit will actually limit the result set and returning the rest of the input text unchanged. </div>
+
+
+</body>
+</html>

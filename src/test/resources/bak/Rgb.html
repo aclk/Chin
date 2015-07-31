@@ -1,0 +1,26 @@
+<script type="text/javascript">
+<!--
+/* WEBセーフカラー(216色)を作成する。
+ R,G,B各色が00,33,66,99,CC,FFの組合せ */
+document.write("<TABLE style=\"{font-family:monospace;font-size:8pt;color:deepskyblue;}\">");
+for(r=0; r <= 0xff; r+=0x33) {
+  for(g=0; g <= 0xff; g+=0x33) {
+    document.write("<TR>");
+    for(b=0; b <= 0xff; b+=0x33) {
+      color = r*0x10000 + g*0x100 + b;
+      hcolor = convHex(color);
+      document.write("<TD BGCOLOR=" + hcolor + " width=50></TD>");
+      document.write("<TD>" + hcolor + "</TD>");
+    }
+    document.write("</TR>");
+  }
+}
+document.write("</TABLE>");
+document.close();
+
+function convHex(x) { /* 16進数変換 & 6桁フォーマット */
+	var y = x.toString(16);
+	return("#" + "000000".substr(0,6-y.length) + y);
+}
+// -->
+</script>

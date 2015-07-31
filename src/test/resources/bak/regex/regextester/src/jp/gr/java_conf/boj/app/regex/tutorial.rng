@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="tutorial">
+      <zeroOrMore>
+        <ref name="caption" />
+      </zeroOrMore>
+    </element>
+  </start>
+
+  <define name="caption">
+    <element name="caption">
+      <attribute name="example">
+        <data type="string">
+          <param name="minLength">1</param>
+        </data>
+      </attribute>
+      <data type="string">
+        <param name="minLength">1</param>
+      </data>
+    </element>
+  </define>
+</grammar>

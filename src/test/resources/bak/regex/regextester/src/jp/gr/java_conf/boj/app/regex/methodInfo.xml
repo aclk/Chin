@@ -1,0 +1,1705 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<method-info>
+	<class name="Pattern">
+		<method id="Pattern.compile-String">
+			<name>compile</name>
+			<declaration>
+			public static Pattern compile(String regex)
+			</declaration>
+			<param>regex　-　正規表現</param>
+			<return>
+			引数の正規表現を表すPatternオブジェクト
+			</return>
+			<exception>
+			PatternSyntaxException　-　表現の構文が無効である場合
+			</exception>
+			<explain>
+			static メソッド
+			<br/>引数の正規表現を表す Pattern オブジェクトを生成して返す。<br/>
+			Pattern クラスには public なコンストラクタは用意されておらず、
+			ファクトリーメソッドであるこのメソッド、あるいは
+			<link href="Example/t_mode">
+			モード
+			</link>を
+			設定する場合にはオーバーロードされている
+			<s/><link href="Pattern/compile(String,int)">
+			もう一方の compile
+			</link><s/>メソッドでインスタンスを生成する。<br/>
+			ドキュメントに記述はないが引数の正規表現
+			である String オブジェクトが null の
+			場合には NullPointerException が発生する。
+			</explain>
+		</method>
+		<method id="Pattern.compile-String-int">
+			<name>compile</name>
+			<declaration>
+			public static Pattern compile(String regex, int flags)
+			</declaration>
+			<param>regex　-　正規表現</param>
+			<param>
+			flags　-　マッチフラグ。CASE_
+			INSENSITIVE, MULTILINE, DOTALL, UNICODE_CASE, CANON_
+			EQ, COMMENTS, LITERAL, UNIX_LINES を含むビットマスク
+			</param>
+			<return>
+			引数の正規表現を表す Pattern オブジェクト
+			</return>
+			<exception>
+			PatternSyntaxException　-　表現の構文が無効である場合
+			</exception>
+			<exception>
+			IllegalArgumentException　-　定義されたマッチフラグに
+			対応しないビット値が flags に設定された場合 
+			</exception>
+			<explain>
+			static メソッド。
+			<br/>引数の正規表現を表し、
+			引数の int 値が表す
+			<link href="Example/t_mode">
+			モード
+			</link>
+			を有効にした Pattern オブジェクトを
+			生成して返す。<br/>
+			Pattern クラスには public なコンストラクタは用意されておらず、
+			ファクトリーメソッドであるこのメソッド、あるいはモードの
+			設定が必要ない場合にはオーバーロードされている
+			<s/><link href="Pattern/compile(String)">
+			もう一方の compile
+			</link><s/>メソッドでインスタンスを生成する。
+			<br/>ドキュメントに記述はないが引数の正規表現
+			である String オブジェクトが null の
+			場合には NullPointerException が発生する。
+			<br/>引数の flags はこのクラスの定数を論理和で設定した値。
+			<br/>設定できる定数は以下。<br/>
+			<link href="Example/t_canoneq">CANON_EQ</link><s/><s/>
+      		<link href="Example/t_caseinsensiteve">
+      		CASE_INSENSITIVE</link><s/><s/>
+      		<link href="Example/t_comments">COMMENTS</link><s/><s/>
+      		<link href="Example/t_dotall">DOTALL</link><br/>
+      		<link href="Example/t_literal">LITERAL</link><s/><s/>
+      		<link href="Example/t_multiline">MULTILINE</link><s/><s/>
+      		<link href="Example/t_unicodecase">UNICODE_CASE</link><s/><s/>
+      		<link href="Example/t_unixlines">UNIX_LINES</link><br/><br/>
+      		複数のモードを設定する場合のパターンの生成コード例は以下。<br/>
+      		<font color="code">
+      		Pattern pattern = Pattern.compile(
+          &amp;quot;pattern&amp;quot;, Pattern.
+          CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.
+          DOTALL);</font><br/>
+			</explain>
+		</method>
+		<method id="Pattern.matches">
+			<name>matches</name>
+			<declaration>
+			public static boolean matches(String regex, CharSequence input)
+			</declaration>
+			<param>regex　-　正規表現</param>
+			<param>input　-　マッチングの
+			対象となる CharSequence オブジェクト</param>
+			<return>マッチしたらtrue</return>
+			<exception>
+			PatternSyntaxException　-　引数の正規表現の構文が無効である場合
+			</exception>
+			<explain>
+			static メソッド
+			<br/>引数の入力シーケンス全体が引数の正規表現に
+			マッチしたら true を返す。
+			<br/>このメソッドは以下のコードと等価。
+			<br/><s/><s/><s/><s/>
+			<font color="code">
+			Pattern.compile(regex).matcher(input).matches()
+			</font><br/>
+			String クラスにはこのメソッドの
+            <link href="Example/t_string_method">
+            簡易メソッド
+            </link>
+            が用意されている。
+			</explain>
+		</method>
+		<method id="Pattern.quote">
+			<name>quote</name>
+			<declaration>
+			public static String quote(String str)
+			</declaration>
+			<param>str　-　リテラル化する文字列</param>
+			<return>引数の文字列をすべてリテラル化した正規表現</return>
+			<explain>
+			version 1.5 で導入<br/>
+			引数の文字列に含まれるメタキャラクタやエスケープシーケンスを
+			すべてリテラル文字とする正規表現を返す。<br/>
+			このメソッドは \Q や \E を使ってリテラル化するが引数の
+			文字列内に \Q や \E が含まれている場合にもそれらを
+			通常の文字として正しくエスケープする。
+			<br/>
+			下は Pattern#quote メソッドですべてリテラル文字で構成される
+			正規表現を作成するコード例。<br/>
+			<font color="code">
+			import java.util.regex.Pattern;<br/>
+			<br/>
+			public class Test {<br/>
+			<s/><s/><s/><s/>
+			public static void main(String[]args) {<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			String regex = &amp;quot;(?+*\\Q[^$.\\d]\\E)}{&amp;quot;;<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			String literalRegex = Pattern.quote(regex);<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			System.out.println(literalRegex);<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			System.out.println(Pattern.matches(literalRegex, regex));<br/>
+			<s/><s/><s/><s/>
+			}<br/>
+			}
+			</font><br/>
+			実行結果は以下が標準出力に表示される。<br/>
+			<font color="error">
+			\Q(?+*\Q[^$.\d]\E\\E\Q)}{\E<br/>
+			true
+			</font>
+			</explain>
+		</method>
+		<method id="Pattern.flags">
+			<name>flags</name>
+			<declaration>
+			public int flags()
+			</declaration>
+			<return>
+			この Pattern オブジェクトに設定されているモードを
+			表す定数の論理和
+			</return>
+			<explain>
+			この Pattern オブジェクトを生成する
+			際に 
+			<s/><link href="Pattern/compile(String,int)">
+			compile(String, int)</link><s/>
+			メソッドでモードを設定している場合に
+			その引数として使用したモードを指定する為の定数の
+			論理和である int 値を返す。
+			<br/>
+			モードを設定していない場合には 0 が返される。<br/>
+			このメソッドの戻り値からモードを取得するコードは以下<br/>
+			<font color="code">
+			import java.util.regex.Pattern;<br/>
+			<br/>
+			public class Test {<br/>
+			<s/><s/><s/><s/>
+			public static void main(String[]args) {<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			int[] modeFlags = {<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.CANON_EQ, Pattern.CASE_INSENSITIVE,<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.COMMENTS, Pattern.DOTALL,<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.LITERAL, Pattern.MULTILINE,<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.UNICODE_CASE, Pattern.UNIX_LINES<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			};<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			String[] modeNames = {<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			&amp;quot;CANON_EQ&amp;quot;, &amp;quot;CASE_INSENSITIVE&amp;quot;,<br/> 
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			&amp;quot;COMMENTS&amp;quot;, &amp;quot;DOTALL&amp;quot;,<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			&amp;quot;LITERAL&amp;quot;, &amp;quot;MULTILINE&amp;quot;,<br/> 
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			&amp;quot;UNICODE_CASE&amp;quot;, &amp;quot;UNIX_LINES&amp;quot;<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+		    };<br/>
+		    <br/>
+		    <s/><s/><s/><s/><s/><s/><s/><s/>
+		    Pattern pattern = Pattern.compile(<br/>
+		    <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			&amp;quot;a&amp;quot;,<br/> 
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.CASE_INSENSITIVE |<br/> 
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.MULTILINE |<br/> 
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			Pattern.DOTALL);<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+			int flags = pattern.flags();<br/>
+		    <br/>
+		    <s/><s/><s/><s/><s/><s/><s/><s/>
+		    for (int i = 0; i &amp;lt;<s/>modeFlags.length; i++) {<br/>
+		    <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			if ((flags<s/>&amp;amp;<s/>modeFlags[i]) != 0) {<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			System.out.println(modeNames[i]);<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+			}<br/>
+			<s/><s/><s/><s/><s/><s/><s/><s/>
+		    }<br/>
+		    <s/><s/><s/><s/>
+	        }<br/> 
+            }
+            </font><br/>
+			実行結果は以下が標準出力に表示される。<br/>
+			<font color="error">
+			CASE_INSENSITIVE<br/>
+			DOTALL<br/>
+			MULTILINE
+			</font>
+            
+			</explain>
+		</method>
+		<method id="Pattern.matcher">
+			<name>matcher</name>
+			<declaration>
+			public Matcher matcher(CharSequence input)
+			</declaration>
+			<param>
+			input　-　マッチングの対象と
+			なる CharSequence オブジェクト
+			</param>
+			<return>
+			正規表現エンジンを表す Matcher オブジェクト
+			</return>
+			<explain>
+			この Pattern オブジェクトが表す正規表現で
+			引数の入力シーケンスを対象に
+			マッチングを行う Matcher オブジェクトを生成して返す。<br/>
+			ドキュメントに記述はないが引数が null の
+			場合には NullPointerException が発生する。
+			</explain>
+		</method>
+		<method id="Pattern.pattern">
+			<name>pattern</name>
+			<declaration>
+			public String pattern()
+			</declaration>
+			<return>設定されている正規表現</return>
+			<explain>
+			この Pattern オブジェクトが表す正規表現を返す。<br/>
+			これは 
+			<s/><link href="Pattern/compile(String)">
+			compile(String)</link><s/>や
+			<s/><link href="Pattern/compile(String,int)">
+			compile(String,int)</link><s/>
+			メソッドで生成される際に引数に指定されていた
+			正規表現。
+			</explain>
+		</method>
+		<method id="Pattern.split-CharSequence">
+			<name>split</name>
+			<declaration>
+			public String[]&amp;nbsp;split(CharSequence input)
+			</declaration>
+			<param>input　-　分割対象の CharSequence オブジェクト</param>
+			<return>引数の入力シーケンスを現在設定されている
+			正規表現パターンにマッチする部分を
+			基に分割した文字列の配列</return>
+			<explain>
+			引数の入力シーケンスを現在設定されている
+			正規表現パターンにマッチする部分を
+			基に分割した文字列配列を返す。
+			<br/>マッチしなかった場合には引数
+			の CharSequence オブジェクトから String オブジェクトを
+			生成してそれを格納した要素数 1 の String[] を返す。
+			<br/>このメソッドはオーバーロード
+			している 
+			<s/><link href="Pattern/split(CharSequence,int)">
+			split(CharSequence, int)</link><s/>
+			メソッドの int 型
+			引数に 0 を指定して呼び出すのと等価。<br/>
+			String クラスにはこのメソッドの
+            <link href="Example/t_string_method">
+            簡易メソッド
+            </link>
+            が用意されている。
+			</explain>
+		</method>
+		<method id="Pattern.split-CharSequence-int">
+			<name>split</name>
+			<declaration>
+			public String[]&amp;nbsp;split(CharSequence input, int limit)
+			</declaration>
+			<param>input　-　分割対象の CharSequence オブジェクト</param>
+			<param>limit　-　結果のしきい値</param>
+			<return>
+			引数の入力シーケンスを現在設定されている
+			正規表現パターンにマッチする部分を
+			基に分割した文字列の配列
+			</return>
+			<explain>
+			引数の入力シーケンスを現在設定されている
+			正規表現パターンにマッチする部分を
+			基に分割した文字列配列を返す。
+			<br/>マッチしなかった場合には引数の CharSequence オブジェクト
+			から String オブジェクトを生成してそれを格納した
+			要素数 1 の String[] を返す。
+			<br/>引数の limit が 0 以下の場合には戻り値の配列の長さに
+			制限はなく配列の末尾が１つ以上の空の文字列が続いて
+			格納されている可能性がある。
+			<br/>limit が 0 の場合には戻り値の配列の長さは制限されないが
+			分割された文字列の最後の部分が１つ以上の空の文字列が
+			続いている場合にはそれらはカットされ戻り値の配列には含まれない。
+			<br/>limit が 正の int 値の場合にはそれが戻り値の配列の
+			最大要素数となる。
+			<br/><br/>例： &amp;quot;boo:and:foo&amp;quot; は以下のように
+			分割される。
+			<br/>
+			&lt;table border=&quot;1&quot; cellpadding=&quot;3&quot;&gt;
+			&lt;tr&gt;
+			&lt;th&gt;正規表現&lt;/th&gt;
+			&lt;th&gt;limit&lt;/th&gt;
+			&lt;th&gt;結果&lt;/th&gt;
+			&lt;/tr&gt;
+			
+			&lt;tr&gt;
+			&lt;td align=&quot;center&quot;&gt;:&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;2&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;{&amp;quot;boo&amp;quot;,<s/>
+			&amp;quot;and:foo&amp;quot;}&lt;/td&gt;
+			&lt;/tr&gt;
+			
+			&lt;tr&gt;
+			&lt;td align=&quot;center&quot;&gt;:&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;5&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;{&amp;quot;boo&amp;quot;,<s/>
+			&amp;quot;and&amp;quot;,
+			<s/>&amp;quot;foo&amp;quot;}&lt;/td&gt;
+			&lt;/tr&gt;
+			
+			&lt;tr&gt;
+			&lt;td align=&quot;center&quot;&gt;:&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;-2&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;{&amp;quot;boo&amp;quot;,<s/>
+			&amp;quot;and&amp;quot;,
+			<s/>&amp;quot;foo&amp;quot;}&lt;/td&gt;
+			&lt;/tr&gt;
+			
+			&lt;tr&gt;
+			&lt;td align=&quot;center&quot;&gt;o&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;5&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;{&amp;quot;b&amp;quot;,<s/>
+			&amp;quot;&amp;quot;,<s/>
+			&amp;quot;:and:f&amp;quot;,<s/>
+			&amp;quot;&amp;quot;,<s/>
+			&amp;quot;&amp;quot;}&lt;/td&gt;
+			&lt;/tr&gt;
+			
+			&lt;tr&gt;
+			&lt;td align=&quot;center&quot;&gt;o&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;-2&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;{&amp;quot;b&amp;quot;,<s/>
+			&amp;quot;&amp;quot;,<s/>
+			&amp;quot;:and:f&amp;quot;,<s/>
+			&amp;quot;&amp;quot;,<s/>
+			&amp;quot;&amp;quot;}&lt;/td&gt;
+			&lt;/tr&gt;
+			
+			&lt;tr&gt;
+			&lt;td align=&quot;center&quot;&gt;o&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;0&lt;/td&gt;
+			&lt;td align=&quot;center&quot;&gt;{&amp;quot;b&amp;quot;,<s/>
+			&amp;quot;&amp;quot;,<s/>
+			&amp;quot;:and:f&amp;quot;}&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;/table&gt;
+			
+            <br/>
+            String クラスにはこのメソッドの
+            <link href="Example/t_string_method">
+            簡易メソッド
+            </link>
+            が用意されている。
+			</explain>
+		</method>
+		<method id="Pattern.toString">
+			<name>toString</name>
+			<declaration>
+			public String toString()
+			</declaration>
+			<return>設定されている正規表現文字列</return>
+			<explain>
+			version 1.5 でオーバーライド
+			<br/>設定されている正規表現を返す。<br/>
+			<link href="Pattern/pattern">pattern</link><s/>
+			メソッドと全く同じ文字列を返す。
+			</explain>
+		</method>
+	</class>
+	<class name="Matcher">
+		<method id="Matcher.appendReplacement">
+			<name>appendReplacement</name>
+			<declaration>
+				public Matcher appendReplacement(String
+				Buffer sb, String replacement)
+			</declaration>
+			<param>
+			sb　-　テキストを追加する StringBuffer オブジェクト
+			</param>
+			<param>replacement　-　置換文字列</param>
+			<return>this</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチングでマッチしなかった場合
+			</exception>
+			<exception>
+				IndexOutOfBoundsException　-　置換が行われる際にパターンに
+				存在しないキャプチャグループを置換文字列が含んでいた場合
+			</exception>
+			<exception>
+				NullPointerException　-　jdk1.5.0 の動作
+				では置換が行われる際に引数の replacement が null の場合に
+				発生する
+			</exception>
+			<explain>
+				マッチした部分に対する置換処理を行うメソッド。<br/>
+				マッチした部分を除きたい場合には引数の replacement に
+				空の文字列を指定する。<br/>
+				引数の replacement が null の場合は例外がスローされる。
+				<br/>
+				正規表現エンジンはアペンドポジションを状態として
+				保持しており、初期状態のアペンドポジションは
+				入力シーケンス（領域ではない）の先頭となる。<br/>
+				このメソッドの具体的な処理は以下のようになる。<br/>
+				&lt;ol&gt;
+				&lt;li&gt;入力シーケンスのアペンドポジションの位置から
+				文字列を読み込み、
+				引数のバッファ（StringBuffer オブジェクト）に追加する。
+				前回マッチした文字の直前の文字、
+				つまりインデックス　start()&amp;nbsp;-&amp;nbsp;1　の文字を
+				読み込んだときに終了する
+				&lt;/li&gt;
+				&lt;li&gt;指定された置換文字列をバッファに追加する&lt;/li&gt;
+				&lt;li&gt;アペンドポジションを最後にマッチした部分の
+				末尾、つまり end() メソッド戻り値の位置に設定する&lt;/li&gt;
+				&lt;/ol&gt;
+				<br/>
+				置換文字列には、キャプチャグループへの参照が
+				含まれる場合がある。<br/>
+				これは 
+				<s/><font color="highlight1">$</font>
+				&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+				のように記述し、
+				<s/>&lt;b&gt;<font color="highlight2">
+				g</font>&lt;/b&gt;<s/>は参照するキャプチャグループの
+				番号で存在するキャプチャグループ番号なら int の
+				範囲内で何桁でもよい。<br/>
+				置換文字列内に
+				<s/><font color="highlight1">$</font>
+				&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+				が検出されると、その部分は
+				<s/><font color="code">
+				group(</font>
+				&lt;b&gt;<font color="highlight2">
+				g</font>&lt;/b&gt;
+				<font color="code">)</font><s/>
+				メソッドの戻り値に置き換えられる。<br/>
+				例えば以下のコードを実行すると<br/>
+				<font color="code">
+				　　String regex = &amp;quot;a(b)c&amp;quot;;<br/>
+				　　String chars = &amp;quot;abc&amp;quot;;<br/>
+				　　String replacement = &amp;quot;A$1C&amp;quot;;<br/>
+				　　Matcher matcher = Pattern.compile
+				(regex).matcher(chars);<br/>
+				　　if (matcher.find()) {<br/>
+				　　　　StringBuffer buf = new StringBuffer();<br/>
+				　　　　matcher.appendReplacement(buf, replacement);<br/>
+				　　　　System.out.println(buf);<br/>
+				　　}
+				</font><br/>
+				実行結果は標準出力に
+				<s/><font color="error">
+				AbC</font><s/>が出力される。<br/>
+				もし置換文字列で 
+				<s/><font color="highlight1">
+				A$2C
+				</font><s/>
+				 のように
+				存在しないグループを指定した場合に
+				は IndexOutOfBoundsException を
+				スローし、 
+				<s/><font color="highlight1">A$bC
+				</font><s/>や  
+				<s/><font color="highlight1">
+				AbC$
+				</font><s/> のように
+				エスケープされていない 
+				<s/><font color="highlight1">$</font><s/>
+				の後に 0 から 9 以外の文字が
+				続く場合や何もない場合には API ドキュメントに
+				記述はないがケースによってタイプの違う実行時例外が
+				スローされる。<br/>
+				よって、もし引数の置換文字列が不正な場合の例外処理を
+				実装するので
+				あれば IndexOutOfBoundsException だけでは不十分となる。<br/>
+				また replacement が 
+				<s/><font color="highlight1">A$12C
+				</font><s/> の場合に
+				は 
+				<s/><font color="highlight1">$1</font><s/>
+				は存在するので例外は発生せずに 
+				<s/><font color="error">Ab2C</font><s/>が出力される。<br/>
+				グループインデックスを表す数字と単なる置換文字の数字が
+				続く場合などにそれらを区別する場合には 
+				<s/><font color="highlight1">A$1\2C</font><s/> のように
+				すると 2 が単なる文字として扱われる。
+				（Java のコードでは 
+				<s/><font color="code">
+				&amp;quot;A$1\\2C&amp;quot;</font><s/>となる）<br/>
+				グループ参照ではなく単なるドル記号を置換文字列に
+				含める場合には
+				<s/><font color="highlight1">\$</font><s/>と記述する。
+				（Java のコードでは 
+				<s/><font color="code">
+				&amp;quot;\\$&amp;quot;</font><s/> となる）
+				<br/>
+				<link href="Matcher/find">find</link><s/>
+				メソッドでマッチした後に appendReplacement メソッドを
+				２回以上連続して（find メソッドをはさまずに）
+				呼び出した場合の動作はドキュメントに記述が
+				無いので行うべきではない。（参考までに付け加えて
+				おくと Sun の jdk1.5.0 での動作では
+				マッチしたのが、位置の場合には何度でも置換文字列を
+				StringBufferオブジェクトに加えていく。<br/>
+				しかし、マッチしたのが位置では
+				ない場合、つまり matcher.end() が matcher.start() より
+				大きくなる場合には２回目以降の
+				呼び出しで、 matcher.end() の位置にある
+				アペンドポジションから matcher.start() までの
+				文字列を String#subSequence メソッド取得しようと
+				する際にスタート位置が終了位置より前方にある為
+				に StringIndexOutOfBoundsException が発生する。）
+				<br/>
+				<link href="Example/m_append_replacement">
+                appendReplacement メソッドの使用例</link><br/>
+                <link href="Example/m_replace_backref">
+                置換文字列でキャプチャグループを参照する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.appendTail">
+			<name>appendTail</name>
+			<declaration>
+				public StringBuffer appendTail(StringBuffer sb)
+			</declaration>
+			<param>
+			sb　-　テキストを追加する StringBuffer オブジェクト
+			</param>
+			<return>引数の StringBuffer オブジェクト</return>
+			<explain>
+			正規表現エンジンはアペンドポジションを状態として
+			保持しており、初期状態のアペンドポジションは
+			入力シーケンス（領域ではない）の先頭であり、
+			アペンドポジションは 
+			<s/><link href="Matcher/appendReplacement">
+			appendReplacement</link><s/>
+			メソッドの
+			呼び出しでその位置が進められる。<br/>
+			このメソッドは入力シーケンスの
+			アペンドポジション以降のすべての部分を
+			引数の StringBuffer オブジェクトに追加する。<br/>
+			appendReplacement<s/>
+			メソッドによる領域の設定に関係なく
+			入力シーケンスの最後までが書き込まれる。<br/>
+			すでにアペンドポジションが入力シーケンスの最後に
+			ある場合には何も行わない。<br/>
+			このメソッドはアペンドポジションを変更しない。<br/>
+			</explain>
+		</method>
+
+		<method id="Matcher.end">
+			<name>end</name>
+			<declaration>public int end()</declaration>
+			<return>
+			マッチした部分の末尾の位置
+			</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチングでマッチしなかった場合
+			</exception>
+			<explain>
+			    <link href="Matcher/matches">matches</link><s/>
+			    <s/><link href="Matcher/lookingAt">lookingAt</link><s/>
+			    <s/><link href="Matcher/find">find</link><s/>
+				メソッドのどれかでマッチした場合に
+				マッチしたのが位置の場合にはその位置を返し、
+				マッチしたのが文字列の場合にはその末尾の位置（
+				マッチした文字列の最後の文字とその次の文字の境界の
+				位置）を返す。<br/>
+				マッチしたのが位置の場合には 
+				<s/><link href="Matcher/start">start</link><s/>
+				メソッドと
+				同じ値を返す。<br/>
+				文字のインデックスは領域ではなく入力シーケンスに
+				おけるインデックス。<br/>
+				<link href="Example/m_group">
+				start end group メソッドでマッチ情報を取得する例</link>
+			</explain>
+			
+		</method>
+
+		<method id="Matcher.end-int">
+			<name>end</name>
+			<declaration>public int end(int group)</declaration>
+			<param>
+			group　-　キャプチャグループのインデックス
+			</param>
+			<return>
+				引数で指定したキャプチャグループに
+				マッチした部分の末尾の位置を返す。
+				前回のマッチングでマッチはしたが、
+				引数のグループにはマッチしなかった
+				場合は、-1 を返す。
+			</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチングでマッチしなかった場合
+			</exception>
+			<exception>
+				IndexOutOfBoundsException　-　
+				指定されたインデックスを持つ
+				キャプチャグループがそのパターンに含まれない場合
+			</exception>
+			<explain>
+				引数のキャプチャグループにマッチした部分の
+				末尾の位置（
+				マッチした文字列の最後の文字とその次の文字の境界の
+				位置）を返す。
+				<br/>グループ 0 はパターン全体を表すの
+				で end(0) は end() と等価。
+				<br/>文字の位置は領域ではなく入力シーケンスに
+				おけるインデックス。<br/>
+				<link href="Example/m_group">
+				start end group メソッドでマッチ情報を取得する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.find">
+			<name>find</name>
+			<declaration>public boolean find()</declaration>
+			<return>マッチしたら true を返す</return>
+			<explain>
+			この Matcher オブジェクトに設定されている領域内の現在の
+			位置からマッチングを行い、マッチする部分が
+			見つかれば true を返す。<br/>
+			現在の位置とは一度もマッチングを行っていなければ領域の
+			先頭となり、マッチングを行っていれば最後にマッチした部分の
+			直後の位置になり、前回のマッチングでマッチしなかった場合には
+			領域の最後の文字の直後の位置に設定される。<br/>
+			領域が特に設定されていない場合には入力シーケンス全体が
+			領域となる。<br/>
+			マッチした場合は 
+				<s/><link href="Matcher/start">start</link><s/>
+				<s/><link href="Matcher/end">end</link><s/>
+				<s/><link href="Matcher/group">group</link><s/>
+				メソッドで
+				マッチした部分の位置や文字列を取得できる。<br/>
+			<link href="Example/m_find">find メソッドの使用例</link><br/>
+			
+			</explain>
+		</method>
+
+		<method id="Matcher.find-int">
+			<name>find</name>
+			<declaration>public boolean find(int start)</declaration>
+			<param>
+			start　-　マッチングを開始する入力シーケンスの位置
+			</param>
+			<return>
+			引数の位置から入力シーケンスを走査しマッチする部分が
+			見つかったら true を返す。
+			</return>
+			<exception>
+				IndexOutOfBoundsException　-　開始インデックスが、0 より
+				小さい場合か、入力シーケンスの長さより大きい場合
+			</exception>
+			<explain>
+			reset メソッドにより正規表現エンジンを
+			<link href="Example/t_reset">リセット</link>してから
+			入力シーケンスの引数の
+			位置からマッチングを行い、マッチしたら
+			見つかれば true を返す。<br/>
+			<link href="Matcher/region">region</link><s/>
+			メソッドで領域を設定していた場合でもリセットの際に
+			その設定は失われるので引数の無い find メソッドと
+			組み合わせて使用する場合には
+			領域の設定状態に関して注意が必要。<br/>
+			マッチした場合は 
+				<s/><link href="Matcher/start">start</link><s/>
+				<s/><link href="Matcher/end">end</link><s/>
+				<s/><link href="Matcher/group">group</link><s/>
+				メソッドで
+				マッチした部分の位置や文字列を取得できる。<br/>
+			<link href="Example/m_find_int">find(int) メソッドの使用例</link><br/>
+			
+			</explain>
+		</method>
+
+		<method id="Matcher.group">
+			<name>group</name>
+			<declaration>public String group()</declaration>
+			<return>
+				マッチした文字列を返す。
+				位置にマッチした場合には空の文字列を返す。
+			</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチングでマッチしなかった場合
+			</exception>
+			<explain>
+				マッチした文字列を返す。
+				<br/>
+				位置にマッチした場合には空の文字列を返す。
+				<br/>
+				マッチした部分は 
+				<s/><link href="Matcher/start">start</link><s/>
+				メソッドの戻り値の
+				位置と
+				<s/><link href="Matcher/end">end</link><s/>
+				メソッドの戻り値の位置に
+				囲まれる範囲の文字列となる。
+				<br/>
+				つまり次で得られる文字列と等価となる。
+				<br/><s/><s/><s/><s/>
+				sequence.substring(matcher.start(), matcher.end())
+				<br/>
+				<link href="Example/m_group">
+				start end group メソッドでマッチ情報を取得する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.group-int">
+			<name>group</name>
+			<declaration>public String group(int group)</declaration>
+			<param>
+			group　-　キャプチャグループのインデックス
+			</param>
+			<return>
+				指定したキャプチャグループにマッチした文字列。
+				前回のマッチングでマッチはしたが、指定した
+				キャプチャグループにはマッチして
+				いなかった場合には null を返す。
+				位置にマッチした場合には空の文字列を返す。
+			</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチングでマッチしなかった場合
+			</exception>
+			<exception>
+				IndexOutOfBoundsException　-　指定されたインデックスを
+				持つキャプチャグループがそのパターンに含まれない場合
+			</exception>
+			<explain>
+				指定したキャプチャグループにマッチした文字列を返す。
+				<br/>
+				位置にマッチした場合には空の文字列を返す。
+				<br/>
+				マッチは成功したが、指定したキャプチャグループには
+				マッチしていなかった場合には null を返す。
+				<br/>
+				マッチした部分は引数にそのキャプチャグループの番号を指定した
+				<s/><link href="Matcher/start">start</link><s/>
+				メソッドの戻り値の
+				位置と
+				<link href="Matcher/end">end</link><s/>
+				メソッドの戻り値の位置に
+				囲まれる範囲の文字列となる。<br/>
+				つまり次で得られる文字列と等価となる。
+				<br/><s/><s/><s/><s/>
+				sequence.substring(matcher.start(group), matcher.end(group))
+				<br/>
+				<link href="Example/m_group">
+				start end group メソッドでマッチ情報を取得する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.groupCount">
+			<name>groupCount</name>
+			<declaration>public int groupCount()</declaration>
+			<return>キャプチャグループの数</return>
+			<explain>
+				設定されているパターンに含まれるキャプチャグループの数
+				<br/>
+				グループ 0 はパターン全体を表すが、戻り値の数には含まない。
+				<br/>
+				例えば以下のコードは標準出力に
+				<s/><font color="error">2</font><s/>を表示する。<br/>
+				<font color="code">
+				Pattern pattern = Pattern.compile
+				(&amp;quot;a((b)c)d&amp;quot;);<br/>
+		        Matcher matcher = pattern.matcher
+		        (&amp;quot;abcdef&amp;quot;);<br/>
+		        System.out.println(matcher.groupCount());<br/>
+		        </font>
+			</explain>
+		</method>
+
+		<method id="Matcher.hasAnchoringBounds">
+			<name>hasAnchoringBounds</name>
+			<declaration>
+				public boolean hasAnchoringBounds()
+			</declaration>
+			<return>
+			領域境界が anchoring 境界に設定されている場合
+			には true そうでなければ false
+			</return>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				入力シーケンスに対して 
+				<link href="Matcher/region">region</link><s/>
+				メソッドで
+				領域を設定している場合に、
+				その領域の先頭や末尾が 
+				<s/><font color="highlight1">^</font><s/> や 
+				<s/><font color="highlight1">$</font><s/> に 
+				マッチする為には領域境界が anchoring 境界に設定されて
+				いなければならない。<br/>
+				領域境界が anchoring 境界に設定されている場合に
+				このメソッドは true を返す。<br/>
+				デフォルトでは領域境界が anchoring 境界に
+				設定されているので true を返す。<br/>
+				<link href="Matcher/reset">reset</link><s/>
+				メソッドを呼び出してもこの設定は変更されない。<br/>
+				領域への anchoring 境界の設定は 
+				<s/><link href="Matcher/useAnchoringBounds">
+				useAnchoringBounds
+				</link><s/>メソッドで 
+				行う。<br/>
+				<link href="Example/m_useAnchoringBounds">
+				anchoring 境界の設定に関する例
+				</link>
+				
+			</explain>
+		</method>
+
+		<method id="Matcher.hasTransparentBounds">
+			<name>hasTransparentBounds</name>
+			<declaration>
+				public boolean hasTransparentBounds()
+			</declaration>
+			<return>
+			領域境界が透明なら true を返し、 不透明なら false を返す。
+			</return>
+			<explain>
+				version 1.5 で導入<br/>
+				領域境界の透明性が透明に設定されていれば true を
+				返し、不透明なら false を返す。<br/>
+				デフォルトは不透明に設定されているので false を返す。<br/>
+				この設定は 
+				<s/><link href="Matcher/reset">reset</link><s/>
+				メソッドが実行されても変更されない。<br/>
+				領域境界が透明に設定されている場合にはマッチするかどうかを
+				領域の境界を超えて判定する。<br/>
+				領域境界の透明性の設定は 
+				<s/><link href="Matcher/useTransparentBounds">
+				useTransparentBounds
+				</link><s/>メソッドで 
+				行う。<br/>
+				<link href="Example/m_useTransparentBounds">
+				領域境界の透明性の設定に関する例
+				</link>
+				
+				
+			</explain>
+		</method>
+
+		<method id="Matcher.hitEnd">
+			<name>hitEnd</name>
+			<declaration>public boolean hitEnd()</declaration>
+			<return>
+			入力の末尾が最後のマッチでヒットした場合は true、
+			そうでない場合は false
+			</return>
+			<explain>
+				version 1.5 で導入<br/>
+				以下は version 1.5 の API ドキュメントの内容<br/>
+				&lt;blockquote&gt;
+				この正規検索エンジンが実行した最後のマッチ操作で、
+				入力の末尾が検索エンジンによりヒットした場合に、true を返す。
+				<br/>
+				このメソッドが true を返す場合、入力がさらに多ければ、
+				最後の検索の結果が変更された可能性がある。 
+				&lt;/blockquote&gt;
+			</explain>
+		</method>
+
+		<method id="Matcher.lookingAt">
+			<name>lookingAt</name>
+			<declaration>public boolean lookingAt()</declaration>
+			<return>領域の最初の部分がマッチしたらtrue</return>
+			<explain>
+			    <link href="Matcher/region">region</link><s/> 
+			    メソッドで領域が設定されている場合にはその
+				領域の先頭から、そうでなければ
+				入力シーケンスの先頭からパターンとのマッチングを行い、 
+				先頭部分がマッチしたら true を返す。
+				<br/>
+				<link href="Matcher/matches">matches</link><s/> 
+				メソッドと違い、必ずしも領域全体ではなく、
+				領域の先頭部分がマッチすればよい。<br/>
+				結果として領域全体とマッチする場合もある。<br/>
+				マッチした場合は 
+				<s/><link href="Matcher/start">start</link><s/>
+				<s/><link href="Matcher/end">end</link><s/>
+				<s/><link href="Matcher/group">group</link><s/>
+				メソッドで
+				マッチした部分の位置や文字列を取得できる。<br/>
+				<link href="Example/m_lookingat">
+				lookingAt メソッドの使用例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.matches">
+			<name>matches</name>
+			<declaration>public boolean matches()</declaration>
+			<return>領域全体がパターンとマッチした場合に true</return>
+			<explain>
+			<link href="Matcher/region">region</link><s/>
+			メソッドで領域が設定されている場合にはその領域の
+			先頭から、そうでなければ入力シーケンスの
+			先頭からパターンとのマッチングを行い、
+			領域（入力シーケンス）全体が 
+			マッチしたら true を返す。<br/>
+			マッチした場合は 
+				<s/><link href="Matcher/start">start</link><s/>
+				<s/><link href="Matcher/end">end</link><s/>
+				<s/><link href="Matcher/group">group</link><s/>
+				メソッドで
+				マッチした部分の位置や文字列を取得できる。<br/>
+				<link href="Example/m_matches">matches メソッドの使用例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.pattern">
+			<name>pattern</name>
+			<declaration>public Pattern pattern()</declaration>
+			<return>設定されている Pattern オブジェクト</return>
+			<explain>
+			設定されている正規表現パターンを表す Pattern オブジェクト
+			を返す。
+			</explain>
+		</method>
+
+		<method id="Matcher.quoteReplacement">
+			<name>quoteReplacement</name>
+			<declaration>
+				public static String quoteReplacement(String str)
+			</declaration>
+			<param>str　-　リテラル化する文字列</param>
+			<return>リテラル化した文字列</return>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				<link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>
+				メソッドの引数の置換文字列内の 
+				<s/><font color="highlight1">$</font><s/>は
+				グループの参照に使用される特別な意味を持つので 
+				<s/><font color="code">\\</font><s/>
+				（Java のコード内ではバックスラッシュは
+				エスケープシーケンス
+				<s/><font color="code">\\</font><s/>
+				を使って記述する必要がある）
+				を 
+				付けて 
+				<s/><font color="code">\\$</font><s/>
+				と記述する事でリテラルの 
+				<s/><font color="code">$</font><s/>
+				と解釈される。
+				<br/>
+				<link href="Matcher/replaceAll">replaceAll</link><s/>
+				<s/><link href="Matcher/replaceFirst">replaceFirst</link><s/>
+				<s/><link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>
+				メソッドなどの置換文字列で 
+				<s/><font color="highlight1">\</font><s/>
+				や 
+				<s/><font color="highlight1">$</font><s/>
+				に
+				特別な意味を持たせずにただの文字として使用する際に
+				このメソッドを使用する。 
+				<br/>
+				以下はこのメソッドを使用したコード例<br/>
+				<font color="code">
+				import java.util.regex.Pattern;<br/>
+				import java.util.regex.Matcher;<br/>
+				<br/>
+				public class Test {<br/>
+				<s/><s/><s/><s/>
+				public static void main(String[]args) {<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				Pattern pattern = Pattern.compile(&amp;quot;a&amp;quot;);<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				Matcher matcher = pattern.matcher(
+				&amp;quot;00a00&amp;quot;);<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				System.out.println(matcher.replaceAll(
+				&amp;quot;\\$&amp;quot;));<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				System.out.println(matcher.replaceAll(<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+				<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+				Matcher.quoteReplacement(&amp;quot;$&amp;quot;)));<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				System.out.println(matcher.replaceAll(
+				&amp;quot;\\\\&amp;quot;));<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				System.out.println(matcher.replaceAll(<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+				<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+				Matcher.quoteReplacement(&amp;quot;\\&amp;quot;)));<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				System.out.println(matcher.replaceAll(
+				&amp;quot;\\\\\\$&amp;quot;)));<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/>
+				System.out.println(matcher.replaceAll(<br/>
+				<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+				<s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+				Matcher.quoteReplacement(&amp;quot;\\$&amp;quot;)));<br/>
+				<s/><s/><s/><s/>
+				}<br/>
+				}<br/>
+				</font><br/>
+				実行結果は以下が標準出力に表示される。<br/>
+				<font color="error">
+				00$00<br/>
+				00$00<br/>
+				00\00<br/>
+				00\00<br/>
+				00\$00<br/>
+				00\$00
+				</font>
+				
+			</explain>
+		</method>
+
+		<method id="Matcher.region">
+			<name>region</name>
+			<declaration>
+				public Matcher region(int start, int end)
+			</declaration>
+			<param>
+			start　-　設定する領域の先頭
+			</param>
+			<param>
+			end　-　設定する領域の末尾
+			</param>
+			<return>this</return>
+			<exception>
+				IndexOutOfBoundsException　-　先頭または末尾がゼロ未満の
+				場合、先頭が入力シーケンスの長さよりも大きい場合、 
+				末尾が入力シーケンスの長さよりも大きい場合、
+				または先頭が末尾よりも大きい場合
+			</exception>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				入力シーケンスに領域を設定する。
+				<br/>
+				<link href="Example/t_reset">リセット</link>してから
+				入力シーケンスの start と end に挟まれる範囲を 
+				領域に設定する。
+				<br/>
+				このメソッドで領域を設定していない場合には 
+				入力シーケンス全体が領域となる。
+				<br/>
+				<link href="Matcher/matches">matches</link><s/>
+				<s/><link href="Matcher/lookingAt">lookingAt</link><s/>
+				<s/><link href="Matcher/find">find</link><s/>
+				メソッドなどによるマッチングは領域を 
+				対象に行われる。
+				<br/>
+				ただし 
+				<s/><link href="Matcher/find(int)">find(int)</link><s/>
+				メソッドはリセットするので領域の
+				設定も無効となり引数のインデックスは入力シーケンスの
+				先頭からのインデックスとなる。<br/>
+				<link href="Example/t_region_t1">領域の設定例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.regionEnd">
+			<name>regionEnd</name>
+			<declaration>public int regionEnd()</declaration>
+			<return>領域の末尾</return>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				設定されている領域の末尾の位置を返す。<br/>
+				<link href="Matcher/region">region</link><s/>
+				メソッドで領域を設定していない場合には
+				入力シーケンス全体が領域となり、その場合の
+				このメソッドの戻り値は入力シーケンスの末尾の位置となる。<br/>
+				入力シーケンスの末尾の位置とは入力シーケンスの最後の文字の
+				直後の位置で文字のインデックスでいえば<br/>
+				（入力シーケンスの最後の文字インデックス + 1）<br/>
+				となる。<br/>
+				<link href="Example/t_region_t1">領域の設定例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.regionStart">
+			<name>regionStart</name>
+			<declaration>public int regionStart()</declaration>
+			<return>領域の先頭</return>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				設定されている領域の先頭位置を返す。<br/>
+				<link href="Matcher/region">region</link><s/>
+				メソッドで領域を設定していない場合には
+				入力シーケンス全体が領域となり、その場合の
+				このメソッドの戻り値は入力シーケンスの先頭位置、
+				つまり 0 となる。<br/>
+				<link href="Example/t_region_t1">領域の設定例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.replaceAll">
+			<name>replaceAll</name>
+			<declaration>
+				public String replaceAll(String replacement)
+			</declaration>
+			<param>replacement　-　置換文字列</param>
+			<return>
+			マッチした部分をすべて置換文字列に
+			置換して作成した文字列
+			</return>
+			<exception>
+				IndexOutOfBoundsException　-　置換が行われる際にパターンに
+				存在しないキャプチャグループへの参照を
+				置換文字列が含んでいた場合
+			</exception>
+			<exception>
+				NullPointerException　-　jdk1.5.0 の動作
+				では置換が行われる際に引数の　replacement が null の場合に
+				発生する
+			</exception>
+			<explain>
+				パターンとマッチする部分を指定された置換文字列に置き換える。
+				<br/>
+				このメソッドはまず正規表現エンジンを
+				<link href="Example/t_reset">リセット</link>
+				する。
+				<br/>
+				次に入力シーケンスを走査して、パターンとマッチする文字列を 
+				検索する。
+				<br/>
+				パターンとマッチしない文字列は、戻り値の文字列に
+				そのまま追加する。
+				<br/>
+				パターンとマッチした文字列は、置換文字列に置換されて
+				戻り値の文字列に追加される。
+				<br/>
+				置換文字列には、キャプチャグループへの参照が
+				含まれる場合がある。<br/>
+				これは 
+				<s/><font color="highlight1">$</font>
+				&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+				のように記述し、
+				<s/>&lt;b&gt;<font color="highlight2">
+				g</font>&lt;/b&gt;<s/>は参照するキャプチャグループの
+				番号で存在するキャプチャグループ番号なら int の
+				範囲内で何桁でもよい。<br/>
+				置換文字列内に
+				<s/><font color="highlight1">$</font>
+				&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+				が検出されると、その部分は
+				<s/><font color="code">
+				group(</font>
+				&lt;b&gt;<font color="highlight2">
+				g</font>&lt;/b&gt;
+				<font color="code">)</font><s/>
+				メソッドの戻り値に置き換えられる。<br/>
+				例えば以下のコードを実行すると<br/>
+				<font color="code">
+				　　String regex = &amp;quot;a(b)c&amp;quot;;<br/>
+				　　String chars = &amp;quot;abc&amp;quot;;<br/>
+				　　String replacement = &amp;quot;A$1C&amp;quot;;<br/>
+				　　Matcher matcher = Pattern.compile
+				(regex).matcher(chars);<br/>
+				　　if (matcher.find()) {<br/>
+				　　　　StringBuffer buf = new StringBuffer();<br/>
+				　　　　matcher.appendReplacement(buf, replacement);<br/>
+				　　　　System.out.println(buf);<br/>
+				　　}<br/>
+				</font>
+				<font color="error">
+				AbC</font><s/>が出力される。<br/>
+				もし置換文字列で 
+				<s/><font color="highlight1">
+				A$2C
+				</font><s/>
+				 のように
+				存在しないグループを指定した場合に
+				は IndexOutOfBoundsException を
+				スローし、 
+				<s/><font color="highlight1">A$bC
+				</font><s/>や  
+				<s/><font color="highlight1">
+				AbC$
+				</font><s/> のように
+				エスケープされていない 
+				<s/><font color="highlight1">$</font><s/>
+				の後に 0 から 9 以外の文字が
+				続く場合や何もない場合には API ドキュメントに
+				記述はないがケースによってタイプの違う実行時例外が
+				スローされる。<br/>
+				よって、もし引数の置換文字列が不正な場合の例外処理を
+				実装するので
+				あれば IndexOutOfBoundsException だけでは不十分となる。<br/>
+				また replacement が 
+				<s/><font color="highlight1">A$12C
+				</font><s/> の場合に
+				は 
+				<s/><font color="highlight1">$1</font><s/>
+				は存在するので例外は発生せずに 
+				<s/><font color="error">Ab2C</font><s/>が出力される。<br/>
+				グループインデックスを表す数字と単なる置換文字の数字が
+				続く場合などにそれらを区別する場合には 
+				<s/><font color="highlight1">A$1\2C</font><s/> のように
+				すると 2 が単なる文字として扱われる。
+				（Java のコードでは 
+				<s/><font color="code">
+				&amp;quot;A$1\\2C&amp;quot;</font><s/>となる）<br/>
+				グループ参照ではなく単なるドル記号を置換文字列に
+				含める場合には
+				<s/><font color="highlight1">\$</font><s/>と記述する。
+				（Java のコードでは 
+				<s/><font color="code">
+				&amp;quot;\\$&amp;quot;</font><s/> となる）
+				<br/>
+				このメソッドは正規表現エンジンの状態を変えるが、
+				その変更後の状態に関してドキュメントでは何も
+				保証していないので、このメソッドの呼び出し後に
+				さらにマッチングを行う場合には 
+				<s/><link href="Matcher/reset">reset</link><s/>
+				メソッドで
+				リセットしてから行う必要がある。<br/>
+				また、このメソッドは実装において 
+				<s/><link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>メソッドを
+				使用している為、アペンドポジションを変更するが
+				これは実装に依存する部分でドキュメントには記述はないので
+				このメソッドの呼び出し後のアペンドポジションを特定の位置に
+				あると想定した上での appendReplacement メソッド
+				や 
+				<s/><link href="Matcher/appendTail">appendTail</link><s/>
+				メソッドを使用するのはやめるべき。<br/>
+                String クラスにはこのメソッドの
+                <link href="Example/t_string_method">
+                簡易メソッド
+                </link>
+                が用意されている。<br/>
+                <link href="Example/m_replace_all">
+                replaceAll メソッドの使用例</link><br/>
+                <link href="Example/m_replace_backref">
+                置換文字列でキャプチャグループを参照する例</link>
+                
+			</explain>
+		</method>
+
+		<method id="Matcher.replaceFirst">
+			<name>replaceFirst</name>
+			<declaration>
+				public String replaceFirst(String replacement)
+			</declaration>
+			<param>replacement　-　置換文字列</param>
+			<return>
+			最初にマッチした部分のみを置換文字列に置換して作成した文字列
+			</return>
+			<exception>
+				IndexOutOfBoundsException　-　置換が行われる際にパターンに
+				存在しないキャプチャグループへの参照を
+				置換文字列が含んでいた場合
+			</exception>
+			<exception>
+				NullPointerException　-　jdk1.5.0 の動作
+				では置換が行われる際に引数の　replacement が null の場合に
+				発生する
+			</exception>
+			<explain>
+			    <link href="Matcher/replaceAll">replaceAll</link><s/>
+				メソッドと似ているが、このメソッドは
+				最初にマッチした部分を置換すると残りは戻り値の文字列に
+				加えるだけとなる。
+				<br/>
+				つまり最初にマッチした部分のみ置換した文字列を返す。<br/>
+				置換文字列には、キャプチャグループへの参照が
+				含まれる場合がある。<br/>
+				これは 
+				<s/><font color="highlight1">$</font>
+				&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+				のように記述し、
+				<s/>&lt;b&gt;<font color="highlight2">
+				g</font>&lt;/b&gt;<s/>は参照するキャプチャグループの
+				番号で存在するキャプチャグループ番号なら int の
+				範囲内で何桁でもよい。<br/>
+				置換文字列内に
+				<s/><font color="highlight1">$</font>
+				&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+				が検出されると、その部分は
+				<s/><font color="code">
+				group(</font>
+				&lt;b&gt;<font color="highlight2">
+				g</font>&lt;/b&gt;
+				<font color="code">)</font><s/>
+				メソッドの戻り値に置き換えられる。<br/>
+				例えば以下のコードを実行すると<br/>
+				<font color="code">
+				　　String regex = &amp;quot;a(b)c&amp;quot;;<br/>
+				　　String chars = &amp;quot;abc&amp;quot;;<br/>
+				　　String replacement = &amp;quot;A$1C&amp;quot;;<br/>
+				　　Matcher matcher = Pattern.compile
+				(regex).matcher(chars);<br/>
+				　　if (matcher.find()) {<br/>
+				　　　　StringBuffer buf = new StringBuffer();<br/>
+				　　　　matcher.appendReplacement(buf, replacement);<br/>
+				　　　　System.out.println(buf);<br/>
+				　　}<br/>
+				</font>
+				<font color="error">
+				AbC</font><s/>が出力される。<br/>
+				もし置換文字列で 
+				<s/><font color="highlight1">
+				A$2C
+				</font><s/>
+				 のように
+				存在しないグループを指定した場合に
+				は IndexOutOfBoundsException を
+				スローし、 
+				<s/><font color="highlight1">A$bC
+				</font><s/>や  
+				<s/><font color="highlight1">
+				AbC$
+				</font><s/> のように
+				エスケープされていない 
+				<s/><font color="highlight1">$</font><s/>
+				の後に 0 から 9 以外の文字が
+				続く場合や何もない場合には API ドキュメントに
+				記述はないがケースによってタイプの違う実行時例外が
+				スローされる。<br/>
+				よって、もし引数の置換文字列が不正な場合の例外処理を
+				実装するので
+				あれば IndexOutOfBoundsException だけでは不十分となる。<br/>
+				また replacement が 
+				<s/><font color="highlight1">A$12C
+				</font><s/> の場合に
+				は 
+				<s/><font color="highlight1">$1</font><s/>
+				は存在するので例外は発生せずに 
+				<s/><font color="error">Ab2C</font><s/>が出力される。<br/>
+				グループインデックスを表す数字と単なる置換文字の数字が
+				続く場合などにそれらを区別する場合には 
+				<s/><font color="highlight1">A$1\2C</font><s/> のように
+				すると 2 が単なる文字として扱われる。
+				（Java のコードでは 
+				<s/><font color="code">
+				&amp;quot;A$1\\2C&amp;quot;</font><s/>となる）<br/>
+				グループ参照ではなく単なるドル記号を置換文字列に
+				含める場合には
+				<s/><font color="highlight1">\$</font><s/>と記述する。
+				（Java のコードでは 
+				<s/><font color="code">
+				&amp;quot;\\$&amp;quot;</font><s/> となる）<br/>
+				このメソッドは正規表現エンジンの状態を変えるが、
+				その変更後の状態に関してドキュメントでは何も
+				保証していないので、このメソッドの呼び出し後に
+				さらにマッチングを行う場合には reset メソッドで
+				<link href="Example/t_reset">リセット</link>
+				してから行う必要がある。<br/>
+				また、このメソッドは実装において 
+				<s/><link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>
+				メソッドを
+				使用している為、アペンドポジションを変更するが
+				これは実装に依存する部分でドキュメントには記述はないので
+				このメソッドの呼び出し後のアペンドポジションを特定の位置に
+				あると想定した上での appendReplacement メソッド
+				や<s/><link href="Matcher/appendTail">appendTail</link><s/>
+				メソッドを使用するのはやめるべき。<br/>
+                String クラスにはこのメソッドの
+                <link href="Example/t_string_method">
+                簡易メソッド
+                </link>
+                が用意されている。<br/>
+                <link href="Example/m_replace_first">
+                replaceFirst メソッドの使用例</link><br/>
+                <link href="Example/m_replace_backref">
+                置換文字列でキャプチャグループを参照する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.requireEnd">
+			<name>requireEnd</name>
+			<declaration>public boolean requireEnd()</declaration>
+			<return>
+			より多くの入力で正のマッチが負のマッチに
+			変更される可能性がある場合は true
+			</return>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				以下は version 1.5 の API ドキュメントの内容<br/>
+				より多くの入力で正のマッチが負のマッチに変更される可能性が
+				ある場合に、true を返す。<br/>
+				このメソッドが true を返し、かつマッチが検出された場合、
+				より多くの入力があればマッチが失われた可能性がある。<br/>
+				このメソッドが false を返し、かつマッチが検出された場合、
+				より多くの入力があればマッチは変更されるが、
+				失われることはなかった可能性がある。<br/>
+				マッチが検出されなかった場合、requireEnd に意味はない。 
+			</explain>
+		</method>
+
+		<method id="Matcher.reset">
+			<name>reset</name>
+			<declaration>public Matcher reset()</declaration>
+			<return>this</return>
+			<explain>
+				この正規表現エンジンを
+				<link href="Example/t_reset">リセット</link>
+				する。
+				<br/>
+				リセットすると region メソッドで設定した領域の設定情報は
+				失われ、入力シーケンス全体が 
+				領域となり、 
+				<link href="Matcher/matches">matches</link><s/>
+				<s/><link href="Matcher/lookingAt">lookingAt</link><s/>
+				<s/><link href="Matcher/find">find</link><s/>
+				などの
+				結果情報はすべて 失われ、 
+				<s/><link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>
+				メソッドで
+				使用されるアペンドポジションも 0 に設定される。
+				<br/>
+				領域境界のアンカー設定や透明度に関する設定は変更されない。
+			</explain>
+		</method>
+
+		<method id="Matcher.reset-CharSequence">
+			<name>reset</name>
+			<declaration>
+				public Matcher reset(CharSequence input)
+			</declaration>
+			<param>input　-　マッチングを行う対象の入力シーケンス</param>
+			<return>this</return>
+			<explain>
+				この正規表現エンジンを
+				<link href="Example/t_reset">リセット</link>
+				して 引数の入力シーケンスを
+				新たにマッチングの対象として設定する。
+				<br/>
+				領域の設定情報は失われ、入力シーケンス全体が
+				領域となり、 
+				<s/><link href="Matcher/matches">matches</link><s/>
+				<s/><link href="Matcher/lookingAt">lookingAt</link><s/>
+				<s/><link href="Matcher/find">find</link><s/>
+				などの結果情報は
+				すべて失われ、 
+				<s/><link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>
+				メソッドで使用される
+				アペンドポジションも 0 に設定される。
+				<br/>
+				領域境界のアンカー設定や透明度に関する設定は変更されない。
+				<br/>ドキュメントに記述はないが引数が null の
+				場合には NullPointerException が発生する。
+			</explain>
+		</method>
+
+		<method id="Matcher.start">
+			<name>start</name>
+			<declaration>public int start()</declaration>
+			<return>マッチした部分の先頭の位置</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチングでマッチしなかった場合
+			</exception>
+			<explain>
+			前回のマッチングでマッチした部分の先頭の位置を返す。<br/>
+			前回マッチしたのが位置の場合にはその位置を返し、
+			文字列にマッチしていた場合には最初の文字の直前の位置（これは
+			最初の文字の前の文字との境界の位置とも言える）
+			を返す。<br/>
+			<link href="Example/m_group">
+				start end group メソッドでマッチ情報を取得する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.start-int">
+			<name>start</name>
+			<declaration>public int start(int group)</declaration>
+			<param>
+				group　-　この正規表現エンジンのパターンに指定されている 
+				キャプチャグループのインデックス
+			</param>
+			<return>
+			引数で指定したキャプチャグループにマッチした部分の
+			先頭の位置を返す。
+			前回のマッチングでマッチはしたが、引数のキャプチャグループには
+			マッチしなかった場合は -1 を返す。
+			</return>
+			<exception>
+				IllegalStateException　-　マッチングが行われていない場合、
+				または前回のマッチング操作が失敗した場合
+			</exception>
+			<exception>
+				IndexOutOfBoundsException　-　指定されたインデックスの
+				キャプチャグループがそのパターンに含まれない場合
+			</exception>
+			<explain>
+				引数のグループにマッチングした部分の先頭の位置を返す。<br/>
+			マッチしたのが位置の場合にはその位置を返し、
+			文字列にマッチしていた場合には最初の文字の直前の位置（これは
+			最初の文字の前の文字との境界の位置とも言える）
+			を返す。
+				<br/>
+				グループ0はパターン全体を表すので start(0) は start() と等価。
+				<br/>
+				<link href="Example/m_group">
+				start end group メソッドでマッチ情報を取得する例</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.toMatchResult">
+			<name>toMatchResult</name>
+			<declaration>
+				public MatchResult toMatchResult()
+			</declaration>
+			<return>
+			マッチングの結果情報を保持している MatchResult オブジェクト
+			</return>
+			<explain>
+				マッチングの結果情報を
+				得る 
+				<s/><link href="Matcher/start">start</link><s/>
+				<s/><link href="Matcher/end">end</link><s/>
+				<s/><link href="Matcher/group">group</link><s/>
+				<s/><link href="Matcher/groupCount">gruoupCount</link><s/>
+				などのメソッドを
+				実装している MatchResult オブジェクトを取得する。
+				<br/>
+				戻り値は新たに現在の情報を基に 
+				生成された MatchResult オブジェクトなので
+				この正規表現エンジンに 対する後続の操作は
+				戻り値の MatchResult オブジェクトには影響しない。
+				<br/>
+				マッチングを行う前にこのメソッドを呼び出しても 
+				例外は発生しないが、戻り値の MatchResult オブジェクト
+				の groupCount 以外のメソッドを
+				呼び出すと IllegalStateException をスローする。
+			</explain>
+		</method>
+
+		<method id="Matcher.toString">
+			<name>toString</name>
+			<declaration>public String toString()</declaration>
+			<param></param>
+			<return>この正規検索エンジンの文字列表現</return>
+			<explain>
+				version 1.5 でオーバーライド
+				<br/>
+				適切な文字列表現を返すようにオーバーライド。
+			</explain>
+		</method>
+
+		<method id="Matcher.useAnchoringBounds">
+			<name>useAnchoringBounds</name>
+			<declaration>
+				public Matcher useAnchoringBounds(boolean b)
+			</declaration>
+			<param>
+			b　-　領域境界を anchoring 境界に設定するなら true を指定
+			</param>
+			<return>this</return>
+			<explain>
+				version 1.5 で導入<br/>
+				引数が true の場合には領域境界を anchoring 境界に
+				設定し、 false の場合には非 anchoring 境界に設定する。<br/>
+				<link href="Matcher/reset">reset</link><s/>
+				メソッドを呼び出してもこの設定は変更されない。<br/>
+				入力シーケンスに対して 
+				<s/><link href="Matcher/region">region</link><s/>
+				メソッドで
+				領域を設定している場合に、
+				その領域の先頭部分や終端部分が
+				<s/><font color="highlight1">^</font><s/>
+				や<s/><font color="highlight1">$</font><s/>に 
+				マッチする為には領域境界が anchoring 境界に設定されて
+				いなければならない。<br/>
+				デフォルトでは領域境界が anchoring 境界に設定されている。
+				<br/>
+				
+				このメソッドは region メソッドで領域が設定されている場合
+				の 
+				<s/><link href="Matcher/find">find</link><s/>
+				<s/><link href="Matcher/matches">matches</link><s/>
+				<s/><link href="Matcher/lookingAt">lookingAt</link><s/>
+				<s/><link href="Matcher/replaceAll">replaceAll</link><s/>
+				<s/><link href="Matcher/replaceFirst">replaceFirst</link><s/>
+				メソッドによるマッチングに影響を与える。<br/>
+				find メソッドを一度呼び出した後にこのメソッド
+				で  anchoring 境界の設定を変更し、再度 find メソッドを
+				呼び出すなど、どのタイミングで呼び出しても次のマッチングで
+				設定は有効になる。<br/>
+				<link href="Example/m_useAnchoringBounds">
+				anchoring 境界の設定に関する例
+				</link>
+			</explain>
+		</method>
+
+		<method id="Matcher.usePattern">
+			<name>usePattern</name>
+			<declaration>
+				public Matcher usePattern(Pattern newPattern)
+			</declaration>
+			<param>
+			newPattern　-　正規表現構文を表すPatternオブジェクト
+			</param>
+			<return>this</return>
+			<exception>
+				IllegalArgumentException　-　引数が null の場合
+			</exception>
+			<explain>
+				version 1.5 で導入
+				<br/>
+				マッチングを行う際に使用する正規表現構文を
+				表す Pattern オブジェクトを 新たに設定する。
+				<br/>
+				最後のマッチングに関する情報 (start　end　group　groupCount) は
+				失われるが 領域における位置や 
+				<s/><link href="Matcher/appendReplacement">
+				appendReplacement</link><s/>
+				メソッドが
+				使用する アペンドポジションなどは影響を受けない。
+				<br/>
+			</explain>
+		</method>
+
+		<method id="Matcher.useTransparentBounds">
+			<name>useTransparentBounds</name>
+			<declaration>
+				public Matcher useTransparentBounds(boolean b)
+			</declaration>
+			<param>b　-　領域境界を透明するなら true</param>
+			<return>this</return>
+			<explain>
+				version 1.5 で導入<br/>
+				この正規表現エンジンが 
+				<s/><link href="Matcher/region">region</link><s/>
+				メソッドで領域を
+				設定している場合に領域境界の透明性を設定する。<br/>
+				引数が true の場合には透明に設定し、 false なら
+				不透明に設定する。<br/>
+				この設定は 
+				<s/><link href="Matcher/reset">reset</link><s/>
+				メソッドが実行されても変更されない。<br/>
+				透明に設定されている場合にはマッチするかどうかを
+				領域の境界を超えて判定する。<br/>
+				
+				<link href="Example/m_useTransparentBounds">
+				領域境界の透明性の設定に関する例
+				</link>
+			</explain>
+		</method>
+	</class>
+</method-info>

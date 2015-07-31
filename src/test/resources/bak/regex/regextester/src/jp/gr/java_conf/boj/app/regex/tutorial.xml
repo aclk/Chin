@@ -1,0 +1,54 @@
+<tutorial>
+	<caption example="t_regex">
+		正規表現とは
+	</caption>
+	<caption example="t_boundary">
+		位置へのマッチとシフト
+	</caption>
+	<caption example="t_backtracking">
+		バックトラック
+	</caption>
+	<caption example="t_greedy_quantifiers">
+		最長一致（欲張りマッチ）
+	</caption>
+	<caption example="t_reluctant_quantifiers">
+		最短一致（ものぐさマッチ）
+	</caption>
+	<caption example="t_possessive_quantifiers">
+		強欲な繰り返し
+	</caption>
+	<caption example="t_java_code">
+		正規表現を扱う Java API
+	</caption>
+	<caption example="t_compile_pattern">
+		Pattern オブジェクトの生成
+	</caption>
+	<caption example="t_new_matcher">
+		Matcher オブジェクトの生成
+	</caption>
+	<caption example="t_matching">
+		マッチング
+	</caption>
+	<caption example="t_replacement">
+		置換処理
+	</caption>
+	<caption example="t_usepattern">
+		正規表現パターンの変更
+	</caption>
+	<caption example="t_split">
+		文字列分割
+	</caption>
+	<caption example="t_mode">
+		モードの設定
+	</caption>
+	<caption example="t_region">
+		領域の設定
+	</caption>
+	<caption example="t_reset">
+		リセット（入力シーケンスの変更）
+	</caption>
+	<caption example="t_string_method">
+		String クラスの関連メソッド
+	</caption>
+	
+</tutorial>

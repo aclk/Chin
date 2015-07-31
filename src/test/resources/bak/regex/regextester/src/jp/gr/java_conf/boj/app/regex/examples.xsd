@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified">
+  <xs:element name="examples">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element minOccurs="0" maxOccurs="unbounded" ref="example"/>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="example">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="html"/>
+        <xs:element minOccurs="0" ref="appstate"/>
+        <xs:element minOccurs="0" ref="commands"/>
+      </xs:sequence>
+      <xs:attribute name="name" use="required" type="xs:ID"/>
+      <xs:attribute name="tutorial" use="required" type="boolean"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="html">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="br"/>
+        <xs:element ref="link"/>
+        <xs:element ref="font"/>
+        <xs:element ref="unicode"/>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="s">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="br">
+    <xs:complexType/>
+  </xs:element>
+  <xs:element name="link">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="font"/>
+      </xs:choice>
+      <xs:attribute name="href" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:minLength value="1"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="font">
+    <xs:complexType mixed="true">
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="s"/>
+        <xs:element ref="br"/>
+        <xs:element ref="link"/>
+      </xs:choice>
+      <xs:attribute name="color" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="highlight1"/>
+            <xs:enumeration value="highlight2"/>
+            <xs:enumeration value="explain"/>
+            <xs:enumeration value="code"/>
+            <xs:enumeration value="error"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="unicode">
+    <xs:complexType>
+      <xs:attribute name="start" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="4"/>
+            <xs:pattern value="[0-9a-fA-F]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+      <xs:attribute name="end" use="required">
+        <xs:simpleType>
+          <xs:restriction base="xs:string">
+            <xs:length value="4"/>
+            <xs:pattern value="[0-9a-fA-F]+"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:attribute>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="appstate">
+    <xs:complexType>
+      <xs:sequence>
+        <xs:element ref="regex"/>
+        <xs:element ref="inputChars"/>
+        <xs:element ref="replacement"/>
+        <xs:sequence minOccurs="0">
+          <xs:element ref="findIndex"/>
+          <xs:element ref="regionStart"/>
+          <xs:element ref="regionEnd"/>
+          <xs:element ref="modemusk"/>
+          <xs:element ref="anchoringBounds"/>
+          <xs:element ref="transparentBounds"/>
+          <xs:element ref="crlf"/>
+        </xs:sequence>
+      </xs:sequence>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="regex" type="xs:string"/>
+  <xs:element name="inputChars" type="xs:string"/>
+  <xs:element name="replacement" type="xs:string"/>
+  <xs:element name="findIndex">
+    <xs:complexType>
+      <xs:attributeGroup ref="onlyIntAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="regionStart">
+    <xs:complexType>
+      <xs:attributeGroup ref="onlyIntAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="regionEnd">
+    <xs:complexType>
+      <xs:attributeGroup ref="onlyIntAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="anchoringBounds">
+    <xs:complexType>
+      <xs:attributeGroup ref="onlyBooleanAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="transparentBounds">
+    <xs:complexType>
+      <xs:attributeGroup ref="onlyBooleanAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:element name="crlf">
+    <xs:complexType>
+      <xs:attributeGroup ref="onlyBooleanAttribute"/>
+    </xs:complexType>
+  </xs:element>
+  <xs:attributeGroup name="onlyIntAttribute">
+    <xs:attribute name="value" use="required" type="xs:int"/>
+  </xs:attributeGroup>
+  <xs:attributeGroup name="onlyBooleanAttribute">
+    <xs:attribute name="value" use="required" type="boolean"/>
+  </xs:attributeGroup>
+  <xs:simpleType name="boolean">
+    <xs:restriction base="xs:token">
+      <xs:enumeration value="true"/>
+      <xs:enumeration value="false"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:element name="modemusk">
+    <xs:simpleType>
+      <xs:union>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="DO_NOTHING"/>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="DEFAULT"/>
+          </xs:restriction>
+        </xs:simpleType>
+        <xs:simpleType>
+          <xs:list>
+            <xs:simpleType>
+              <xs:restriction base="xs:token">
+                <xs:enumeration value="MULTILINE"/>
+                <xs:enumeration value="DOTALL"/>
+                <xs:enumeration value="COMMENTS"/>
+                <xs:enumeration value="LITERAL"/>
+                <xs:enumeration value="UNIX_LINES"/>
+                <xs:enumeration value="UNICODE_CASE"/>
+                <xs:enumeration value="CASE_INSENSITIVE"/>
+                <xs:enumeration value="CANON_EQ"/>
+              </xs:restriction>
+            </xs:simpleType>
+          </xs:list>
+        </xs:simpleType>
+      </xs:union>
+    </xs:simpleType>
+  </xs:element>
+  <xs:element name="commands">
+    <xs:simpleType>
+      <xs:list>
+        <xs:simpleType>
+          <xs:restriction base="xs:token">
+            <xs:enumeration value="CLEAR_SOURCE"/>
+            <xs:enumeration value="CLEAR_REPLACEMENT_BUF"/>
+            <xs:enumeration value="RESET"/>
+            <xs:enumeration value="LOOKING_AT"/>
+            <xs:enumeration value="MATCHES"/>
+            <xs:enumeration value="FIND"/>
+            <xs:enumeration value="FIND_INT"/>
+            <xs:enumeration value="APPEND_REPLACEMENT"/>
+            <xs:enumeration value="APPEND_TAIL"/>
+            <xs:enumeration value="REPLACE_FIRST"/>
+            <xs:enumeration value="REPLACE_ALL"/>
+            <xs:enumeration value="REGION"/>
+            <xs:enumeration value="GROUP0"/>
+            <xs:enumeration value="GROUP1"/>
+            <xs:enumeration value="GROUP2"/>
+            <xs:enumeration value="GROUP3"/>
+            <xs:enumeration value="GROUP4"/>
+          </xs:restriction>
+        </xs:simpleType>
+      </xs:list>
+    </xs:simpleType>
+  </xs:element>
+</xs:schema>

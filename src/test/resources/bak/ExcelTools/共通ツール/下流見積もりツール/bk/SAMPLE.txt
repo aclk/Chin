@@ -1,0 +1,1 @@
+select VERSION from VOLUME_INFO_PLAN where ITEM_CD = '11015' and PRODUCT_ID = 'PSO5141' group by VERSION order by VERSION 

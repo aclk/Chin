@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC
+  "-//SPRING//DTD BEAN//EN"
+  "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+    <!-- 共通モジュール系のメソッドのINとOUTを記録するためのAOP(Auto)-->
+    <bean id="BspAutoProxy"
+        class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+		<property name="proxyTargetClass">
+			<value>true</value>
+		</property>
+        <property name="beanNames">
+	      <list>
+	        <value>*SystemPSC</value>
+	      </list>
+		</property>
+        <property name="interceptorNames" value="methodTracer"/>
+    </bean>
+    <bean id="methodTracer" class="murata.co.producttest.tracer.MqesTracer">
+		<!-- エビデンスの出力フォルダ指定 任意の出力フォルダをフルパス指定してください(例:C:\Evidence\data\)-->
+		<property name="eviOutputPath" value="C:/root/workspace/sao0000/src/test/resources/murata/ss/sa/sao0010/data/evidence/"/>
+		<property name="outfilePrefix" value="messagePscParams" />
+    </bean>
+
+</beans>

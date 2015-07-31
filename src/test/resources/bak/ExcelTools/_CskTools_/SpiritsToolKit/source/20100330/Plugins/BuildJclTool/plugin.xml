@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+
+   <extension
+         point="org.eclipse.ui.popupMenus">
+      <objectContribution
+            adaptable="true"
+            id="SpiritsToolKit.contribution"
+            objectClass="org.eclipse.core.resources.IProject">
+         <menu
+               label="SpiritsToolKit -&gt;"
+               path="additions"
+               id="SpiritsToolKit.menu">
+            <separator name="group1"/>
+         </menu>
+         <action
+               label="Build Jcl -&gt; Running Start [ Normal Mode ]"
+               class="spiritstoolkit.popup.actions.BuildJclTool"
+               menubarPath="SpiritsToolKit.menu/group1"
+               enablesFor="1"
+               id="SpiritsToolKit.BuildJclStarterNormal">
+         </action>
+         <action
+               class="spiritstoolkit.popup.actions.BuildJclTool"
+               enablesFor="1"
+               id="SpiritsToolKit.BuildJclStarterDebug"
+               label="Build Jcl -&gt; Running Start [ Debug Mode ]"
+               menubarPath="SpiritsToolKit.menu/group1"/>
+      </objectContribution>
+   </extension>
+
+</plugin>

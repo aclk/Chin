@@ -1,0 +1,75 @@
+'SE1129を見つけたらkg00079の値の小数点以下値を削除する。
+'＋ SE1129を見つけたらTk10012の値をTk10008へコピーする
+Public Sub Kg00079PointClear()
+
+    Dim i   As Long
+    Dim j   As Long
+    Dim lEndRow As Long
+    
+    Dim kg00079Col  As Long
+    Dim tk10012Col  As Long
+    Dim tk10008Col  As Long
+    
+    Dim sKg00079Value       As String
+    Dim lPointPos           As Long
+    
+    Dim xlsTarget As Worksheet
+    
+    Set xlsTarget = ThisWorkbook.Sheets("処理後DB")
+    
+    With xlsTarget
+    
+        'シートの最終行の取得
+        lEndRow = .Cells.SpecialCells(xlLastCell).Row
+
+        For i = 1 To lEndRow
+            If .Cells(i, 2).Value = "SE1129" Then
+                If Len(Trim$(.Cells(i + 2, 2).Value)) > 0 Then
+                    i = i + 1
+                    kg00079Col = 0
+                    tk10012Col = 0
+                    tk10008Col = 0
+                    For j = 3 To 255
+                        Select Case LCase(.Cells(i, j).Value)
+                            Case "kg00079"
+                                kg00079Col = j
+                            Case "tk10012"
+                                tk10012Col = j
+                            Case "tk10008"
+                                tk10008Col = j
+                        End Select
+                    Next j
+                    If tk10012Col > 0 And tk10008Col > 0 Then
+                        '一番左の列(レコードと書いてある場所)に値のある限りループ
+                        Do
+                            i = i + 1
+                            If Len(Trim$(.Cells(i, 1).Value)) = 0 Then
+                                Exit Do
+                            End If
+                            
+                            '小数点削除
+                            sKg00079Value = CStr(.Cells(i, kg00079Col).Value)
+                            lPointPos = InStr(1, sKg00079Value, ".")
+                            If lPointPos > 0 Then
+                                sKg00079Value = Left$(sKg00079Value, lPointPos - 1)
+                                .Cells(i, kg00079Col).Value = sKg00079Value
+                                .Cells(i, kg00079Col).Font.Color = 255
+                            End If
+                            
+                            '値のコピー
+                            .Cells(i, tk10008Col).Value = .Cells(i, tk10012Col).Value
+                            .Cells(i, tk10008Col).Font.Color = 255
+                        Loop
+                        
+                    End If
+                End If
+            End If
+            
+        Next i
+    End With ' xlsTarget
+    
+    Call MsgBox("変更完了しますた。")
+    
+
+End Sub
+

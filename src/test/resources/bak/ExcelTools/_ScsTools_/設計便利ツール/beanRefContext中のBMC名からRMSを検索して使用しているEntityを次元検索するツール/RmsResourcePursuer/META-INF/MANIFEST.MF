@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Sealed: true
+Main-Class: jp.mk.sqllauncher.SqlExecuterByQueryFiles
+Class-Path: ./ ./lib/commons-beanutils.jar ./lib/commons-io-1.3.2.jar ./lib/commons-logging.jar ./lib/filest.txt ./lib/log4j-1.2.13.jar ./lib/ojdbc14.jar
+

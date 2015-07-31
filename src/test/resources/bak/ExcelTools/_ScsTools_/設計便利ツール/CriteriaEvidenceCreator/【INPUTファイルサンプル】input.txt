@@ -1,0 +1,12 @@
+
+A1B5MEM78
+C:\a.xls
+sw0018
+事前データ
+PREPARE
+
+
+
+A1B5MEMO
+DR_szb0060$selectSsConsignmentStockHistoryHeaderCriteria.xls
+SE1108, SR1000,SR1006,SR0025,PR0046

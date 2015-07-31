@@ -1,0 +1,68 @@
+
+SQL*Loader: Release 10.2.0.1.0 - Production on 金 1月 13 17:53:07 2012
+
+Copyright (c) 1982, 2005, Oracle.  All rights reserved.
+
+制御ファイル:    D:\tools\CR9020メッセージリフレッシュバッチ\CR9020.ctl
+キャラクタ・セットJA16SJISTILDEがすべての入力で指定されています。
+
+データファイルC:\DOCUME~1\MM0571~1.NAG\LOCALS~1\Temp\MESSAGE.dat
+  不良ファイル:  MESSAGE.bad
+  廃棄ファイル: MESSAGE.dis
+ (すべて廃棄できます)
+
+ロード数: ALL
+スキップ数: 0
+許容エラー数: 50
+継続文字:    指定なし
+使用パス:      ダイレクト
+Silentオプション: FEEDBACK, ERRORS および DISCARDS
+
+表CR9020、 ロード済 すべての論理レコードから
+この表に対する有効な挿入オプション: TRUNCATE
+
+   Column Name                  Position   Len  Term Encl Datatype
+------------------------------ ---------- ----- ---- ---- ---------------------
+"ID90400"                          1:256  256        CHARACTER            
+"DH90400"                       257:2256 2000        CHARACTER            
+    列のSQL文字列 : "NVL(:DH90400, ' ')"
+"DH90401"                      2257:4257 2001        CHARACTER            
+    列のSQL文字列 : "NVL(:DH90401, ' ')"
+"VALID_FROM"                        NEXT    1        CHARACTER            
+"VALID_TO"                          NEXT    1        CHARACTER            
+"PMS_I_YMD"                                               SYSDATE
+"PMS_I_USR"                                               CONSTANT
+    値 'messageRefresh'
+"PMS_I_CLASS"                       NEXT    1        CHARACTER            
+"PMS_U_YMD"                                               SYSDATE
+"PMS_U_USR"                                               CONSTANT
+    値 'messageRefresh'
+"PMS_U_CLASS"                       NEXT    1        CHARACTER            
+"VERSION"                           NEXT    1        CHARACTER            
+    列のSQL文字列 : "0"
+
+表CR9020の次の索引が処理されました:
+索引MM05712.PK_CR9020に11716キーが正常にロードされました。
+
+表CR9020:
+  11716行のロードに成功しました。
+  0行はデータ・エラーのためロードされませんでした。
+  0行はWHEN句のエラーのためロードされませんでした。
+  0行はすべてのフィールドがNULLのためロードされませんでした。
+バインド配列サイズはダイレクト・パスで使用されません。
+列配列の行数:     5000
+ストリーム・バッファのバイト数:   256000
+読取りバッファのバイト数:  1048576
+
+スキップされた論理レコードの合計:           0
+読み込まれた論理レコードの合計:         11716
+拒否された論理レコードの合計:               0
+廃棄された論理レコードの合計:        0
+SQL*Loaderのメイン・スレッドによってロードされたストリーム・バッファの合計:       48
+SQL*Loaderのロード・スレッドによってロードされたストリーム・バッファの合計:        0
+
+実行開始金 1月  13 17:53:07 2012
+実行終了金 1月  13 17:53:45 2012
+
+実行時間:        00: 00: 37.93
+CPU時間 :        00: 00: 02.63

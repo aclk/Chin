@@ -1,0 +1,5 @@
+jdbc:oracle:thin:@localhost:1521:XE#MM05712#MM05712#MM05712
+jdbc:oracle:thin:@//m0kbdb01:1521/m0kbdb.murata.co.jp#SCHM_G010_1#SCHM_G010_1#SCHM_G010_1
+jdbc:oracle:thin:@localhost:1521:XE#MM05712#MM05712#
+jdbc:oracle:thin:@//m0kbdb01:1521/m0kbdb.murata.co.jp#SCHM_C003_3#SCHM_C003_3#SCHM_C003_3
+jdbc:oracle:thin:@localhost:1521:XE#MM05712#M05712#M05712

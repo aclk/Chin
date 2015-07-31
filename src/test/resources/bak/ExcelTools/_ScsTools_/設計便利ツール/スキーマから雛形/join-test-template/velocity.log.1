@@ -1,0 +1,979 @@
+2007-06-27 11:53:22,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-06-27 11:53:22,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-06-27 11:53:22,167 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-06-27 11:53:22,183 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-06-27 11:53:22,183 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-06-27 11:53:22,245 - Created '20' parsers.
+2007-06-27 11:53:22,245 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-06-27 11:53:22,245 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-06-27 11:53:22,276 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-06-27 11:53:22,276 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-06-27 11:53:22,276 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-06-27 11:53:22,276 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-06-27 11:53:22,292 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-06-27 11:53:22,292 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-06-27 11:53:22,292 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-06-27 11:53:22,292 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-06-27 11:53:22,292 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-06-29 15:27:21,308 - Log4JLogChute initialized using file 'velocity.log'
+2007-06-29 15:27:21,355 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-06-29 15:27:21,355 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-06-29 15:27:21,355 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-06-29 15:27:21,355 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-06-29 15:27:21,370 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-06-29 15:27:21,370 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-06-29 15:27:21,370 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-06-29 15:27:21,370 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-06-29 15:27:21,417 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-06-29 15:27:21,433 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-06-29 15:27:21,433 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-06-29 15:27:21,433 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-06-29 15:27:21,448 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-06-29 15:27:21,448 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-06-29 15:27:21,511 - Created '20' parsers.
+2007-06-29 15:27:21,526 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-06-29 15:27:21,526 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-06-29 15:27:21,558 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-06-29 15:27:21,558 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-06-29 15:27:21,558 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-06-29 15:27:21,573 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-06-29 15:27:21,573 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-06-29 15:27:21,573 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-06-29 15:27:21,573 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-06-29 15:27:21,573 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-06-29 15:27:21,573 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-07-13 11:52:34,249 - Log4JLogChute initialized using file 'velocity.log'
+2007-07-13 11:52:34,265 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-07-13 11:52:34,265 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-07-13 11:52:34,265 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-07-13 11:52:34,280 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-07-13 11:52:34,280 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 11:52:34,280 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 11:52:34,280 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-07-13 11:52:34,280 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 11:52:34,327 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-07-13 11:52:34,327 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-07-13 11:52:34,327 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-07-13 11:52:34,343 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-07-13 11:52:34,343 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-07-13 11:52:34,343 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-07-13 11:52:34,421 - Created '20' parsers.
+2007-07-13 11:52:34,421 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-07-13 11:52:34,421 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-07-13 11:52:34,452 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-07-13 11:52:34,452 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 11:52:34,468 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-07-13 11:52:34,468 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 11:52:34,468 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 11:52:34,468 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-07-13 11:52:34,468 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-07-13 11:52:34,468 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-07-13 11:52:34,468 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-07-13 13:05:15,874 - Log4JLogChute initialized using file 'velocity.log'
+2007-07-13 13:05:15,968 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-07-13 13:05:15,968 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-07-13 13:05:15,968 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-07-13 13:05:15,983 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-07-13 13:05:15,983 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 13:05:15,983 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 13:05:15,999 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-07-13 13:05:15,999 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 13:05:16,046 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-07-13 13:05:16,046 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-07-13 13:05:16,046 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-07-13 13:05:16,061 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-07-13 13:05:16,061 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-07-13 13:05:16,061 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-07-13 13:05:16,140 - Created '20' parsers.
+2007-07-13 13:05:16,155 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-07-13 13:05:16,155 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-07-13 13:05:16,186 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-07-13 13:05:16,186 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 13:05:16,186 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-07-13 13:05:16,186 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 13:05:16,202 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 13:05:16,202 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-07-13 13:05:16,202 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-07-13 13:05:16,202 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-07-13 13:05:16,202 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-07-13 13:38:51,405 - Log4JLogChute initialized using file 'velocity.log'
+2007-07-13 13:38:51,405 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-07-13 13:38:51,405 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-07-13 13:38:51,405 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-07-13 13:38:51,405 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-07-13 13:38:51,405 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 13:38:51,405 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 13:38:51,405 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-07-13 13:38:51,421 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 13:38:51,436 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-07-13 13:38:51,436 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-07-13 13:38:51,436 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-07-13 13:38:51,436 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-07-13 13:38:51,436 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-07-13 13:38:51,436 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-07-13 13:38:51,499 - Created '20' parsers.
+2007-07-13 13:38:51,515 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-07-13 13:38:51,515 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-07-13 13:38:51,530 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-07-13 13:38:51,530 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 13:38:51,530 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-07-13 13:38:51,546 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 13:38:51,546 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 13:38:51,546 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-07-13 13:38:51,546 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-07-13 13:38:51,546 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-07-13 13:38:51,546 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-07-13 13:42:28,155 - Log4JLogChute initialized using file 'velocity.log'
+2007-07-13 13:42:28,155 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-07-13 13:42:28,155 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-07-13 13:42:28,155 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-07-13 13:42:28,155 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-07-13 13:42:28,155 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 13:42:28,155 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-07-13 13:42:28,171 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-07-13 13:42:28,171 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 13:42:28,186 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-07-13 13:42:28,186 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-07-13 13:42:28,186 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-07-13 13:42:28,186 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-07-13 13:42:28,186 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-07-13 13:42:28,202 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-07-13 13:42:28,265 - Created '20' parsers.
+2007-07-13 13:42:28,265 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-07-13 13:42:28,265 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-07-13 13:42:28,296 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-07-13 13:42:28,296 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 13:42:28,296 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-07-13 13:42:28,296 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-07-13 13:42:28,296 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-07-13 13:42:28,296 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-07-13 13:42:28,296 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-07-13 13:42:28,296 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-07-13 13:42:28,296 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-18 18:37:32,367 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-18 18:37:32,367 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-18 18:37:32,367 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-18 18:37:32,367 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-18 18:37:32,383 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-10-18 18:37:32,383 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-18 18:37:32,383 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-18 18:37:32,398 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-10-18 18:37:32,398 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-18 18:37:32,414 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-10-18 18:37:32,430 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-10-18 18:37:32,430 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-10-18 18:37:32,430 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-10-18 18:37:32,430 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-10-18 18:37:32,430 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-10-18 18:37:32,508 - Created '20' parsers.
+2007-10-18 18:37:32,508 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-10-18 18:37:32,508 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-10-18 18:37:32,539 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-10-18 18:37:32,539 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-18 18:37:32,539 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-10-18 18:37:32,539 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-18 18:37:32,539 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-18 18:37:32,539 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-10-18 18:37:32,539 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-10-18 18:37:32,539 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-10-18 18:37:32,539 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-19 18:22:23,038 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-19 18:22:23,054 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-19 18:22:23,054 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-19 18:22:23,054 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-19 18:22:23,070 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-10-19 18:22:23,070 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-19 18:22:23,070 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-19 18:22:23,070 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-10-19 18:22:23,070 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-19 18:22:23,101 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-10-19 18:22:23,101 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-10-19 18:22:23,101 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-10-19 18:22:23,101 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-10-19 18:22:23,117 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-10-19 18:22:23,117 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-10-19 18:22:23,179 - Created '20' parsers.
+2007-10-19 18:22:23,195 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-10-19 18:22:23,195 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-10-19 18:22:23,210 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-10-19 18:22:23,210 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-19 18:22:23,226 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-10-19 18:22:23,226 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-19 18:22:23,226 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-19 18:22:23,226 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-10-19 18:22:23,226 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-10-19 18:22:23,226 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-10-19 18:22:23,226 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-22 11:13:15,221 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-22 11:13:15,267 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-22 11:13:15,267 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-22 11:13:15,267 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-22 11:13:15,267 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-10-22 11:13:15,283 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-22 11:13:15,283 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-22 11:13:15,283 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-10-22 11:13:15,283 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-22 11:13:15,314 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-10-22 11:13:15,314 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-10-22 11:13:15,314 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-10-22 11:13:15,314 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-10-22 11:13:15,314 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-10-22 11:13:15,314 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-10-22 11:13:15,391 - Created '20' parsers.
+2007-10-22 11:13:15,407 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-10-22 11:13:15,407 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-10-22 11:13:15,422 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-10-22 11:13:15,422 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-22 11:13:15,438 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-10-22 11:13:15,438 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-22 11:13:15,438 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-22 11:13:15,438 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-10-22 11:13:15,438 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-10-22 11:13:15,438 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-10-22 11:13:15,438 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-25 11:08:25,408 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-25 11:08:25,423 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-25 11:08:25,423 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-25 11:08:25,423 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-25 11:08:25,438 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-10-25 11:08:25,438 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-25 11:08:25,438 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-25 11:08:25,454 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-10-25 11:08:25,454 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-25 11:08:25,484 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-10-25 11:08:25,484 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-10-25 11:08:25,484 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-10-25 11:08:25,484 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-10-25 11:08:25,484 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-10-25 11:08:25,484 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-10-25 11:08:25,561 - Created '20' parsers.
+2007-10-25 11:08:25,576 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-10-25 11:08:25,576 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-10-25 11:08:25,592 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-10-25 11:08:25,592 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-25 11:08:25,607 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-10-25 11:08:25,607 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-25 11:08:25,607 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-25 11:08:25,607 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-10-25 11:08:25,607 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-10-25 11:08:25,607 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-10-25 11:08:25,607 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-25 11:13:36,562 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-25 11:13:36,562 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-25 11:13:36,562 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-25 11:13:36,562 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-25 11:13:36,562 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-10-25 11:13:36,578 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-25 11:13:36,578 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-25 11:13:36,578 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-10-25 11:13:36,578 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-25 11:13:36,593 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-10-25 11:13:36,593 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-10-25 11:13:36,609 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-10-25 11:13:36,609 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-10-25 11:13:36,609 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-10-25 11:13:36,609 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-10-25 11:13:36,671 - Created '20' parsers.
+2007-10-25 11:13:36,686 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-10-25 11:13:36,686 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-10-25 11:13:36,702 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-10-25 11:13:36,702 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-25 11:13:36,717 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-10-25 11:13:36,717 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-25 11:13:36,717 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-25 11:13:36,717 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-10-25 11:13:36,717 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-10-25 11:13:36,717 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-10-25 11:13:36,717 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-30 11:21:46,800 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-30 11:21:46,816 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-30 11:21:46,816 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-30 11:21:46,816 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-30 11:21:46,832 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)
+2007-10-30 11:21:46,832 - Trying to use logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-30 11:21:46,832 - Using logger class org.apache.velocity.runtime.log.Log4JLogChute
+2007-10-30 11:21:46,832 - Default ResourceManager initializing. (class org.apache.velocity.runtime.resource.ResourceManagerImpl)
+2007-10-30 11:21:46,832 - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-30 11:21:46,863 - ResourceCache: initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl)
+2007-10-30 11:21:46,863 - Loaded System Directive: org.apache.velocity.runtime.directive.Literal
+2007-10-30 11:21:46,863 - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+2007-10-30 11:21:46,863 - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+2007-10-30 11:21:46,863 - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+2007-10-30 11:21:46,879 - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+2007-10-30 11:21:46,942 - Created '20' parsers.
+2007-10-30 11:21:46,957 - Velocimacro : "velocimacro.library" is not set.  Trying default library: VM_global_library.vm
+2007-10-30 11:21:46,957 - Velocimacro : adding VMs from VM library : VM_global_library.vm
+2007-10-30 11:21:46,989 - Velocimacro : added #errorMarkup(  ) : source = VM_global_library.vm
+2007-10-30 11:21:46,989 - Velocimacro : added #errorMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-30 11:21:46,989 - Velocimacro : added #messageMarkup(  ) : source = VM_global_library.vm
+2007-10-30 11:21:46,989 - Velocimacro : added #messageMarkupForProperty(  property ) : source = VM_global_library.vm
+2007-10-30 11:21:46,989 - ResourceManager : found VM_global_library.vm with loader org.apache.velocity.runtime.resource.loader.ClasspathResourceLoader
+2007-10-30 11:21:46,989 - Velocimacro : allowInline = true : VMs can be defined inline in templates
+2007-10-30 11:21:46,989 - Velocimacro : allowInlineToOverride = false : VMs defined inline may NOT replace previous VM definitions
+2007-10-30 11:21:46,989 - Velocimacro : allowInlineLocal = false : VMs defined inline will be global in scope if allowed.
+2007-10-30 11:21:46,989 - Velocimacro : autoload off : VM system will not automatically reload global library macros
+2007-10-30 11:35:56,413 - Log4JLogChute initialized using file 'velocity.log'
+2007-10-30 11:35:56,413 - Starting Apache Velocity v1.5-beta2 (compiled: 2006-11-24 22:45:47)
+2007-10-30 11:35:56,413 - Default Properties File: org\apache\velocity\runtime\defaults\velocity.properties
+2007-10-30 11:35:56,413 - Trying to use logger class org.apache.velocity.runtime.log.AvalonLogChute
+2007-10-30 11:35:56,413 - Couldn't find class org.apache.velocity.runtime.log.AvalonLogChute or necessary supporting classes in classpath.
+java.lang.NoClassDefFoundError: org/apache/log/format/Formatter
+	at java.lang.Class.forName0(Native Method)
+	at java.lang.Class.forName(Unknown Source)
+	at org.apache.velocity.util.ClassUtils.getClass(ClassUtils.java:63)
+	at org.apache.velocity.util.ClassUtils.getNewInstance(ClassUtils.java:95)
+	at org.apache.velocity.runtime.log.LogManager.createLogChute(LogManager.java:147)
+	at org.apache.velocity.runtime.log.LogManager.updateLog(LogManager.java:208)
+	at org.apache.velocity.runtime.RuntimeInstance.initializeLog(RuntimeInstance.java:728)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:240)
+	at org.apache.velocity.runtime.RuntimeInstance.init(RuntimeInstance.java:534)
+	at org.apache.velocity.app.VelocityEngine.init(VelocityEngine.java:144)
+	at murata.co.util.VelocityEngineUtils.ignite(VelocityEngineUtils.java:56)
+	at murata.co.component.helper.VelocityEngineFactory.createVelocityEngine(VelocityEngineFactory.java:32)
+	at murata.co.component.helper.PreparedStatementHelper.<clinit>(PreparedStatementHelper.java:44)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:59)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:52)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateBean(AbstractAutowireCapableBeanFactory.java:639)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:625)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBeanDefinition(BeanDefinitionValueResolver.java:198)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:111)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:955)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:729)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:416)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:290)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:348)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:92)
+	at org.springframework.context.support.ClassPathXmlApplicationContext.<init>(ClassPathXmlApplicationContext.java:77)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+	at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+	at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+	at java.lang.reflect.Constructor.newInstance(Unknown Source)
+	at org.springframework.beans.BeanUtils.instantiateClass(BeanUtils.java:82)
+	at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:78)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:156)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:683)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:621)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:380)
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:245)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:141)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:242)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:642)
+	at org.springframework.beans.factory.access.SingletonBeanFactoryLocator.useBeanFactory(SingletonBeanFactoryLocator.java:393)
+	at murata.co.jointest.EvidenceGeneratorImpl.generate(EvidenceGeneratorImpl.java:67)
+	at murata.co.jointest.EvidenceGeneratorImpl.main(EvidenceGeneratorImpl.java:47)

@@ -1,0 +1,430 @@
+root[d:/sugiya] now:	2010/03/02 09:08
+pab0010	murata.ps.pa.pab0010.application.Pab0010PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	75.359	sec	2010/03/01 16:06:27	2010/03/01 16:06:27	2010/03/01 16:06:27
+pab0020	murata.ps.pa.pab0020.application.Pab0020PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	21.812	sec	2010/03/01 16:08:01	2010/03/01 16:08:01	2010/03/01 16:08:01
+pab0030	murata.ps.pa.pab0030.application.Pab0030PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	45.578	sec	2010/03/01 16:09:52	2010/03/01 16:09:52	2010/03/01 16:09:52
+pao0010	murata.ps.pa.pao0010.service.Pao0010_02ServiceTest.txt	Tests	run:	48	Failures:	0	Errors:	30	Skipped:	0	Time	elapsed:	72.922	sec	<<<	FAILURE!	2010/03/01 16:12:27	2010/03/01 16:12:27	2010/03/01 16:12:27
+pao0020	murata.ps.pa.pao0020.service.Pao0020_02ServiceTest.txt	Tests	run:	24	Failures:	0	Errors:	17	Skipped:	0	Time	elapsed:	38.593	sec	<<<	FAILURE!	2010/02/26 19:39:34	2010/02/26 19:39:34	2010/02/26 19:39:34
+pao0030	murata.ps.pa.pao0030.service.Pao0030_01ServiceTest.txt	Tests	run:	29	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	36.797	sec	2010/02/26 19:41:36	2010/02/26 19:41:36	2010/02/26 19:41:36
+pao0040	murata.ps.pa.pao0040.behavior.Pao0040_01BehaviorImplTest.txt	Tests	run:	67	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	129.781	sec	2010/02/26 19:44:58	2010/02/26 19:44:58	2010/02/26 19:44:58
+pbb0010	murata.ps.pb.pbb0010.application.Pbb0010PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.625	sec	2010/02/26 19:46:21	2010/02/26 19:46:21	2010/02/26 19:46:21
+pbb0020	murata.ps.pb.pbb0020.application.Pbb0020PGMTest.txt	Tests	run:	13	Failures:	5	Errors:	0	Skipped:	0	Time	elapsed:	22.312	sec	<<<	FAILURE!	2010/02/26 19:48:06	2010/02/26 19:48:06	2010/02/26 19:48:06
+pbb0030	murata.ps.pb.pbb0030.application.Pbb0030PGMTest.txt	Tests	run:	25	Failures:	22	Errors:	0	Skipped:	0	Time	elapsed:	23.531	sec	<<<	FAILURE!	2010/02/26 19:49:36	2010/02/26 19:49:36	2010/02/26 19:49:36
+pbb0040	murata.ps.pb.pbb0040.application.Pbb0040PGMTest.txt	Tests	run:	26	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	25.812	sec	2010/02/26 19:51:12	2010/02/26 19:51:12	2010/02/26 19:51:12
+pbb0050	murata.ps.pb.pbb0050.application.Pbb0050PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.093	sec	2010/02/26 19:54:15	2010/02/26 19:54:15	2010/02/26 19:54:15
+pbb0060	murata.ps.pb.pbb0060.application.Pbb0060PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.657	sec	2010/02/26 19:55:51	2010/02/26 19:55:51	2010/02/26 19:55:51
+pbb0070	murata.ps.pb.pbb0070.application.Pbb0070PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.516	sec	2010/02/26 19:57:18	2010/02/26 19:57:18	2010/02/26 19:57:18
+pbb0080	murata.ps.pb.pbb0080.application.Pbb0080PGMTest.txt	Tests	run:	22	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	33.36	sec	2010/02/26 19:59:02	2010/02/26 19:59:02	2010/02/26 19:59:02
+pbb0090	murata.ps.pb.pbb0090.application.Pbb0090PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.218	sec	2010/02/26 20:00:21	2010/02/26 20:00:21	2010/02/26 20:00:21
+pbb0100	murata.ps.pb.pbb0100.application.Pbb0100PGMTest.txt	Tests	run:	13	Failures:	13	Errors:	0	Skipped:	0	Time	elapsed:	31.531	sec	<<<	FAILURE!	2010/02/26 20:02:10	2010/02/26 20:02:10	2010/02/26 20:02:10
+pbb0110	murata.ps.pb.pbb0110.application.Pbb0110PGMTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	32.5	sec	2010/02/26 20:03:53	2010/02/26 20:03:53	2010/02/26 20:03:53
+pbb0120	murata.ps.pb.pbb0120.application.Pbb0120PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	34.687	sec	2010/02/26 20:05:45	2010/02/26 20:05:45	2010/02/26 20:05:45
+pbb0130	murata.ps.pb.pbb0130.application.Pbb0130PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	20	Skipped:	0	Time	elapsed:	7.5	sec	<<<	FAILURE!	2010/02/26 20:07:03	2010/02/26 20:07:03	2010/02/26 20:07:03
+pbb0140	murata.ps.pb.pbb0140.application.Pbb0140PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.453	sec	2010/02/26 20:08:26	2010/02/26 20:08:26	2010/02/26 20:08:26
+pbb0150	murata.ps.pb.pbb0150.application.Pbb0150PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	46.234	sec	2010/02/26 20:10:22	2010/02/26 20:10:22	2010/02/26 20:10:22
+pbb0160	murata.ps.pb.pbb0160.application.Pbb0160PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.031	sec	2010/02/26 20:11:43	2010/02/26 20:11:43	2010/02/26 20:11:43
+pbb0170	murata.ps.pb.pbb0170.application.Pbb0170PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.297	sec	2010/02/26 20:12:59	2010/02/26 20:12:59	2010/02/26 20:12:59
+pbb0180	murata.ps.pb.pbb0180.application.Pbb0180PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.938	sec	2010/02/26 20:14:17	2010/02/26 20:14:17	2010/02/26 20:14:17
+pbb0190	murata.ps.pb.pbb0190.application.Pbb0190PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	9	Skipped:	0	Time	elapsed:	6.547	sec	<<<	FAILURE!	2010/02/26 20:15:29	2010/02/26 20:15:29	2010/02/26 20:15:29
+pbb0200	murata.ps.pb.pbb0200.application.Pbb0200PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.329	sec	2010/02/26 20:16:45	2010/02/26 20:16:45	2010/02/26 20:16:45
+pbb0220	murata.ps.pb.pbb0220.application.Pbb0220PGMTest.txt	Tests	run:	21	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	19.265	sec	<<<	FAILURE!	2010/02/26 20:18:09	2010/02/26 20:18:09	2010/02/26 20:18:09
+pbb0230	murata.ps.pb.pbb0230.application.Pbb0230PGMTest.txt	Tests	run:	22	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	26.047	sec	2010/02/26 20:20:00	2010/02/26 20:20:00	2010/02/26 20:20:00
+pbb0240	murata.ps.pb.pbb0240.application.Pbb0240PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	14	Skipped:	0	Time	elapsed:	26.36	sec	<<<	FAILURE!	2010/02/26 20:21:36	2010/02/26 20:21:36	2010/02/26 20:21:36
+pbb0250	murata.ps.pb.pbb0250.application.Pbb0250PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	1018.016	sec	2010/02/26 20:39:46	2010/02/26 20:39:46	2010/02/26 20:39:46
+pbb0260	murata.ps.pb.pbb0260.application.Pbb0260PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.813	sec	2010/02/26 20:41:10	2010/02/26 20:41:10	2010/02/26 20:41:10
+pbb0270	murata.ps.pb.pbb0270.application.Pbb0270PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	291.985	sec	2010/02/26 20:47:10	2010/02/26 20:47:10	2010/02/26 20:47:10
+pbb0290	murata.ps.pb.pbb0290.application.Pbb0290PGMTest.txt	Tests	run:	19	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.375	sec	2010/02/26 20:48:37	2010/02/26 20:48:37	2010/02/26 20:48:37
+pbb0300	murata.ps.pb.pbb0300.application.Pbb0300PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.671	sec	2010/02/26 20:49:58	2010/02/26 20:49:58	2010/02/26 20:49:58
+pbb0310	murata.ps.pb.pbb0310.application.Pbb0310PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.985	sec	2010/02/26 20:51:10	2010/02/26 20:51:10	2010/02/26 20:51:10
+pbb0320	murata.ps.pb.pbb0320.application.Pbb0320PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.094	sec	2010/02/26 20:52:49	2010/02/26 20:52:49	2010/02/26 20:52:49
+pbb0330	murata.ps.pb.pbb0330.application.Pbb0330PGMTest.txt	Tests	run:	21	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	53.656	sec	2010/02/26 20:54:56	2010/02/26 20:54:56	2010/02/26 20:54:56
+pbb0340	murata.ps.pb.pbb0340.application.Pbb0340PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.781	sec	2010/02/26 20:56:16	2010/02/26 20:56:16	2010/02/26 20:56:16
+pbb0350	murata.ps.pb.pbb0350.application.Pbb0350PGMTest.txt	Tests	run:	10	Failures:	5	Errors:	0	Skipped:	0	Time	elapsed:	19.671	sec	<<<	FAILURE!	2010/02/26 20:57:44	2010/02/26 20:57:44	2010/02/26 20:57:44
+pbb0360	murata.ps.pb.pbb0360.application.Pbb0360PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.203	sec	2010/02/26 20:59:01	2010/02/26 20:59:01	2010/02/26 20:59:01
+pbb0370	murata.ps.pb.pbb0370.application.Pbb0370PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.218	sec	2010/02/26 21:00:16	2010/02/26 21:00:16	2010/02/26 21:00:16
+pbb0380	murata.ps.pb.pbb0380.application.Pbb0380PGMTest.txt	Tests	run:	10	Failures:	5	Errors:	0	Skipped:	0	Time	elapsed:	20.672	sec	<<<	FAILURE!	2010/02/26 21:01:48	2010/02/26 21:01:48	2010/02/26 21:01:48
+pbb0390	murata.ps.pb.pbb0390.application.Pbb0390PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.406	sec	2010/02/26 21:03:28	2010/02/26 21:03:28	2010/02/26 21:03:28
+pbb0410	murata.ps.pb.pbb0410.application.Pbb0410PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	9	Skipped:	0	Time	elapsed:	14.485	sec	<<<	FAILURE!	2010/02/26 21:04:48	2010/02/26 21:04:48	2010/02/26 21:04:48
+pbb0420	murata.ps.pb.pbb0420.application.Pbb0420PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.766	sec	2010/02/26 21:06:02	2010/02/26 21:06:02	2010/02/26 21:06:02
+pbb0430	murata.ps.pb.pbb0430.application.Pbb0430PGMTest.txt	Tests	run:	36	Failures:	0	Errors:	36	Skipped:	0	Time	elapsed:	8.734	sec	<<<	FAILURE!	2010/02/26 21:07:19	2010/02/26 21:07:19	2010/02/26 21:07:19
+pbb0440	murata.ps.pb.pbb0440.application.Pbb0440PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	54.5	sec	2010/02/26 21:09:25	2010/02/26 21:09:25	2010/02/26 21:09:25
+pbb0450	murata.ps.pb.pbb0450.application.Pbb0450PGMTest.txt	Tests	run:	22	Failures:	2	Errors:	16	Skipped:	0	Time	elapsed:	40.969	sec	<<<	FAILURE!	2010/02/26 21:11:17	2010/02/26 21:11:17	2010/02/26 21:11:17
+pbb0460	murata.ps.pb.pbb0460.application.Pbb0460PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.531	sec	2010/02/26 21:12:41	2010/02/26 21:12:41	2010/02/26 21:12:41
+pbb0470	murata.ps.pb.pbb0470.application.Pbb0470PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.609	sec	2010/02/26 21:14:02	2010/02/26 21:14:02	2010/02/26 21:14:02
+pbb0490	murata.ps.pb.pbb0490.application.Pbb0490PGMTest.txt	Tests	run:	58	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	28.172	sec	2010/02/26 21:15:40	2010/02/26 21:15:40	2010/02/26 21:15:40
+pbb0500	murata.ps.pb.pbb0500.application.Pbb0500PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.25	sec	2010/02/26 21:16:55	2010/02/26 21:16:55	2010/02/26 21:16:55
+pbb0510	murata.ps.pb.pbb0510.application.Pbb0510PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.719	sec	2010/02/26 21:18:23	2010/02/26 21:18:23	2010/02/26 21:18:23
+pbb0520	murata.ps.pb.pbb0520.application.Pbb0520PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.562	sec	2010/02/26 21:19:34	2010/02/26 21:19:34	2010/02/26 21:19:34
+pbb0530	murata.ps.pb.pbb0530.application.Pbb0530PGMTest.txt	Tests	run:	18	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.875	sec	2010/02/26 21:20:52	2010/02/26 21:20:52	2010/02/26 21:20:52
+pbb0540	murata.ps.pb.pbb0540.application.Pbb0540PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.688	sec	2010/02/26 21:22:11	2010/02/26 21:22:11	2010/02/26 21:22:11
+pbb0560	murata.ps.pb.pbb0560.application.Pbb0560PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	29.203	sec	2010/02/26 21:23:51	2010/02/26 21:23:51	2010/02/26 21:23:51
+pbb0570	murata.ps.pb.pbb0570.application.Pbb0570PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	55.203	sec	2010/02/26 21:25:57	2010/02/26 21:25:57	2010/02/26 21:25:57
+pbb0580	murata.ps.pb.pbb0580.application.Pbb0580PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	56.297	sec	2010/02/26 21:28:03	2010/02/26 21:28:03	2010/02/26 21:28:03
+pbb0590	murata.ps.pb.pbb0590.application.Pbb0590PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.25	sec	2010/02/26 21:29:18	2010/02/26 21:29:18	2010/02/26 21:29:18
+pbb0600	murata.ps.pb.pbb0600.application.Pbb0600PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.953	sec	2010/02/26 21:31:34	2010/02/26 21:31:34	2010/02/26 21:31:34
+pbb0600	murata.ps.pb.pbb0600.application.UpdateProductionPeriodByPartNamePSPImplTest.txt	Tests	run:	16	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.438	sec	2010/02/26 21:31:02	2010/02/26 21:31:02	2010/02/26 21:31:02
+pbb0600	murata.ps.pb.pbb0600.application.UpdateProductionPeriodByProcessSeriesPSPImplTest.txt	Tests	run:	16	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.062	sec	2010/02/26 21:31:51	2010/02/26 21:31:51	2010/02/26 21:31:51
+pbb0600	murata.ps.pb.pbb0600.application.UpdateProductionPeriodByProductionCapacityPSPImplTest.txt	Tests	run:	16	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.172	sec	2010/02/26 21:31:20	2010/02/26 21:31:20	2010/02/26 21:31:20
+pbb0610	murata.ps.pb.pbb0610.application.Pbb0610PGMTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.485	sec	2010/02/26 21:33:11	2010/02/26 21:33:11	2010/02/26 21:33:11
+pbb0620	murata.ps.pb.pbb0620.application.Pbb0620PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.047	sec	2010/02/26 21:34:33	2010/02/26 21:34:33	2010/02/26 21:34:33
+pbb0630	murata.ps.pb.pbb0630.application.Pbb0630PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.734	sec	2010/02/26 21:35:51	2010/02/26 21:35:51	2010/02/26 21:35:51
+pbb0640	murata.ps.pb.pbb0640.application.Pbb0640PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.219	sec	2010/02/26 21:37:04	2010/02/26 21:37:04	2010/02/26 21:37:04
+pbb0650	murata.ps.pb.pbb0650.application.Pbb0650PGMTest.txt	Tests	run:	23	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.468	sec	2010/02/26 21:38:23	2010/02/26 21:38:23	2010/02/26 21:38:23
+pbb0660	murata.ps.pb.pbb0660.application.Pbb0660PGMTest.txt	Tests	run:	18	Failures:	12	Errors:	0	Skipped:	0	Time	elapsed:	24.969	sec	<<<	FAILURE!	2010/02/26 21:39:54	2010/02/26 21:39:54	2010/02/26 21:39:54
+pbb0670	murata.ps.pb.pbb0670.application.Pbb0670PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.36	sec	2010/02/26 21:41:22	2010/02/26 21:41:22	2010/02/26 21:41:22
+pbb0680	murata.ps.pb.pbb0680.application.Pbb0680PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.141	sec	2010/02/26 21:42:43	2010/02/26 21:42:43	2010/02/26 21:42:43
+pbb0690	murata.ps.pb.pbb0690.application.Pbb0690PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.265	sec	2010/02/26 21:43:58	2010/02/26 21:43:58	2010/02/26 21:43:58
+pbb0700	murata.ps.pb.pbb0700.application.Pbb0700PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	21.203	sec	2010/02/26 21:45:24	2010/02/26 21:45:24	2010/02/26 21:45:24
+pbb0710	murata.ps.pb.pbb0710.application.Pbb0710PGMTest.txt	Tests	run:	9	Failures:	2	Errors:	0	Skipped:	0	Time	elapsed:	10.844	sec	<<<	FAILURE!	2010/02/26 21:46:42	2010/02/26 21:46:42	2010/02/26 21:46:42
+pbb0720	murata.ps.pb.pbb0720.application.Pbb0720PGMTest.txt	Tests	run:	21	Failures:	5	Errors:	0	Skipped:	0	Time	elapsed:	22.641	sec	<<<	FAILURE!	2010/02/26 21:48:12	2010/02/26 21:48:12	2010/02/26 21:48:12
+pbb0730	murata.ps.pb.pbb0730.application.Pbb0730PGMTest.txt	Tests	run:	40	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	64.234	sec	2010/02/26 21:50:28	2010/02/26 21:50:28	2010/02/26 21:50:28
+pbb0740	murata.ps.pb.pbb0740.application.FactoryOrderPeriodAcquisitionPSPImplTest.txt	Tests	run:	105	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	83.797	sec	2010/02/26 21:56:22	2010/02/26 21:56:22	2010/02/26 21:56:22
+pbb0740	murata.ps.pb.pbb0740.application.Pbb0740PGMTest.txt	Tests	run:	93	Failures:	70	Errors:	0	Skipped:	0	Time	elapsed:	99.062	sec	<<<	FAILURE!	2010/02/26 21:53:54	2010/02/26 21:53:54	2010/02/26 21:53:54
+pbb0740	murata.ps.pb.pbb0740.application.SupplyLTGuaranteeValueAcquisitionPSPImplTest.txt	Tests	run:	84	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	59.562	sec	2010/02/26 21:54:56	2010/02/26 21:54:56	2010/02/26 21:54:56
+pbb0750	murata.ps.pb.pbb0750.application.FactoryOrderPeriodAcquisitionPSPImplTest.txt	Tests	run:	105	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	91.344	sec	2010/02/26 22:04:38	2010/02/26 22:04:38	2010/02/26 22:04:38
+pbb0750	murata.ps.pb.pbb0750.application.Pbb0750PGMTest.txt	Tests	run:	116	Failures:	96	Errors:	0	Skipped:	0	Time	elapsed:	225.797	sec	<<<	FAILURE!	2010/02/26 22:03:04	2010/02/26 22:03:04	2010/02/26 22:03:04
+pbb0750	murata.ps.pb.pbb0750.application.SupplyLTGuaranteeValueAcquisitionPSPImplTest.txt	Tests	run:	84	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	56.953	sec	2010/02/26 21:59:16	2010/02/26 21:59:16	2010/02/26 21:59:16
+pbb0760	murata.ps.pb.pbb0760.application.Pbb0760PGMTest.txt	Tests	run:	24	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	54.391	sec	2010/02/26 22:07:10	2010/02/26 22:07:10	2010/02/26 22:07:10
+pbb0770	murata.ps.pb.pbb0770.application.Pbb0770PGMTest.txt	Tests	run:	3	Failures:	1	Errors:	0	Skipped:	0	Time	elapsed:	9.86	sec	<<<	FAILURE!	2010/02/26 22:08:51	2010/02/26 22:08:51	2010/02/26 22:08:51
+pbb0780	murata.ps.pb.pbb0780.application.Pbb0780PGMTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.906	sec	2010/02/26 22:10:13	2010/02/26 22:10:13	2010/02/26 22:10:13
+pbb0790	murata.ps.pb.pbb0790.application.Pbb0790PGMTest.txt	Tests	run:	34	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	40.61	sec	2010/02/26 22:12:04	2010/02/26 22:12:04	2010/02/26 22:12:04
+pbb0800	murata.ps.pb.pbb0800.application.Pbb0800PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.859	sec	2010/02/26 22:13:28	2010/02/26 22:13:28	2010/02/26 22:13:28
+pbb0810	murata.ps.pb.pbb0810.application.Pbb0810PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.687	sec	2010/02/26 22:14:48	2010/02/26 22:14:48	2010/02/26 22:14:48
+pbb0820	murata.ps.pb.pbb0820.application.Pbb0820PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.328	sec	2010/02/26 22:16:01	2010/02/26 22:16:01	2010/02/26 22:16:01
+pbb0830	murata.ps.pb.pbb0830.application.Pbb0830PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.953	sec	2010/02/26 22:17:16	2010/02/26 22:17:16	2010/02/26 22:17:16
+pbb0840	murata.ps.pb.pbb0840.application.Pbb0840PGMTest.txt	Tests	run:	16	Failures:	10	Errors:	0	Skipped:	0	Time	elapsed:	29.093	sec	<<<	FAILURE!	2010/02/26 22:18:52	2010/02/26 22:18:52	2010/02/26 22:18:52
+pbb0850	murata.ps.pb.pbb0850.application.Pbb0850PGMTest.txt	Tests	run:	20	Failures:	11	Errors:	0	Skipped:	0	Time	elapsed:	30.39	sec	<<<	FAILURE!	2010/02/26 22:20:37	2010/02/26 22:20:37	2010/02/26 22:20:37
+pbb0860	murata.ps.pb.pbb0860.application.Pbb0860PGMTest.txt	Tests	run:	16	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	18.406	sec	2010/02/26 22:22:02	2010/02/26 22:22:02	2010/02/26 22:22:02
+pbb0870	murata.ps.pb.pbb0870.application.Pbb0870PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	38.75	sec	2010/02/26 22:23:50	2010/02/26 22:23:50	2010/02/26 22:23:50
+pbb0880	murata.ps.pb.pbb0880.application.Pbb0880PGMTest.txt	Tests	run:	11	Failures:	8	Errors:	0	Skipped:	0	Time	elapsed:	21.047	sec	<<<	FAILURE!	2010/02/26 22:25:39	2010/02/26 22:25:39	2010/02/26 22:25:39
+pbb0890	murata.ps.pb.pbb0890.application.Pbb0890PGMTest.txt	Tests	run:	18	Failures:	15	Errors:	0	Skipped:	0	Time	elapsed:	26.859	sec	<<<	FAILURE!	2010/02/26 22:27:13	2010/02/26 22:27:13	2010/02/26 22:27:13
+pbb0900	murata.ps.pb.pbb0900.application.Pbb0900PGMTest.txt	Tests	run:	14	Failures:	9	Errors:	0	Skipped:	0	Time	elapsed:	20.188	sec	<<<	FAILURE!	2010/02/26 22:28:40	2010/02/26 22:28:40	2010/02/26 22:28:40
+pbb0910	murata.ps.pb.pbb0910.application.Pbb0910PGMTest.txt	Tests	run:	19	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	20.828	sec	2010/02/26 22:30:08	2010/02/26 22:30:08	2010/02/26 22:30:08
+pbb0920	murata.ps.pb.pbb0920.application.Pbb0920PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.328	sec	2010/02/26 22:31:25	2010/02/26 22:31:25	2010/02/26 22:31:25
+pbb0930	murata.ps.pb.pbb0930.application.Pbb0930PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	15	Skipped:	0	Time	elapsed:	12.015	sec	<<<	FAILURE!	2010/02/26 22:32:44	2010/02/26 22:32:44	2010/02/26 22:32:44
+pbb0940	murata.ps.pb.pbb0940.application.Pbb0940PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.578	sec	2010/02/26 22:33:58	2010/02/26 22:33:58	2010/02/26 22:33:58
+pbb0950	murata.ps.pb.pbb0950.application.Pbb0950PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.062	sec	2010/02/26 22:35:18	2010/02/26 22:35:18	2010/02/26 22:35:18
+pbb0960	murata.ps.pb.pbb0960.application.Pbb0960PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.25	sec	2010/02/26 22:36:30	2010/02/26 22:36:30	2010/02/26 22:36:30
+pbb0970	murata.ps.pb.pbb0970.application.Pbb0970PGMTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	21.813	sec	2010/02/26 22:37:57	2010/02/26 22:37:57	2010/02/26 22:37:57
+pbb0980	murata.ps.pb.pbb0980.application.CreateInfoForOriginalDataPSPImplTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.984	sec	2010/02/26 22:39:32	2010/02/26 22:39:32	2010/02/26 22:39:32
+pbb0980	murata.ps.pb.pbb0980.application.CreateInfoForProductStockRPSPImplTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.765	sec	2010/02/26 22:39:49	2010/02/26 22:39:49	2010/02/26 22:39:49
+pbb0980	murata.ps.pb.pbb0980.application.Pbb0980PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.828	sec	2010/02/26 22:40:02	2010/02/26 22:40:02	2010/02/26 22:40:02
+pbb1000	murata.ps.pb.pbb1000.application.Pbb1000PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.859	sec	2010/02/26 22:41:29	2010/02/26 22:41:29	2010/02/26 22:41:29
+pbb1020	murata.ps.pb.pbb1020.application.Pbb1020PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.719	sec	2010/02/26 22:42:49	2010/02/26 22:42:49	2010/02/26 22:42:49
+pbb1030	murata.ps.pb.pbb1030.application.Pbb1030PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.078	sec	2010/02/26 22:44:00	2010/02/26 22:44:00	2010/02/26 22:44:00
+pbo0010	murata.ps.pb.pbo0010.service.Pbo0010_02ServiceTest.txt	Tests	run:	66	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	42.953	sec	2010/02/26 22:45:57	2010/02/26 22:45:57	2010/02/26 22:45:57
+pbo0020	murata.ps.pb.pbo0020.service.Pbo0020_02ServiceTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.437	sec	2010/02/26 22:47:33	2010/02/26 22:47:33	2010/02/26 22:47:33
+pbo0030	murata.ps.pb.pbo0030.application.Pbo0030PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.359	sec	2010/02/26 22:48:54	2010/02/26 22:48:54	2010/02/26 22:48:54
+pbo0040	murata.ps.pb.pbo0040.application.Pbo0040PGMTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.078	sec	2010/02/26 22:50:14	2010/02/26 22:50:14	2010/02/26 22:50:14
+peb0010	murata.ps.pe.peb0010.application.Peb0010PGMTest.txt	Tests	run:	150	Failures:	0	Errors:	81	Skipped:	0	Time	elapsed:	42.593	sec	<<<	FAILURE!	2010/02/26 22:52:44	2010/02/26 22:52:44	2010/02/26 22:52:44
+peb0020	murata.ps.pe.peb0020.application.Peb0020PGMTest.txt	Tests	run:	166	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	113.016	sec	<<<	FAILURE!	2010/02/26 22:57:42	2010/02/26 22:57:42	2010/02/26 22:57:42
+peo0010
+peo0020	murata.ps.pe.peo0020.service.Peo0020_01ServiceTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	40.032	sec	2010/02/26 23:00:56	2010/02/26 23:00:56	2010/02/26 23:00:56
+peo0030	murata.ps.pe.peo0030.service.Peo0030_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.39	sec	2010/02/26 23:03:06	2010/02/26 23:03:06	2010/02/26 23:03:06
+peo0030	murata.ps.pe.peo0030.service.Peo0030_02ServiceTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	40.766	sec	2010/02/26 23:02:55	2010/02/26 23:02:55	2010/02/26 23:02:55
+peo0040	murata.ps.pe.peo0040.service.Peo0040_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.969	sec	2010/02/26 23:04:30	2010/02/26 23:04:30	2010/02/26 23:04:30
+peo0050	murata.ps.pe.peo0050.service.Peo0050_01ServiceTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.609	sec	2010/02/26 23:05:52	2010/02/26 23:05:52	2010/02/26 23:05:52
+peo0060
+peo0070	murata.ps.pe.peo0070.service.Peo0070_01ServiceTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.047	sec	2010/02/26 23:08:46	2010/02/26 23:08:46	2010/02/26 23:08:46
+peo0080	murata.ps.pe.peo0080.service.peo0080_01ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.453	sec	2010/02/26 23:10:27	2010/02/26 23:10:27	2010/02/26 23:10:27
+peo0080	murata.ps.pe.peo0080.service.peo0080_02ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.703	sec	2010/02/26 23:10:17	2010/02/26 23:10:17	2010/02/26 23:10:17
+peo0090	murata.ps.pe.peo0090.service.Peo0090_02ServiceTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.547	sec	2010/02/26 23:12:00	2010/02/26 23:12:00	2010/02/26 23:12:00
+peo0100	murata.ps.pe.peo0100.service.Peo0100_02ServiceTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.328	sec	2010/02/26 23:13:29	2010/02/26 23:13:29	2010/02/26 23:13:29
+peo0110
+peo0120	murata.ps.pe.peo0120.service.Peo0120_01ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.344	sec	2010/02/26 23:16:08	2010/02/26 23:16:08	2010/02/26 23:16:08
+peo0130	murata.ps.pe.peo0130.service.peo0130_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.75	sec	2010/02/26 23:17:42	2010/02/26 23:17:42	2010/02/26 23:17:42
+peo0140
+peo0150	murata.ps.pe.peo0150.service.peo0150_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.578	sec	2010/02/26 23:20:28	2010/02/26 23:20:28	2010/02/26 23:20:28
+peo0160	murata.ps.pe.peo0160.service.peo0160_01ServiceTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.625	sec	2010/02/26 23:22:12	2010/02/26 23:22:12	2010/02/26 23:22:12
+pgb0010	murata.ps.pg.pgb0010.application.Pgb0010PGMTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.547	sec	2010/02/26 23:23:37	2010/02/26 23:23:37	2010/02/26 23:23:37
+pgb0020	murata.ps.pg.pgb0020.application.Pgb0020PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.547	sec	2010/02/26 23:24:57	2010/02/26 23:24:57	2010/02/26 23:24:57
+pjb0010	murata.ps.pj.pjb0010.application.Pjb0010PGMTest.txt	Tests	run:	30	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	19.265	sec	2010/02/26 23:26:27	2010/02/26 23:26:27	2010/02/26 23:26:27
+pjb0040	murata.ps.pj.pjb0040.application.Pjb0040PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.359	sec	2010/02/26 23:27:45	2010/02/26 23:27:45	2010/02/26 23:27:45
+pjb0050	murata.ps.pj.pjb0050.application.Pjb0050PGMTest.txt	Tests	run:	46	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	89.078	sec	2010/02/26 23:30:22	2010/02/26 23:30:22	2010/02/26 23:30:22
+pjb0060	murata.ps.pj.pjb0060.application.Pjb0060PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.078	sec	2010/02/26 23:31:45	2010/02/26 23:31:45	2010/02/26 23:31:45
+pjb0080	murata.ps.pj.pjb0080.application.Pjb0080PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.453	sec	2010/02/26 23:33:04	2010/02/26 23:33:04	2010/02/26 23:33:04
+pjb0090	murata.ps.pj.pjb0090.application.Pjb0090PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.156	sec	2010/02/26 23:34:22	2010/02/26 23:34:22	2010/02/26 23:34:22
+pjb0100	murata.ps.pj.pjb0100.application.Pjb0100PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.562	sec	2010/02/26 23:35:58	2010/02/26 23:35:58	2010/02/26 23:35:58
+pjb0110	murata.ps.pj.pjb0110.application.Pjb0110PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.688	sec	2010/02/26 23:38:15	2010/02/26 23:38:15	2010/02/26 23:38:15
+pjb0130	murata.ps.pj.pjb0130.application.Pjb0130PGMTest.txt	Tests	run:	97	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	1257.625	sec	2010/02/27 00:01:42	2010/02/27 00:01:42	2010/02/27 00:01:42
+pjb0140	murata.ps.pj.pjb0140.application.Pjb0140PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	40.469	sec	2010/02/27 00:03:54	2010/02/27 00:03:54	2010/02/27 00:03:54
+pjb0150	murata.ps.pj.pjb0150.application.Pjb0150PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	21.094	sec	2010/02/27 00:05:27	2010/02/27 00:05:27	2010/02/27 00:05:27
+pjb0160	murata.ps.pj.pjb0160.application.Pjb0160PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	45.437	sec	2010/03/01 16:14:32	2010/03/01 16:14:32	2010/03/01 16:14:32
+pjb0170	murata.ps.pj.pjb0170.application.Pjb0170PGMTest.txt	Tests	run:	34	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	33.156	sec	2010/03/01 16:16:17	2010/03/01 16:16:17	2010/03/01 16:16:17
+pjb0180	murata.ps.pj.pjb0180.application.Pjb0180PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	39.484	sec	2010/03/01 16:18:05	2010/03/01 16:18:05	2010/03/01 16:18:05
+pjb0190	murata.ps.pj.pjb0190.application.Pjb0190PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.735	sec	2010/03/01 16:19:21	2010/03/01 16:19:21	2010/03/01 16:19:21
+pjb0200	murata.ps.pj.pjb0200.application.Pjb0200PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	48.062	sec	2010/03/01 16:21:15	2010/03/01 16:21:15	2010/03/01 16:21:15
+pjb0260	murata.ps.pj.pjb0260.application.Pjb0260PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.828	sec	2010/03/01 16:22:31	2010/03/01 16:22:31	2010/03/01 16:22:31
+pjb0270	murata.ps.pj.pjb0270.application.Pjb0270PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.828	sec	2010/03/01 16:23:47	2010/03/01 16:23:47	2010/03/01 16:23:47
+pjb0280	murata.ps.pj.pjb0280.application.Pjb0280PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.421	sec	2010/03/01 16:25:00	2010/03/01 16:25:00	2010/03/01 16:25:00
+pjb0290	murata.ps.pj.pjb0290.application.Pjb0290PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	45.156	sec	2010/03/01 16:26:48	2010/03/01 16:26:48	2010/03/01 16:26:48
+pjb0310	murata.ps.pj.pjb0310.application.Pjb0310PGMTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.219	sec	2010/03/01 16:28:03	2010/03/01 16:28:03	2010/03/01 16:28:03
+pjb0330	murata.ps.pj.pjb0330.application.Pjb0330PGMTest.txt	Tests	run:	31	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	33.266	sec	2010/03/01 16:29:39	2010/03/01 16:29:39	2010/03/01 16:29:39
+pjb0440	murata.ps.pj.pjb0440.application.Pjb0440PGMTest.txt	Tests	run:	4	Failures:	3	Errors:	0	Skipped:	0	Time	elapsed:	14.39	sec	<<<	FAILURE!	2010/03/01 16:31:00	2010/03/01 16:31:00	2010/03/01 16:31:00
+pjb0450	murata.ps.pj.pjb0450.application.Pjb0450PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.657	sec	2010/03/01 16:32:21	2010/03/01 16:32:21	2010/03/01 16:32:21
+pjo0010	murata.ps.pj.pjo0010.service.Pjo0010_01ServiceTest.txt	Tests	run:	37	Failures:	1	Errors:	10	Skipped:	0	Time	elapsed:	111.453	sec	<<<	FAILURE!	2010/03/01 16:35:33	2010/03/01 16:35:33	2010/03/01 16:35:33
+pjo0020	murata.ps.pj.pjo0020.service.Pjo0020_01ServiceTest.txt	Tests	run:	24	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	91.156	sec	2010/03/01 16:38:31	2010/03/01 16:38:31	2010/03/01 16:38:31
+pjo0030	murata.ps.pj.pjo0030.application.Pjo0030PGMTest.txt	Tests	run:	5	Failures:	5	Errors:	0	Skipped:	0	Time	elapsed:	40.047	sec	<<<	FAILURE!	2010/03/01 16:40:37	2010/03/01 16:40:37	2010/03/01 16:40:37
+pjo0030	murata.ps.pj.pjo0030.service.Pjo0030_02ServiceTest.txt	Tests	run:	48	Failures:	0	Errors:	8	Skipped:	0	Time	elapsed:	160.516	sec	<<<	FAILURE!	2010/03/01 16:43:20	2010/03/01 16:43:20	2010/03/01 16:43:20
+pjo0040	murata.ps.pj.pjo0040.service.Pjo0040_02ServiceTest.txt	Tests	run:	19	Failures:	2	Errors:	17	Skipped:	0	Time	elapsed:	16.094	sec	<<<	FAILURE!	2010/03/01 16:45:13	2010/03/01 16:45:13	2010/03/01 16:45:13
+pjo0050	murata.ps.pj.pjo0050.service.Pjo0050_01ServiceTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.75	sec	2010/03/01 16:46:49	2010/03/01 16:46:49	2010/03/01 16:46:49
+pjo0060	murata.ps.pj.pjo0060.service.Pjo0060_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	6	Skipped:	0	Time	elapsed:	21.75	sec	<<<	FAILURE!	2010/03/01 16:48:22	2010/03/01 16:48:22	2010/03/01 16:48:22
+pjo0070	murata.ps.pj.pjo0070.service.Pjo0070_01ServiceTest.txt	Tests	run:	24	Failures:	0	Errors:	24	Skipped:	0	Time	elapsed:	40.843	sec	<<<	FAILURE!	2010/03/01 16:52:10	2010/03/01 16:52:10	2010/03/01 16:52:10
+pjo0080	murata.ps.pj.pjo0080.application.Pjo0080PGMTest.txt	Tests	run:	20	Failures:	17	Errors:	1	Skipped:	0	Time	elapsed:	70.078	sec	<<<	FAILURE!	2010/03/01 20:17:24	2010/03/01 20:17:24	2010/03/01 20:17:24
+pjo0080	murata.ps.pj.pjo0080.service.Pjo0080_01ServiceTest.txt	Tests	run:	1	Failures:	1	Errors:	0	Skipped:	0	Time	elapsed:	252.734	sec	<<<	FAILURE!	2010/03/01 20:16:12	2010/03/01 20:16:12	2010/03/01 20:16:12
+pjo0090	murata.ps.pj.pjo0090.application.Pjo0090_01PGMTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	23.312	sec	<<<	FAILURE!	2010/03/01 16:57:18	2010/03/01 16:57:18	2010/03/01 16:57:18
+pjo0090	murata.ps.pj.pjo0090.application.Pjo0090_02PGMTest.txt	Tests	run:	13	Failures:	0	Errors:	13	Skipped:	0	Time	elapsed:	32.343	sec	<<<	FAILURE!	2010/03/01 16:56:52	2010/03/01 16:56:52	2010/03/01 16:56:52
+pjo0100	murata.ps.pj.pjo0100.application.Pjo0100_01PGMTest.txt	Tests	run:	87	Failures:	1	Errors:	0	Skipped:	0	Time	elapsed:	118.234	sec	<<<	FAILURE!	2010/03/01 17:01:02	2010/03/01 17:01:02	2010/03/01 17:01:02
+pjo0100	murata.ps.pj.pjo0100.service.Pjo0100_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.312	sec	2010/03/01 16:59:02	2010/03/01 16:59:02	2010/03/01 16:59:02
+pjo0120	murata.ps.pj.pjo0120.application.Pjo0120PGMTest.txt	Tests	run:	46	Failures:	0	Errors:	44	Skipped:	0	Time	elapsed:	92.75	sec	<<<	FAILURE!	2010/03/01 17:04:26	2010/03/01 17:04:26	2010/03/01 17:04:26
+pjo0120	murata.ps.pj.pjo0120.behavior.Pjo0120_01BehaviorImplTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.531	sec	2010/03/01 17:02:51	2010/03/01 17:02:51	2010/03/01 17:02:51
+pjo0130	murata.ps.pj.pjo0130.application.Pjo0130PGMTest.txt	Tests	run:	252	Failures:	61	Errors:	53	Skipped:	0	Time	elapsed:	519.297	sec	<<<	FAILURE!	2010/03/01 17:15:12	2010/03/01 17:15:12	2010/03/01 17:15:12
+pjo0130	murata.ps.pj.pjo0130.behavior.Pjo0130_01BehaviorImplTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	15.766	sec	<<<	FAILURE!	2010/03/01 17:15:31	2010/03/01 17:15:31	2010/03/01 17:15:31
+pjo0140	murata.ps.pj.pjo0140.application.Pjo0140_01PGMTest.txt	Tests	run:	126	Failures:	3	Errors:	1	Skipped:	0	Time	elapsed:	267.813	sec	<<<	FAILURE!	2010/03/01 17:22:41	2010/03/01 17:22:41	2010/03/01 17:22:41
+pjo0140	murata.ps.pj.pjo0140.application.Pjo0140_02PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	41.922	sec	2010/03/01 17:18:11	2010/03/01 17:18:11	2010/03/01 17:18:11
+pjo0150	murata.ps.pj.pjo0150.application.Pjo0150PGMTest.txt	Tests	run:	22	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	217.265	sec	<<<	FAILURE!	2010/03/02 04:56:56	2010/03/02 04:56:56	2010/03/02 04:56:56
+pjo0160	murata.ps.pj.pjo0160.application.Pjo0160_01PGMTest.txt	Tests	run:	41	Failures:	0	Errors:	7	Skipped:	0	Time	elapsed:	1114.562	sec	<<<	FAILURE!	2010/03/01 20:37:22	2010/03/01 20:37:22	2010/03/01 20:37:22
+pjo0180	murata.ps.pj.pjo0180.application.Pjo0180PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	16.266	sec	<<<	FAILURE!	2010/03/01 20:38:20	2010/03/01 20:38:20	2010/03/01 20:38:20
+pjo0190	murata.ps.pj.pjo0190.application.Pjo0190PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	25.891	sec	<<<	FAILURE!	2010/03/01 20:39:58	2010/03/01 20:39:58	2010/03/01 20:39:58
+pjo0220	murata.ps.pj.pjo0220.application.Pjo0220PGMTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	31.875	sec	2010/03/01 20:41:43	2010/03/01 20:41:43	2010/03/01 20:41:43
+pjo0230	murata.ps.pj.pjo0230.service.Pjo0230_01ServiceTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.859	sec	2010/03/01 20:43:11	2010/03/01 20:43:11	2010/03/01 20:43:11
+pjo0240	murata.ps.pj.pjo0240.service.Pjo0240_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.218	sec	2010/03/01 20:44:37	2010/03/01 20:44:37	2010/03/01 20:44:37
+pjo0240	murata.ps.pj.pjo0240.service.Pjo0240_02ServiceTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.063	sec	2010/03/01 20:44:52	2010/03/01 20:44:52	2010/03/01 20:44:52
+pjo0250	murata.ps.pj.pjo0250.service.Pjo0250_02ServiceTest.txt	Tests	run:	5	Failures:	4	Errors:	0	Skipped:	0	Time	elapsed:	13.641	sec	<<<	FAILURE!	2010/03/01 20:46:22	2010/03/01 20:46:22	2010/03/01 20:46:22
+pjo0260	murata.ps.pj.pjo0260.service.Pjo0260_01ServiceTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.297	sec	2010/03/01 20:47:52	2010/03/01 20:47:52	2010/03/01 20:47:52
+pjo0270	murata.ps.pj.pjo0270.service.Pjo0270_01ServiceTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.672	sec	2010/03/01 20:49:17	2010/03/01 20:49:17	2010/03/01 20:49:17
+pjo0280	murata.ps.pj.pjo0280.service.Pjo0280_02ServiceTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	19.516	sec	2010/03/01 20:50:52	2010/03/01 20:50:52	2010/03/01 20:50:52
+pjo0290	murata.ps.pj.pjo0290.service.Pjo0290_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.157	sec	2010/03/01 20:52:23	2010/03/01 20:52:23	2010/03/01 20:52:23
+pjo0300	murata.ps.pj.pjo0300.service.Pjo0300_01ServiceTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	18.454	sec	2010/03/01 20:54:02	2010/03/01 20:54:02	2010/03/01 20:54:02
+pjo0320	murata.ps.pj.pjo0320.service.Pjo0320_01ServiceTest.txt	Tests	run:	64	Failures:	0	Errors:	16	Skipped:	0	Time	elapsed:	135.828	sec	<<<	FAILURE!	2010/03/01 20:57:54	2010/03/01 20:57:54	2010/03/01 20:57:54
+pjo0330
+pjo0340	murata.ps.pj.pjo0340.application.Pjo0340PGMTest.txt	Tests	run:	21	Failures:	0	Errors:	9	Skipped:	0	Time	elapsed:	69.64	sec	<<<	FAILURE!	2010/03/01 21:01:08	2010/03/01 21:01:08	2010/03/01 21:01:08
+pjo0350	murata.ps.pj.pjo0350.application.Pjo0350PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	16.062	sec	<<<	FAILURE!	2010/03/01 21:03:05	2010/03/01 21:03:05	2010/03/01 21:03:05
+pjo0350	murata.ps.pj.pjo0350.service.Pjo0350_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	6.75	sec	<<<	FAILURE!	2010/03/01 21:03:14	2010/03/01 21:03:14	2010/03/01 21:03:14
+pjo0360	murata.ps.pj.pjo0360.service.Pjo0360_01ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	19.141	sec	2010/03/01 21:04:44	2010/03/01 21:04:44	2010/03/01 21:04:44
+pjo0370	murata.ps.pj.pjo0370.service.Pjo0370_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.906	sec	2010/03/01 21:06:06	2010/03/01 21:06:06	2010/03/01 21:06:06
+pjo0380	murata.ps.pj.pjo0380.service.Pjo0380_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.657	sec	2010/03/01 21:07:28	2010/03/01 21:07:28	2010/03/01 21:07:28
+pjo0390	murata.ps.pj.pjo0390.service.Pjo0390_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.937	sec	2010/03/01 21:08:50	2010/03/01 21:08:50	2010/03/01 21:08:50
+pjo0400	murata.ps.pj.pjo0400.service.Pjo0400_01ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.016	sec	2010/03/01 21:10:10	2010/03/01 21:10:10	2010/03/01 21:10:10
+pjo0420	murata.ps.pj.pjo0420.service.Pjo0420_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.812	sec	2010/03/01 21:11:32	2010/03/01 21:11:32	2010/03/01 21:11:32
+pjo0430	murata.ps.pj.pjo0430.service.Pjo0430_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.656	sec	2010/03/01 21:12:52	2010/03/01 21:12:52	2010/03/01 21:12:52
+pjo0440	murata.ps.pj.pjo0440.service.Pjo0440_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.359	sec	2010/03/01 21:14:12	2010/03/01 21:14:12	2010/03/01 21:14:12
+pjo0450	murata.ps.pj.pjo0450.service.Pjo0450_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.187	sec	2010/03/01 21:15:32	2010/03/01 21:15:32	2010/03/01 21:15:32
+pmb0140	murata.ps.pm.pmb0140.application.Pmb0140PGMTest.txt	Tests	run:	26	Failures:	20	Errors:	0	Skipped:	0	Time	elapsed:	105.157	sec	<<<	FAILURE!	2010/03/01 21:18:49	2010/03/01 21:18:49	2010/03/01 21:18:49
+pmb0150	murata.ps.pm.pmb0150.application.Pmb0150PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.156	sec	2010/03/01 21:20:26	2010/03/01 21:20:26	2010/03/01 21:20:26
+pmb0160	murata.ps.pm.pmb0160.application.Pmb0160PGMTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	10.266	sec	<<<	FAILURE!	2010/03/01 18:27:02	2010/03/01 18:27:02	2010/03/01 18:27:02
+pmb0180
+pmo0060	murata.ps.pm.pmo0060.application.Pmo0060PGMTest.txt	Tests	run:	15	Failures:	0	Errors:	8	Skipped:	0	Time	elapsed:	44.953	sec	<<<	FAILURE!	2010/03/01 21:22:27	2010/03/01 21:22:27	2010/03/01 21:22:27
+pmo0080	murata.ps.pm.pmo0080.application.Pmo0080PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	35.141	sec	<<<	FAILURE!	2010/03/01 21:24:31	2010/03/01 21:24:31	2010/03/01 21:24:31
+pmo0100	murata.ps.pm.pmo0100.application.Pmo0100PGMTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	24.594	sec	2010/03/01 21:26:13	2010/03/01 21:26:13	2010/03/01 21:26:13
+pmo0110	murata.ps.pm.pmo0110.application.Pmo0110PGMTest.txt	Tests	run:	8	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.875	sec	2010/03/01 21:27:38	2010/03/01 21:27:38	2010/03/01 21:27:38
+ppb0010	murata.ps.pp.ppb0010.application.Ppb0010PGMTest.txt	Tests	run:	215	Failures:	2	Errors:	200	Skipped:	0	Time	elapsed:	258.203	sec	<<<	FAILURE!	2010/03/01 21:34:14	2010/03/01 21:34:14	2010/03/01 21:34:14
+ppb0020	murata.ps.pp.ppb0020.application.Ppb0020PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	35.438	sec	2010/03/01 21:36:07	2010/03/01 21:36:07	2010/03/01 21:36:07
+ppb0030	murata.ps.pp.ppb0030.application.Ppb0030PGMTest.txt	Tests	run:	65	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	78.063	sec	2010/03/01 21:39:04	2010/03/01 21:39:04	2010/03/01 21:39:04
+ppb0040	murata.ps.pp.ppb0040.application.Ppb0040PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.844	sec	2010/03/01 21:40:28	2010/03/01 21:40:28	2010/03/01 21:40:28
+ppb0050	murata.ps.pp.ppb0050.application.Ppb0050PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.406	sec	2010/03/01 21:41:48	2010/03/01 21:41:48	2010/03/01 21:41:48
+ppb0060	murata.ps.pp.ppb0060.application.Ppb0060PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.234	sec	2010/03/01 21:43:04	2010/03/01 21:43:04	2010/03/01 21:43:04
+ppb0070	murata.ps.pp.ppb0070.application.Ppb0070PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.453	sec	2010/03/01 21:44:21	2010/03/01 21:44:21	2010/03/01 21:44:21
+ppb0080	murata.ps.pp.ppb0080.application.Ppb0080PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.719	sec	2010/03/01 21:45:38	2010/03/01 21:45:38	2010/03/01 21:45:38
+ppb0090	murata.ps.pp.ppb0090.application.Ppb0090PGMTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.5	sec	2010/03/01 21:47:03	2010/03/01 21:47:03	2010/03/01 21:47:03
+ppb0100	murata.ps.pp.ppb0100.application.Ppb0100PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.844	sec	2010/03/01 21:48:23	2010/03/01 21:48:23	2010/03/01 21:48:23
+ppb0110	murata.ps.pp.ppb0110.application.Ppb0110PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.891	sec	2010/03/01 21:49:42	2010/03/01 21:49:42	2010/03/01 21:49:42
+ppb0120	murata.ps.pp.ppb0120.application.Ppb0120PGMTest.txt	Tests	run:	47	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	24.984	sec	2010/03/01 21:51:19	2010/03/01 21:51:19	2010/03/01 21:51:19
+ppb0130	murata.ps.pp.ppb0130.application.Ppb0130PGMTest.txt	Tests	run:	7	Failures:	5	Errors:	1	Skipped:	0	Time	elapsed:	18.329	sec	<<<	FAILURE!	2010/03/01 21:53:06	2010/03/01 21:53:06	2010/03/01 21:53:06
+ppb0140	murata.ps.pp.ppb0140.application.Ppb0140PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	26.047	sec	2010/03/01 21:54:47	2010/03/01 21:54:47	2010/03/01 21:54:47
+ppb0150	murata.ps.pp.ppb0150.application.Ppb0150PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	22.922	sec	2010/03/01 21:56:27	2010/03/01 21:56:27	2010/03/01 21:56:27
+ppb0160	murata.ps.pp.ppb0160.application.Ppb0160PGMTest.txt	Tests	run:	8	Failures:	7	Errors:	0	Skipped:	0	Time	elapsed:	19.375	sec	<<<	FAILURE!	2010/03/01 21:57:58	2010/03/01 21:57:58	2010/03/01 21:57:58
+ppb0170	murata.ps.pp.ppb0170.application.Ppb0170PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.813	sec	2010/03/01 21:59:19	2010/03/01 21:59:19	2010/03/01 21:59:19
+ppb0180	murata.ps.pp.ppb0180.application.Ppb0180PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	27.391	sec	2010/03/01 22:00:54	2010/03/01 22:00:54	2010/03/01 22:00:54
+ppb0190	murata.ps.pp.ppb0190.application.Ppb0190PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	25.094	sec	2010/03/01 22:03:15	2010/03/01 22:03:15	2010/03/01 22:03:15
+ppb0200	murata.ps.pp.ppb0200.application.Ppb0200PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	35.11	sec	2010/03/01 22:05:37	2010/03/01 22:05:37	2010/03/01 22:05:37
+ppb0210	murata.ps.pp.ppb0210.application.Ppb0210PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.844	sec	2010/03/01 22:07:29	2010/03/01 22:07:29	2010/03/01 22:07:29
+ppb0220	murata.ps.pp.ppb0220.application.Ppb0220PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	20.562	sec	2010/03/01 22:09:48	2010/03/01 22:09:48	2010/03/01 22:09:48
+pscancellationfororderreceivednestsc	murata.ps.servicechain.pscancellationfororderreceived.PsCancellationForOrderReceivedNestSCTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	5.328	sec	<<<	FAILURE!	2010/03/01 22:11:55	2010/03/01 22:11:55	2010/03/01 22:11:55
+pscontentchangefororderreceivednestsc	murata.ps.servicechain.pscontentchangefororderreceived.PsContentChangeForOrderReceivedNestSCTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	35.093	sec	2010/03/01 22:13:45	2010/03/01 22:13:45	2010/03/01 22:13:45
+psdeliverydatechangefororderreceivednestsc	murata.ps.servicechain.psdeliverydatechangefororderreceived.PsDeliveryDateChangeForOrderReceivedNestSCTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	13.297	sec	<<<	FAILURE!	2010/03/01 22:15:19	2010/03/01 22:15:19	2010/03/01 22:15:19
+psdeliveryinquirycancellationnestsc	murata.ps.servicechain.psdeliveryinquirycancellation.PsDeliveryInquiryCancellationNestSCTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.593	sec	2010/03/01 22:17:00	2010/03/01 22:17:00	2010/03/01 22:17:00
+psdeliveryinquirynestsc	murata.ps.servicechain.psdeliveryinquiry.PsDeliveryInquiryNestSCTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	22.953	sec	2010/03/01 22:18:38	2010/03/01 22:18:38	2010/03/01 22:18:38
+psimmediatefactoryshipmentnestsc	murata.ps.servicechain.psimmediatefactoryshipment.PsImmediateFactoryShipmentNestSCTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	5.578	sec	<<<	FAILURE!	2010/03/01 22:20:09	2010/03/01 22:20:09	2010/03/01 22:20:09
+psorderbasedondeliveryinquirynestsc
+psprecedingfactoryordercollectivecancelnestsc
+psregistrationfororderreceivednestsc
+pub0010	murata.ps.pu.pub0010.application.Pub0010PGMTest.txt	Tests	run:	56	Failures:	34	Errors:	0	Skipped:	0	Time	elapsed:	67.219	sec	<<<	FAILURE!	2010/03/01 22:25:21	2010/03/01 22:25:21	2010/03/01 22:25:21
+pub0020	murata.ps.pu.pub0020.application.Pub0020PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.016	sec	2010/03/01 22:26:51	2010/03/01 22:26:51	2010/03/01 22:26:51
+pub0030	murata.ps.pu.pub0030.application.Pub0030PGMTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	20.188	sec	2010/03/01 22:28:23	2010/03/01 22:28:23	2010/03/01 22:28:23
+pub0040	murata.ps.pu.pub0040.application.Pub0040PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.546	sec	2010/03/01 22:29:46	2010/03/01 22:29:46	2010/03/01 22:29:46
+pub0050	murata.ps.pu.pub0050.application.Pub0050PGMTest.txt	Tests	run:	26	Failures:	26	Errors:	0	Skipped:	0	Time	elapsed:	40.875	sec	<<<	FAILURE!	2010/03/01 22:31:38	2010/03/01 22:31:38	2010/03/01 22:31:38
+pub0060	murata.ps.pu.pub0060.application.Pub0060PGMTest.txt	Tests	run:	45	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	25.562	sec	2010/03/01 22:33:27	2010/03/01 22:33:27	2010/03/01 22:33:27
+pub0070	murata.ps.pu.pub0070.application.Pub0070PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.547	sec	2010/03/01 22:34:54	2010/03/01 22:34:54	2010/03/01 22:34:54
+pub0080	murata.ps.pu.pub0080.behavior.Pub0080BehaviorImplTest.txt	Tests	run:	11	Failures:	0	Errors:	9	Skipped:	0	Time	elapsed:	43.296	sec	<<<	FAILURE!	2010/03/01 22:36:50	2010/03/01 22:36:50	2010/03/01 22:36:50
+pub0090	murata.ps.pu.pub0090.application.Pub0090PGMTest.txt	Tests	run:	14	Failures:	13	Errors:	0	Skipped:	0	Time	elapsed:	20.203	sec	<<<	FAILURE!	2010/03/01 22:38:26	2010/03/01 22:38:26	2010/03/01 22:38:26
+pub0100	murata.ps.pu.pub0100.application.Pub0100PGMTest.txt	Tests	run:	3	Failures:	1	Errors:	2	Skipped:	0	Time	elapsed:	30.266	sec	<<<	FAILURE!	2010/03/01 22:40:06	2010/03/01 22:40:06	2010/03/01 22:40:06
+pub0110	murata.ps.pu.pub0110.application.Pub0110PGMTest.txt	Tests	run:	32	Failures:	4	Errors:	21	Skipped:	0	Time	elapsed:	150.453	sec	<<<	FAILURE!	2010/03/01 22:43:56	2010/03/01 22:43:56	2010/03/01 22:43:56
+pub0120	murata.ps.pu.pub0120.application.Pub0120PGMTest.txt	Tests	run:	16	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	22.578	sec	2010/03/01 22:45:35	2010/03/01 22:45:35	2010/03/01 22:45:35
+pub0130	murata.ps.pu.pub0130.application.Pub0130PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.25	sec	2010/03/01 22:46:52	2010/03/01 22:46:52	2010/03/01 22:46:52
+pub0140	murata.ps.pu.pub0140.application.Pub0140PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.796	sec	2010/03/01 22:48:11	2010/03/01 22:48:11	2010/03/01 22:48:11
+pub0150	murata.ps.pu.pub0150.application.Pub0150PGMTest.txt	Tests	run:	52	Failures:	51	Errors:	0	Skipped:	0	Time	elapsed:	25.672	sec	<<<	FAILURE!	2010/03/01 22:49:50	2010/03/01 22:49:50	2010/03/01 22:49:50
+pub0160	murata.ps.pu.pub0160.application.Pub0160PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.766	sec	2010/03/01 22:51:06	2010/03/01 22:51:06	2010/03/01 22:51:06
+pub0170	murata.ps.pu.pub0170.application.Pub0170PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.328	sec	2010/03/01 22:54:10	2010/03/01 22:54:10	2010/03/01 22:54:10
+pub0180	murata.ps.pu.pub0180.editor.Pub0180EditorTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	6.828	sec	<<<	FAILURE!	2010/03/01 22:55:43	2010/03/01 22:55:43	2010/03/01 22:55:43
+pub0190	murata.ps.pu.pub0190.application.Pub0190PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	27.328	sec	2010/03/01 22:57:22	2010/03/01 22:57:22	2010/03/01 22:57:22
+puiko01	murata.ps.pu.puiko01.application.Puiko01PGMTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	17.765	sec	<<<	FAILURE!	2010/03/01 22:58:51	2010/03/01 22:58:51	2010/03/01 22:58:51
+puiko02	murata.ps.pu.puiko02.application.Puiko02PGMTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	14.984	sec	<<<	FAILURE!	2010/03/01 23:00:30	2010/03/01 23:00:30	2010/03/01 23:00:30
+puo0010	murata.ps.pu.puo0010.service.Puo0010_02ServiceTest.txt	Tests	run:	18	Failures:	0	Errors:	3	Skipped:	0	Time	elapsed:	15.078	sec	<<<	FAILURE!	2010/03/01 23:02:23	2010/03/01 23:02:23	2010/03/01 23:02:23
+puo0020	murata.ps.pu.puo0020.service.Puo0020_02ServiceTest.txt	Tests	run:	22	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	21.64	sec	2010/03/01 23:04:13	2010/03/01 23:04:13	2010/03/01 23:04:13
+puo0030	murata.ps.pu.puo0030.service.Puo0030_01ServiceTest.txt	Tests	run:	27	Failures:	0	Errors:	26	Skipped:	0	Time	elapsed:	133.36	sec	<<<	FAILURE!	2010/03/01 23:08:03	2010/03/01 23:08:03	2010/03/01 23:08:03
+puo0031	murata.ps.pu.puo0031.service.Puo0031_01ServiceTest.txt	Tests	run:	24	Failures:	0	Errors:	24	Skipped:	0	Time	elapsed:	114.094	sec	<<<	FAILURE!	2010/03/01 23:11:42	2010/03/01 23:11:42	2010/03/01 23:11:42
+puo0040	murata.ps.pu.puo0040.service.Puo0040_02ServiceTest.txt	Tests	run:	87	Failures:	86	Errors:	1	Skipped:	0	Time	elapsed:	520.219	sec	<<<	FAILURE!	2010/03/01 23:22:43	2010/03/01 23:22:43	2010/03/01 23:22:43
+puo0050	murata.ps.pu.puo0050.service.Puo0050_01ServiceTest.txt	Tests	run:	22	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	53.125	sec	2010/03/01 23:24:42	2010/03/01 23:24:42	2010/03/01 23:24:42
+puo0060	murata.ps.pu.puo0060.service.Puo0060_01ServiceTest.txt	Tests	run:	63	Failures:	5	Errors:	28	Skipped:	0	Time	elapsed:	407.437	sec	<<<	FAILURE!	2010/03/01 23:34:01	2010/03/01 23:34:01	2010/03/01 23:34:01
+puo0070	murata.ps.pu.puo0070.service.Puo0070_01ServiceTest.txt	Tests	run:	75	Failures:	0	Errors:	75	Skipped:	0	Time	elapsed:	310.515	sec	<<<	FAILURE!	2010/03/01 23:42:09	2010/03/01 23:42:09	2010/03/01 23:42:09
+puo0090	murata.ps.pu.puo0090.service.Puo0090_01ServiceTest.txt	Tests	run:	22	Failures:	0	Errors:	21	Skipped:	0	Time	elapsed:	51.531	sec	<<<	FAILURE!	2010/03/01 23:44:44	2010/03/01 23:44:44	2010/03/01 23:44:44
+puo0100	murata.ps.pu.puo0100.service.Puo0100_01ServiceTest.txt	Tests	run:	49	Failures:	0	Errors:	22	Skipped:	0	Time	elapsed:	75.906	sec	<<<	FAILURE!	2010/03/01 23:47:29	2010/03/01 23:47:29	2010/03/01 23:47:29
+puo0120	murata.ps.pu.puo0120.service.Puo0120_01ServiceTest.txt	Tests	run:	33	Failures:	33	Errors:	0	Skipped:	0	Time	elapsed:	68.437	sec	<<<	FAILURE!	2010/03/01 23:50:08	2010/03/01 23:50:08	2010/03/01 23:50:08
+puo0130	murata.ps.pu.puo0130.service.Puo0130_01ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.953	sec	2010/03/01 23:51:41	2010/03/01 23:51:41	2010/03/01 23:51:41
+puo0140	murata.ps.pu.puo0140.service.Puo0140_02ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.281	sec	2010/03/01 23:53:11	2010/03/01 23:53:11	2010/03/01 23:53:11
+puo0160	murata.ps.pu.puo0160.service.Puo0160_01ServiceTest.txt	Tests	run:	52	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	77.485	sec	2010/03/01 23:55:57	2010/03/01 23:55:57	2010/03/01 23:55:57
+puo0170	murata.ps.pu.puo0170.service.Puo0170_01ServiceTest.txt	Tests	run:	32	Failures:	0	Errors:	31	Skipped:	0	Time	elapsed:	35.5	sec	<<<	FAILURE!	2010/03/01 23:58:06	2010/03/01 23:58:06	2010/03/01 23:58:06
+puo0200	murata.ps.pu.puo0200.service.Puo0200_01ServiceTest.txt	Tests	run:	56	Failures:	0	Errors:	53	Skipped:	0	Time	elapsed:	189.609	sec	<<<	FAILURE!	2010/03/02 00:02:57	2010/03/02 00:02:57	2010/03/02 00:02:57
+puo0201
+puo0250	murata.ps.pu.puo0250.service.Puo0250_01ServiceTest.txt	Tests	run:	2	Failures:	2	Errors:	0	Skipped:	0	Time	elapsed:	12.047	sec	<<<	FAILURE!	2010/03/02 00:06:34	2010/03/02 00:06:34	2010/03/02 00:06:34
+puo0250	murata.ps.pu.puo0250.service.Puo0250_02ServiceTest.txt	Tests	run:	2	Failures:	2	Errors:	0	Skipped:	0	Time	elapsed:	14.594	sec	<<<	FAILURE!	2010/03/02 00:06:19	2010/03/02 00:06:19	2010/03/02 00:06:19
+puo0260	murata.ps.pu.puo0260.behavior.Puo0260_01BehaviorImplTest.txt	Tests	run:	134	Failures:	10	Errors:	78	Skipped:	0	Time	elapsed:	432.5	sec	<<<	FAILURE!	2010/03/02 00:16:20	2010/03/02 00:16:20	2010/03/02 00:16:20
+puo0270	murata.ps.pu.puo0270.behavior.Puo0270_01BehaviorImplTest.txt	Tests	run:	141	Failures:	3	Errors:	88	Skipped:	0	Time	elapsed:	376.422	sec	<<<	FAILURE!	2010/03/02 00:26:22	2010/03/02 00:26:22	2010/03/02 00:26:22
+puo0280	murata.ps.pu.puo0280.service.Puo0280_01ServiceTest.txt	Tests	run:	11	Failures:	0	Errors:	8	Skipped:	0	Time	elapsed:	58.469	sec	<<<	FAILURE!	2010/03/02 00:29:14	2010/03/02 00:29:14	2010/03/02 00:29:14
+puo0300	murata.ps.pu.puo0300.behavior.Puo0300_01BehaviorImplTest.txt	Tests	run:	16	Failures:	0	Errors:	14	Skipped:	0	Time	elapsed:	40.156	sec	<<<	FAILURE!	2010/03/02 00:31:12	2010/03/02 00:31:12	2010/03/02 00:31:12
+puo0310	murata.ps.pu.puo0310.application.Puo0310PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.969	sec	2010/03/02 00:32:45	2010/03/02 00:32:45	2010/03/02 00:32:45
+puo0330	murata.ps.pu.puo0330.application.Puo0330PGMTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.812	sec	2010/03/02 00:34:09	2010/03/02 00:34:09	2010/03/02 00:34:09
+puo0340	murata.ps.pu.puo0340.application.Puo0340PGMImplTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	19.703	sec	2010/03/02 00:35:38	2010/03/02 00:35:38	2010/03/02 00:35:38
+puo0350	murata.ps.pu.puo0350.application.Puo0350PGMTest.txt	Tests	run:	21	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	39.078	sec	2010/03/02 00:39:34	2010/03/02 00:39:34	2010/03/02 00:39:34
+puo0360	murata.ps.pu.puo0360.application.Puo0360PGMTest.txt	Tests	run:	41	Failures:	0	Errors:	40	Skipped:	0	Time	elapsed:	45.547	sec	<<<	FAILURE!	2010/03/02 00:41:38	2010/03/02 00:41:38	2010/03/02 00:41:38
+puo0370
+puo0380	murata.ps.pu.puo0380.application.Puo0380PGMTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	44.219	sec	<<<	FAILURE!	2010/03/02 00:44:51	2010/03/02 00:44:51	2010/03/02 00:44:51
+puo0410	murata.ps.pu.puo0410.application.Puo0410PGMTest.txt	Tests	run:	1	Failures:	0	Errors:	1	Skipped:	0	Time	elapsed:	39.953	sec	<<<	FAILURE!	2010/03/02 00:47:09	2010/03/02 00:47:09	2010/03/02 00:47:09
+puo0430	murata.ps.pu.puo0430.application.Puo0430PGMTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16.938	sec	2010/03/02 00:48:39	2010/03/02 00:48:39	2010/03/02 00:48:39
+puo0440	murata.ps.pu.puo0440.application.Puo0440PGMTest.txt	Tests	run:	10	Failures:	10	Errors:	0	Skipped:	0	Time	elapsed:	57.375	sec	<<<	FAILURE!	2010/03/02 00:52:25	2010/03/02 00:52:25	2010/03/02 00:52:25
+puo0450	murata.ps.pu.puo0450.application.Puo0450PGMTest.txt	Tests	run:	148	Failures:	14	Errors:	81	Skipped:	0	Time	elapsed:	356.266	sec	<<<	FAILURE!	2010/03/02 01:01:23	2010/03/02 01:01:23	2010/03/02 01:01:23
+puo0460	murata.ps.pu.puo0460.editor.Puo0460_01EditorTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	8.563	sec	<<<	FAILURE!	2010/03/02 01:03:09	2010/03/02 01:03:09	2010/03/02 01:03:09
+puo0470	murata.ps.pu.puo0470.editor.Puo0470_01EditorTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	14.094	sec	<<<	FAILURE!	2010/03/02 01:04:38	2010/03/02 01:04:38	2010/03/02 01:04:38
+puo0470	murata.ps.pu.puo0470.service.Puo0470_01ServiceTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	27.328	sec	2010/03/02 01:05:08	2010/03/02 01:05:08	2010/03/02 01:05:08
+pvb0030	murata.ps.pv.pvb0030.application.Pvb0030PGMTest.txt	Tests	run:	13	Failures:	2	Errors:	0	Skipped:	0	Time	elapsed:	28.875	sec	<<<	FAILURE!	2010/03/02 01:06:50	2010/03/02 01:06:50	2010/03/02 01:06:50
+pvb0040	murata.ps.pv.pvb0040.application.Pvb0040PGMTest.txt	Tests	run:	16	Failures:	0	Errors:	12	Skipped:	0	Time	elapsed:	36.531	sec	<<<	FAILURE!	2010/03/02 01:08:43	2010/03/02 01:08:43	2010/03/02 01:08:43
+pvb0050	murata.ps.pv.pvb0050.application.Pvb0050PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	20.765	sec	2010/03/02 01:10:18	2010/03/02 01:10:18	2010/03/02 01:10:18
+pvb0070	murata.ps.pv.pvb0070.application.Pvb0070PGMTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	15.125	sec	2010/03/02 01:11:38	2010/03/02 01:11:38	2010/03/02 01:11:38
+pvb0180	murata.ps.pv.pvb0180.application.Pvb0180PGMTest.txt	Tests	run:	21	Failures:	0	Errors:	20	Skipped:	0	Time	elapsed:	49.36	sec	<<<	FAILURE!	2010/03/02 01:13:43	2010/03/02 01:13:43	2010/03/02 01:13:43
+pvb0830	murata.ps.pv.pvb0830.application.Pvb0830PGMTest.txt	Tests	run:	15	Failures:	2	Errors:	0	Skipped:	0	Time	elapsed:	23.047	sec	<<<	FAILURE!	2010/03/02 01:15:31	2010/03/02 01:15:31	2010/03/02 01:15:31
+pvb1170	murata.ps.pv.pvb1170.application.Pvb1170PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	41.219	sec	2010/03/02 01:17:32	2010/03/02 01:17:32	2010/03/02 01:17:32
+pvb1260	murata.ps.pv.pvb1260.application.Pvb1260PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.672	sec	2010/03/02 01:18:56	2010/03/02 01:18:56	2010/03/02 01:18:56
+pwb0010	murata.ps.pw.pwb0010.application.Pwb0010PGMTest.txt	Tests	run:	104	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	277.969	sec	2010/03/02 01:25:11	2010/03/02 01:25:11	2010/03/02 01:25:11
+pwb0020
+pwb0030	murata.ps.pw.pwb0030.application.Pwb0030PGMTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.469	sec	2010/03/02 01:28:37	2010/03/02 01:28:37	2010/03/02 01:28:37
+pwb0040	murata.ps.pw.pwb0040.application.Pwb0040PGMTest.txt	Tests	run:	239	Failures:	25	Errors:	0	Skipped:	0	Time	elapsed:	477.219	sec	<<<	FAILURE!	2010/03/02 01:38:57	2010/03/02 01:38:57	2010/03/02 01:38:57
+pwb0050	murata.ps.pw.pwb0050.application.Pwb0050PGMTest.txt	Tests	run:	12	Failures:	12	Errors:	0	Skipped:	0	Time	elapsed:	195.906	sec	<<<	FAILURE!	2010/03/02 01:40:15	2010/03/02 01:40:15	2010/03/02 01:40:15
+pwb0060
+pwb0080	murata.ps.pw.pwb0080.application.Pwb0080PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.828	sec	2010/03/02 01:42:59	2010/03/02 01:42:59	2010/03/02 01:42:59
+pwb0090	murata.ps.pw.pwb0090.application.Pwb0090PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.578	sec	2010/03/02 01:44:15	2010/03/02 01:44:15	2010/03/02 01:44:15
+pwb0100	murata.ps.pw.pwb0100.application.Pwb0100PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	16	sec	2010/03/02 01:45:35	2010/03/02 01:45:35	2010/03/02 01:45:35
+pwb0110	murata.ps.pw.pwb0110.application.Pwb0110PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.25	sec	2010/03/02 01:46:46	2010/03/02 01:46:46	2010/03/02 01:46:46
+pwb0120	murata.ps.pw.pwb0120.application.Pwb0120PGMTest.txt	Tests	run:	62	Failures:	9	Errors:	0	Skipped:	0	Time	elapsed:	292.312	sec	<<<	FAILURE!	2010/03/02 01:53:41	2010/03/02 01:53:41	2010/03/02 01:53:41
+pwb0130	murata.ps.pw.pwb0130.application.Pwb0130PGMTest.txt	Tests	run:	29	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	27.594	sec	2010/03/02 01:54:54	2010/03/02 01:54:54	2010/03/02 01:54:54
+pwb0140	murata.ps.pw.pwb0140.application.Pwb0140PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	65.641	sec	2010/03/02 01:57:20	2010/03/02 01:57:20	2010/03/02 01:57:20
+pwb0150	murata.ps.pw.pwb0150.application.Pwb0150PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13	sec	2010/03/02 01:58:49	2010/03/02 01:58:49	2010/03/02 01:58:49
+pwo0020	murata.ps.pw.pwo0020.service.Pwo0020_01ServiceTest.txt	Tests	run:	8	Failures:	0	Errors:	8	Skipped:	0	Time	elapsed:	12.828	sec	<<<	FAILURE!	2010/03/02 02:02:08	2010/03/02 02:02:08	2010/03/02 02:02:08
+pwo0020	murata.ps.pw.pwo0020.service.Pwo0020_02ServiceTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	47.25	sec	2010/03/02 02:01:53	2010/03/02 02:01:53	2010/03/02 02:01:53
+pwo0020	murata.ps.pw.pwo0020.service.Pwo0020_03ServiceTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	27.922	sec	2010/03/02 02:01:03	2010/03/02 02:01:03	2010/03/02 02:01:03
+pwo0030	murata.ps.pw.pwo0030.service.Pwo0030_01ServiceTest.txt	Tests	run:	19	Failures:	0	Errors:	19	Skipped:	0	Time	elapsed:	50.297	sec	<<<	FAILURE!	2010/03/02 02:05:37	2010/03/02 02:05:37	2010/03/02 02:05:37
+pwo0030	murata.ps.pw.pwo0030.service.Pwo0030_02ServiceTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	29.343	sec	2010/03/02 02:06:09	2010/03/02 02:06:09	2010/03/02 02:06:09
+pwo0040	murata.ps.pw.pwo0040.service.Pwo0040_02ServiceTest.txt	Tests	run:	42	Failures:	0	Errors:	18	Skipped:	0	Time	elapsed:	37.047	sec	<<<	FAILURE!	2010/03/02 02:08:34	2010/03/02 02:08:34	2010/03/02 02:08:34
+pwo0050	murata.ps.pw.pwo0050.service.Pwo0050_01ServiceTest.txt	Tests	run:	41	Failures:	0	Errors:	13	Skipped:	0	Time	elapsed:	307.25	sec	<<<	FAILURE!	2010/03/02 02:28:56	2010/03/02 02:28:56	2010/03/02 02:28:56
+pwo0050	murata.ps.pw.pwo0050.service.Pwo0050_02ServiceTest.txt	Tests	run:	38	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	358.781	sec	2010/03/02 02:22:06	2010/03/02 02:22:06	2010/03/02 02:22:06
+pwo0050	murata.ps.pw.pwo0050.service.Pwo0050_03ServiceTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	97.719	sec	2010/03/02 02:23:46	2010/03/02 02:23:46	2010/03/02 02:23:46
+pwo0050	murata.ps.pw.pwo0050.service.Pwo0050_04ServiceTest.txt	Tests	run:	21	Failures:	0	Errors:	20	Skipped:	0	Time	elapsed:	139.797	sec	<<<	FAILURE!	2010/03/02 02:16:04	2010/03/02 02:16:04	2010/03/02 02:16:04
+pwo0060	murata.ps.pw.pwo0060.service.Pwo0060_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.422	sec	2010/03/02 02:32:54	2010/03/02 02:32:54	2010/03/02 02:32:54
+pwo0060	murata.ps.pw.pwo0060.service.Pwo0060_02ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.281	sec	2010/03/02 02:33:09	2010/03/02 02:33:09	2010/03/02 02:33:09
+pwo0060	murata.ps.pw.pwo0060.service.Pwo0060_03ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.25	sec	2010/03/02 02:33:23	2010/03/02 02:33:23	2010/03/02 02:33:23
+pwo0070
+pwo0080	murata.ps.pw.pwo0080.service.Pwo0080_01ServiceTest.txt	Tests	run:	31	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	56.312	sec	2010/03/02 02:44:19	2010/03/02 02:44:19	2010/03/02 02:44:19
+pwo0090	murata.ps.pw.pwo0090.editor.CreateLogicalAllocationInformationPSPImplTest.txt	Tests	run:	26	Failures:	0	Errors:	26	Skipped:	0	Time	elapsed:	64.188	sec	<<<	FAILURE!	2010/03/02 02:47:29	2010/03/02 02:47:29	2010/03/02 02:47:29
+pwo0090	murata.ps.pw.pwo0090.editor.ProcessLogicalAllocationPSPImplTest.txt	Tests	run:	56	Failures:	1	Errors:	2	Skipped:	0	Time	elapsed:	113.109	sec	<<<	FAILURE!	2010/03/02 02:49:24	2010/03/02 02:49:24	2010/03/02 02:49:24
+pwo0090	murata.ps.pw.pwo0090.service.Pwo0090_01ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	2	Skipped:	0	Time	elapsed:	30.047	sec	<<<	FAILURE!	2010/03/02 02:49:57	2010/03/02 02:49:57	2010/03/02 02:49:57
+pwo0100	murata.ps.pw.pwo0100.service.Pwo0100_01ServiceTest.txt	Tests	run:	48	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	61.204	sec	2010/03/02 02:52:22	2010/03/02 02:52:22	2010/03/02 02:52:22
+pwo0110	murata.ps.pw.pwo0110.service.Pwo0110_01ServiceTest.txt	Tests	run:	32	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	55.594	sec	2010/03/02 02:54:48	2010/03/02 02:54:48	2010/03/02 02:54:48
+pwo0120	murata.ps.pw.pwo0120.application.Pwo0120PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	26.813	sec	2010/03/02 02:56:29	2010/03/02 02:56:29	2010/03/02 02:56:29
+pwo0130	murata.ps.pw.pwo0130.application.Pwo0130PGMTest.txt	Tests	run:	11	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	36.641	sec	2010/03/02 02:58:17	2010/03/02 02:58:17	2010/03/02 02:58:17
+pwo0150	murata.ps.pw.pwo0150.application.Pwo0150PGMTest.txt	Tests	run:	18	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	28.781	sec	2010/03/02 02:59:59	2010/03/02 02:59:59	2010/03/02 02:59:59
+pwo0160	murata.ps.pw.pwo0160.application.Pwo0160PGMTest.txt	Tests	run:	26	Failures:	1	Errors:	0	Skipped:	0	Time	elapsed:	89.14	sec	<<<	FAILURE!	2010/03/02 03:12:10	2010/03/02 03:12:10	2010/03/02 03:12:10
+pwo0160	murata.ps.pw.pwo0160.editor.CalculatePromisedDeliveryDateAndUpdateReservationPSPTest.txt	Tests	run:	3	Failures:	3	Errors:	0	Skipped:	0	Time	elapsed:	16.688	sec	<<<	FAILURE!	2010/03/02 03:15:44	2010/03/02 03:15:44	2010/03/02 03:15:44
+pwo0160	murata.ps.pw.pwo0160.editor.CreateLogicalAllocationDetailsInformationForSplitPSPTest.txt	Tests	run:	4	Failures:	4	Errors:	0	Skipped:	0	Time	elapsed:	17.921	sec	<<<	FAILURE!	2010/03/02 03:16:05	2010/03/02 03:16:05	2010/03/02 03:16:05
+pwo0160	murata.ps.pw.pwo0160.editor.CreateLogicalAllocationDetailsInformationPSPTest.txt	Tests	run:	8	Failures:	8	Errors:	0	Skipped:	0	Time	elapsed:	17.531	sec	<<<	FAILURE!	2010/03/02 03:10:38	2010/03/02 03:10:38	2010/03/02 03:10:38
+pwo0160	murata.ps.pw.pwo0160.editor.LogicalAllocationFor2APSPTest.txt	Tests	run:	6	Failures:	1	Errors:	0	Skipped:	0	Time	elapsed:	191.219	sec	<<<	FAILURE!	2010/03/02 03:15:24	2010/03/02 03:15:24	2010/03/02 03:15:24
+pwo0160	murata.ps.pw.pwo0160.editor.LogicalAllocationForEIPSPTest.txt	Tests	run:	38	Failures:	30	Errors:	8	Skipped:	0	Time	elapsed:	21.078	sec	<<<	FAILURE!	2010/03/02 03:10:18	2010/03/02 03:10:18	2010/03/02 03:10:18
+pwo0160	murata.ps.pw.pwo0160.editor.SuspensionAndDeliveryDateSetUpPSPTest.txt	Tests	run:	22	Failures:	11	Errors:	11	Skipped:	0	Time	elapsed:	475.781	sec	<<<	FAILURE!	2010/03/02 03:09:53	2010/03/02 03:09:53	2010/03/02 03:09:53
+pwo0170	murata.ps.pw.pwo0170.application.Pwo0170PGMTest.txt	Tests	run:	28	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	42.75	sec	2010/03/02 03:18:22	2010/03/02 03:18:22	2010/03/02 03:18:22
+pwo0180	murata.ps.pw.pwo0180.application.Pwo0180PGMTest.txt	Tests	run:	9	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.828	sec	2010/03/02 03:19:46	2010/03/02 03:19:46	2010/03/02 03:19:46
+pwo0190	murata.ps.pw.pwo0190.application.Pwo0190PGMTest.txt	Tests	run:	10	Failures:	6	Errors:	0	Skipped:	0	Time	elapsed:	31.688	sec	<<<	FAILURE!	2010/03/02 03:21:26	2010/03/02 03:21:26	2010/03/02 03:21:26
+pwo0210	murata.ps.pw.pwo0210.service.Pwo0210_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.641	sec	2010/03/02 03:22:52	2010/03/02 03:22:52	2010/03/02 03:22:52
+pwo0210	murata.ps.pw.pwo0210.service.Pwo0210_02ServiceTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.688	sec	2010/03/02 03:23:04	2010/03/02 03:23:04	2010/03/02 03:23:04
+pwo0220	murata.ps.pw.pwo0220.application.Pwo0220PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.171	sec	2010/03/02 03:24:26	2010/03/02 03:24:26	2010/03/02 03:24:26
+pwo0230	murata.ps.pw.pwo0230.application.Pwo0230PGMTest.txt	Tests	run:	5	Failures:	4	Errors:	0	Skipped:	0	Time	elapsed:	26.407	sec	<<<	FAILURE!	2010/03/02 03:25:58	2010/03/02 03:25:58	2010/03/02 03:25:58
+pwo0240	murata.ps.pw.pwo0240.service.Pwo0240_01ServiceTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.328	sec	2010/03/02 03:27:16	2010/03/02 03:27:16	2010/03/02 03:27:16
+pwo0250	murata.ps.pw.pwo0250.service.Pwo0250_02ServiceTest.txt	Tests	run:	17	Failures:	0	Errors:	15	Skipped:	0	Time	elapsed:	78.5	sec	<<<	FAILURE!	2010/03/02 03:30:22	2010/03/02 03:30:22	2010/03/02 03:30:22
+pwo0260	murata.ps.pw.pwo0260.service.Pwo0260_02ServiceTest.txt	Tests	run:	19	Failures:	3	Errors:	16	Skipped:	0	Time	elapsed:	57.375	sec	<<<	FAILURE!	2010/03/02 03:32:59	2010/03/02 03:32:59	2010/03/02 03:32:59
+pwo0270	murata.ps.pw.pwo0270.behavior.Pwo0270_02BehaviorImplTest.txt	Tests	run:	4	Failures:	0	Errors:	4	Skipped:	0	Time	elapsed:	12.359	sec	<<<	FAILURE!	2010/03/02 03:34:38	2010/03/02 03:34:38	2010/03/02 03:34:38
+pwo0270	murata.ps.pw.pwo0270.service.Pwo0270_02ServiceTest.txt	Tests	run:	8	Failures:	0	Errors:	8	Skipped:	0	Time	elapsed:	12.25	sec	<<<	FAILURE!	2010/03/02 03:34:52	2010/03/02 03:34:52	2010/03/02 03:34:52
+pwo0280	murata.ps.pw.pwo0280.behavior.Pwo0280_02BehaviorImplTest.txt	Tests	run:	3	Failures:	0	Errors:	3	Skipped:	0	Time	elapsed:	12.344	sec	<<<	FAILURE!	2010/03/02 03:36:41	2010/03/02 03:36:41	2010/03/02 03:36:41
+pwo0280	murata.ps.pw.pwo0280.service.Pwo0280_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	21.937	sec	2010/03/02 03:37:05	2010/03/02 03:37:05	2010/03/02 03:37:05
+pwo0280	murata.ps.pw.pwo0280.service.Pwo0280_02ServiceTest.txt	Tests	run:	4	Failures:	0	Errors:	4	Skipped:	0	Time	elapsed:	12.375	sec	<<<	FAILURE!	2010/03/02 03:36:26	2010/03/02 03:36:26	2010/03/02 03:36:26
+pwo0290	murata.ps.pw.pwo0290.behavior.Pwo0290_01BehaviorImplTest.txt	Tests	run:	20	Failures:	0	Errors:	18	Skipped:	0	Time	elapsed:	37.547	sec	<<<	FAILURE!	2010/03/02 03:40:57	2010/03/02 03:40:57	2010/03/02 03:40:57
+pwo0310
+pwo0320	murata.ps.pw.pwo0320.service.Pwo0320_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	20.844	sec	2010/03/02 03:44:22	2010/03/02 03:44:22	2010/03/02 03:44:22
+pwo0320	murata.ps.pw.pwo0320.service.Pwo0320_02ServiceTest.txt	Tests	run:	8	Failures:	0	Errors:	8	Skipped:	0	Time	elapsed:	12.843	sec	<<<	FAILURE!	2010/03/02 03:43:59	2010/03/02 03:43:59	2010/03/02 03:43:59
+pwo0330	murata.ps.pw.pwo0330.behavior.Pwo0330_01BehaviorImplTest.txt	Tests	run:	22	Failures:	4	Errors:	0	Skipped:	0	Time	elapsed:	58.172	sec	<<<	FAILURE!	2010/03/02 03:46:48	2010/03/02 03:46:48	2010/03/02 03:46:48
+pwo0350	murata.ps.pw.pwo0350.behavior.Pwo0350_01BehaviorImplTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	17.14	sec	2010/03/02 03:48:26	2010/03/02 03:48:26	2010/03/02 03:48:26
+pwo0360	murata.ps.pw.pwo0360.service.Pwo0360_02ServiceTest.txt	Tests	run:	9	Failures:	9	Errors:	0	Skipped:	0	Time	elapsed:	20.437	sec	<<<	FAILURE!	2010/03/02 03:50:03	2010/03/02 03:50:03	2010/03/02 03:50:03
+pwo0370
+pwo0380	murata.ps.pw.pwo0380.service.Pwo0380_02ServiceTest.txt	Tests	run:	10	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	28.282	sec	2010/03/02 03:52:45	2010/03/02 03:52:45	2010/03/02 03:52:45
+pwo0390
+pwo0400
+pzb0010	murata.ps.pz.pzb0010.application.Pzb0010PGMTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.156	sec	2010/03/02 03:56:22	2010/03/02 03:56:22	2010/03/02 03:56:22
+pzb0020	murata.ps.pz.pzb0020.application.Pzb0020PGMTest.txt	Tests	run:	36	Failures:	12	Errors:	0	Skipped:	0	Time	elapsed:	64.625	sec	<<<	FAILURE!	2010/03/02 03:58:45	2010/03/02 03:58:45	2010/03/02 03:58:45
+pzb0030	murata.ps.pz.pzb0030.application.Pzb0030PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.109	sec	2010/03/02 04:00:07	2010/03/02 04:00:07	2010/03/02 04:00:07
+pzb0040	murata.ps.pz.pzb0040.application.Pzb0040PGMTest.txt	Tests	run:	32	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	31.062	sec	2010/03/02 04:02:00	2010/03/02 04:02:00	2010/03/02 04:02:00
+pzb0050	murata.ps.pz.pzb0050.application.Pzb0050PGMTest.txt	Tests	run:	17	Failures:	17	Errors:	0	Skipped:	0	Time	elapsed:	20.266	sec	<<<	FAILURE!	2010/03/02 04:03:32	2010/03/02 04:03:32	2010/03/02 04:03:32
+pzb0060	murata.ps.pz.pzb0060.application.Pzb0060PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.891	sec	2010/03/02 04:04:49	2010/03/02 04:04:49	2010/03/02 04:04:49
+pzb0070	murata.ps.pz.pzb0070.application.Pzb0070PGMTest.txt	Tests	run:	8	Failures:	8	Errors:	0	Skipped:	0	Time	elapsed:	17.984	sec	<<<	FAILURE!	2010/03/02 04:06:13	2010/03/02 04:06:13	2010/03/02 04:06:13
+pzb0080	murata.ps.pz.pzb0080.application.Pzb0080PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.047	sec	2010/03/02 04:07:28	2010/03/02 04:07:28	2010/03/02 04:07:28
+pzb0090	murata.ps.pz.pzb0090.application.Pzb0090PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	22.25	sec	2010/03/02 04:09:04	2010/03/02 04:09:04	2010/03/02 04:09:04
+pzb0100	murata.ps.pz.pzb0100.application.Pzb0100PGMTest.txt	Tests	run:	16	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	35.297	sec	2010/03/02 04:10:51	2010/03/02 04:10:51	2010/03/02 04:10:51
+pzb0110	murata.ps.pz.pzb0110.application.Pzb0110PGMTest.txt	Tests	run:	24	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	23.969	sec	2010/03/02 04:12:24	2010/03/02 04:12:24	2010/03/02 04:12:24
+pzb0120	murata.ps.pz.pzb0120.application.Pzb0120PGMTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.047	sec	2010/03/02 04:13:43	2010/03/02 04:13:43	2010/03/02 04:13:43
+pzb0130	murata.ps.pz.pzb0130.application.Pzb0130PGMTest.txt	Tests	run:	40	Failures:	0	Errors:	40	Skipped:	0	Time	elapsed:	25.484	sec	<<<	FAILURE!	2010/03/02 04:15:22	2010/03/02 04:15:22	2010/03/02 04:15:22
+pzb0140	murata.ps.pz.pzb0140.application.Pzb0140PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.656	sec	2010/03/02 04:16:39	2010/03/02 04:16:39	2010/03/02 04:16:39
+pzb0160	murata.ps.pz.pzb0160.application.Pzb0160PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.75	sec	2010/03/02 04:17:54	2010/03/02 04:17:54	2010/03/02 04:17:54
+pzb0170	murata.ps.pz.pzb0170.application.Pzb0170PGMTest.txt	Tests	run:	17	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	31.704	sec	2010/03/02 04:19:32	2010/03/02 04:19:32	2010/03/02 04:19:32
+pzb0180	murata.ps.pz.pzb0180.application.Pzb0180PGMTest.txt	Tests	run:	20	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	33.438	sec	2010/03/02 04:21:19	2010/03/02 04:21:19	2010/03/02 04:21:19
+pzb0190	murata.ps.pz.pzb0190.application.Pzb0190PGMTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	9.187	sec	2010/03/02 04:22:54	2010/03/02 04:22:54	2010/03/02 04:22:54
+pzb0200	murata.ps.pz.pzb0200.application.Pzb0200PGMTest.txt	Tests	run:	5	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.766	sec	2010/03/02 04:24:15	2010/03/02 04:24:15	2010/03/02 04:24:15
+pzb0210	murata.ps.pz.pzb0210.application.Pzb0210PGMTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.36	sec	2010/03/02 04:25:32	2010/03/02 04:25:32	2010/03/02 04:25:32
+pzo0010	murata.ps.pz.pzo0010.service.Pzo0010_01ServiceTest.txt	Tests	run:	18	Failures:	0	Errors:	18	Skipped:	0	Time	elapsed:	25.75	sec	<<<	FAILURE!	2010/03/02 04:27:07	2010/03/02 04:27:07	2010/03/02 04:27:07
+pzo0020	murata.ps.pz.pzo0020.service.Pzo0020_01ServiceTest.txt	Tests	run:	12	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	20.328	sec	2010/03/02 04:28:42	2010/03/02 04:28:42	2010/03/02 04:28:42
+pzo0030	murata.ps.pz.pzo0030.service.Pzo0030_02ServiceTest.txt	Tests	run:	14	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.765	sec	2010/03/02 04:30:14	2010/03/02 04:30:14	2010/03/02 04:30:14
+pzo0040	murata.ps.pz.pzo0040.behavior.Pzo0040_02BehaviorImplTest.txt	Tests	run:	123	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	47.61	sec	2010/03/02 04:32:32	2010/03/02 04:32:32	2010/03/02 04:32:32
+pzo0040	murata.ps.pz.pzo0040.service.Pzo0040_01ServiceTest.txt	Tests	run:	19	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	19.656	sec	2010/03/02 04:32:54	2010/03/02 04:32:54	2010/03/02 04:32:54
+pzo0050	murata.ps.pz.pzo0050.service.Pzo0050_01ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	19.687	sec	2010/03/02 04:34:30	2010/03/02 04:34:30	2010/03/02 04:34:30
+pzo0060	murata.ps.pz.pzo0060.service.Pzo0060_02ServiceTest.txt	Tests	run:	2	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.562	sec	2010/03/02 04:35:57	2010/03/02 04:35:57	2010/03/02 04:35:57
+pzo0070	murata.ps.pz.pzo0070.service.Pzo0070_02ServiceTest.txt	Tests	run:	15	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	12.891	sec	2010/03/02 04:37:22	2010/03/02 04:37:22	2010/03/02 04:37:22
+pzo0080	murata.ps.pz.pzo0080.service.pzo0080_02ServiceTest.txt	Tests	run:	6	Failures:	1	Errors:	1	Skipped:	0	Time	elapsed:	14.484	sec	<<<	FAILURE!	2010/03/02 04:38:51	2010/03/02 04:38:51	2010/03/02 04:38:51
+pzo0090	murata.ps.pz.pzo0090.service.Pzo0090_02ServiceTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	14.75	sec	2010/03/02 04:40:17	2010/03/02 04:40:17	2010/03/02 04:40:17
+pzo0090	murata.ps.pz.pzo0090.service.Pzo0090_03ServiceTest.txt	Tests	run:	6	Failures:	4	Errors:	0	Skipped:	0	Time	elapsed:	14.015	sec	<<<	FAILURE!	2010/03/02 04:40:33	2010/03/02 04:40:33	2010/03/02 04:40:33
+pzo0100	murata.ps.pz.pzo0100.service.Pzo0100_01_01ServiceTest.txt	Tests	run:	10	Failures:	4	Errors:	0	Skipped:	0	Time	elapsed:	16.938	sec	<<<	FAILURE!	2010/03/02 04:42:15	2010/03/02 04:42:15	2010/03/02 04:42:15
+pzo0100	murata.ps.pz.pzo0100.service.Pzo0100_01_02ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	11.938	sec	2010/03/02 04:41:56	2010/03/02 04:41:56	2010/03/02 04:41:56
+pzo0110
+pzo0120	murata.ps.pz.pzo0120.service.Pzo0120_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.797	sec	2010/03/02 04:45:04	2010/03/02 04:45:04	2010/03/02 04:45:04
+pzo0120	murata.ps.pz.pzo0120.service.Pzo0120_02ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.656	sec	2010/03/02 04:44:53	2010/03/02 04:44:53	2010/03/02 04:44:53
+pzo0120	murata.ps.pz.pzo0120.service.Pzo0120_03ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	8.593	sec	2010/03/02 04:44:41	2010/03/02 04:44:41	2010/03/02 04:44:41
+pzo0130	murata.ps.pz.pzo0130.service.Pzo0130_01ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.953	sec	2010/03/02 04:46:45	2010/03/02 04:46:45	2010/03/02 04:46:45
+pzo0130	murata.ps.pz.pzo0130.service.Pzo0130_02ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.64	sec	2010/03/02 04:46:35	2010/03/02 04:46:35	2010/03/02 04:46:35
+pzo0130	murata.ps.pz.pzo0130.service.Pzo0130_03ServiceTest.txt	Tests	run:	1	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	7.719	sec	2010/03/02 04:46:24	2010/03/02 04:46:24	2010/03/02 04:46:24
+pzo0140	murata.ps.pz.pzo0140.service.Pzo0140_01ServiceTest.txt	Tests	run:	4	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.782	sec	2010/03/02 04:48:11	2010/03/02 04:48:11	2010/03/02 04:48:11
+pzo0150	murata.ps.pz.pzo0150.service.Pzo0150_02ServiceTest.txt	Tests	run:	7	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	13.875	sec	2010/03/02 04:49:35	2010/03/02 04:49:35	2010/03/02 04:49:35
+pzo0160	murata.ps.pz.pzo0160.application.Pzo0160PGMTest.txt	Tests	run:	6	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.5	sec	2010/03/02 04:50:50	2010/03/02 04:50:50	2010/03/02 04:50:50
+pzo0170	murata.ps.pz.pzo0170.service.Pzo0170_02ServiceTest.txt	Tests	run:	3	Failures:	0	Errors:	0	Skipped:	0	Time	elapsed:	10.172	sec	2010/03/02 04:52:06	2010/03/02 04:52:06	2010/03/02 04:52:06

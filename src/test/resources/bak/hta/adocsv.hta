@@ -1,0 +1,457 @@
+<html>
+<head>
+<HTA:APPLICATION
+	SCROLL="yes"
+>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis" />
+<title>　ADO : 汎用CSV出力</title>
+<style type="text/css">
+ * {
+	font-family: "ＭＳ Ｐゴシック";
+	font-size:12px;
+}
+</style>
+<SCRIPT language="VBScript">
+//<![CDATA[
+' **********************************************************
+' オブジェクト作成
+' **********************************************************
+Set Cn = CreateObject( "ADODB.Connection" )
+Cn.CursorLocation = 3
+Set Rs = CreateObject( "ADODB.Recordset" )
+Set Fs = CreateObject( "Scripting.FileSystemObject" )
+sTitle = "ADO :  汎用CSV出力"
+
+Const HKEY_LOCAL_MACHINE = &H80000002
+Const adVarChar = 200
+Dim ErrorMessage,objRegistry,ConnectionString
+Set objRegistry = GetObject("Winmgmts:root\default:StdRegProv")
+
+' **********************************************************
+' 列挙
+' **********************************************************
+Function WMIRegEnumValues ( nType, strPath, aNames, aTypes )
+	WMIRegEnumValues = False
+
+	on error resume next
+	WMIRet = objRegistry.EnumValues( nType, strPath, aNames, aTypes )
+	if Err.Number <> 0 then
+		ErrorMessage = Err.Description
+		Exit Function
+	end if
+	if WMIRet <> 0 then
+		ErrorMessage = Hex( WMIRet )
+		Exit Function
+	end if
+	on error goto 0
+
+	WMIRegEnumValues = True
+End Function
+
+Function CsvAction()
+
+	idx = document.getElementById("odbclist").selectedIndex
+
+	strDriver = "{" & document.getElementById("odbclist").options(idx).text & "}"
+	strServer = document.getElementById("p03").value
+	strUser = document.getElementById("p01").value
+	strPass =  document.getElementById("p02").value
+	strTable =  document.getElementById("p04").value
+	strDb =  document.getElementById("db_name").value
+	strFile =  document.getElementById("db_file").value
+
+	ConnectionString = _
+		"Provider=MSDASQL" & _
+		";Driver=" & strDriver
+
+	if strFile <> "" then
+		ConnectionString = ConnectionString & ";Dbq=" & strFile
+	end if
+	if strServer <> "" then
+		ConnectionString = ConnectionString & ";Server=" & strServer
+	end if
+	if strDb <> "" then
+		ConnectionString = ConnectionString & ";Database=" & strDb
+	end if
+	if strUser <> "" then
+		ConnectionString = ConnectionString & ";UID=" & strUser
+	end if
+	if strPass <> "" then
+		ConnectionString = ConnectionString & ";PWD=" & strPass
+	end if
+
+	ConnectionString = ConnectionString & ";"
+
+	if document.getElementById("connectopt").value <> "" then
+		ConnectionString = ConnectionString & document.getElementById("connectopt").value & ";"
+	end if
+
+	if vbCancel = MsgBox(ConnectionString, vbOkCancel or vbDefaultButton2, sTitle ) then
+		Exit Function
+	end if
+
+	' **********************************************************
+	' 接続
+	' **********************************************************
+	on error resume next
+	Cn.Open ConnectionString
+	if Err.Number <> 0 then
+		alert( Err.Description )
+		Exit Function
+	end if
+	Set Rs = Cn.OpenSchema(20)
+	Rs.Close()
+	on error goto 0
+
+	if document.getElementById("connectsql").value <> "" then
+		on error resume next
+		Cn.Execute(document.getElementById("connectsql").value)
+		if Err.Number <> 0 then
+			alert( Err.Description )
+			Cn.Close
+			Exit Function
+		end if
+		on error goto 0
+	end if
+
+	' **********************************************************
+	' レコードセット取得
+	' **********************************************************
+	Dim coltext
+	if document.getElementById("sql").value <> "" then
+		Query = document.getElementById("sql").value
+	else
+		if document.getElementById("coltext").value <> "" then
+			coltext = document.getElementById("coltext").value
+			if document.getElementById("db_file").value <> "" then
+				Query = "select "&coltext&" from [" & strTable & "]"
+			else
+				Query = "select "&coltext&" from " & strTable
+			end if
+		else
+			if document.getElementById("db_file").value <> "" then
+				Query = "select * from [" & strTable & "]"
+			else
+				Query = "select * from " & strTable
+			end if
+		end if
+		if document.getElementById("order").value <> "" then
+			Query = Query & " order by " & document.getElementById("order").value
+		end if
+	end if
+
+	on error resume next
+	Rs.Open Query, Cn
+	if Err.Number <> 0 then
+		Cn.Close
+		alert( Err.Description )
+		Exit Function
+	end if
+	on error goto 0
+
+	' **********************************************************
+	' 出力ファイルオープン
+	' **********************************************************
+	if document.getElementById("sql").value = "" and strTable <> "" then
+		Set Csv = Fs.CreateTextFile( strTable & ".csv", True )
+	else
+		Set Csv = Fs.CreateTextFile( "ADO汎用CSV出力.csv", True )
+	end if
+
+	' **********************************************************
+	' タイトル出力
+	' **********************************************************
+	Buffer = ""
+	For i = 0 to Rs.Fields.Count - 1
+		if Buffer <> "" then
+			Buffer = Buffer & ","
+		end if
+		Buffer = Buffer & Rs.Fields(i).Name
+	Next
+	Csv.WriteLine Buffer
+
+	' **********************************************************
+	' データ出力
+	' **********************************************************
+	Do While not Rs.EOF
+		Buffer = ""
+		For i = 0 to Rs.Fields.Count - 1
+			if Buffer <> "" then
+				Buffer = Buffer & ","
+			end if
+			Buffer = Buffer & Rs.Fields(i).Value
+		Next
+		Csv.WriteLine Buffer
+		Rs.MoveNext
+	Loop
+
+	' **********************************************************
+	' ファイルクローズ
+	' **********************************************************
+	Csv.Close
+
+	' **********************************************************
+	' レコードセットクローズ
+	' **********************************************************
+	Rs.Close
+
+	' **********************************************************
+	' 接続解除
+	' **********************************************************
+	Cn.Close
+
+	Call MsgBox("処理が終了しました", 0, sTitle)
+
+End Function
+
+Function GetTableList()
+
+	idx = document.getElementById("odbclist").selectedIndex
+
+	strDriver = "{" & document.getElementById("odbclist").options(idx).text & "}"
+	strServer = document.getElementById("p03").value
+	strUser = document.getElementById("p01").value
+	strPass =  document.getElementById("p02").value
+	strTable =  document.getElementById("p04").value
+	strDb =  document.getElementById("db_name").value
+	strFile =  document.getElementById("db_file").value
+
+
+	ConnectionString = _
+		"Provider=MSDASQL" & _
+		";Driver=" & strDriver
+
+	if strFile <> "" then
+		ConnectionString = ConnectionString & ";Dbq=" & strFile
+	end if
+	if strServer <> "" then
+		ConnectionString = ConnectionString & ";Server=" & strServer
+	end if
+	if strDb <> "" then
+		ConnectionString = ConnectionString & ";Database=" & strDb
+	end if
+	if strUser <> "" then
+		ConnectionString = ConnectionString & ";UID=" & strUser
+	end if
+	if strPass <> "" then
+		ConnectionString = ConnectionString & ";PWD=" & strPass
+	end if
+
+	ConnectionString = ConnectionString & ";"
+
+	if document.getElementById("connectopt").value <> "" then
+		ConnectionString = ConnectionString & document.getElementById("connectopt").value & ";"
+	end if
+
+
+	' **********************************************************
+	' 接続
+	' **********************************************************
+	on error resume next
+	Cn.Open ConnectionString
+	if Err.Number <> 0 then
+		alert( Err.Description )
+		Exit Function
+	end if
+	on error goto 0
+
+	if document.getElementById("connectsql").value <> "" then
+		on error resume next
+		Cn.Execute(document.getElementById("connectsql").value)
+		if Err.Number <> 0 then
+			alert( Err.Description )
+			Cn.Close
+			Exit Function
+		end if
+		on error goto 0
+	end if
+
+	' **********************************************************
+	' レコードセット取得
+	' **********************************************************
+	on error resume next
+	Set Rs = Cn.OpenSchema(20)
+	if Err.Number <> 0 then
+		Cn.Close
+		alert( Err.Description )
+		Exit Function
+	end if
+	on error goto 0
+
+	' **********************************************************
+	' データ作成
+	' **********************************************************
+	Buffer = ""
+	Do While not Rs.EOF
+		Buffer = Buffer & "<option value=""" & Rs.Fields(2).Value
+		Buffer = Buffer & """>"
+		Buffer = Buffer & Rs.Fields(2).Value
+		Buffer = Buffer & "</option>"
+		Rs.MoveNext
+	Loop
+
+	' **********************************************************
+	' レコードセットクローズ
+	' **********************************************************
+	Rs.Close
+
+	' **********************************************************
+	' 接続解除
+	' **********************************************************
+	Cn.Close
+
+	Dim strHTML
+
+	strHTML = "<select id=p04>"
+	strHTML = strHTML & Buffer
+	strHTML = strHTML & "</select>"
+
+	document.getElementById("table").innerHTML = strHTML
+
+End Function
+//]]>
+</SCRIPT>
+
+
+</head>
+<body style='background-color:#C7BF87'>
+<div id="top_1"></div>
+
+
+<table id="main">
+
+<tr>
+	<td>ODBCドライバ</td>
+	<td>
+<SELECT id="odbclist">
+</SELECT>
+	</td>
+</tr>
+
+
+<tr>
+	<td>ユーザ</td>
+	<td><INPUT type="text" id="p01" value=""></td>
+</tr>
+<tr>
+	<td>パスワード</td>
+	<td><INPUT type="password" id="p02" value="" style='height:20px;width:114px;'></td>
+</tr>
+<tr>
+	<td>サーバー</td>
+	<td>
+		<INPUT type="text" id="p03">
+	</td>
+</tr>
+
+<tr>
+	<td>データベース</td>
+	<td valign=top nowrap style='height:22px;'>　
+	<div style='display:inline;position:relative;'>
+		<div style='display:inline;position:absolute;left:0px;top:0px;'><INPUT type="file" id='db_name_f' value=""  style='width:500px;' onChange='document.getElementById("db_name").value=Me.value'> (SQLiteはこちら)</div>
+		<INPUT style='position:absolute;left:0px;top:0px;' type="text" id="db_name" value=""  style='width:452px;' >
+	</div>
+	</td>
+</tr>
+
+<tr>
+	<td>ファイル</td>
+	<td valign=top nowrap style='height:22px;'>　
+	<div style='display:inline;position:relative;'>
+		<div style='display:inline;position:absolute;left:0px;top:0px;'><INPUT type="file" id="db_file_f" value=""  style='width:500px;' onChange='document.getElementById("db_file").value=Me.value'> (MDBとExcelとcsv/txtはこちら)</div>
+		<INPUT style='position:absolute;left:0px;top:0px;' type="text" id="db_file" value=""  style='width:452px;'>
+	</div>
+	</td>
+</tr>
+
+<tr>
+	<td>テーブル</td>
+	<td><div style='display:inline' id="table"><INPUT type="text" id="p04" value=""></div>&nbsp;<INPUT type="button" value="接続してテーブル一覧を取得する" onClick='Call GetTableList()'> </td>
+</tr>
+<tr>
+	<td>列リスト等</td>
+	<td><INPUT type="text" id="coltext" value="*" style='width:500px;'></td>
+</tr>
+<tr>
+	<td>ソート</td>
+	<td><INPUT type="text" id="order" value="" style='width:500px;'></td>
+</tr>
+<tr>
+	<td>SQL</td>
+	<td><TEXTAREA id="sql" style='width:500px;height:70px;'></TEXTAREA></td>
+</tr>
+
+<tr>
+	<td><INPUT type="button" value="実行" onClick='Call CsvAction()'></td>
+	<td></td>
+</tr>
+
+</table>
+
+
+<UL>
+<LI>Oracle では、データーベースは必要ありません。ユーザにスキーマを指定して下さい。
+<LI>Oracle では、「簡易ネーミング接続」が有効な場合、サーバーに PC名/サービス名が使用できます
+<LI>それ以外では、「ローカルネットサービス名」を指定して下さい
+<LI>SQLite でテーブル一覧の日本語のテーブル名は正しく表示されませんが、テーブル名を入力する場合は動作します
+<LI>Excel で、テーブル名に $ が含まれる場合、手入力時は [] で囲って下さい
+<LI>csv/txt では、ディレクトリを指定して下さい(ファイルを選択してファイル名を消して下さい)
+<LI>ソートは、order by より後を指定します
+<LI>SQL を入力した場合、テーブル ～ ソートは無視されます(ファイル名固定:ADO汎用CSV出力.csv)<br><br>
+<LI>接続追加オプション (例: charset=sjis )<br>
+<INPUT id="connectopt" style='width:500px'>
+<LI>接続時実行SQL<br>
+<TEXTAREA id="connectsql" style='width:500px;height:100px;'></TEXTAREA>
+
+</UL>
+<a href="http://msdn.microsoft.com/ja-jp/library/cc426827.aspx" target="_balnk">Microsoft OLE DB Provider for ODBC</a><br>
+<a href="http://dev.mysql.com/doc/refman/5.1/en/connector-odbc-configuration-connection-parameters.html" target="_balnk">MySQL 5.1 Connector/ODBC Connection Parameters</a>
+
+
+</body>
+</html>
+
+<SCRIPT for=window event=onload language="VBScript">
+//<![CDATA[
+	nWidth = 850
+	nHeight = 750
+	top.resizeTo nWidth, nHeight
+	top.moveTo (screen.width-nWidth)/2, (screen.height-nHeight)/2
+
+
+	strPath = "SOFTWARE\ODBC\ODBCINST.INI\ODBC Drivers"
+	bRet = WMIRegEnumValues( HKEY_LOCAL_MACHINE, strPath, aNames, aTypes )
+	
+	if not bRet then
+		alert( "WMIRegEnumValues:" & ErrorMessage )
+	end if
+	
+	Rs.Fields.Append "ソートキー", adVarChar,255
+	Rs.Open
+	
+	For Each data In aNames
+	
+		Rs.AddNew
+		Rs.Fields("ソートキー").value = data
+	
+	Next
+	
+	Rs.Sort = "ソートキー"
+	Rs.MoveFirst
+	
+	Dim opt
+	
+	Do while not Rs.EOF
+	
+		Set opt = document.createElement("OPTION")
+		opt.text = Rs.Fields("ソートキー").value & ""
+		document.getElementById("odbclist").add(opt)
+	
+		Rs.MoveNext
+	
+	Loop
+
+	Rs.Close
+	Set Rs = CreateObject("ADODB.Recordset")
+//]]>
+</SCRIPT>

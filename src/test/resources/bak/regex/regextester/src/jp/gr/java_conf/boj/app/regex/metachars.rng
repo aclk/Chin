@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<grammar datatypeLibrary="http://www.w3.org/2001/XMLSchema-datatypes"
+         xmlns="http://relaxng.org/ns/structure/1.0">
+  <start>
+    <element name="metachars">
+      <zeroOrMore>
+        <ref name="metachar" />
+      </zeroOrMore>
+    </element>
+  </start>
+
+  <define name="metachar">
+    <element name="metachar">
+      <element name="chars">
+        <data type="string">
+          <param name="minLength">1</param>
+        </data>
+      </element>
+      <element name="summary">
+        <data type="string">
+          <param name="minLength">1</param>
+        </data>
+      </element>
+      <optional>
+        <element name="example">
+          <data type="string">
+            <param name="minLength">1</param>
+          </data>
+        </element>
+      </optional>
+    </element>
+  </define>
+</grammar>

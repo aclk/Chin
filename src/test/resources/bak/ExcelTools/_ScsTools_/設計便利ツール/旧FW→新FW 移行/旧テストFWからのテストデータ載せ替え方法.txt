@@ -1,0 +1,40 @@
+テスト仕様書はコピペ
+
+
+PZB0020の場合
+
+1.旧テストFWで作成したテストデータをコピーして配置
+旧テストFWのテストデータ：
+eclipse\workspace\pzb0020\src\test\resources\murata\ps\pz\pzb0020\application\data\*pzb0020PGMTest-execute-DefaultXX.xml
+↓
+配置場所：
+eclipse\workspace\tool001\src\test\resources\murata\ps\application\data
+
+
+2.投入データのフォーマットを配置
+・ファイル名は、TP_TEMPLATE.xls
+・投入データは、改定履歴、各シートのプロダクトID、プロダクト名を記載また、共通情報データを記入
+
+4.投入データを作成するテーブルID一覧を作成
+・grepで検索を実行。検索する言葉は「<」
+・検索結果からテーブルIDをユニークに抽出
+・下記のように一覧を作成
+<?xml version='1.0' encoding='Windows-31J'?>
+<!--B-05-->
+<dataset>
+	<PR0017
+	/>
+	<PE0017
+	/>
+</dataset>
+
+・上記は*pzb0020PGMTest-execute-Default0.xmlとして作成し配置場所に格納する。
+・applicationContext-product-test.xmlにもテーブル指定する。
+
+5.ConvertNewTestFWをJUnitテストで実行。tool01直下に投入データは出力される。
+
+■補足
+載せ替えする時のスキーマは下記です。
+murata-ddl     ：0.4.13-pz-02
+murata-ddl-work：0.4.68-pz-09
+murata-ddl-core：0.4.4.2-pz-00

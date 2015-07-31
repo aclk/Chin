@@ -1,0 +1,21 @@
+#!/bin/bash
+
+# install desktop integration
+#
+# run this script after unpacking the jregexanalyser installation somewhere,
+# e.g. in /opt/jregexanalyser
+
+# set desired prefix here (if you change this, check also jregexanalyser.dekstop)
+export JRE_PREFIX=/usr
+
+# remove previous symlink, if present
+rm $JRE_PREFIX/bin/jregexanalyser
+
+# link jregexanalyser to bin dir, which should be in the PATH
+ln -s $PWD/jregexanalyser $JRE_PREFIX/bin/jregexanalyser
+
+# copy icon
+cp icon.png $JRE_PREFIX/share/pixmaps/jregexanalyser.png
+
+# copy desktop entry
+cp jregexanalyser.desktop $JRE_PREFIX/share/applications/

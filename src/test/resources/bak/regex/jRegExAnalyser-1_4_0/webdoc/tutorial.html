@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<meta name="robots" content="index,follow">
+<link rel="stylesheet" type="text/css" charset="utf-8" media="all" href="style/common.css">
+<title>jRegExAnalyser/tutorial</title>
+</head>
+<body>
+<h1><a href="index.html">jRegExAnalyser</a></h1>
+
+<div dir="ltr" id="content" lang="en">
+<p class="line867">
+<h2 id="Tutorial">Tutorial</h2>
+<p class="line874">This tutorial will demonstrate jRegExAnalyser for very simple use cases. You should already have a basic understanding of how regular expressions work. <p class="line874">If needed, just search out for one of the many tutorials on this topic or get a copy of the great book <em>Mastering Regular Expressions</em>. <p class="line862">Use the default pattern settings, i.e. no flags enabled, and the find mode:<br>
+ <img src="images/default-settings.png"/> <p class="line867">
+<h3 id="Search_and_Replace">Search and Replace</h3>
+<p class="line862">Assume we have the following text<sup><a href="#fnref-d21f5c7ad286d5be1d3a4c2fb3a7157ea828e2cc" id="fndef-d21f5c7ad286d5be1d3a4c2fb3a7157ea828e2cc-0">1</a></sup>: <pre>Hong Kong Phooey, number 1,45 super guy. Hong Kong Phooey,
+5,23 times quicker than the human eye. He's got style, a groovy
+style, and a car that just won't stop within 8,123 miles.
+When the going gets tough, he's really rough, with a Hong Kong
+Phooey chop (Hi-Ya!).</pre><p class="line862">Start jRegExAnalyser and copy<sup><a href="#fnref-727b820a4edbffb88161cfa830dd6a2870c235f0" id="fndef-727b820a4edbffb88161cfa830dd6a2870c235f0-1">2</a></sup> this text into the text field. <p class="line874">The objective is to replace the comma based numbers with numbers containing a decimal point. So as a first try, we just enter a comma in the RegEx field: <pre>,</pre><p class="line862">The match results are highlighted in the text and the details are displayed in the matching tab:<br>
+ <img src="images/tutorial-01-s.png"/> <p class="line862">If the match results are not instantly highlighted<sup><a href="#fnref-f38f746bd63f80c4be868090186ba625bb6d9649" id="fndef-f38f746bd63f80c4be868090186ba625bb6d9649-2">3</a></sup> press the apply button:<br>
+ <img src="images/btn-apply.png"/> <p class="line874">We got 9 matches, some of them are commas in numbers, some of them are commas behind regular words. So we need something more elaborate to match just the commas in numbers. We extend the regular expression to match one or more digits before and after the comma: <pre>\d+,\d+</pre><p class="line874">Now we got three matches for the three numbers. For the replace operation we need the matched digits to preverse them using capturing group substitution in the replacement text. So we add a group around each sequence of digits: <pre>(\d+),(\d+)</pre><p class="line867"><img src="images/tutorial-match-groups.png"/><br>
+ Now the only change in the result is that all three matches show two match groups. By selecting these groups we can verify that the integer and fractional parts of the numbers are captured correctly. <p class="line874">The pattern is now ready for replacing. So switch over to the replacing tab and enter the following replacement text referring to the two match groups, separated with a point: <pre>$1.$2</pre><p class="line862">Finally verify, that the result text holds the desired result.<br>
+ <img src="images/tutorial-replacement.png"/> <p class="line874">Using the 'convert to string' function you can grab the following, properly escaped ready-to-use Java regular expression string:<br>
+ <img src="images/tutorial-literal.png"/> <p class="line867">
+<h3 id="Split_a_Date_String">Split a Date String</h3>
+<p class="line874">Assume you like to split up a date string like '2010-01-02T05:37:49Z'. <p class="line874">Copy this string to the text field and enter the regular expression '\D'. <p class="line874">Switching to the 'Splitting' tab you'll find the resulting list from splitting the text using the regular expression as delimiter:<br>
+ <img src="images/ref-split.png"/> <hr class="hr2" /><p class="line874"> <div class="footnotes"><ol><li><p><a id="fnref-d21f5c7ad286d5be1d3a4c2fb3a7157ea828e2cc"></a>This text was created using a blind text generator, so do not try to find any deeper meaning in it.  (<a href="#fndef-d21f5c7ad286d5be1d3a4c2fb3a7157ea828e2cc-0">1</a>)</li><li><p><a id="fnref-727b820a4edbffb88161cfa830dd6a2870c235f0"></a>If you are using Java Web Start Cut'n'Paste may not work. Please consider running the .jar locally in this case.  (<a href="#fndef-727b820a4edbffb88161cfa830dd6a2870c235f0-1">2</a>)</li><li><p><a id="fnref-f38f746bd63f80c4be868090186ba625bb6d9649"></a>The optional <em>Permanent Matching</em> feature was added in version 1.2.  (<a href="#fndef-f38f746bd63f80c4be868090186ba625bb6d9649-2">3</a>)</li></ol></div></div>
+
+
+</body>
+</html>

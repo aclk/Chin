@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <properties>
+        <subSystemId>SS</subSystemId>
+        <version>1.22.0</version>
+        <!-- online -->
+            <productId>szo0030</productId>
+            <packaging>war</packaging>
+        <groupId>murata</groupId>
+        <artifactId>${groupId}-${productId}</artifactId>
+        <createChecksum>true</createChecksum>
+    </properties>
+
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
+    <version>${version}</version>
+    <name>muRata ${subSystemId} ${productId}</name>
+    <packaging>${packaging}</packaging>
+
+    <parent>
+        <groupId>murata</groupId>
+        <artifactId>murata-app-parent</artifactId>
+        <version>0.3.10</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>murata</groupId>
+            <artifactId>murata-baseline</artifactId>
+            <version>0.6.0</version>
+            <type>pom</type>
+            <optional>true</optional>
+        </dependency>
+    </dependencies>
+</project>

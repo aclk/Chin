@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<site>
+   <feature url="features/BuildJclToolFeature_0.1.2.jar" id="BuildJclToolFeature" version="0.1.2">
+      <category name="DefaultTool"/>
+   </feature>
+   <feature url="features/DBSettingToolFeature_0.1.1.jar" id="DBSettingToolFeature" version="0.1.1">
+      <category name="OptionTool"/>
+   </feature>
+   <feature url="features/TestToolFeature_0.1.1.jar" id="TestToolFeature" version="0.1.1">
+      <category name="DefaultTool"/>
+   </feature>
+   <feature url="features/JettyToolFeature_0.1.2.jar" id="JettyToolFeature" version="0.1.2">
+      <category name="OptionTool"/>
+   </feature>
+   <category-def name="DefaultTool" label="推奨ツール"/>
+   <category-def name="OptionTool" label="あると便利なTool"/>
+</site>

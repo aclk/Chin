@@ -1,0 +1,464 @@
+<examples>
+  <example name="p_posix" tutorial="false">
+    <html>
+      Java の POSIX 文字クラスは Parl と違い US アスキーのみを
+      対象として作成されている。<br/>
+    </html>
+  </example>
+  <example name="p_punct" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Punct}</font><s/>は句読文字に
+      マッチする。<br/>
+      句読文字とはアスキー文字から英数字と制御文字を除いた残りで<br/>
+      <font color="highlight2">
+      !&amp;quot;#$%&amp;amp;&amp;#39;()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~
+      </font><br/>
+      のいずれか。
+    </html>
+  </example>
+  <example name="p_graph" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Graph}</font><s/>
+      は表示できる文字にマッチする。<br/>
+      <font color="highlight1">[\p{Alnum}\p{Punct}]</font><s/>と等価で
+      アスキー文字から制御文字とスペースを除いた残りとなり、<br/>
+      <font color="highlight2">
+      0123456789<br/>
+      abcdefghijklmnopqrstuvwxyz<br/>
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
+      !&amp;quot;#$%&amp;amp;&amp;#39;()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~
+      </font><br/>
+      のいずれか
+    </html>
+  </example>
+  <example name="p_print" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Print}</font><s/>
+      はプリント可能文字にマッチする。<br/>
+      <font color="highlight1">[\p{Graph}\x20]</font><s/>と等価で
+      アスキー文字から制御文字を除いた残りとなり、<br/>
+      <font color="highlight2">
+      スペース</font>と<br/>
+      <font color="highlight2">
+      0123456789<br/>
+      abcdefghijklmnopqrstuvwxyz<br/>
+      ABCDEFGHIJKLMNOPQRSTUVWXYZ<br/>
+      !&amp;quot;#$%&amp;amp;&amp;#39;()*+,-./:;&amp;lt;=&amp;gt;?@[\]^_`{|}~
+      </font><br/>
+      のいずれか
+    </html>
+  </example>
+  <example name="p_cntrl" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Cntrl}</font><s/>
+      はアスキーの制御文字にマッチする。<br/>
+      <font color="highlight1">[\x00-\x1F\x7F]</font><s/>と等価で
+      <link href="Example/p_print">プリント可能文字 (\p{Print})</link><s/>
+      以外のアスキー文字となる。<br/>
+    </html>
+  </example>
+  <example name="p_space" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Space}</font><s/>
+      は空白文字にマッチする。<br/>
+      <font color="highlight1">[ \t\n\x0B\f\r]</font><s/>と等価となる。
+    </html>
+  </example>
+  
+  <example name="p_category" tutorial="false">
+    <html>
+      Unicode で定義されている一般カテゴリーを使ってマッチを行う。<br/>
+      ここにあるのはユニコード一般カテゴリーの一部で
+      他の一般カテゴリーに関してはユニコードのサイトへ<br/>
+    </html>
+  </example>
+  <example name="p_lm" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Lm}</font><s/>は修飾文字にマッチする。<br/>
+      日本語では踊り字（おくり字、畳字）<br/>
+      <font color="highlight2">々ゝゞヽヾ</font><br/>
+      などにマッチする。
+    </html>
+  </example>
+  <example name="p_lo" tutorial="false">
+    <html>
+      <font color="highlight1">\p{Lm}</font><s/>
+      は大文字、小文字のない文字にマッチする。<br/>
+      日本語の漢字、ひらがな、カタカナなどは
+      <s/><font color="highlight1">\p{L}</font><s/>（文字）にはマッチするが
+      大文字小文字の区別がないので
+      <s/><font color="highlight1">\p{Lu}</font><s/>や
+      <s/><font color="highlight1">\p{Ll}</font><s/>にはマッチせず、
+      この<s/><font color="highlight1">\p{Lm}</font><s/>にマッチする。<br/>
+    </html>
+  </example>
+  
+  <example name="p_unicode_block" tutorial="false">
+    <html>
+      Unicode で定義されているブロック名を使ってマッチを行う。<br/>
+      ここにあるのは日本語に関連するほんの一部で
+      他のユニコードブロックに関してはユニコードのサイトへ<br/>
+      Java のバージョン 1.5 では 1.4 からブロック名を
+      変更しているものがあるが 1.4 でのブロック名も
+      少なくとも 1.5 では上位互換で有効。<br/>
+      このアプリケーションでは 1.5 のブロック名のみを使用している。<br/>
+      ある文字がユニコードのどのブロックに所属するかを知りたい場合には<br/>
+      <font color="code">Character.UnicodeBlock#of</font><br/>
+      メソッドを使う。
+    </html>
+  </example>
+  <example name="p_hiragana" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InHiragana}</font><s/>
+      はひらがな (\u3040-\u309F) にマッチする。<br/>
+      ブロックにふくまれている文字は以下<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="3040" end="309F"/>
+    </html>
+  </example>
+  <example name="p_katakana" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InKatakana}</font><s/>
+      はカタカナ (\u30A0-\u30FF) にマッチする。<br/>
+      ブロックにふくまれている文字は以下<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="30A0" end="30FF"/>
+    </html>
+  </example>
+  <example name="p_cjk_enclosed" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InEnclosedCjkLettersAndMonths}</font><s/>は
+      囲み文字 (\u3200-\u32FF) にマッチする。<br/>
+      ブロックにふくまれている文字は以下<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="3200" end="32FF"/>
+    </html>
+  </example>
+  <example name="p_cjk_compatibility" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InCjkCompatibility}</font><s/>
+      は単位をはじめ、
+      複数文字で構成される文字 (\u3300-\u33FF) などにマッチする。<br/>
+      ブロックにふくまれている文字は以下<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="3300" end="33FF"/>
+    </html>
+  </example>
+  <example name="p_cjk_compatibility_forms" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InCjkCompatibilityForms}</font><s/>
+      は縦書きの際に使用する括弧などの記号 (\uFE30-\uFE4F) などに
+      マッチする。<br/>
+      ブロックにふくまれている文字は以下<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="FE30" end="FE4F"/>
+    </html>
+  </example>
+  <example name="p_cjk_symbols" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InCjkSymbolsAndPunctuation}</font><s/>
+      は記号と句読点 (\u3000-\u303F) などにマッチする。<br/>
+      ブロックにふくまれている文字は以下（最初の文字は全角スペース）<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="3000" end="303F"/>
+    </html>
+  </example>
+  <example name="p_cjk" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InCjkUnifiedIdeographs}</font><s/>は
+      CJK統合漢字 (\u4E00-\u9FFF) にマッチする。<br/>
+    </html>
+  </example>
+  <example name="p_cjk_A" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InCjkUnifiedIdeographsExtensionA}</font><s/>
+      は CJK統合漢字拡張A (\u3400-\u4DBF) にマッチする。<br/>
+    </html>
+  </example>
+  <example name="p_halffull" tutorial="false">
+    <html>
+      <font color="highlight1">\p{InHalfwidthAndFullwidthForms}</font><s/>
+      は半角全角文字 (\uFF00-\uFFEF) などにマッチする。<br/>
+      ブロックにふくまれている文字は以下<br/>
+      （マッピングされていないコードポイントやフォントに無い文字は
+      デフォルトの記号などが表示される）<br/>
+      <unicode start="FF00" end="FFEF"/>
+    </html>
+  </example>
+  
+  
+  
+  <example name="p_character" tutorial="false">
+    <html>
+      JavaではCharacterクラスの<br/>
+      <font color="code">public static boolean isXXXX</font><br/>
+      メソッドと同じ判定を行う文字クラスを<br/>
+      <font color="highlight1">\p{javaXXXX}</font><br/>
+      のように定義している。<br/>
+      <font color="code">isXXXX</font><s/>メソッドが true を返す文字は
+      <s/><font color="highlight1">\p{javaXXXX}</font><s/>
+      にマッチする。<br/>
+      Characterクラスの<s/><font color="code">isXXXX</font><s/>
+      メソッドは引数に char 型を取るものと int 型を取るものが
+      あり、 char 型を取るものはユニコードの補助文字に
+      対応していないが、<s/><font color="highlight1">\p{javaXXXX}</font><s/>
+      によるマッチングは Java 1.5 以上であれば
+      ユニコードの補助文字でも正しく判定する。
+      （当然、使用している Java が対応している
+      ユニコードのバージョンの範囲となるが）
+    </html>
+  </example>
+  <example name="p_defined" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaDefined}</font><s/>は
+      <s/><font color="code">Character#isDefined</font><s/>
+      に対応する。<br/>
+      Java でサポートしているバージョンのユニコードに
+      定義されている文字ならばマッチする。
+    </html>
+  </example>
+  <example name="p_digit" tutorial="false">
+    <html>
+       <font color="highlight1">\p{javaDigit}
+       </font><s/>は<s/><font color="code">Character#isDigit</font><s/>
+       に対応する。<br/>
+       <font color="highlight1">\p{Nd}</font><s/>
+       と等価で10進数字にマッチする。<br/>
+       全角数字にもマッチする。
+    </html>
+  </example>
+  <example name="p_identifierignorable" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaIdentifierIgnorable}
+      </font><s/>は<s/><font color="code">
+      Character#isIdentifierIgnorable</font><s/>に対応する。<br/>
+      Java または Unicode 識別子の一部に使用可能な、
+      無視できる制御文字にマッチする。<br/>
+      以下が該当する。<br/>
+      ・空白以外の ISO 制御
+      文字 (\u0000-\u0008 \u000E-\u001B \u007F-\u009F) <br/>
+      ・汎用カテゴリ値 FORMAT に
+      属する（<font color="highlight1">\p{Cf}</font><s/>に
+      マッチする）すべての文字 
+    </html>
+  </example>
+  <example name="p_isocontrol" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaISOControl}</font><s/>
+      は<s/><font color="code">Character#isISOControl</font><s/>
+      に対応する。<br/>
+      ISO 制御文字 (\u0000-\u001F または \u007F-\u009F) ならマッチする。
+    </html>
+  </example>
+  <example name="p_javaidentifierpart" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaJavaIdentifierPart}
+      </font><s/>は<s/><font color="code">
+      Character#isJavaIdentifierPart</font><s/>に対応する。<br/>
+      Java 識別子の一部に使用可能な文字にマッチする。<br/>
+      次のどれかに当てはまる場合にだけ、
+      その文字を Java 識別子の一部に指定できる。<br/>
+      ・汎用文字である<br/>
+      ・通貨記号である（「$」など）<br/>
+      ・連結句読点文字である（「_」など）<br/>
+      ・数字である<br/>
+      ・数値汎用文字である（ローマ数字文字など）<br/>
+      ・連結マークである<br/>
+      ・非スペーシングマークである<br/>
+      ・その文字を引数として
+      <s/><font color="code">Character#isIdentifierIgnorable</font><s/>
+      が true を返す 
+    </html>
+  </example>
+  <example name="p_javaidentifierstart" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaJavaIdentifierStart}
+      </font><s/>は<s/><font color="code">
+      Character#isJavaIdentifierStart</font><s/>に対応する。<br/>
+      Java 識別子の最初の文字として指定可能な文字にマッチする。<br/>
+      次のどれかに当てはまる場合にだけ、その文字を Java 識別子の一部に
+      指定できる。<br/>
+      ・<font color="code">Character#isLetter</font><s/>が true を返す<br/>
+      ・<font color="code">Character#getType</font><s/>
+      が LETTER_NUMBER を返す<br/>
+      ・通貨記号である（「$」など）<br/>
+      ・連結句読点文字である（「_」など）<br/>
+    </html>
+  </example>
+  <example name="p_letter" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaLetter}
+      </font><s/>は<s/><font color="code">Character#isLetter</font><s/>
+      に対応する。<br/>
+      汎用文字にマッチする。<br/>
+      <font color="code">Character#getType(char)</font><s/>
+      の示す汎用カテゴリ型が次のどれかの場合に汎用文字と見なされる。<br/>
+      UPPERCASE_LETTER<br/> 
+      LOWERCASE_LETTER<br/> 
+      TITLECASE_LETTER<br/> 
+      MODIFIER_LETTER<br/> 
+      OTHER_LETTER<br/>
+      よって<s/>
+      <font color="highlight1">[\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}]</font><s/>
+      と等価
+    </html>
+  </example>
+  <example name="p_letterordigit" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaLetterOrDigit}</font><s/>
+      は<s/><font color="code">Character#isLetterOrDigit</font><s/>
+      に対応する。<br/>
+      汎用文字または数字にマッチする。<br/>
+      <font color="code">Character#isLetter</font><s/>または
+      <s/><font color="code">Character#isDigit</font><s/>が true を
+      返すような文字が汎用文字または数字と見なされる。<br/>
+      よって<s/>
+      <font color="highlight1">
+      [\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}\p{Nd}]</font><s/>と等価
+    </html>
+  </example>
+  <example name="p_lowercase" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaLowerCase}
+      </font><s/>は<s/><font color="code">Character#isLowerCase</font><s/>
+      に対応する。<br/>
+      小文字にマッチする。<br/>
+      <font color="highlight1">\p{Ll}</font><s/>と等価で
+      汎用カテゴリ型が LOWERCASE_LETTER に属する文字を小文字と見なす。
+    </html>
+  </example>
+  <example name="p_mirrored" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaMirrored}
+      </font><s/>は<s/><font color="code">Character#isMirrored</font><s/>
+      に対応する。<br/>
+      Unicode 仕様に従ってミラー化する文字にマッチする。<br/>
+      マッチする文字はテキスト内で右から左に文字が描画される場合、
+      文字のミラー化により、グリフが水平方向にミラー化される。<br/>
+      たとえば、「\u0028」LEFT PARENTHESIS は、
+      セマンティクスでは「開き括弧」として定義されている。<br/>
+      これは、左から右に描画されるテキストでは「(」になり、
+      右から左に描画されるテキストでは「)」になる。 
+    </html>
+  </example>
+  <example name="p_spacechar" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaSpaceChar}
+      </font><s/>は<s/><font color="code">Character#isSpaceChar</font><s/>
+      に対応する。<br/>
+      空白文字にマッチする。<br/>
+      汎用カテゴリ型が<br/>
+      SPACE_SEPARATOR<br/>
+      LINE_SEPARATOR<br/> 
+      PARAGRAPH_SEPARATOR<br/> 
+      のどれかの場合に空白文字とみなされる。<br/>
+      よって<s/>
+      <font color="highlight1">[\p{Zs}\p{Zl}\p{Zp}]</font><s/>と等価<br/>
+      <font color="highlight1">\p{javaWhitespace}</font><s/>
+      と違いタブにはマッチしない。<br/>
+    </html>
+  </example>
+  <example name="p_titlecase" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaTitleCase}
+      </font><s/>は<s/><font color="code">Character#isTitleCase</font><s/>
+      に対応する。<br/>
+      タイトルケース文字にマッチする。<br/>
+      <font color="highlight1">\p{Lt}</font><s/>
+      と等価で汎用カテゴリ型が TITLECASE_LETTER である
+      文字がタイトルケース文字と見なされる。<br/>
+      ２つの文字で１つの文字を構成する文字があり、
+      両方が大文字で構成される大文字と
+      両方が小文字で構成される小文字がある。<br/>
+      このような文字が本のタイトルで使用される場合などに
+      最初の文字が大文字で２番目の文字が小文字という構成の場合に
+      タイトルケース文字とする。<br/>
+      例えばクロアチア語には大文字 LJ と小文字の lj があり Lj は
+      タイトルケース文字に該当する。
+    </html>
+  </example>
+  <example name="p_unicodeidentifierpart" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaUnicodeIdentifierPart}</font><s/>
+      は<s/>
+      <font color="code">Character#isUnicodeIdentifierPart</font>
+      <s/>に対応する。<br/>
+      Unicode 識別子の一部に使用可能な文字にマッチする。<br/>
+      次のどれかに当てはまる場合にだけ、その文字を Unicode 識別子の
+      一部に使用できる。<br/>
+      ・汎用文字である<br/>
+      ・連結句読点文字である(「_」など）<br/>
+      ・数字である<br/>
+      ・数値汎用文字である（ローマ数字文字など）<br/>
+      ・連結マークである<br/>
+      ・非スペーシングマークである<br/>
+      ・この文字に対して、
+      <s/><font color="code">Character#isIdentifierIgnorable</font><s/>
+      が true を返す
+    </html>
+  </example>
+  <example name="p_unicodeidentifierstart" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaUnicodeIdentifierStart}</font><s/>
+      は<s/><font color="code">
+      Character#isUnicodeIdentifierStart</font><s/>に対応する。<br/>
+      Unicode 識別子の先頭に使用可能な文字にマッチする。<br/>
+      次のどれかに当てはまる場合にだけ、その文字を Unicode 識別子の
+      最初に使用できる。<br/>
+      ・<font color="code">Character#isLetter(ch)</font><s/>
+      が true を返す<br/>
+      ・<font color="code">Character#getType(ch)</font><s/>
+      が LETTER_NUMBER を返す <br/>
+      よって<s/><font color="highlight1">
+      [\p{Lu}\p{Ll}\p{Lt}\p{Lm}\p{Lo}\p{Nl}]</font><s/>と等価
+    </html>
+  </example><example name="p_uppercase" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaUpperCase}</font><s/>
+      は<s/><font color="code">Character#isUpperCase</font><s/>
+      に対応する。<br/>
+      大文字にマッチする。<br/>
+      <font color="highlight1">\p{Lu}</font><s/>
+      と等価で汎用カテゴリ型が UPPERCASE_LETTER の文字を大文字と見なす。
+    </html>
+  </example>
+  <example name="p_whitespace" tutorial="false">
+    <html>
+      <font color="highlight1">\p{javaWhitespace}</font><s/>
+      は<s/><font color="code">Character#isWhitespace</font><s/>
+      に対応する。<br/>
+      Java の空白文字にマッチする。<br/>
+      以下の基準のどれかを満たす場合にだけ Java の空白文字とする。<br/><br/>
+      ・Unicode の空白文字 (SPACE_SEPARATOR、LINE_SEPARATOR、
+      または PARAGRAPH_SEPARATOR) であるが、非区切りスペース (「\u00A0」、
+      ・「\u2007」、「\u202F」) ではない<br/>
+      ・「\u0009」(HORIZONTAL TABULATION)<br/>
+      ・「\u000A」(LINE FEED)<br/>
+      ・「\u000B」(VERTICAL TABULATION)<br/>
+      ・「\u000C」(FORM FEED)<br/>
+      ・「\u000D」(CARRIAGE RETURN)<br/>
+      ・「\u001C」(FILE SEPARATOR)<br/>
+      ・「\u001D」(GROUP SEPARATOR)<br/>
+      ・「\u001E」(RECORD SEPARATOR)<br/>
+      ・「\u001F」(UNIT SEPARATOR)<br/>
+    </html>
+  </example>
+  
+  <!--
+  
+   
+  <example name="" tutorial="false">
+    <html>
+      　未実装
+    </html>
+  </example>
+   -->
+  
+  
+</examples>

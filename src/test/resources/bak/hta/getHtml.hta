@@ -1,0 +1,41 @@
+<html>
+<head>
+<title>Htmlを取得する！</title>
+<script type="text/javascript">
+//<![CDATA[
+function start_load() {
+    var xhr = new ActiveXObject("Msxml2.XMLHTTP");
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            view(xhr);
+        }
+    };
+    xhr.open('get', 'http://b.hatena.ne.jp/hotentry');
+    xhr.send(null);
+}
+function view(xhr) {
+    document.getElementById('main').value = xhr.responseText;
+}
+//]]>
+</script>
+<style type="text/css">
+/*<![CDATA[*/
+body {
+    background: #FFF;
+}
+
+#main {
+    width: 100%;
+    height: 200px;
+    color: red;
+    font-size: 12px;
+}
+/*]]>*/
+</style>
+</head>
+
+<body>
+<textarea id="main">こんにちは！</textarea>
+<input type="button" value="ひみつボタン" onclick="start_load()" />
+</body>
+</html>

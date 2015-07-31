@@ -1,0 +1,2136 @@
+<examples>
+  <example name="t_string_method" tutorial="false">
+    <html>
+    <font color="highlight2">String クラスの正規表現関連メソッド</font><br/>
+    String クラスには正規表現を使って置換や文字列分割を行う
+    以下のメソッドが用意されている。<br/>
+    これらのメソッドはメソッド内で Pattern や Matcher オブジェクトを
+    生成してそれらで置換や文字列分割を行っており、
+    入力シーケンスが String オブジェクトの場合に１回のみの
+    置換や文字列分割を行う場合には（Pattern オブジェクト
+    や Matcher オブジェクトが不要な場合）この String クラスに
+    用意されているメソッドの方が使いやすい。
+    
+    &lt;table cellpadding=&quot;3&quot;&gt;
+    &lt;tr&gt;&lt;td&gt;
+    replaceAll
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    <link href="Matcher/replaceAll">
+    Matcher#replaceAll
+    </link><s/>と同じ機能
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    replaceFirst
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    <link href="Matcher/replaceFirst">
+    Matcher#replaceFirst
+    </link><s/>と同じ機能
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    matches
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    <link href="Pattern/matches">
+    Pattern#matches
+    </link><s/>と同じ機能
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    split
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    <link href="Pattern/split(CharSequence,int)">
+    Pattern#split
+    </link><s/>と同じ機能
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+    <br/>
+    
+    <font color="code">
+  public String replaceAll(String regex, String replacement)
+    </font><br/>
+    入力シーケンスの String オブジェクトを変数 str が参照しているとすると<br/>
+    str.replaceAll(regex, replacement)    <br/>
+    は<br/>
+    Pattern.compile(regex).matcher(str).replaceAll(replacement)<br/>
+    と等価。<br/><br/>
+    
+    <font color="code">
+  public String replaceFirst(String regex, String replacement)
+    </font><br/>
+    入力シーケンスの String オブジェクトを変数 str が参照しているとすると<br/>
+    str.replaceFirst(regex, replacement)<br/>
+    は<br/>
+    Pattern.compile(regex).matcher(str).replaceFirst(replacement)<br/>
+    と等価。<br/><br/>
+    
+    <font color="code">
+  public boolean matches(String regex)
+    </font><br/>
+    入力シーケンスの String オブジェクトを変数 str が参照しているとすると<br/>
+    str.matches(regex)<br/>
+    は<br/>
+    Pattern.matches(regex, str)<br/>
+    と等価。<br/><br/>
+    
+    <font color="code">
+  public String[] split(String regex)
+    </font><br/>
+    入力シーケンスの String オブジェクトを変数 str が参照しているとすると<br/>
+    str.split(regex, limit)<br/>
+    は<br/>
+    Pattern.compile(regex).split(str)<br/>
+    と等価。<br/><br/>
+    
+    <font color="code">
+  public String[] split(String regex, int limit)
+    </font><br/>
+    入力シーケンスの String オブジェクトを変数 str が参照しているとすると<br/>
+    str.split(regex, limit)<br/>
+    は<br/>
+    Pattern.compile(regex).split(str, limit)<br/>
+    と等価。<br/><br/>
+    
+    
+    </html>
+  </example>
+  <example name="t_split" tutorial="false">
+    <html>
+    <font color="highlight2">文字列分割</font><br/>
+    Pattern クラスにはそのインスタンスが表す正規表現にマッチする部分で
+    引数の文字シーケンスを分割する split メソッドが以下のように
+    宣言されている。<br/>
+    <link href="Pattern/split(CharSequence)">
+    public String[] split(CharSequence input)
+    </link><br/>
+    <link href="Pattern/split(CharSequence,int)">
+    public String[] split(CharSequence input, int limit)
+    </link><br/>
+    split(input) は split(input, 0) と等価。<br/>
+    
+    </html>
+  </example>
+  
+  
+  <example name="t_usepattern" tutorial="false">
+    <html>
+    <font color="highlight2">Matcher オブジェクトのパターン変更</font><br/>
+    正規表現エンジンである Matcher オブジェクトが保持する
+    正規表現は Pattern オブジェクトから生成された
+    時点では生成もとの Pattern オブジェクトが表す正規表現となる。<br/>
+    Matcher オブジェクトが保持する正規表現を
+    変更するには 
+    <s/><link href="Matcher/usePattern">
+    Matcher#usePattern
+    </link><s/>
+     メソッドを使う。<br/>
+    usePattern メソッドは以下のように宣言されている。<br/>
+    <font color="code">
+    public Matcher usePattern(Pattern newPattern)
+    </font><br/>
+    usePattern メソッドは最後のマッチングに関する
+    情報 (start　end　group　groupCount) は失われるが 
+    領域や次のマッチングの位置やアペンドポジションなどの
+    状態は変更されない。<br/>
+    </html>
+  </example>
+  
+  <example name="t_java_code" tutorial="false">
+    <html>
+    <font color="highlight2">
+    正規表現を扱う Java API
+    </font><br/>
+    
+    Java では 
+    <s/><font color="code">java.util.regex</font><s/>
+     パッケージに正規表現を扱う為の API が
+    収められている。<br/>
+    <font color="code">java.util.regex.Pattern</font><s/>
+     クラスが正規表現パターンを
+    表し、 
+    <s/><font color="code">java.util.regex.Matcher</font><s/>
+     クラスがマッチングを行う
+    正規表現エンジンを表している。<br/>
+    Java でマッチングを行う場合には、最初に正規表現パターンで
+    ある Pattern オブジェクトを生成する。<br/>
+    次に Pattern オブジェクトから
+    正規表現エンジンである Matcher オブジェクトを
+    生成してマッチング操作や置換などを行う。<br/>
+    </html>
+  </example>
+  
+  <example name="t_compile_pattern" tutorial="false">
+    <html>
+    <font color="highlight2">
+    Pattern オブジェクトの生成
+    </font><br/>
+    Pattern クラスには public なコンストラクタは無く、
+    その代わりに Pattern インスタンスを生成する
+    以下のファクトリーメソッドが用意されている。<br/>
+    <font color="code">
+    public static Pattern compile(String regex)<br/>
+    public static Pattern compile(String regex, int flags)
+    </font>
+    <br/>
+    引数の文字列は正規表現パターンで、 int 型の引数も取る方は
+    <link href="Example/t_mode">モード</link>
+    を設定する場合に使用する。<br/>
+    どちらのメソッドも引数の正規表現パターンが不正な場合には
+    <s/><font color="code">java.util.regex.PatternSyntaxException</font><s/>
+    をスローする。<br/>
+    <font color="code">PatternSyntaxException</font><s/>
+    は<s/><font color="code">IllegalArgumentException</font><s/>の
+    サブクラスで
+    非検査例外なので必要に応じて try-catch ブロックで例外処理を行う。<br/>
+    例えばアプリケーションのユーザが
+    正規表現パターンを入力する場合などには
+    メタ文字の使い方を間違ってしまう可能性があるので、そのような
+    ケースでは例外をキャッチしてユーザにメッセージを表示するなどの
+    例外処理が考えられる。<br/>
+    引数の正規表現パターンが正しい事が分かっている場合や、特に行うべき
+    例外処理がない（そのプログラムの例外発生時のデフォルトの動作でよい）
+    のであれば try-catch ブロックは不要。<br/>
+    Pattern オブジェクトはイミュータブル（不変→オブジェクト生成後に
+    変更可能な内部状態が全く無い）なので
+    オブジェクト生成時に設定した正規表現パターンを変更することはできないが
+    スレッドセーフであり、１つの Pattern オブジェクトから
+    複数の Matcher オブジェクトを生成してそれらを
+    同時に使用しても問題ない。<br/>
+    正規表現
+    <s/><font color="highlight1">\w+</font><s/>
+    はアルファベット大文字小文字と半角数字とアンダースコアの
+    どれかの文字にマッチするが、
+    このパターンを表す Pattern オブジェクトの生成コードは以下となる。<br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile(&amp;quot;\\w+&amp;quot;);
+    </font><br/>
+    正規表現でよく使用されるバックスラッシュ
+    <s/><font color="explain">\</font><s/>（日本語フォントでは
+    円記号にマッピングされている）は Java コードの
+    リテラル文字を表す
+    <s/><font color="code">&amp;quot;&amp;quot;</font><s/>
+    内ではエスケープシーケンスを使って
+    <s/><font color="explain">\\</font><s/>と記述しなければならない。
+    </html>
+  </example>
+  
+  <example name="t_new_matcher" tutorial="false">
+    <html>
+    <font color="highlight2">
+    Matcher オブジェクトの生成
+    </font><br/>
+    Matcher クラスには public なコンストラクタは
+    無く、 Matcher オブジェクトの生成は Pattern オブジェクト
+    の matcher メソッドを使って行う。<br/>
+    Pattern#matcher メソッドは以下のように宣言されている。<br/>
+    <font color="code">
+    public Matcher matcher(CharSequence input)
+    </font><br/>
+    引数は CharSequence インターフェイスを実装したオブジェクト
+    でこれがマッチングの対象となる。<br/>
+    CharSequence インターフェイスを実装したクラス
+    には String StringBuffer StringBuilder CharBuffer などがある。<br/>
+    文字列である String インスタンスを引数にする場合が
+    多いが CharSequence オブジェクトであれば何でもよいので
+    ドキュメントではマッチングの対象を文字列ではなく
+    入力シーケンス (input sequence) と呼んでいる。<br/>
+    Matcher オブジェクトには正規表現パターンを変更する
+    <s/><link href="Matcher/reset(CharSequence)">reset</link><s/>
+    メソッドや
+    入力シーケンスを変更する
+    <s/><link href="Matcher/usePattern">usePattern</link><s/>
+    メソッドが用意されている。<br/>
+    Matcher オブジェクトはスレッドセーフではないので複数のスレッドから
+    の同時使用はできない。<br/>
+    正規表現
+    <s/><font color="highlight1">\w+</font><s/>
+    はアルファベット大文字小文字と半角数字とアンダースコアの
+    どれかにマッチするが、この正規表現でマッチングを行う
+    入力シーケンスを<br/>
+    <font color="highlight2">
+    regex は regular expression の略。
+    </font><br/>
+    とすると Matcher オブジェクトの生成コードは以下となる。<br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile(&amp;quot;\\w+&amp;quot;);<br/>
+    Matcher matcher = pattern.matcher(
+    &amp;quot;regex は regular expression の略。&amp;quot;);
+    </font><br/>
+    
+    
+    </html>
+  </example>
+  <example name="t_matching" tutorial="false">
+    <html>
+    <font color="highlight2">
+    マッチングを行う Java コード
+    </font><br/>
+    マッチングは正規表現エンジンを表す Matcher オブジェクトに
+    よって行う。<br/>
+    Matcher クラスにはマッチングを行う為のメソッドが４つ用意されている。<br/>
+    
+    &lt;table cellpadding=&quot;3&quot;&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/find">find</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    領域の先頭、または前回マッチの末尾から入力シーケンスを走査して
+    マッチングを行う。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/find(int)">find(int)</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    リセット後に引数の位置から入力シーケンスを走査してマッチングを行う。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/lookingAt">lookingAt</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    領域の先頭部分がマッチするか判定する。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/matches">matches</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    領域全体がマッチするか判定する。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+    <br/>
+    ４つメソッドすべてが boolean 値が戻り値となり、
+    マッチした場合に true を返す。
+    <br/>
+    <link href="Example/m_find">find メソッドの使用例</link><br/>
+    <link href="Example/m_find_int">find(int) メソッドの使用例</link><br/>
+    <link href="Example/m_lookingat">lookingAt メソッドの使用例</link><br/>
+    <link href="Example/m_matches">matches メソッドの使用例</link>
+    
+    </html>
+  </example>
+  <example name="t_replacement" tutorial="false">
+    <html>
+    <font color="highlight2">置換を行う Java コード</font><br/>
+    Matcher クラスには置換を行うメソッドが３つ用意されている。<br/>
+    &lt;table cellpadding=&quot;3&quot;&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/replaceFirst">replaceFirst</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    リセット後に入力シーケンスの先頭から走査して
+    最初にマッチした部分のみを置換する。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/replaceAll">replaceAll</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    リセット後に入力シーケンスの先頭から走査して
+    マッチする部分をすべて置換する。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;
+    <link href="Matcher/appendReplacement">appendReplacement</link>
+    &lt;/td&gt;&lt;td&gt;-&lt;/td&gt;&lt;td&gt;
+    find メソッドと組み合わせて柔軟な置換が行える。
+    &lt;/td&gt;&lt;/tr&gt;
+    &lt;/table&gt;
+    <br/>
+    <link href="Example/m_replace_first">
+    replaceFirst メソッドの使用例</link><br/>
+    <link href="Example/m_replace_all">replaceAll メソッドの使用例</link><br/>
+    <link href="Example/m_append_replacement">
+    appendReplacement メソッドの使用例</link><br/>
+    <link href="Example/m_replace_backref">
+    置換文字列でキャプチャグループを参照する例</link><br/>
+    </html>
+  </example>
+  
+  <example name="t_region" tutorial="false">
+    <html>
+    <font color="highlight2">領域の設定</font><br/>
+    Matcher オブジェクトに設定されている入力シーケンスには
+    マッチングの対象範囲となる領域を設定する事ができる。<br/>
+    領域の設定は 
+    <s/><link href="Matcher/region">region</link><s/>
+    メソッドで行う。<br/>
+    <link href="Matcher/find">find</link><s/><s/>
+    <link href="Matcher/lookingAt">lookingAt</link><s/><s/>
+    <link href="Matcher/matches">matches</link><s/>
+    の３つのメソッドは領域を対象にマッチングを行い、 region メソッドに
+    より領域が設定されていない場合には入力シーケンス全体が
+    領域となる。<br/>
+    引数を取る方の
+    <s/><link href="Matcher/find(int)">find(int)</link><s/>
+    メソッドは
+    <link href="Example/t_reset">リセット</link>
+    してからマッチングを行うので、
+    マッチング対象の領域は常に入力シーケンス全体となる。<br/>
+    領域の境界には
+    <s/><link href="Matcher/useAnchoringBounds">アンカー設定</link><s/>
+    や<s/><link href="Matcher/useTransparentBounds">
+    透明度に関する設定</link><s/>を行うことができる。<br/>
+    
+    <link href="Example/t_region_t1">領域の設定例</link><s/>
+    </html>
+  </example>
+  <example name="t_region_t1" tutorial="true">
+    <html>
+      現在表示しているのは領域の設定例。<br/>
+      右パネルで regionStart メソッドの結果が 
+      <s/><font color="error">2</font><s/>を regionEnd メソッドの結果が
+      <s/><font color="error">8</font><s/>を表示しているので
+      領域は 
+      <s/><font color="code">
+      region(</font><font color="error">2</font>
+      <font color="code">,</font><s/>
+      <font color="error">8</font><font color="code">);
+      </font><s/>
+      というコードによって設定されている。<br/>
+      この引数の int 値は入力シーケンスにおける文字のインデックスではなく
+      位置と考える方が理解しやすいと思われる。<br/>
+      例えば 
+      <s/><font color="error">0</font><s/>
+      は先頭の位置でこの例の場合には
+      <s/><font color="highlight1">0</font><s/>の直前の位置となる。<br/>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font>
+      <font color="highlight1">0123456789</font><br/>
+      <font color="error">2</font><s/>
+      は
+      <s/><font color="highlight1">2</font><s/>の直前の位置となる。<br/>
+      <font color="highlight1">01</font>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font>
+      <font color="highlight1">23456789</font><br/>
+      <font color="error">8</font><s/>
+      は
+      <s/><font color="highlight1">8</font><s/>の直前の位置となる。<br/>
+      <font color="highlight1">01234567</font>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font>
+      <font color="highlight1">89</font><br/>
+      よって
+      <s/><font color="code">
+      region(</font><font color="error">2</font>
+      <font color="code">,</font><s/>
+      <font color="error">8</font><font color="code">);
+      </font><s/>
+      というコードで設定された領域は２つの位置に挟まれた範囲に設定される。<br/>
+       <font color="highlight1">01</font>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font>
+      <font color="highlight1">234567</font>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font>
+      <font color="highlight1">89</font><br/><br/>
+      もし region メソッドで領域を設定していない場合には
+      入力シーケンス全体が領域となるので
+      入力シーケンスが
+      <s/><font color="highlight1">0123456789</font><s/>の場合の
+      デフォルトの領域は<br/>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font>
+      <font color="highlight1">0123456789</font>
+      <font color="error">
+      &lt;sup&gt;↓&lt;/sup&gt;</font><br/>
+      となり、この場合の regionStart メソッドは
+      <s/><font color="error">0</font><s/>を返し、
+      regionEnd メソッドは 
+      <s/><font color="error">10</font><s/>を返す。<br/>
+      これらの値を入力シーケンスの位置ではなく文字のインデックスと考えると
+      <s/><font color="highlight1">0123456789</font><s/>
+      は
+      <s/><font color="error">0</font><s/>から
+      <s/><font color="error">9</font><s/>
+      までしかインデックスは無く
+      インデックスが
+      <s/><font color="error">10</font><s/>の文字は存在しない。<br/>
+      このように region メソッドの引数や regionStart や regionEnd の
+      戻り値を文字のインデックスと解釈した場合には regionEnd とは
+      領域の最後の文字の次のインデックスとなる。
+      <br/><br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <appstate>
+      <regex>\d</regex>
+      <inputChars>0123456789</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="2"/>
+      <regionEnd value="8"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  
+  <example name="t_reset" tutorial="false">
+    <html>
+    <font color="highlight2">リセット</font><br/>
+    Matcher オブジェクトは状態として領域の設定や
+    前回のマッチングの結果に関する情報を保持しているが
+    リセットするとこれらがインスタンス生成時の初期状態の値に
+    設定される。<br/>
+    領域は入力シーケンス全体となり、 
+    <s/><link href="Matcher/find">find</link><s/>
+    メソッドによる
+    マッチングの開始位置は入力シーケンスの先頭
+    となり、 
+    <s/><link href="Matcher/appendReplacement">
+    appendReplacement</link><s/>や
+    <s/><link href="Matcher/appendTail">
+    appendTail</link><s/>
+    メソッドで
+    使用されるアペンドポジションも 0 に設定される。<br/>
+    リセットすると１度もマッチングを行っていない状態に
+    なるので、リセット後に改めてマッチする前に 
+    <s/><link href="Matcher/start">start</link><s/>や
+    <s/><link href="Matcher/end">end</link><s/>や
+    <s/><link href="Matcher/group">group</link><s/>
+    などのメソッドを呼び出すと IllegalStateException が発生する。<br/>
+    リセットしても
+    領域境界の
+    <s/><link href="Matcher/useAnchoringBounds">アンカー設定</link><s/>
+    や<s/><link href="Matcher/useTransparentBounds">透明度</link><s/>
+    に関する設定は変更されない。<br/>
+    リセットは
+    <s/><link href="Matcher/reset">reset</link><s/>や
+    <s/><link href="Matcher/reset(CharSequence)">
+    reset(CharSequence)</link><s/>
+    メソッドを呼び出す事で行える。<br/> 
+    引数を取る方の reset メソッドはリセットすると共に
+    新しい入力シーケンスを設定する。<br/>
+    <link href="Matcher/region">region</link><s/>
+    <s/><link href="Matcher/find(int)">find(int)</link><s/>
+    <s/><link href="Matcher/replaceAll">replaceAll</link><s/>
+    <s/><link href="Matcher/replaceFirst">replaceFirst</link><s/>
+    などのメソッドはそれらのメソッド内部でリセットしてから
+    それぞれの処理を行う。
+    </html>
+  </example>
+  
+  <example name="t_regex" tutorial="false">
+    <html>
+    <font color="highlight2">正規表現とは</font><br/>
+    正規表現とは文字列構成をパターンで表す手法。<br/>
+    パターンは通常の文字（リテラル文字）とメタ文字と呼ばれる
+    特別な意味を持たせた文字を使って構築する。<br/>
+    パターン文字列自体も正規表現と呼ばれる。<br/>
+    ある文字列がパターンにあてはまる事をマッチするという。<br/>
+    マッチングとは正規表現エンジンによって文字列が正規表現に
+    マッチするかどうか判定する処理を指す。<br/>
+    正規表現は文字列処理における検索や置換などに多く用いられている。<br/>
+    例えば正規表現
+    <s/><font color="highlight1">[ァ-ヾ]+</font><s/>
+    は<s/><font color="highlight1">[ァ-ヾ]</font><s/>
+    が任意のカタカナ１文字を表し、
+    <s/><font color="highlight1">+</font><s/>
+    は直前のパターンの１回以上の繰り返しを表すので
+    <s/><font color="highlight1">[ァ-ヾ]+</font><s/>
+    全体では、１文字以上カタカナが続いている文字列を表すパターン
+    となる。<br/>
+    この文章の前半部分に先頭位置から正規表現
+    <s/><font color="highlight1">[ァ-ヾ]+</font><s/>で
+    マッチングを繰り返し行っていくと、
+    リテラル　メタ　パターン　マッチ　マッチング　エンジン　に
+    マッチする。<br/>
+    </html>
+  </example>
+  
+  <example name="t_boundary" tutorial="false">
+    <html>
+    <font color="highlight2">位置へのマッチとシフト</font><br/>
+    正規表現が表すのは文字列だけではなく文字列の先頭や末尾、
+    文字と文字の間の境界などの位置も表現できる。<br/>
+    正規表現
+    <s/><font color="highlight1">^</font><s/>
+    は行頭を表し、
+    <s/><font color="highlight1">$</font><s/>
+    は行末を表す。
+    文字列
+    <s/><font color="highlight2">ababa</font><s/>
+    に対して正規表現
+    <s/><font color="highlight1">a</font><s/>で
+    マッチングを繰り返すと３つの
+    <s/><font color="highlight2">a</font><s/>
+    すべてにマッチする。<br/>
+    正規表現<s/><font color="highlight1">^a</font><s/>で
+    マッチングした場合には行頭に続く
+    <s/><font color="highlight2">a</font><s/>
+    という条件になるので最初の
+    <s/><font color="highlight2">a</font><s/>
+    にしかマッチしない。<br/>
+    同様に
+    <s/><font color="highlight1">a$</font><s/>
+    でマッチングした場合には最後の
+    <s/><font color="highlight2">a</font><s/>
+    にしかマッチしない。<br/>
+    このように位置にマッチする正規表現は通常はマッチする文字列の前後の
+    位置を固定する為に使われるのでアンカーと呼ばれている。<br/>
+    正規表現における文字列内の位置はアンカーとして利用されるだけでなく
+    文字列内の位置自体が正規表現にマッチする事ができる。<br/>
+    つまりマッチするのは文字列だけでなく、文字列の先頭、末尾、
+    文字と文字の間の境界などの位置にもマッチする。<br/>
+    文字列に対して繰り返しマッチングを
+    行う場合に Java では 
+    <s/><link href="Matcher/find">Matcher#find</link><s/>
+    メソッドを使うが
+    前回マッチしたのが文字列の場合には次のマッチングの開始位置は
+    その文字列の末尾となる。<br/>
+    文字列の末尾の位置とは次の文字の先頭位置でもあり、文字列の最後の
+    文字と次の文字との
+    境界の位置とも言える。<br/>
+    前回マッチしたのが位置の場合には正規表現エンジンは
+    次のマッチングの位置を自動的に
+    前回マッチした位置の次の位置にシフトする。<br/>
+    例えば正規表現
+    <s/><font color="highlight1">^|a</font><s/>
+    は行頭もしくは文字<s/><font color="highlight2">a</font><s/>
+    にマッチするが、この正規表現で
+    <s/><font color="highlight2">ababa</font><s/>に対して
+    マッチしなくなるまでマッチングを繰り返す場合を考える。<br/>
+    最初に行頭がマッチするがもし正規表現エンジンが
+    次のマッチングの位置をシフトしない
+    場合には無限に行頭にマッチしてしまう。<br/>
+    
+    <link href="Example/t_boundary_t1">位置にマッチする例</link><br/>
+    <link href="Example/t_boundary_t2">
+    位置にマッチした場合にシフトされる例</link>
+    </html>
+  </example>
+  <example name="t_boundary_t1" tutorial="true">
+    <html>
+    現在表示しているのは位置にマッチする例<br/>
+    正規表現
+    <s/><font color="highlight1">(?&amp;lt;=ab)</font><s/>
+    は文字列
+    <s/><font color="highlight2">ab</font><s/>
+    が直前に存在する位置にマッチする。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>(?&lt;=ab)</regex>
+      <inputChars><![CDATA[ababa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_boundary_t2" tutorial="true">
+    <html>
+    現在表示しているのは Matcher#find メソッドにより
+    繰り返しマッチングを行う際に、位置にマッチした場合には
+    次のマッチングの位置は自動的にシフトされる例<br/>
+    正規表現
+    <s/><font color="highlight1">^|a</font><s/>
+    は行頭の位置または文字
+    <s/><font color="highlight2">a</font><s/>
+    にマッチする。<br/>
+    <link href="Example/t_boundary_t2_2">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>^|a</regex>
+      <inputChars><![CDATA[ababa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="t_boundary_t2_2" tutorial="true">
+    <html>
+    最初は
+    <s/><font color="highlight1">^</font><s/>
+    が行頭の位置にマッチする。<br/>
+    位置にマッチした場合に次も同じ位置から
+    マッチングを行うといつまでも同じ位置にマッチしてしまうので
+    正規表現エンジンが次回のマッチング開始位置を１つ先にシフトする。<br/>
+    <link href="Example/t_boundary_t2_3">find ボタンを押す</link>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="t_boundary_t2_3" tutorial="true">
+    <html>
+    正規表現エンジンによってマッチングの位置がシフトされている為、
+    今回のマッチング開始位置は１文字目の
+    <s/><font color="highlight2">a</font><s/>
+    の直後の位置（a と b の境界の位置）になるので
+    １文字目の
+    <s/><font color="highlight2">a</font><s/>
+    にはマッチしない。<br/>
+    <font color="highlight2">
+    下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="t_repeat_find_method" tutorial="true">
+    <html>
+      <link href="Example/t_find_method">繰り返し find ボタンを押す</link>
+      <br/>
+      <font color="highlight2">
+      マッチしなかった場合には下のボタンで
+      ページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="t_find_method" tutorial="true">
+    <html>
+      KEEP_NOW
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag" tutorial="false">
+    <html>
+    <font color="highlight2">埋め込みフラグ</font><br/>
+    Java では埋め込みフラグを使った柔軟な
+    <link href="Example/t_mode">モード</link>設定が可能となっている。<br/>
+    以下の埋め込みフラグを使ったモードの設定例では
+    アスキーを対象に大文字小文字を区別しないマッチングを行う
+    <s/><link href="Example/t_caseinsensiteve">
+    CASE_INSENSITIVE</link><s/>モードを設定または無効にする為の<br/>
+    <s/><font color="highlight1">(?i)</font><s/>
+    <s/><font color="highlight1">(?-i)</font><s/>
+    <s/><font color="highlight1">(?i:)</font><s/>
+    <s/><font color="highlight1">(?-i:)</font><s/><br/>
+    を使っているが i 以外の他のモードを表す
+    <s/>d m s u x<s/>などのフラグ (Java1.5) も
+    同様に使用できる。<br/>
+    <link href="Example/t_embeded_flag_t1">
+    (?i)<s/>を先頭に置き正規表現全体にモードを設定する例</link><br/>
+    
+    <link href="Example/t_embeded_flag_t7">
+    (?i)<s/>を途中に置きそれ以降の正規表現にモードを設定する例</link><br/>
+    
+    <link href="Example/t_embeded_flag_t2">
+    (?-i)<s/>を使って途中から設定したモードを無効にする例
+    </link><br/>
+    
+    <link href="Example/t_embeded_flag_t3">
+    (?i:)<s/>を使って正規表現の一部にモードを設定する
+    </link><br/>
+    
+    <link href="Example/t_embeded_flag_t4">
+    (?i)<s/>とグループ<s/>()<s/>
+    を使って正規表現の一部にモードを設定する例
+    </link><br/>
+    
+    <link href="Example/t_embeded_flag_t5">
+    (?-i:)<s/>
+    を使って正規表現の一部にモード無効を設定する例
+    </link><br/>
+    
+    <link href="Example/t_embeded_flag_t6">
+    複数のモードを設定する例
+    </link><br/>
+    
+    </html>
+  </example>
+  
+  <example name="t_backtracking" tutorial="false">
+    <html>
+    <font color="highlight2">バックトラック</font><br/>
+    正規表現に量指定子
+    <s/><font color="highlight1">? * + {m,n}</font><s/>
+    などによる直前のパターンの繰り返しを指定している場合には
+    正規表現エンジンによるマッチングの際に、
+    次にテストする文字を繰り返し部分の正規表現にマッチする文字とするか、
+    繰り返し部分の後ろに続く正規表現にマッチする文字とするか、
+    テスト方法における分岐点が訪れる場合がある。<br/>
+    また、選択<s/><font color="highlight1">|</font><s/>
+    を使用している場合にも選択肢の数だけテスト方法が分岐する。<br/>
+    正規表現エンジンは通常これらの分岐点に印を付けておき、
+    マッチしなかった場合には分岐点まで戻ってマッチングを
+    やり直す。<br/>
+    正規表現におけるバックトラックとはこのようにマッチせずに
+    行き詰まった場合に一番近い  
+    テスト方法の分岐点まで戻ってマッチングをやり直す処理を指し、
+    バックトラックを繰り返す事で
+    枝分かれしているすべてのマッチの可能性をテストし、それらすべてが
+    マッチしなかった場合にマッチングは失敗した（マッチしなかった）
+    と判断される。<br/>
+    正規表現エンジンによってマッチングが成功した（マッチした）と
+    判断されるのは最初にマッチした時で、その時点で処理は終了し、
+    別のマッチの可能性はテストされない。<br/>
+    最初のマッチでマッチが確定する為に、
+    マッチングの分岐点で正規表現エンジンが
+    どの方法でテストするかによって入力シーケンスの
+    マッチする部分が変わってくる可能性がある。<br/>
+    マッチングの分岐点における正規表現エンジンの動作は
+    量指定子
+    
+    に関しては最長一致（欲張りマッチ）
+    <s/><font color="highlight1">? * + {m,n}</font><s/>か
+    最短一致（ものぐさマッチ）
+    <s/><font color="highlight1">?? *? +? {m,n}?</font><s/>
+    かで決まってくる。<br/>
+    選択<s/><font color="highlight1">|</font><s/>に関しては
+    常に左から順にテストされる。<br/><br/>
+    
+    
+    <font color="highlight2">
+    量指定子による繰り返しの際のバックトラックの例
+    </font><br/>
+    入力シーケンス
+    <s/><font color="explain">aab</font><s/>に対して
+    正規表現
+    <s/><font color="highlight1">a+ab</font><s/>で
+    マッチングを行う場合を考える。<br/>
+    ここでは正規表現
+    <s/><font color="highlight1">a+ab</font><s/>
+    は<s/><font color="explain">a</font><s/>の 1 回以上の
+    繰り返しにマッチする１つ目の正規表現
+    <s/><font color="highlight1">a+</font><s/>と
+    リテラル文字
+    <s/><font color="explain">ab</font><s/>を表す
+    ２つ目の正規表現
+    <s/><font color="highlight1">ab</font><s/>から
+    構成されていると考える。<br/>
+    
+    最初に１つ目の正規表現
+    <s/><font color="highlight1">a+</font><s/>に１文字目の
+    <s/><font color="explain">a</font><s/>がマッチする。<br/>
+    正規表現エンジンによるマッチングの現在位置は以下のようになる。<br/>
+    <s/><font color="explain">a&lt;sup&gt;↓&lt;/sup&gt;ab</font><s/><br/>
+    ここで２文字目の
+    <s/><font color="explain">a</font><s/>に対するマッチングを
+    １つ目と２つ目のどちらの正規表現で行うかでテスト方法が
+    分岐するが
+    <s/><font color="highlight1">a+</font><s/>
+    は最長一致を試みるので、
+    <s/><font color="highlight1">a+</font><s/>に対する
+    マッチングを行う。<br/>
+    そして２文字目の<s/><font color="explain">a</font><s/>も
+    <s/><font color="highlight1">a+</font><s/>にマッチする。<br/>
+    正規表現エンジンによるマッチングの現在位置は以下のようになる。<br/>
+    <s/><font color="explain">aa&lt;sup&gt;↓&lt;/sup&gt;b</font><s/><br/>
+    次の文字の<s/><font color="explain">b</font><s/>も
+    <s/><font color="highlight1">a+</font><s/>に対する
+    マッチングを試みるが失敗する。<br/>
+    そこで２つめ正規表現
+    <s/><font color="highlight1">ab</font><s/>に対する
+    マッチングを試みるがこれも失敗する。<br/>
+    ここで行き詰まるので１つ前の分岐点に戻ってマッチングをやり直す。<br/>
+    １つ前に戻ったマッチングの現在位置は以下<br/>
+    <s/><font color="explain">a&lt;sup&gt;↓&lt;/sup&gt;ab</font><s/><br/>
+    この位置で前回は１つ目の正規表現でマッチングを行ったので今回は
+    ２つ目の正規表現
+    <s/><font color="highlight1">ab</font><s/>に対する
+    マッチングを試み、
+    <s/><font color="explain">ab</font><s/>がマッチし、
+    マッチングは成功する。<br/><br/>
+    量指定子が最短一致の場合のバックトラックは最長一致の
+    場合とは逆になる。<br/>
+    最短一致の場合は繰り返し部分の正規表現に最小回数マッチした時点で
+    後に続く正規表現にそれ以降のマッチングを譲り、
+    マッチングが行き詰まったら戻って
+    繰り返し部分の正規表現でマッチングをやり直す。<br/>
+    選択<s/><font color="highlight1">|</font><s/>では常に
+    左に記述されている正規表現からテストされ、最初にマッチした時点で
+    残りの選択肢はスキップされるが、マッチングが行き詰まって
+    バックトラックを行う際には
+    選択<s/><font color="highlight1">|</font><s/>の位置まで戻り
+    スキップされた正規表現からマッチングがやり直される。
+    <br/><br/>
+    <link href="Example/t_possessive_quantifiers">
+    強欲な繰り返し
+    </link>や
+    <link href="Example/c_atomic_group">
+    アトミックなグループ
+    </link>
+    へのバックトラックは行われない。<br/>
+    バックトラックが行われないというのは
+    強欲な繰り返しを行う部分の正規表現やアトミックなグループに
+    記述された正規表現へのマッチングの際に分岐点として
+    付けておいた印は次の正規表現へのマッチングに移る際にすべて破棄され、
+    たとえバックトラックが必要になってもそれら破棄された分岐点
+    へは戻れない事を意味する。<br/>
+    この場合に破棄された分岐点以前に付けられた分岐点への印があれば
+    その位置へのバックトラックは行われる。<br/>
+    例えば正規表現<br/>
+    <font color="highlight1">
+    a??(?:ab)*+b
+    </font><s/><br/>で入力シーケンス<br/>
+    <font color="explain">abab</font><s/><br/>
+    に対してマッチングを行う場合を考える。<br/>
+    ここでは正規表現<s/><font color="highlight1">a??(?:ab)*+b</font><s/>
+    は<s/><font color="highlight1">a??</font><s/>と
+    <s/><font color="highlight1">(?:ab)*+</font><s/>と
+    <s/><font color="highlight1">b</font><s/>の
+    ３つの正規表現から構成されている考える。<br/>
+    最初の<s/><font color="highlight1">
+    a??
+    </font><s/>は最短一致を目指すので 
+    <s/><font color="highlight1">a</font><s/> 
+    の 0 回の繰り返しに入力シーケンスの先頭位置がマッチする。<br/>
+    ここでは最初の<s/><font color="explain">a</font><s/>が
+    <s/><font color="highlight1">a</font><s/>
+    の 1 回の繰り返しにマッチすると判断する事もできたので
+    正規表現エンジンは入力シーケンスの先頭位置に
+    最初の分岐点として印を付けておく。<br/>
+    そして次の正規表現
+    <s/><font color="highlight1">
+    (?:ab)*+
+    </font><s/>が強欲な繰り返しを行い 
+    <s/><font color="explain">abab</font><s/>
+    にマッチする。<br/>
+    続いて最後の正規表現
+    <s/><font color="highlight1">b</font><s/>
+    に対するマッチングに移るがその際に正規表現エンジンは
+    <s/><font color="highlight1">
+    (?:ab)*+
+    </font><s/>に対するマッチングの際に付けておいた
+    分岐点への印をすべて破棄する。<br/>
+    もう入力シーケンスは残っていないので最後の正規表現
+    <s/><font color="highlight1">b</font><s/>
+    に対するマッチングは失敗し行き詰まる為、一番近い分岐点への
+    バックトラックが行われる。<br/>
+    破棄された分岐点がある為、一番近い分岐点は最初の分岐点となる。<br/>
+    そして最初の<s/><font color="highlight1">
+    a??
+    </font><s/>にマッチした入力シーケンスの先頭位置にバックトラックして
+    最初の<s/><font color="explain">a</font><s/>を
+    <s/><font color="highlight1">a</font><s/> 
+    の 1 回の繰り返しにマッチさせる事からマッチングを
+    やり直す。<br/>
+    次の正規表現<s/><font color="highlight1">
+    (?:ab)*+
+    </font><s/>には１文字目の
+    <s/><font color="explain">a</font><s/>と次の
+    <s/><font color="explain">b</font><s/>の
+    境界の位置が
+    <s/><font color="highlight1">ab</font><s/>
+    の 0 回の繰り返しにマッチし、
+    ２文字目の
+    <s/><font color="explain">b</font><s/>
+    が最後の正規表現
+    <s/><font color="highlight1">b</font><s/>
+    にマッチし、最終的に
+    <s/><font color="highlight1">a??(?:ab)*+b</font><s/>
+    に最初の２文字
+    <s/><font color="explain">ab</font><s/>がマッチする。<br/>
+    
+    このようにバックトラック自体は一番近くにある分岐点へ戻って
+    マッチングをやり直すという処理を行っているだけで、
+    強欲な繰り返しを行う正規表現や
+    アトミックなグループに記述されている正規表現にマッチした部分への
+    バックトラックが行われないのは、それらへのマッチングが終了した
+    時点で正規表現エンジンが分岐点に関する情報を破棄する動作の結果。
+    </html>
+  </example>
+  
+  <example name="t_greedy_quantifiers" tutorial="false">
+    <html>
+    <font color="highlight2">最長一致（欲張りマッチ）</font><br/>
+    
+    最長一致を試みる繰り返しは欲張りマッチとも呼ばれ、数量子<br/>
+    <s/><font color="highlight1">?</font><s/>
+    <s/><font color="highlight1">*</font><s/>
+    <s/><font color="highlight1">+</font><s/>
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}</font><s/>
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}</font><br/>
+    による直前のパターンの繰り返しにマッチする際に適用され、
+    可能な限り多くの繰り返しを行おうとする。<br/>
+    最長一致を試みる繰り返しではマッチする為に
+    <link href="Example/t_backtracking">
+    バックトラック</link>が行われる。<br/>
+    <link href="Example/c_zero_one_t2">
+    ? による 0 回または 1 回の繰り返し（最長一致）例</link><br/>
+    <link href="Example/c_zero_more_t2">
+    * による 0 回以上の繰り返し（最長一致）例</link><br/>
+    <link href="Example/c_one_more_t2">
+    + による 1 回以上の繰り返し（最長一致）例</link><br/>
+    <link href="Example/c_more_t1">
+    {n,} による n 回以上の繰り返し（最長一致）例</link><br/>
+    <link href="Example/c_more_less_t1">
+    {n,m} による n 回以上 m 回以下の繰り返し（最長一致）例</link>
+    </html>
+  </example>
+   
+  <example name="t_reluctant_quantifiers" tutorial="false">
+    <html>
+    <font color="highlight2">最短一致（ものぐさマッチ）</font><br/>
+    
+    最短一致を試みる繰り返しはものぐさマッチとも呼ばれ、数量子<br/>
+    <s/><font color="highlight1">??</font><s/>
+    <s/><font color="highlight1">*?</font><s/>
+    <s/><font color="highlight1">+?</font><s/>
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}?</font><s/>
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}?</font><br/>
+    による直前のパターンの繰り返しにマッチする際に適用され、
+    可能な限り少ない繰り返しで済まそうとする。<br/>
+    最短一致を試みる繰り返しではマッチする為に
+    <link href="Example/t_backtracking">バックトラック</link>
+    が行われる。<br/>
+    <link href="Example/c_zero_one_t3">
+    ?? による 0 回または 1 回の繰り返し例（最短一致）</link><br/>
+    <link href="Example/c_zero_more_t3">
+    *? による 0 回以上の繰り返し例（最短一致）</link><br/>
+    <link href="Example/c_one_more_t3">
+    +? による 1 回以上の繰り返し例（最短一致）</link><br/>
+    <link href="Example/c_more_t2">
+    {n,}? による n 回以上の繰り返し例（最短一致）</link><br/>
+    <link href="Example/c_more_less_t2">
+    {n,m}? による n 回以上 m 回以下の繰り返し例（最短一致）</link>
+    
+    </html>
+  </example>
+  
+  <example name="t_possessive_quantifiers" tutorial="false">
+    <html>
+    <font color="highlight2">強欲な繰り返し</font><br/>
+    強欲な繰り返しは数量子<br/>
+    <s/><font color="highlight1">?+</font><s/>
+    <s/><font color="highlight1">*+</font><s/>
+    <s/><font color="highlight1">++</font><s/>
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}+</font><s/>
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}+</font><br/>
+    による直前のパターンの繰り返しにマッチする際に適用され、
+    可能な限り多くの繰り返しを行おうとする。<br/>
+    <link href="Example/t_backtracking">バックトラック</link>
+    が行われない点で、最長一致を試みる繰り返し（欲張りマッチ）や
+    最短一致を試みる繰り返し（ものぐさマッチ）とは
+    は異なる。<br/>
+    マッチした部分へのバックトラックが不要な事が明白な場合には
+    この強欲な繰り返しを使用することで無駄なバックトラックを
+    抑制し、パフォーマンスをよくする事ができる。<br/>
+    強欲な繰り返しは
+    <link href="Example/c_atomic_group">
+    アトミックなグループ
+    </link>
+    と最長一致を試みる
+    繰り返しを使っても表現できる。<br/>
+    例えば
+    <s/><font color="highlight1">a++</font><s/>は
+    <s/><font color="highlight1">(?>a+)</font><s/>と
+    書き換える事ができる。<br/>
+    
+    <link href="Example/c_zero_one_t4">
+    ?+ による 0 回または 1 回の強欲な繰り返し例</link><br/>
+    <link href="Example/c_zero_more_t4">
+    *+ による 0 回以上の強欲な繰り返し例</link><br/>
+    <link href="Example/c_one_more_t4">
+    ++ による 1 回以上の強欲な繰り返し例</link><br/>
+    <link href="Example/c_more_t3">
+    {n,}+ による n 回以上の強欲な繰り返し例</link><br/>
+    <link href="Example/c_more_less_t3">
+    {n,m}+ による n 回以上 m 回以下の強欲な繰り返し例</link>
+    </html>
+  </example>
+  
+  <example name="t_embeded_flag_t1" tutorial="true">
+    <html>
+    現在表示しているのは埋め込みフラグを正規表現の先頭に
+    置いてモードを正規表現全体に設定する例。<br/>
+    <font color="highlight1">(?i)</font><s/>
+    はアスキーを対象に大文字小文字を区別しない
+    <s/>CASE_INSENSITIVE<s/>モードを設定する。<br/>
+    埋め込みフラグ<s/><font color="highlight1">(?i)</font><s/>
+    が正規表現の先頭にあるのですべての文字の大文字小文字が区別されない。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>(?i)abcdefg</regex>
+      <inputChars><![CDATA[abcdefg
+ABCDEFG
+aBcDeFg
+abCDEfg]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag_t7" tutorial="true">
+    <html>
+    現在表示しているのは埋め込みフラグを正規表現の途中に
+    置き、それ以降の正規表現にモードを設定する例。<br/>
+    <font color="highlight1">(?i)</font><s/>
+    はアスキーを対象に大文字小文字を区別しない
+    <s/>CASE_INSENSITIVE<s/>モードを設定する。<br/>
+    正規表現
+    <s/><font color="highlight1">ab(?i)cdefg</font><s/>では
+    埋め込みフラグ<s/><font color="highlight1">(?i)</font><s/>
+    以降の cdefg は大文字小文字が区別されないが
+    <s/><font color="highlight1">(?i)</font><s/>
+    の前にある ab は大文字小文字が区別される。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>ab(?i)cdefg</regex>
+      <inputChars><![CDATA[ABCDEFG
+abCDEFG
+aBcDeFg
+abCdefG]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag_t2" tutorial="true">
+    <html>
+    現在表示しているのは埋め込みフラグでモードの設定と
+    解除を行うことで正規表現に部分的な
+    モード設定を行う例。<br/>
+    <font color="highlight1">(?i)</font><s/>
+    はアスキーを対象に大文字小文字を区別しない
+    <s/>CASE_INSENSITIVE<s/>モードを設定する。<br/>
+    <font color="highlight1">(?-i)</font><s/>
+    は<s/>CASE_INSENSITIVE<s/>モードが設定されている場合に
+    それを解除する。<br/>
+    
+    正規表現
+    <s/><font color="highlight1">ab(?i)cde(?-i)fg</font><s/>
+    では<s/><font color="highlight1">(?i)</font><s/>で
+    <s/>CASE_INSENSITIVE<s/>モードを設定し、
+    <font color="highlight1">(?-i)</font><s/>で
+    設定を解除しているので
+    <s/>cde<s/>にのみ CASE_INSENSITIVE モードが設定される。<br/>
+    よって ab と fg は大文字小文字が区別され、 cde は
+    大文字小文字が区別されない。<br/>
+    この例と等価となるモード設定は
+    <s/><font color="highlight1">(?i:)</font><s/>
+    を使っても行える。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>ab(?i)cde(?-i)fg</regex>
+      <inputChars><![CDATA[ABCDEFG
+abCDEfg
+abcDefg
+aBcDeFg]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag_t3" tutorial="true">
+    <html>
+    現在表示しているのは埋め込みフラグで正規表現に部分的な
+    モード設定を行う例。<br/>
+    <font color="highlight1">(?i:</font>
+    &lt;b&gt;<font color="highlight2">X</font>&lt;/b&gt;
+    <font color="highlight1">)</font><s/>
+    の 
+    <s/>&lt;b&gt;<font color="highlight2">X</font>&lt;/b&gt;<s/>
+     の部分には正規表現を記述し、その部分には
+    アスキーを対象に大文字小文字を区別しない
+    <s/>CASE_INSENSITIVE<s/>モードが設定される。<br/>
+    
+    正規表現
+    <s/><font color="highlight1">ab(?i:cde)fg</font><s/>
+    では
+    <s/>cde<s/>に CASE_INSENSITIVE モードが設定される。<br/>
+    よって ab と fg は大文字小文字が区別され、 cde は
+    大文字小文字が区別されない。<br/>
+    この例と等価となるモード設定は
+    <s/><font color="highlight1">(?i)</font><s/>と
+    <s/><font color="highlight1">(?-i)</font><s/>
+    を使っても行える。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>ab(?i:cde)fg</regex>
+      <inputChars><![CDATA[ABCDEFG
+abCDEfg
+abcDefg
+aBcDeFg]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag_t4" tutorial="true">
+    <html>
+    現在表示しているのはグループと埋め込みフラグで正規表現に部分的な
+    モード設定を行う例。<br/>
+    グループ内で埋め込みフラグを使う場合には
+    その有効範囲は常にグループの末尾までとなる。<br/>
+    <font color="highlight1">(?i)</font><s/>
+    はアスキーを対象に大文字小文字を区別しない
+    <s/>CASE_INSENSITIVE<s/>モードを設定する。<br/>
+    
+    正規表現
+    <s/><font color="highlight1">ab((?i)cde)fg</font><s/>
+    では<s/><font color="highlight1">(?i)</font><s/>
+    がグループ内の
+    <s/>cde<s/>に CASE_INSENSITIVE モードを設定する。<br/>
+    よって cde は ab と fg は大文字小文字が区別され、 cde は
+    大文字小文字が区別されない。<br/>
+    この例と等価となるモード設定は
+    <s/><font color="highlight1">(?i:)</font><s/>あるいは
+    <s/><font color="highlight1">(?i)</font><s/>と
+    <s/><font color="highlight1">(?-i)</font><s/>
+    を使っても行える。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>ab((?i)cde)fg</regex>
+      <inputChars><![CDATA[ABCDEFG
+abCDEfg
+abcDefg
+aBcDeFg]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag_t5" tutorial="true">
+    <html>
+    現在表示しているのは埋め込みフラグで正規表現に
+    設定しているモードを部分的に無効にする例。<br/>
+    <font color="highlight1">(?i)</font><s/>
+    はアスキーを対象に大文字小文字を区別しない
+    <s/>CASE_INSENSITIVE<s/>モードを設定する。<br/>
+    <font color="highlight1">(?-i:X)</font><s/>
+    は X の部分には正規表現を記述し、その部分には
+    <s/>CASE_INSENSITIVE<s/>モードは適用されない。<br/>
+    
+    正規表現
+    <s/><font color="highlight1">(?i)ab(?-i:cde)fg</font><s/>
+    では<s/><font color="highlight1">(?i)</font><s/>
+    がすべての文字に CASE_INSENSITIVE モードを設定するが
+    <s/><font color="highlight1">(?-i:cde)</font><s/>の
+    部分で
+    <s/>cde<s/>には CASE_INSENSITIVE モードは適用されない。<br/>
+    よって cde は大文字小文字が区別され、 ab と fg は
+    大文字小文字が区別されない。<br/>
+    この例と等価となるモード設定はグループや
+    <s/><font color="highlight1">(?i:)</font><s/>
+    <s/><font color="highlight1">(?i)</font><s/>
+    <s/><font color="highlight1">(?-i)</font><s/>
+    などの埋め込みフラグを組み合わせても行える。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>(?i)ab(?-i:cde)fg</regex>
+      <inputChars><![CDATA[ABCDEFG
+ABcdeFG
+aBcdeFg
+abCdEfg]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_embeded_flag_t6" tutorial="true">
+    <html>
+    現在表示しているのは埋め込みフラグで正規表現に
+    複数のモードを設定する例。<br/>
+    <font color="highlight1">(?i)</font><s/>
+    <s/><font color="highlight1">(?i:)</font><s/>
+    <s/><font color="highlight1">(?i)</font><s/>
+    <s/><font color="highlight1">(?-i)</font><s/><br/>
+    これらの埋め込みフラグで i は
+    <s/>CASE_INSENSITIVE<s/>モードを設定するが
+    この部分には他のモードを設定する為の d m s u x などの
+    フラグをまとめて指定できる。<br/>
+    正規表現
+    <s/><font color="highlight1">(?mis)^A|G$|h.+i</font><s/>
+    では<s/><font color="highlight1">(?mis)</font><s/>
+    で CASE_INSENSITIVE モードと DOTALL モードと MULTILINE モード
+    を設定している。<br/>
+    
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>(?mis)^A|G$|h.+i</regex>
+      <inputChars><![CDATA[ABCDEFG
+abcdefg
+h
+i]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_mode" tutorial="false">
+    <html>
+      <font color="highlight2">モードの設定</font><br/>
+      Java では一部の正規表現に対する解釈を変更するためのモードが
+      以下のように用意されている。
+      （ここでは Pattern に宣言されている定数名を
+      そのままモード名としている）<br/>
+      <link href="Example/t_canoneq">CANON_EQ</link><s/><s/>
+      <link href="Example/t_caseinsensiteve">
+      CASE_INSENSITIVE</link><s/><s/>
+      <link href="Example/t_comments">COMMENTS</link><s/><s/>
+      <link href="Example/t_dotall">DOTALL</link><br/>
+      <link href="Example/t_literal">LITERAL</link><s/><s/>
+      <link href="Example/t_multiline">MULTILINE</link><s/><s/>
+      <link href="Example/t_unicodecase">UNICODE_CASE</link><s/><s/>
+      <link href="Example/t_unixlines">UNIX_LINES</link><br/>
+      これらのモードは
+      <s/><link href="Pattern/compile(String,int)">Pattern#compile</link><s/>
+      メソッドで Pattern オブジェクトを
+      生成する際に設定する方法と
+      <link href="Example/t_embeded_flag">
+      埋め込みフラグ</link>を
+      正規表現パターンに含める事で設定する方法の２通りある。<br/>
+      ただし CANON_EQ と LITERAL は埋め込みフラグは用意されていない。<br/>
+    </html>
+  </example>
+  
+  <example name="t_canoneq" tutorial="false">
+    <html>
+      <font color="highlight2">CANON_EQ モード</font><br/>
+      Java1.5 のドキュメントには以下のように記述されている。<br/>
+      &lt;blockquote&gt;
+      標準等価を有効にする。<br/>
+      このフラグを指定したときは、2 つの文字の完全な標準分解（正規分解）が
+      マッチした場合に限り、それらの文字がマッチするとみなされる。 <br/>
+      このモードを有効にするための埋め込みフラグ文字はない。<br/>
+      デフォルトのマッチングでは、標準等価は考慮されない。 <br/>
+      &lt;/blockquote&gt;
+      <br/>
+      Sun 実装の java1.5 の動作では正規表現パターンとなる
+    文字の NFD または NFC と
+    マッチング対象の文字が同じ場合にマッチする。
+    
+    </html>
+  </example>
+  
+  <example name="t_caseinsensiteve" tutorial="false">
+    <html>
+      <font color="highlight2">CASE_INSENSITIVE モード</font><br/>
+      大文字と小文字を区別しないマッチングを有効にする。<br/>
+      デフォルトでは、大文字と小文字を区別しないマッチング
+      では US-ASCII 文字セットの文字だけがマッチすることを
+      前提としている。<br/> 
+      Unicode に準拠した大文字と小文字を区別しないマッチングを
+      有効にするには 
+      <s/><link href="Example/t_unicodecase">UNICODE_CASE</link> <s/>
+      モードも合わせて有効にする。<br/>
+      大文字と小文字を区別しないマッチングは
+      <link href="Example/t_embeded_flag">埋め込みフラグ</link>
+      <s/><font color="highlight1">(?i)</font><s/>を
+      使用して有効にすることもできる。<br/>
+      <link href="Example/t_caseinsensiteve_t1">
+      モードを設定しない場合の例</link><br/>
+      <link href="Example/t_caseinsensiteve_t2">
+      コードで CASE_INSENSITIVE モードに設定する例</link><br/>
+      <link href="Example/t_caseinsensiteve_t3">
+      埋め込みフラグで CASE_INSENSITIVE モードに設定する例</link>
+    </html>
+  </example>
+  
+  <example name="t_caseinsensiteve_t1" tutorial="true">
+    <html>
+    現在表示しているのは CASE_INSENSITIVE モードに設定せずに
+    大文字小文字を区別しない<s/>abc<s/>にマッチさせる例。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>[aA][bB][cC]</regex>
+      <inputChars><![CDATA[abc abC aBc aBC Abc AbC ABc ABC]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_caseinsensiteve_t2" tutorial="true">
+    <html>
+    現在表示しているのは大文字小文字を区別しない<s/>abc<s/>に
+    マッチさせる例。<br/>
+    現在右のモードパネルで CASE_INSENSITIVE にチェックが
+    入っているので CASE_INSENSITIVE モードとなる。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    <br/><br/>
+      Java コードによる CASE_INSENSITIVE モードの設定例は以下。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/>
+      import java.util.regex.Pattern;<br/>
+      public class Test{<br/>
+          <s/><s/><s/><s/>
+          public static void main(String[]args) {<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          Pattern pattern = Pattern.compile(<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+          <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+          &amp;quot;abc&amp;quot;, Pattern.CASE_INSENSITIVE);<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          Matcher matcher = pattern.matcher(<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+          <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+          &amp;quot;abc abC aBc aBC Abc AbC ABc ABC&amp;quot;);<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          while (matcher.find()) {<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+              System.out.println(matcher.group());<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>}<br/>
+        <s/><s/><s/><s/>} <br/>
+      }
+      </font><br/>
+    ユニコードにおける大文字小文字を区別しないパターンを作成する場合には
+    以下のようなコードになる。<br/>
+    <font color="code">
+          Pattern pattern = Pattern.compile(
+          &amp;quot;abc&amp;quot;, (
+          Pattern.CASE_INSENSITIVE | Pattern.UNICODE_CASE));</font><br/>
+    </html>
+    <appstate>
+      <regex>abc</regex>
+      <inputChars><![CDATA[abc abC aBc aBC Abc AbC ABc ABC]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>CASE_INSENSITIVE</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_caseinsensiteve_t3" tutorial="true">
+  <html>
+  現在表示しているのは埋め込みフラグ
+  <s/><font color="highlight1">(?i)</font><s/>
+  を使って CASE_INSENSITIVE モードに設定し、
+  大文字小文字を区別しない<s/>abc<s/>に
+    マッチさせる例。<br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  </html>
+  <appstate>
+      <regex>(?i)abc</regex>
+      <inputChars><![CDATA[abc abC aBc aBC Abc AbC ABc ABC]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_comments" tutorial="false">
+    <html>
+      <font color="highlight2">COMMENTS モード</font><br/>
+      パターン内で空白とコメントを使用できるようにする。<br/>
+      このモードでは、空白は無視され # で始まる埋め込みコメントは
+      行末まで無視される。<br/>
+      コメントモードは、
+      <link href="Example/t_embeded_flag">埋め込みフラグ</link>
+      <s/><font color="highlight1">(?x)</font><s/>
+      を使用して有効にすることもできる。<br/>
+      <link href="Example/t_comments_t1">
+      コードで COMMENTS モードに設定する例</link><br/>
+      <link href="Example/t_comments_t2">
+      埋め込みフラグで COMMENTS モードに設定する例</link>
+    </html>
+  </example>
+  
+  <example name="t_comments_t1" tutorial="true">
+  <html>
+  現在表示しているのは COMMENTS モードに設定する事で
+  正規表現の空白と # 以降行末までコメントとして無視する例。<br/>
+    現在右のモードパネルで COMMENTS にチェックが
+    入っているので COMMENTS モードとなる。<br/>
+    <link href="Example/t_comments_t1_2">find ボタンを押す</link>
+    <br/>
+    COMMENTS モードを有効にして Pattern オブジェクトを生成する
+    コードは以下。<br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile(<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+          <s/><s/><s/><s/><s/><s/>
+          &amp;quot;abc de fg#コメント&amp;quot;, Pattern.COMMENTS);<br/>
+    </font>
+  </html>
+  <appstate>
+      <regex>abc de fg#コメント</regex>
+      <inputChars><![CDATA[abcdefg#コメント]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>COMMENTS</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_comments_t1_2" tutorial="true">
+  <html>
+   COMMENTS モードに設定されているので正規表現の空白と # 以降は
+   無視されている。<br/>
+   <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+  </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="t_comments_t2" tutorial="true">
+  <html>
+  現在表示しているのは埋め込みフラグ
+  <s/><font color="highlight1">(?x)</font><s/>
+  を使って COMMENTS モードに設定し、
+  正規表現の # 以降行末までコメントとして設定する例。<br/>
+    <link href="Example/t_comments_t1_2">find ボタンを押す</link>
+  </html>
+  <appstate>
+      <regex>(?x)abc de fg#コメント</regex>
+      <inputChars><![CDATA[abcdefg#コメント]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_literal" tutorial="false">
+    <html>
+      <font color="highlight2">LITERAL モード</font><br/>
+      このモードを有効にしている場合、正規表現は
+      リテラル文字のシーケンス（つまりただの文字列）として処理され、
+      メタキャラクタ
+      またはエスケープシーケンスに、特別の意味は付与されない。<br/>
+      このモードを有効にしている場合には 
+      <s/><link href="Example/t_caseinsensiteve">CASE_INSENSITIVE</link>
+      <s/>と
+      <s/><link href="Example/t_unicodecase">UNICODE_CASE</link> <s/>
+      以外のモードは有効にしても意味がない。<br/>
+      このモードを有効にするための埋め込みフラグ文字はない。<br/>
+      <link href="Example/t_literal_t1">
+      LITERAL モードに設定する例</link>
+    </html>
+  </example>
+  
+  <example name="t_literal_t1" tutorial="true">
+  <html>
+  現在表示しているのは LITERAL モードに設定する事で
+  正規表現を構成するすべての文字が特別な意味を持たないただの文字として
+  処理される例。<br/>
+    現在右のモードパネルで LITERAL にチェックが
+    入っているので LITERAL モードとなる。<br/>
+    <link href="Example/t_literal_t1_2">find ボタンを押す</link>
+    <br/><br/>
+      Java コードによる LITERAL モードの設定例は以下。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/>
+      import java.util.regex.Pattern;<br/>
+      public class Test{<br/>
+          <s/><s/><s/><s/>
+          public static void main(String[]args) {<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          Pattern pattern = Pattern.compile(
+          &amp;quot;[0-9].*&amp;quot;, Pattern.LITERAL);<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          Matcher matcher = pattern.matcher(
+          &amp;quot;0123[0-9].*abc&amp;quot;);<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          System.out.println(matcher.find());<br/>
+          
+        <s/><s/><s/><s/>} <br/>
+      }
+      </font><br/>
+  </html>
+  <appstate>
+      <regex>[0-9].*</regex>
+      <inputChars><![CDATA[0123[0-9].*abc]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>LITERAL</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_literal_t1_2" tutorial="true">
+  <html>
+   LITERAL モードに設定されているので正規表現はすべて
+   リテラル文字と扱われる。<br/>
+   <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+  </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="t_unicodecase" tutorial="false">
+    <html>
+      <font color="highlight2">UNICODE_CASE モード</font><br/>
+      このフラグと 
+      <s/><link href="Example/t_caseinsensiteve">CASE_INSENSITIVE</link><s/>
+      を同時に指定した場合は Unicode 標準に準拠した大文字と小文字を
+      区別しないマッチングが行われる。<br/>
+      Unicode に準拠した大文字と小文字を区別しないマッチングは
+      <link href="Example/t_embeded_flag">埋め込みフラグ</link>
+      <s/><font color="highlight1">(?u)</font><s/>
+      を使用して有効にすることもできる。<br/>
+      <link href="Example/t_unicodecase_t1">
+      コードで設定する例</link><br/>
+      <link href="Example/t_unicodecase_t2">
+      埋め込みフラグで設定する例</link>
+    </html>
+  </example>
+  
+  <example name="t_unicodecase_t1" tutorial="true">
+  <html>
+  現在表示しているのは CASE_INSENSITIVE モードと
+  共に UNICODE_CASE モードを設定する事で Unicode 標準に準拠した
+  大文字と小文字を区別しないマッチングを行う例。<br/>
+    現在右のモードパネルで CASE_INSENSITIVE と UNICODE_CASE にチェックが
+    入っているのでマッチングにおいて Unicode 標準に準拠した
+  大文字と小文字は区別されない。<br/>
+    <link href="Example/t_unicodecase_t1_2">find ボタンを押す</link>
+    <br/><br/>
+      Java コードによる設定例は以下。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/>
+      import java.util.regex.Pattern;<br/>
+      public class Test{<br/>
+          <s/><s/><s/><s/>
+          public static void main(String[]args) {<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          Pattern pattern = Pattern.compile(
+          &amp;quot;πφω&amp;quot;, Pattern.
+          CASE_INSENSITIVE | Pattern.UNICODE_CASE);<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          Matcher matcher = pattern.matcher(
+          &amp;quot;ΠΦΩ&amp;quot;);<br/>
+          <s/><s/><s/><s/><s/><s/><s/><s/>
+          System.out.println(matcher.find());<br/>
+        <s/><s/><s/><s/>} <br/>
+      }
+      </font><br/>
+  </html>
+  <appstate>
+      <regex>πφω</regex>
+      <inputChars><![CDATA[ΠΦΩ]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>CASE_INSENSITIVE UNICODE_CASE</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_unicodecase_t2" tutorial="true">
+  <html>
+  現在表示しているのは埋め込みフラグ
+  <s/><font color="highlight1">(?u)</font><s/>
+  を使って Unicode 標準に準拠した
+  大文字と小文字を区別しないマッチングを行う例。<br/>
+    <link href="Example/t_unicodecase_t1_2">find ボタンを押す</link>
+  </html>
+  <appstate>
+      <regex>(?u)πφω</regex>
+      <inputChars><![CDATA[ΠΦΩ]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_unicodecase_t1_2" tutorial="true">
+  <html>
+  Unicode 標準に準拠した大文字と小文字を区別しないマッチングを行う
+  ので US アスキーだけでなくギリシャ文字でも大文字小文字は
+  区別されない。<br/>
+   <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+  </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="t_unixlines" tutorial="false">
+    <html>
+      <font color="highlight2">UNIX_LINES モード</font><br/>
+      このモードでは行末記号を \n のみとする。<br/>
+      行末記号の定義は MULTILINE モードと併用した場合に
+      <s/><font color="highlight1">^</font><s/>
+      や
+      <s/><font color="highlight1">$</font><s/>
+      のマッチングに影響する。<br/>
+       MULTILINE モードでは
+      <s/><font color="highlight1">^</font><s/>
+      と
+      <s/><font color="highlight1">$</font><s/>
+      は
+      入力シーケンス全体の先頭と末尾の位置の他、
+      行末記号の前と後の位置にもマッチする為、　UNIX_LINES モードを合わせて
+      設定するのとしないのではマッチしていた位置にマッチしなくなったり、
+      マッチする位置が変わったりする。<br/>
+      Unix ラインモードは、
+      <link href="Example/t_embeded_flag">埋め込みフラグ</link>
+      <s/><font color="highlight1">(?d)</font><s/>
+      を使用して有効にすることもできる。<br/>
+      デフォルトの行末記号は以下<br/>
+      ・改行文字 (\n)<br/> 
+      ・直後に改行文字が付いたキャリッジリターン文字 (\r\n)<br/> 
+      ・単独のキャリッジリターン文字 (\r)<br/> 
+      ・次行文字 (\u0085)<br/> 
+      ・行区切り文字 (\u2028)<br/> 
+      ・段落区切り文字 (\u2029)<br/>
+      （\r\n は２文字セットで行末記号となるので、この場合に
+      行末記号の前とは\rの前で行末記号の後とは\nの後となる）<br/> 
+    </html>
+  </example>
+  
+  <example name="t_dotall" tutorial="false">
+    <html>
+      <font color="highlight2">DOTALL モード</font><br/>
+      デフォルトの設定では正規表現<s/>
+      <font color="highlight1">.</font><s/>（ドット）
+      は
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      にマッチしないが DOTALL モードに設定すると
+      行末記号にもマッチする。<br/>
+      DOTALL モードに設定するには
+      プログラムコードで設定する方法と、正規表現に
+      <link href="Example/t_embeded_flag">埋め込みフラグ</link><s/>
+      <font color="highlight1">(?s)</font><s/>
+      を使用して設定する方法の２通りある。<br/>
+      
+      <link href="Example/t_dotall_t1">
+      デフォルト（DOTALL モードではない）設定の場合の例</link><br/>
+      <link href="Example/t_dotall_t2">
+      コードで DOTALL モードに設定する例</link><br/>
+      <link href="Example/t_dotall_t3">
+      埋め込みフラグで DOTALL モードに設定する例</link>
+    </html>
+  </example>
+  
+  <example name="t_dotall_t1" tutorial="true">
+    <html>
+      現在表示しているのはデフォルト（DOTALL モードではない）設定において
+      <s/><font color="highlight1">.</font><s/>（ドット）が
+      行末記号以外のすべての文字にマッチする例。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>.</regex>
+      <inputChars><![CDATA[あ A　漢→
+abc]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_dotall_t2" tutorial="true">
+    <html>
+      現在表示しているのは DOTALL モードに設定している場合に<s/>
+      <font color="highlight1">.</font><s/>（ドット）が行末記号を含めた
+      すべての文字にマッチする例。<br/>
+      現在右のモードパネルで DOTALL にチェックが
+      入っているので DOTALL モードとなる。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+      <br/><br/>
+      Java コードによる DOTALL モードの設定は
+      以下のように Pattern#compile メソッドで Pattern オブジェクトを
+      生成する際に定数（の論理和）を使って行う。<br/>
+      <font color="code">
+      Pattern pattern = Pattern.compile
+      (&amp;quot;.&amp;quot;, Pattern.DOTALL);<br/>
+      String input =<s/>&amp;quot;あ A　漢→\r\nabc&amp;quot;;<br/>
+      Matcher matcher = pattern.matcher(input);
+      </font>
+    </html>
+    <appstate>
+      <regex>.</regex>
+      <inputChars><![CDATA[あ A　漢→
+abc]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DOTALL</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_dotall_t3" tutorial="true">
+    <html>
+      現在表示しているのは DOTALL モードに設定している場合に<s/>
+      <font color="highlight1">.</font><s/>（ドット）が行末記号を含めた
+      すべての文字にマッチする例。<br/>
+      埋め込みフラグ<s/>
+      <font color="highlight1">(?s)</font><s/>
+      で DOTALL モードに設定している。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link><br/>
+    </html>
+    <appstate>
+      <regex>(?s).</regex>
+      <inputChars><![CDATA[あ A　漢→
+abc]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_multiline" tutorial="false">
+    <html>
+      <font color="highlight2">MULTILINE モード</font><br/>
+      デフォルトの設定では正規表現
+      <s/><font color="highlight1">^</font><s/>
+      と
+      <s/><font color="highlight1">$</font><s/>
+      はそれぞれ入力シーケンス全体の先頭と末尾の位置にマッチする。<br/>
+      MULTILINE モードでは
+      <s/><font color="highlight1">^</font><s/>
+      と
+      <s/><font color="highlight1">$</font><s/>
+      は
+      入力シーケンス全体の先頭と末尾の位置の他、
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      の前と後の位置にもマッチする。（行末記号が
+      入力シーケンスの末尾にある場合には
+      <s/><font color="highlight1">^</font><s/>
+      がその末尾の行末記号の後ろの位置にマッチする事はない）<br/>
+      MULTILINE モードは、
+      <link href="Example/t_embeded_flag">埋め込みフラグ</link><s/>
+      <font color="highlight1">(?m)</font><s/>
+      を使用して有効にすることもできる<br/>
+      <link href="Example/t_multiline_t1_1">
+      デフォルト（MULTILINE モードではない）設定における
+      <s/>^<s/>の例</link><br/>
+      <link href="Example/t_multiline_t1_2">
+      デフォルト（MULTILINE モードではない）設定における
+      <s/>$<s/>の例</link><br/>
+      
+      <link href="Example/t_multiline_t2_1">
+      コードで MULTILINE モードに設定した場合の
+      <s/>^<s/>の例</link><br/>
+      <link href="Example/t_multiline_t2_2">
+      コードで MULTILINE モードに設定した場合の
+      <s/>$<s/>の例</link><br/>
+      
+      <link href="Example/t_multiline_t3_1">
+      埋め込みフラグで MULTILINE モードに設定した場合の
+      <s/>^<s/>の例</link><br/>
+      <link href="Example/t_multiline_t3_2">
+      埋め込みフラグで MULTILINE モードに設定した場合の
+      <s/>$<s/>の例</link>
+    </html>
+  </example>
+  
+  <example name="t_multiline_t1_1" tutorial="true">
+    <html>
+      現在表示しているのはデフォルト（MULTILINE モードではない）設定において
+      <s/><font color="highlight1">^</font><s/>が
+      入力シーケンス全体の先頭の位置にのみマッチする例。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>^</regex>
+      <inputChars><![CDATA[abc
+def
+ghi
+]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_multiline_t2_1" tutorial="true">
+    <html>
+      現在表示しているのは MULTILINE モードに設定している場合に<s/>
+      <font color="highlight1">^</font><s/>が
+      入力シーケンス全体の先頭の位置の他、
+      行末記号に直後の位置にもマッチする例。<br/>
+      （入力シーケンスの末尾が行末記号の場合には
+      その行末記号の直後の位置にはマッチしない。）<br/>
+      現在右のモードパネルで MULTILINE にチェックが
+      入っているので MULTILINE モードとなる。
+      <br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+      <br/><br/>
+      Java コードによる MULTILINE モードの設定は
+      以下のように Pattern#compile メソッドで Pattern オブジェクトを
+      生成する際に定数を使って行う。<br/>
+      <font color="code">
+      Pattern pattern = Pattern.compile
+      (&amp;quot;^&amp;quot;, Pattern.MULTILINE);<br/>
+      Matcher matcher = pattern.matcher(&amp;quot;abc\ndef\nghi&amp;quot;);
+      </font>
+    </html>
+    <appstate>
+      <regex>^</regex>
+      <inputChars><![CDATA[abc
+def
+ghi
+]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>MULTILINE</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  
+  <example name="t_multiline_t3_1" tutorial="true">
+    <html>
+       現在表示しているのは MULTILINE モードに設定している場合に<s/>
+      <font color="highlight1">^</font><s/>が
+      入力シーケンス全体の先頭の位置の他、
+      行末記号に後の位置にもマッチする例。<br/>
+      （入力シーケンスの末尾が行末記号の場合には
+      その行末記号の直後の位置にはマッチしない。）<br/>
+      埋め込みフラグ<s/>
+      <font color="highlight1">(?m)</font><s/>
+      で MULTILINE モードに設定している。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link><br/>
+    </html>
+    <appstate>
+      <regex>(?m)^</regex>
+      <inputChars><![CDATA[abc
+def
+ghi
+]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_multiline_t1_2" tutorial="true">
+    <html>
+      現在表示しているのはデフォルト（MULTILINE モードではない）設定において
+      <s/><font color="highlight1">$</font><s/>が
+      入力シーケンス全体の末尾の位置にのみマッチする例。<br/>
+      （ただしモードに関わらず、入力シーケンスが行末記号で
+      終わっている場合には、その行末記号の前と後の両方にマッチする）<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>$</regex>
+      <inputChars><![CDATA[abc
+def
+ghi]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_multiline_t2_2" tutorial="true">
+    <html>
+      現在表示しているのは MULTILINE モードに設定している場合において
+      <s/><font color="highlight1">$</font><s/>が
+      入力シーケンス全体の末尾の位置の他、
+      すべての行末記号の直前の位置にもマッチする例。<br/>
+      現在右のモードパネルで MULTILINE にチェックが
+      入っているので MULTILINE モードとなる。
+      <br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+      <br/><br/>
+      Java コードによる MULTILINE モードの設定は
+      以下のように Pattern#compile メソッドで Pattern オブジェクトを
+      生成する際に定数（の論理和）を使って行う。<br/>
+      <font color="code">
+      Pattern pattern = Pattern.compile
+      (&amp;quot;$&amp;quot;, Pattern.MULTILINE);<br/>
+      Matcher matcher = pattern.matcher(&amp;quot;abc\ndef\nghi&amp;quot;);
+      </font>
+    </html>
+    <appstate>
+      <regex>$</regex>
+      <inputChars><![CDATA[abc
+def
+ghi]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>MULTILINE</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  
+  <example name="t_multiline_t3_2" tutorial="true">
+    <html>
+      現在表示しているのは MULTILINE モードに設定している場合において
+      <s/><font color="highlight1">$</font><s/>が MULTILINE モードでは
+      入力シーケンス全体の末尾の位置の他、
+      すべての行末記号の直前の位置にもマッチする例。<br/>
+      埋め込みフラグ<s/>
+      <font color="highlight1">(?m)</font><s/>
+      で MULTILINE モードに設定している。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link><br/>
+    </html>
+    <appstate>
+      <regex>(?m)$</regex>
+      <inputChars><![CDATA[abc
+def
+ghi]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="t_line_end_symbol" tutorial="false">
+    <html>
+      <font color="highlight2">行末記号</font><br/>
+      行末記号とは、入力シーケンスの行の末尾を指定するときに使用する、
+      1 文字または 2 文字の文字シーケンスを指す。<br/>
+      <link href="Example/t_unixlines">UNIX_LINES</link><s/>
+      モードの場合には改行文字 (\n) だけが行末記号として認識され、
+      そうでなければ以下の文字が行末記号として認識される。<br/>
+      ・改行文字 (\n)<br/> 
+      ・直後に改行文字が付いたキャリッジリターン文字 (\r\n)<br/> 
+      ・単独のキャリッジリターン文字 (\r)<br/> 
+      ・次行文字 (\u0085)<br/> 
+      ・行区切り文字 (\u2028)<br/> 
+      ・段落区切り文字 (\u2029)<br/>
+      （\r\n は２文字セットで行末記号となるので、この場合に
+      行末記号の前とは\rの前で行末記号の後とは\nの後となる）<br/> 
+    </html>
+  </example>
+  
+  
+  
+  <!--
+  <example name="" tutorial="false">
+    <html>
+      　未実装
+    </html>
+  </example>
+   -->
+  
+  
+</examples>

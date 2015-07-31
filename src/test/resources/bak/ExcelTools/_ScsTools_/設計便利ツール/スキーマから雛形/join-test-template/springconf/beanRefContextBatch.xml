@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN"
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans>
+	<bean id="context" lazy-init="true"
+		class="org.springframework.context.support.ClassPathXmlApplicationContext">
+		<constructor-arg>
+			<list>
+				<!-- 各リソース -->
+				<value>springconf/applicationContext-aop-trace.xml</value>
+				<value>springconf/applicationContext-autoproxy.xml</value>
+				<value>springconf/applicationContext-criteria.xml</value>
+				<value>springconf/applicationContext-dac.xml</value>
+				<value>springconf/applicationContext-datasource-local.xml</value>
+				<value>springconf/applicationContext-join-test.xml</value>
+				<value>springconf/applicationContext-service.xml</value>
+				<value>springconf/applicationContext-transaction.xml</value>
+				<value>springconf/applicationContext-velocity-batch.xml</value>
+				<!-- ログ出力設定ファイル（必ず最後に記述する） -->
+				<value>springconf/applicationContext-aop-logging.xml</value>
+			</list>
+		</constructor-arg>
+	</bean>
+</beans>

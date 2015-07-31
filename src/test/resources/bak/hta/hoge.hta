@@ -1,0 +1,116 @@
+<HTML>
+ <HEAD>
+ <meta http-equiv="Content-Type" content="text/html; charset=Shift_JIS">
+ <TITLE>HTA+ADO+MDBでサンプル</TITLE>
+ <HTA:APPLICATION
+   APPLICATIONNAME = "HTA_ADO_MDB"
+   BORDER          = "dialog"
+   BORDERSTYLE     = "normal"
+   CAPTION         = "yes"
+   CONTEXTMENU     = "no"
+   ICON            = "htasamp.ico"
+   ID              = "oCheck"
+   INNERBORDER     = "no"
+   MAXIMIZEBUTTON  = "no"
+   MINIMIZEBUTTON  = "yes"
+   NAVIGABLE       = "yes"
+   SCROLL          = "no"
+   SCROLLFLAT      = "yes"
+   SELECTION       = "no"
+   SHOWINTASKBAR   = "yes"
+   SINGLEINSTANCE  = "no"
+   SYSMENU         = "yes"
+   VERSION         = "1.0.2"
+   WINDOWSTATE     = "normal"
+ />
+ <STYLE>
+ BODY { background: #FFF; }
+ </STYLE>
+ <SCRIPT Language="VBScript">
+ //<![CDATA[
+ Option Explicit
+ ' Application開始時イベント
+ Sub Window_OnLoad
+     Window.ResizeTo 320,240
+     cmdCreateMDB.value = "MDBを作成"
+     cmdCompactMDB.value = "MDBの最適化"
+     cmdClose.value     = "閉じる"
+ End Sub
+ '作成ボタンのクリックイベント
+ Sub cmdCreateMDB_OnClick
+     Dim strPath
+     strPath = SaveAsFileDialog
+     Dim objFS
+     Set objFS = CreateObject("Scripting.FileSystemObject")
+     If objFS.FileExists(strPath) Then
+         MsgBox strPath & "は既に存在します。" & vbCrLf & _
+                 "違うファイル名で再度トライしてください。", vbCritical
+         Exit Sub
+     End If
+     If strPath <> "" Then
+         createMDB strPath
+         MsgBox strPath & "を作成しました"
+     End If
+ End Sub
+ '最適化ボタンのクリックイベント
+ Sub cmdCompactMDB_OnClick
+     Dim strPath
+     strPath = OpenFileDialog
+     If strPath = "" Then Exit Sub
+     Dim objFS, objFile
+     Set objFS = CreateObject("Scripting.FileSystemObject")
+     Set objFile = objFS.GetFile(strPath)
+     objFile.Name = objFile.Name & ".old.mdb"
+     Set objFS = Nothing
+     Dim strOld, strNew
+     Dim objJRO
+     strOld = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & strPath & ".old.mdb"
+     strNew = "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & strPath
+     Set objJRO = CreateObject("JRO.JetEngine") 
+     objJRO.CompactDatabase strOld, strNew
+     Set objJRO = Nothing
+     MsgBox strPath & "を最適化しました" & vbCrLf & _
+            "元ファイルは" & strPath & ".old.mdb にリネームしました"
+ End Sub
+ '閉じるボタンのクリックイベント
+ Sub cmdClose_OnClick
+     Window.Close
+ End Sub
+ ' MDB作成
+ Sub createMDB(strPath)
+     Dim objCat
+     Set objCat = CreateObject("ADOX.Catalog")
+     objCat.Create "Provider=Microsoft.Jet.OLEDB.4.0;Data Source=" & strPath
+     Set objCat = Nothing
+ End Sub
+ ' ファイル名を入力するダイアログ
+ Function SaveAsFileDialog
+    Dim objExcel
+    Set objExcel = CreateObject("Excel.Application")
+    Dim File
+    File = objExcel.GetSaveAsFilename( _
+            "新しいデータベース", "Jet4.0 DB File (*.mdb),*.mdb")
+    If File = False Then Exit Function
+    SaveAsFileDialog = File
+    Set objExcel = Nothing
+ End Function
+ ' ファイルを選択するダイアログ
+ Function OpenFileDialog
+    Dim objExcel
+    Set objExcel = CreateObject("Excel.Application")
+    Dim File
+    File = objExcel.GetOpenFilename( _
+            "Jet4.0 DB File (*.mdb),*.mdb", , "ファイルを選択してください")
+    If File = False Then Exit Function
+    OpenFileDialog = File
+    Set objExcel = Nothing
+ End Function
+ //]]>
+ </SCRIPT>
+ </HEAD>
+ <BODY>
+ <P><INPUT type=button name=cmdCreateMDB></P>
+ <P><INPUT type=button name=cmdCompactMDB></P>
+ <P><INPUT type=button name=cmdClose></P>
+ </BODY>
+ </HTML>

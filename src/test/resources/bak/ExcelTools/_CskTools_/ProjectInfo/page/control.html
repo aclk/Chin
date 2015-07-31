@@ -1,0 +1,229 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=shift_jis">
+<script language="JavaScript">
+	var PROJECT_SITE_PREFIX = "http://m6f1b012.murata.co.jp/maven/site/";
+	var M2REPO_PREFIX = "http://m6f1b012.murata.co.jp:9999/repository/murata/";
+	var SVN_TAGS_PREFIX = "http://m6svn01/svn/prod/spirits01/";
+	var SUB_SYSTEM = null;
+	
+	function dispSite(inputId, productVer, branchVer, isDispCurrent) {
+		//alert("productVer["+productVer+"]");
+		if (productVer != null && productVer != "") {
+			productVer = productVer + "/";
+		} else {
+			productVer = "";
+		}
+	
+		if (branchVer != null && branchVer != "") {
+			branchVer = branchVer + "/";
+		}
+		top.info.productId.innerText = complementProductId(inputId);
+		top.info.urltext.innerHTML = "<a href='" + PROJECT_SITE_PREFIX + complementURL(inputId) + branchVer + "' target='_blank'>" + PROJECT_SITE_PREFIX + complementURL(inputId) + branchVer + "</a>";
+		
+		top.site.location.href = PROJECT_SITE_PREFIX + complementURL(inputId) + branchVer;
+//		alert(productVer);
+		if (isDispCurrent && productVer == "") {
+//			alert('requestsource');
+			requestsource(PROJECT_SITE_PREFIX + complementURL(inputId));
+		}
+		top.m2repo.location.href = M2REPO_PREFIX + complementProductId(inputId) + "/" + productVer;
+		top.tags.location.href = SVN_TAGS_PREFIX + complementTags(complementProductId(inputId)) + inputId + "/" + productVer;
+
+	}
+	function complementURL(inputId) {
+		var urlStr;
+
+		// プロダクトID補完
+		urlStr = complementProductId(inputId) + "/";
+
+		if (inputId.indexOf("baseline") == -1 && inputId.indexOf("-bmc") == -1 && inputId.indexOf("-co") == -1 && inputId.indexOf("validator") == -1) {
+			urlStr = "murata-app-parent/" + urlStr
+		}
+
+		return urlStr;
+	}
+	function complementProductId(inputId) {
+		var productId;
+		
+		productId = inputId;
+		if (inputId.indexOf("murata-") == -1) {
+			productId = "murata-" + inputId;
+		}
+		return productId;
+	}
+	function complementTags(inputId) {
+		var svnTags = "";
+		
+		if (inputId.indexOf("-bmc") > -1) {
+			svnTags = "bmc/tags/";
+		} else if (inputId.indexOf("-s") > -1) {
+			svnTags = "ss/tags/";
+		} else if (inputId.indexOf("-g") > -1) {
+			svnTags = "dbm/tags/";
+		} else if (inputId.indexOf("-c") > -1) {
+			svnTags = "co/tags/";
+		} else if (inputId.indexOf("-m") > -1) {
+			svnTags = "ms/tags/";
+		} else if (inputId.indexOf("-p") > -1) {
+			svnTags = "ps/tags/";
+
+		}
+		return svnTags;
+	}
+	function openWin(inputId, productVer) {
+		if (productVer != null && productVer != "") {
+			productVer = productVer + "/";
+		} else {
+			productVer = "";
+		}
+		win = window.open(M2REPO_PREFIX + complementProductId(inputId) + "/" + productVer);
+	}
+	function openSureFireAndCoverage(inputId) {
+		window.open(PROJECT_SITE_PREFIX + complementURL(inputId) + "/surefire-report.html" );
+		window.open(PROJECT_SITE_PREFIX + complementURL(inputId) + "/cobertura/index.html" );
+	}
+	function selectionProductDisp(url, ver, isDispCurrent, isClearBranch) {
+		inputId.value = url.replace(/^[ ]+|[ ]+$/g, "");
+		inputId.value = inputId.value.toLowerCase();
+		inputId.value = inputId.value.replace(/\./g, "-");
+		productVer.value = ver;
+		if (isClearBranch) {
+			branch.value = '';
+		}
+		dispSite(inputId.value, productVer.value, branch.value, isDispCurrent);
+	}
+	function test() {
+		version = top.site.document.getElementsByTagName('a');
+		alert('ver='+version[4].innerText);
+	}
+	
+	function createhttprequest(){
+
+		var request=null;
+		if("XMLHttpRequest" in window){
+
+			request= new XMLHttpRequest();
+		}
+		else if("ActiveXObject" in window){
+
+			try{
+				request=new ActiveXobject("Msxml2.XMLHTTP");
+			}catch(e){
+				try{
+					request=new ActiveXObject("Microsoft.XMLHTTP");
+				}catch(e){
+				}
+			}
+		}
+		return request;
+	}
+
+	var request;
+
+	function requestsource(url){
+		//alert(url);
+		request=createhttprequest();
+
+		request.open("GET",url,true);
+		request.onreadystatechange=sourceget;
+		request.send(null);
+	}
+
+	function sourceget(){
+		if (request.readyState == 4 && request.status == 200){
+			top.hidden_site.document.getElementById("projectsite").innerHTML = request.responseText;
+			//alert('sourceget:' + productVer.value);
+			if (productVer.value == "") {
+				aTag = top.hidden_site.document.getElementsByTagName('a');
+				if (aTag[2].innerText == 'プロジェクトレポート') {
+					version = aTag[4].innerText;
+				} else {
+					version = aTag[3].innerText;
+				}
+				//alert('ver='+version.substr(0, 7));
+				if (version.substr(0, 7) != "murata-") {
+					productVer.value = version;
+					dispSite(inputId.value, productVer.value, branch.value, false);
+					//alert('ver='+aTag[4].innerText);
+				}
+			}
+		}
+		else{
+		}
+	}
+
+	
+</script>
+</head>
+<body onsubmit="dispSite(inputId.value, productVer.value, branch.value, true);" onload="this.domain='murata.co.jp';">
+<table width="100px" height="35px" border="1" bgcolor="red" fgcolor="white">
+<tr><td><b><i><u><center><font color="white" size="6px">muRata</font></center></u></i></b></td></tr>
+</table>
+<br>
+<hr>
+■ProductId / Ver
+<br>
+<input type="text" name="inputId" size="15"> / <input type="text" name="productVer" size="8">
+<br>
+■branch
+<br>
+<input type="text" name="branch" size="10"> ←
+<select name="branchTemplate" onchange="branch.value = branchTemplate.value;">
+	<option value=""></option>
+	<option value="0.5.52-sys">0.5.52-sys</option>
+	<option value="0.5.89-sys">0.5.89-sys</option>
+</select>
+<br>
+<input type="submit" value="display" onClick="selectionProductDisp(inputId.value, productVer.value, false, false);">
+<input type="submit" value="最新Ver表示" onClick="selectionProductDisp(inputId.value, productVer.value, true, false);">
+<input type="button" value="clear" onclick="inputId.value=''; productVer.value=''; branch.value='';">
+<br>
+<input type="button" value="surefire & Coverage" onclick="openSureFireAndCoverage(inputId.value);">
+<br>
+<hr>
+<!--
+<input type="button" value="M2REPO 印刷" site="100px" onclick="openWin(inputId.value, productVer.value);"><br>
+-->
+<input type="button" value="M2REPO 表示" site="100px" onclick="openWin(inputId.value, productVer.value);">
+<hr>
+<select name="bsp">
+	<option value="murata-ss-bsp">SS共通BSP</option>
+	<option value="murata-ss-sj-bsp">SS受注BSP</option>
+</select>
+<input type="button" value="display" onclick="selectionProductDisp(bsp[bsp.selectedIndex].value, '',false , true);">
+<hr>
+<select name="bmc">
+	<option value="murata-ss-bmc-ssorderreceivedbmc">SS受注BMC</option>
+	<option value="murata-ss-bmc-sscommonorderreceivedbmc">SS共通受注BMC</option>
+</select>
+<input type="button" value="display" onclick="selectionProductDisp(bmc[bmc.selectedIndex].value, '',false , true);">
+<hr>
+<select name="releaseSet">
+	<option value="murata-sst7-online-products">新SS事前確認オンラインdeploy prj.</option>
+	<option value="murata-ss-sscsk-online-products">SSCSK事前確認オンラインdeploy prj.</option>
+	<option value="murata-ss-sscsk-batch-products">SSCSK事前確認バッチdeploy prj.</option>
+	<option value="murata-ss-sscsk-remote-products">SSCSK事前確認remote deploy prj.</option>
+	<option value="murata-dbm-dbmcsk-online-products">DBMCSK事前確認オンラインdeploy prj.</option>
+	<option value="murata-dbm-dbmcsk-batch-products">DBMCSK事前確認バッチdeploy prj.</option>
+	<option value="murata-dbm-dbmcsk-remote-products">DBMCSK事前確認remote deploy prj.</option>
+	<option value="murata-ps-online-products">本番オンラインdeploy prj.</option>
+	<option value="murata-ps-batch-products">本番バッチdeploy prj.</option>
+	<option value="murata-ps-remote-products">本番remote deploy prj.</option>
+	<option value="murata-dbm-osa-online-products">OSAシステムテストオンラインdeploy prj.</option>
+</select>
+<input type="button" value="display" onclick="selectionProductDisp(releaseSet[releaseSet.selectedIndex].value, '',false , true);">
+<hr>
+<select name="baseline">
+	<option value="murata-ps-baseline">murata-ps-baseline</option>
+	<option value="murata-baseline">グローバルbaseline</option>
+	<option value="murata-product-baseline">プロダクトbaseline</option>
+</select>
+<input type="button" value="display" onclick="selectionProductDisp(baseline[baseline.selectedIndex].value, '',false , true);">
+<hr>
+<!--
+<input type="button" value="test" onclick="test();">
+<hr>
+-->
+</body>
+</html>

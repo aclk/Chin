@@ -1,0 +1,122 @@
+########## Main ##########
+### 色の設定
+main.string.html.bgcolor=000000
+main.string.html.textcolor=808080
+main.string.html.explaincolor=008080
+main.string.html.codecolor=00C000
+main.string.html.errorcolor=FF0000
+main.string.html.highlightcolor_1=C000C0
+main.string.html.highlightcolor_2=4080C0
+main.string.html.linkcolor=0000FF
+
+### 変更不可 (リンクを処理する為の形だけのでたらめなURL)
+main.string.linked.url.pre=http://jp.gr.java_conf.boj.regex/
+
+### ルックアンドフィールの変更 CROSS_PLATFORM_LAF か OS_STYLE_LAF
+### あるいはルックアンドフィールクラスのFQCNを指定
+main.string.lookandfeel.class=CROSS_PLATFORM_LAF
+# main.string.lookandfeel.class=OS_STYLE_LAF
+# main.string.lookandfeel.class=javax.swing.plaf.metal.MetalLookAndFeel
+# main.string.lookandfeel.class=com.sun.java.swing.plaf.motif.MotifLookAndFeel
+# main.string.lookandfeel.class=com.sun.java.swing.plaf.windows.WindowsLookAndFeel
+# main.string.lookandfeel.class=com.sun.java.swing.plaf.windows.WindowsClassicLookAndFeel
+
+### メタルルックアンドフィールですべてのフォントを
+### PLAIN にする場合には ALL_PLAIN_FONT_METAL
+main.string.metallookandfeel.font.style=DEFAULT_FONT_METAL
+# main.string.metallookandfeel.font.style=ALL_PLAIN_FONT_METAL
+
+
+########## common text properties ##########
+### color -> red,blue,green
+
+text.int.tab.count=4
+
+text.color.whitespace=160,160,160
+text.color.bg=0,0,0
+text.color.fg=0,128,192
+text.color.caret=230,230,230
+text.color.endLine=32,32,32
+
+### font -> name,(PLAIN|BOLD|ITALIC|ITALICBOLD),size
+textarea.font=Monospaced,PLAIN,15
+textfield.font=Monospaced,PLAIN,15
+
+########## SourceArea ##########
+sourcearea.color.triangle=192,0,192
+sourcearea.color.outofregion=128,128,128
+sourcearea.color.highlight=255,255,192
+
+
+
+########## ReplacementArea ##########
+replacementarea.color.highlight=255,255,192
+
+
+########## ExplanationArea ##########
+explanationarea.color.background=0,0,0
+
+### (serif | sans-serif | monospace)
+explanationarea.string.html.font.family=monospace
+# explanationarea.string.html.font.family=sans-serif
+
+explanationarea.string.parameter.label=パラメータ：
+explanationarea.string.return.label=戻り値：
+explanationarea.string.exception.label=例外：
+
+########## left EditorPane ##########
+### (serif | sans-serif | monospace)
+lefteditorpane.string.html.font.family=monospace
+
+### xx-small x-small small medium large x-large xx-large
+### 12pt 12mm
+lefteditorpane.string.html.font.size=small
+
+########## Component Label ##########
+component.string.regex.field.label=正規表現：
+component.string.replacement.field.label=置換構文：
+component.string.clear.button.label=クリア
+component.string.state.border.title=状態
+component.string.mode.border.title=モード
+component.string.region.and.bounds.border.title=領域と境界
+component.string.input.count.label=入力文字数 :
+component.string.next.button.label=次へ
+component.string.back.button.label=前へ
+component.string.cleartutorial.button.label=チュートリアルモードクリア
+component.string.tabpane.charclass.label=文字クラス
+component.string.tabpane.tutorial.label=その他
+component.string.tabpane.metachar.label=メタ文字
+component.string.tabpane.pattern.label=Pattern
+component.string.tabpane.matcher.label=Matcher
+
+########## Application Message ##########
+appmessage.string.illegal.linked.url.error.message=プログラムエラーが発生しました。XMLファイルにおけるHTMLリンクのhref属性の設定が不正なようです。
+appmessage.string.reset.message=リセットしました。<br>Matcher#reset は Pattern#matcher メソッドで Matcher オブジェクトを生成した状態に戻します。<br>ただし useAnchoringBounds メソッドや useTransparentBounds メソッドで行った領域境界の性質に関する設定はそのままで、デフォルトに変更されることはありません。<br>CharSequence オブジェクトを引数に取る Matcher#reset は引数の無い reset メソッドの動作に加えマッチングの対象となる文字シーケンスを変更します。<br>このアプリケーションでは reset ボタンを押すことで正規表現パターンとマッチングの対象の文字シーケンスさらにモードも変更可能になりますが実際のプログラムでは正規表現パターンの変更は Matcher#usePattern メソッドで、文字シーケンスの変更は Matcher#reset(CharSequence) メソッドで、また正規表現パターン以外で行うモードの変更は新たに Pattern#compile(String,int) メソッドから Matcher オブジェクトを生成する必要があります。<br>
+appmessage.string.find.error.message=find(int) ボタン右のテキストフィールドにマッチを行うスタート位置を 0 から文字シーケンスの長さと同じ値の範囲で指定してください。<br>
+appmessage.string.region.error.message=region ボタンの右のテキストフィールドに Matcher#region メソッドの引数となる値を入力してください。<br>マッチング対象の文字シーケンスの長さを length とすると start 位置は 0 以上 length 以下で end 位置は start 以上で length 以下でなければなりません。<br>
+appmessage.string.clear.message=クリアしました。<br>クリアボタンは reset ボタンの動作に加え、マッチング対象の文字シーケンスをクリアします。
+appmessage.string.matched.message=マッチした部分または位置を強調表示しています。<br>パネル右上に状態としてメソッドで取得出来るこのマッチに関する情報を表示しています。<br>グループを指定するとそのグループを強調表示し、 start と end の値もそのグループの位置を表すものになります。<br>正規表現パターンやマッチング対象の文字シーケンス、改行コード、モードを編集するには reset ボタンを押してください。<br>クリアボタンは reset ボタンの動作に加え文字シーケンスのテキストエリアをクリアします。
+appmessage.string.no.matched.message=マッチしませんでした。<br>正規表現パターンやマッチング対象の文字シーケンス、改行コード、モードを編集するには reset ボタンを押してください。<br>クリアボタンは reset ボタンの動作に加え文字シーケンスのテキストエリアをクリアします。
+appmessage.string.no.input.error.message=キーボードやコピー&ペーストなどで正規表現ラベルの右のテキストフィールドに正規表現パターンをその下のテキストエリアにマッチングの対象となる文字列を入力してください。
+appmessage.string.pattern.syntax.error.message=正規表現の構文が正しくありません。<br>例外のメッセージは以下です。
+appmessage.string.set.region.message=領域を設定しました。
+appmessage.string.appendtail.message=アペンドポジション以降を追加しました。<br>アペンドポジションがマッチング対象の文字シーケンスの末尾にある場合には何追加していません。<br>appendTail メソッドはアペンドポジションを変更しません。
+appmessage.string.group.0.message=グループ 0 はグルーピングを行っているか否かに関わらず常に正規表現全体にマッチした部分を表します。<br>現在マッチした部分全体を強調表示し、右パネルの start は先頭位置を end は末尾の位置を表示しています。<br>位置にマッチした場合には Matcher#start(int) と Matcher#end(int) は同じ位置を返します。<br>requireEnd や hitEnd は常に正規表現全体にマッチした部分から決定される状態です。
+appmessage.string.group.message=番目のキャプチャグループを強調表示しています。<br>右パネルの start は強調表示しているグループの先頭位置で、 end は強調表示しているグループの末尾の位置です。<br>位置にマッチした場合には Matcher#start(int) と Matcher#end(int) は同じ位置を返します。<br>正規表現全体にはマッチしたが、指定したキャプチャグループにはマッチしなかった場合には Matcher#group(int) は null を返し、 Matcher#start(int) 及び Matcher#end(int) は -1 を返し、その場合には強調表示されません。
+appmessage.string.replaceall.message=マッチする部分があればすべて置換しました。<br>置換構文のテキストフィールドに入力が無い場合は空の文字列に置換し、それは結果的にマッチした部分を削除する事になります。<br>Java のコードでもマッチした部分を削除したい場合には空の文字列を指定します。<br>replaceAll メソッドの引数に null を指定した場合には NullPointerException が発生します。
+appmessage.string.replacefirst.message=最初にマッチする部分を置換しました。<br>置換構文のテキストフィールドに入力が無い場合は空の文字列に置換し、それは結果的にマッチした部分を削除する事になります。<br>Java のコードでもマッチした部分を削除したい場合には空の文字列を指定します。<br>ドキュメントに記述がありませんが jdk1.5.0 の動作では replaceFirst メソッドの引数に null を指定すると実際に置換が行われる際に NullPointerException が発生します。
+appmessage.string.replacement.error.message=置換構文が正しくない可能性があります。<br>置換構文に $ が含まれる場合はその後に存在する前方参照グループ番号が続く必要があります。<br>例外のメッセージは以下です。
+appmessage.string.replacement.escape.error.message=置換構文が不正です。<br>バックスラッシュ (\\) の後には　n　t　&quot;　&#39;　\\　r　b　f　のどれかが続く必要があります。<br>$ を表す場合には \\$ と記述しなければなりません。<br>このアプリケーションではユニコードエスケープ(\\u**** → *は16進数字)は使えません。<br>また \\b や \\f を置換構文に含めてもイメージとしての描画はサポートしていません。
+appmessage.string.replacement.quot.error.message=置換構文が不正です。<br>ダブルクォーテーションはバックスラッシュ (\\) でエスケープしなければなりません。
+appmessage.string.appendreplacement.no.matched.error.message=マッチしていません。<br>appendReplacement メソッドはマッチングを行っていない場合や最後のマッチングでマッチしていない場合に呼び出すと IllegalStateException をスローします。
+appmessage.string.appendreplacement.message=このアプリケーションでは usePattern メソッドをテストできませんが、実際のプログラムでは appendReplacement メソッドの後に usePattern メソッドで正規表現パターンを変更してから find メソッドを呼び出す事が可能です。<br>usePattern メソッドは最後のマッチに関する情報を破棄しますがアペンドポジションや次回の find メソッドによる検索開始位置は維持します。
+appmessage.string.illegal.append.position.error.message=例外が発生しました。<br>appendReplacement メソッドを連続して呼び出した場合にはそれが原因です。<br>appendReplacement メソッドを連続して呼び出した際の動作はドキュメントに記述が無いので避けるべきです。<br>発生した例外は以下です。
+appmessage.string.illegal.imagefile.path.message=jp.gr.java_conf.boj.app.regexパッケージに以下のイメージファイルが見つかりません。\n
+appmessage.string.parse.error.message=をパース処理している際にエラーが発生しました。\n
+appmessage.string.uncaught.exception.message=想定外の例外が発生した為、アプリケーションの起動に失敗しました。
+appmessage.string.illegal.lookandfell.error.message=プロパティファイルで指定されているルックアンドフィールの設定に失敗した為\nデフォルトのルックアンドフィールを使って起動します。\nプロパティファイルで指定されているルックアンドフィールクラスは以下。\n
+appmessage.string.uncaught.exception.message2=プログラムで想定していなかった例外が発生しました。
+
+########## TrademarkPanel ##########
+trademarkpanel.string.imagefile=penduke.gif
+trademarkpanel.string.message=<html><body bgcolor=\"white\" text=\"black\">Sun、Sun Microsystems、Java、および<br>Java関連の商標は米国Sun Microsystems社の<br>商標または登録商標です。</body></html>

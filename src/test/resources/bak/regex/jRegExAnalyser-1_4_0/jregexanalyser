@@ -1,0 +1,166 @@
+#!/bin/sh
+# 2010-10-06 initial version, based on freemind startup routine
+
+# to enable debugging output set DEBUG to "script",
+# or to "script-exit" to disable actual JavaVM launch
+if ( echo "${DEBUG}" | grep -qe "script" )
+then
+	set -x
+fi
+
+########## FUNCTIONS DEFINITIONS #######################################
+
+_debug() {
+	if [ -n "${DEBUG}" ]
+	then
+		echo "DEBUG:   $1" >&2 
+		shift
+		for text in "$@"
+		do
+			echo "         ${text}" >&2
+		done
+	fi
+}
+
+_error() {
+	echo "ERROR:   $1" >&2
+	shift
+	for text in "$@"
+	do
+		echo "         ${text}" >&2
+	done
+}
+
+findjava() {
+	# We try hard to find the proper 'java' command
+	if [ -n "${JAVACMD}" ] && [ -x "${JAVACMD}" ]
+	then
+		_debug "Using \$JAVACMD to find java virtual machine."
+	elif [ -n "${JAVA_BINDIR}" ] && [ -x "${JAVA_BINDIR}/java" ]
+	then
+		JAVACMD="${JAVA_BINDIR}/java"
+		_debug "Using \$JAVA_BINDIR to find java virtual machine."
+	elif [ -n "${JAVA_HOME}" ] && [ -x "${JAVA_HOME}/bin/java" ]
+	then
+		JAVACMD="${JAVA_HOME}/bin/java"
+		_debug "Using \$JAVA_HOME to find java virtual machine."
+	else
+		JAVACMD=$(which java)
+		if [ -n "${JAVACMD}" ] && [ -x "${JAVACMD}" ]
+		then
+			_debug "Using \$PATH to find java virtual machine."
+		elif [ -x /usr/bin/java ]
+		then
+			_debug "Using /usr/bin/java to find java virtual machine."
+			JAVACMD=/usr/bin/java
+		fi
+	fi
+
+	# if we were successful, we return 0 else we complain and return 1
+	if [ -n "${JAVACMD}" ] && [ -x "${JAVACMD}" ]
+	then
+		_debug "Using '$JAVACMD' as java virtual machine..."
+		if [ -n "${DEBUG}" ]
+		then
+			"$JAVACMD" -version >&2
+		fi
+		if (! "${JAVACMD}" -version 2>&1 | grep -qe 'Java(TM)' \
+							-e 'OpenJDK')
+		then
+			_error "Your Java VM is not a complete implementation," \
+			       "=============================================" \
+			       "JREGEXANALYSER WILL MOST PROBABLY *NOT* WORK," \
+			       "=============================================" \
+			       "define JAVACMD, JAVA_BINDIR, JAVA_HOME or PATH in order" \
+			       "to point to such a VM."
+			JAVA_TYPE=other
+		else
+			JAVA_TYPE=sun
+		fi
+		return 0
+	else
+		_error "Couldn't find a java virtual machine," \
+		       "define JAVACMD, JAVA_BINDIR, JAVA_HOME or PATH."
+		return 1
+	fi
+}
+
+_source() {
+	if [ -f "$1" ]
+	then
+		_debug "Sourcing '$1'."
+		. "$1"
+	fi
+}
+
+output_debug_info() {
+	if [ -z "${DEBUG}" ]
+	then
+		return 0
+	fi
+	_debug "jRegExAnalyser parameters are '${@}'."
+	_debug "$(uname -a)"
+}
+
+########## START MAIN PART #############################################
+
+#--------- Put the environment together --------------------------------
+
+findjava
+if [ $? -ne 0 ]
+then
+	exit 1
+fi
+
+output_debug_info
+
+if [ -L "$0" ] && [ -x $(which readlink) ]
+then # if the script is a link and we have 'readlink' to follow it
+	# -m should be faster and link does always resolve, else this script
+	# wouldn't be called, would it?
+	jreafile=$(readlink -mn "$0")
+	_debug "Link '$0' resolved to '${jreafile}'."
+else
+	jreafile="$0"
+fi
+jreapath=$(dirname "${jreafile}")
+
+# we try different possibilities to find jRegExAnalyser.jar
+for jar in "${JREA_HOME}" "${jreapath}"
+do
+	if [ -f "${jar}/jRegExAnalyser.jar" ]
+	then
+		jreadir="${jar}"
+		_debug "jRegExAnalyser Directory is '${jar}'."
+		break
+	fi
+	if [ -f "${jar}/../dist/jRegExAnalyser.jar" ]
+	then
+		jreadir="${jar}/../dist"
+		_debug "jRegExAnalyser Directory is '${jar}'."
+		break
+	fi
+	if [ -f "${jar}/dist/jRegExAnalyser.jar" ]
+	then
+		jreadir="${jar}/dist"
+		_debug "jRegExAnalyser Directory is '${jar}'."
+		break
+	fi
+done
+
+if [ -z "${jreadir}" ]
+then
+	_error "Couldn't find jRegExAnalyser.jar under '${jreapath}'."
+	exit 1
+fi
+
+#--------- Call jRegExAnalyser -------------------------------------
+
+if [ "${JAVA_TYPE}" = "sun" ]
+then
+	_debug "Calling: '${JAVACMD} -Dawt.useSystemAAFontSettings=on -Xms32m -Xmx256M -Xincgcc -jar ${jreadir}/jRegExAnalyser.jar $@'."
+	( echo "${DEBUG}" | grep -qe "exit" ) && exit 0 # do not start jRegExAnalyser
+	"${JAVACMD}" -Dawt.useSystemAAFontSettings=on -Xms32m -Xmx256M -Xincgcc -jar "${jreadir}/jRegExAnalyser.jar" "$@"
+else # if non-sun works for you, please put in launch cmd here and send a patch
+	exit 2
+fi

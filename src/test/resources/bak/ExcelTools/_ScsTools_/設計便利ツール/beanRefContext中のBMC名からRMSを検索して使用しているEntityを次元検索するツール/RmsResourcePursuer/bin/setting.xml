@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment>jp.mk.sqllauncher.SqlExecuterByQueryFiles setting. Stored at Fri Dec 14 13:58:48 JST 2007</comment>
+<entry key="driverClass">oracle.jdbc.driver.OracleDriver</entry>
+<entry key="user">schm_c200</entry>
+<entry key="sqlFilesDirectory">D:\temp\work\MethodCacherの設定ファイル群</entry>
+<entry key="caption"></entry>
+<entry key="password">schm_c200</entry>
+<entry key="outputDirectory">D:\temp\work\MethodCacherの設定ファイル群\Result</entry>
+<entry key="jdbcUrl">jdbc:oracle:thin:@(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=m0tudb10)(PORT=1521))(ADDRESS=(PROTOCOL=TCP)(HOST=m0tudb20)(PORT=1521))(LOAD_BALANCE=yes))(CONNECT_DATA=(SERVICE_NAME=m0tudb.murata.co.jp)))</entry>
+<entry key="expandMethod">true</entry>
+</properties>

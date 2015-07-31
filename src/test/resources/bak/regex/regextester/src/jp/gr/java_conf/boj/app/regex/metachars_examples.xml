@@ -1,0 +1,2598 @@
+<examples>
+  
+  <example name="c_dot" tutorial="false">
+    <html>
+      <s/><font color="highlight1">.</font><s/>はデフォルト
+      （DOTALL モードではない）設定で
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      以外のすべての文字とマッチする。<br/>
+      <link href="Example/t_dotall">DOTALL モード</link>に設定した場合には
+      行末記号にもマッチする。
+      <br/>
+      <link href="Example/t_dotall_t1">
+      デフォルト（DOTALL モードではない）設定の場合の例</link><br/>
+      <link href="Example/t_dotall_t2">
+      コードで DOTALL モードに設定した場合の例</link><br/>
+      <link href="Example/t_dotall_t3">
+      埋め込みフラグで DOTALL モードに設定した場合の例</link>
+    </html>
+  </example>
+  
+  
+  
+  <example name="c_line_top" tutorial="false">
+    <html>
+      <s/><font color="highlight1">^</font><s/>はデフォルト
+      （MULTILINE モードではない）設定で
+      入力シーケンス全体の先頭の
+      <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+      <link href="Example/t_multiline">MULTILINE モード</link>
+      に設定した場合には入力シーケンス全体の先頭の位置の他、
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      の直後の位置にもマッチする。
+      <br/>
+      ただし、入力シーケンスの末尾が行末記号の場合には MULTILINE モードでも、
+      その行末記号の直後の位置にはマッチしない。
+      <br/>
+      <link href="Example/t_multiline_t1_1">
+      デフォルト（MULTILINE モードではない）設定の場合の例</link><br/>
+      <link href="Example/t_multiline_t2_1">
+      コードで MULTILINE モードに設定した場合の例</link><br/>
+      <link href="Example/t_multiline_t3_1">
+      埋め込みフラグで MULTILINE モードに設定した場合の例</link>
+    </html>
+  </example>
+  
+  <example name="c_line_end" tutorial="false">
+    <html>
+      <font color="highlight1">$</font><s/>はデフォルト
+      （MULTILINE モードではない）設定で
+      入力シーケンス全体の末尾の
+      <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+      入力シーケンスが
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      で終わっている場合にはその行末記号の直前直後
+      の両方の位置にマッチする。<br/>
+      
+      <link href="Example/t_multiline">MULTILINE モード</link>
+      に設定した場合には入力シーケンス全体の末尾の位置の他、
+      すべての行末記号の直前の位置にもマッチする。
+      <br/>
+      <link href="Example/c_line_end_t1">
+      入力シーケンスが行末記号で終わっている場合の例</link><br/>
+      <link href="Example/t_multiline_t1_2">
+      デフォルト（MULTILINE モードではない）設定の場合の例</link><br/>
+      <link href="Example/t_multiline_t2_2">
+      コードで MULTILINE モードに設定した場合の例</link><br/>
+      <link href="Example/t_multiline_t3_2">
+      埋め込みフラグで MULTILINE モードに設定した場合の例</link>
+    </html>
+  </example>
+  
+  <example name="c_line_end_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">$</font><s/>
+  	が、入力シーケンスが行末記号で終わっている場合には
+  	その行末記号の前と後の両方にマッチする例。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>$</regex>
+      <inputChars><![CDATA[abc
+]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_octet" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\0</font>
+    <font color="explain">n</font><s/>
+    <font color="highlight1">\0</font>
+    <font color="explain">nn</font><s/>
+    <font color="highlight1">\0</font>
+    <font color="explain">mnn</font><s/>
+    は 8 進数<s/><font color="explain"><s/>n<s/>nn<s/>mnn</font><s/>
+    で表す文字コードのアスキー文字にマッチする。<br/>
+    <font color="explain">n</font><s/>は 0 以上 7 以下で
+    <s/><font color="explain">m</font><s/>
+    は 0 以上 3 以下の数を設定する。<br/>
+    8 進数 0377 は 10 進数で 255 となる。<br/>
+    正規表現<s/><font color="highlight1">\0101\0102\0103</font><s/>
+    は ABC にマッチする。(0101 → 0x41 → 65)
+    </html>
+  </example>
+  <example name="c_hex" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\x</font>
+    <font color="explain">hh</font><s/>
+    は 16 進数 
+    <s/><font color="explain">hh</font><s/>
+    で表す文字コードのアスキー文字にマッチする。<br/>
+    正規表現<s/><font color="highlight1">\x41\x42\x43</font><s/>
+    は ABC にマッチする。
+    </html>
+  </example>
+  <example name="c_unicode" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\u0041 \n \r \t \f</font><s/>
+    はそれぞれ A 、改行、復帰、タブ、改ページにマッチするが
+    これらはメタ文字
+    なので Java コードでは<s/>
+    <font color="code">\\u0041 \\t \\n \\r \\f</font><s/>
+    と記述する。<br/>
+    以下は正規表現にメタ文字を使った場合とリテラル文字を使った場合との
+    違いに関するプログラム。<br/>
+    <font color="code">
+    import java.util.regex.Matcher; <br/>
+    import java.util.regex.Pattern;<br/>
+
+    public class Test{ <br/>
+	<s/><s/><s/><s/>public static void main(String[]args) {<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		String chars = "A\t\r\n";<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>	
+		Pattern escapedPattern = Pattern.compile(
+		&amp;quot;\\u0041\\t\\r\\n&amp;quot;);<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		Matcher matcher1 = escapedPattern.matcher(chars);<br/><br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		Pattern literalPattern = Pattern.compile(
+		&amp;quot;\u0041\t\r\n&amp;quot;);<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		Matcher matcher2 = literalPattern.matcher(chars);<br/><br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		System.out.println(matcher1.matches());<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		System.out.println(matcher2.matches());<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		System.out.println(escapedPattern.pattern());<br/>
+	<s/><s/><s/><s/><s/><s/><s/><s/>
+		System.out.println(literalPattern.pattern());<br/>
+	<s/><s/><s/><s/>} <br/>
+}</font><br/>
+実行結果はコンソールに以下が表示される。<br/>
+<font color="highlight2">
+true<br/>
+true<br/>
+\u0041\t\r\n<br/>
+A	<br/>
+</font><br/>
+正規表現をメタ文字で記述した場合でもリテラル文字で構成した場合でも
+マッチするが、Pattern オブジェクトから pattern メソッドで
+取り出した正規表現はメタ文字の方は可読性があるが
+リテラル文字の場合には \t や \n などがタブや改行に置き換えられるので
+可読性は悪い。<br/>
+また<s/><link href="Example/t_literal">LITERAL</link><s/>
+モードの場合には両者がマッチする文字列は違ってくる。
+    
+    </html>
+  </example>
+  <example name="c_bel" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\a</font><s/>は
+    文字 \u0007 BEL（警告）にマッチする。<br/>
+    Java のコードでは 
+    <s/><font color="code">&amp;quot;\\a&amp;quot;</font><s/>と記述する。
+    </html>
+  </example>
+  <example name="c_esc" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\e</font><s/>は
+      文字 \u001b ESC（エスケープ）にマッチする。<br/>
+    Java のコードでは
+    <s/><font color="code">&amp;quot;\\e&amp;quot;</font><s/>
+      と記述する。
+    </html>
+  </example>
+  
+  <example name="c_control" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\c</font>
+    <font color="explain">X</font><s/>は
+    <s/><font color="explain">X</font><s/>
+    に対応する制御文字にマッチする。<br/>
+    Java のコードの中では
+    <s/><font color="highlight1">\</font><s/>
+    はエスケープする必要があるので
+    例えば FS は<s/><font color="code">[\\c\\]</font><s/>となる。<br/>
+    対応表は以下<br/>
+    NUL<s/><s/>0x00<s/><s/><font color="highlight1">\c@</font><br/>
+    SOH<s/><s/>0x01<s/><s/><font color="highlight1">\cA</font><br/>
+    STX<s/><s/>0x02<s/><s/><font color="highlight1">\cB</font><br/>
+    ETX<s/><s/>0x03<s/><s/><font color="highlight1">\cC</font><br/>
+    EOT<s/><s/>0x04<s/><s/><font color="highlight1">\cD</font><br/>
+    ENQ<s/><s/>0x05<s/><s/><font color="highlight1">\cE</font><br/>
+    ACK<s/><s/>0x06<s/><s/><font color="highlight1">\cF</font><br/>
+    BEL<s/><s/>0x07<s/><s/><font color="highlight1">\cG</font><br/>
+    BS<s/><s/><s/>0x08<s/><s/><font color="highlight1">\cH</font><br/>
+    HT<s/><s/><s/>0x09<s/><s/><font color="highlight1">\cI</font><br/>
+    LF<s/><s/><s/>0x0a<s/><s/><font color="highlight1">\cJ</font><br/>
+    VT<s/><s/><s/>0x0b<s/><s/><font color="highlight1">\cK</font><br/>
+    FF<s/><s/><s/>0x0c<s/><s/><font color="highlight1">\cL</font><br/>
+    CR<s/><s/><s/>0x0d<s/><s/><font color="highlight1">\cM</font><br/>
+    SO<s/><s/><s/>0x0e<s/><s/><font color="highlight1">\cN</font><br/>
+    SI<s/><s/><s/>0x0f<s/><s/><font color="highlight1">\cO</font><br/>
+    DLE<s/><s/>0x10<s/><s/><font color="highlight1">\cP</font><br/>
+    DC1<s/><s/>0x11<s/><s/><font color="highlight1">\cQ</font><br/>
+    DC2<s/><s/>0x12<s/><s/><font color="highlight1">\cR</font><br/>
+    DC3<s/><s/>0x13<s/><s/><font color="highlight1">\cS</font><br/>
+    DC4<s/><s/>0x14<s/><s/><font color="highlight1">\cT</font><br/>
+    NAK<s/><s/>0x15<s/><s/><font color="highlight1">\cU</font><br/>
+    SYN<s/><s/>0x16<s/><s/><font color="highlight1">\cV</font><br/>
+    ETB<s/><s/>0x17<s/><s/><font color="highlight1">\cW</font><br/>
+    CAN<s/><s/>0x18<s/><s/><font color="highlight1">\cX</font><br/>
+    EM<s/><s/><s/>0x19<s/><s/><font color="highlight1">\cY</font><br/>
+    SUB<s/><s/>0x1a<s/><s/><font color="highlight1">\cZ</font><br/>
+    ESC<s/><s/>0x1b<s/><s/><font color="highlight1">[\c[]</font><br/>
+    FS<s/><s/><s/>0x1c<s/><s/><font color="highlight1">[\c\]</font><br/>
+    GS<s/><s/><s/>0x1d<s/><s/><font color="highlight1">\c]</font><br/>
+    RS<s/><s/><s/>0x1e<s/><s/><font color="highlight1">\c^</font><br/>
+    US<s/><s/><s/>0x1f<s/><s/><font color="highlight1">\c_</font><br/>
+    DEL<s/><s/>0x7f<s/><s/><font color="highlight1">\c?</font><br/>
+    </html>
+  </example>
+  
+  <example name="c_digit" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\d</font><s/>
+    は 0 から 9 の半角数字にマッチする。<br/>
+    <font color="highlight1">[0-9]</font><s/>と等価
+    </html>
+  </example>
+  <example name="c_no_digit" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\D</font><s/>
+    は 0 から 9 の半角数字以外の文字にマッチする。<br/>
+    <font color="highlight1">[^0-9]</font><s/>と等価
+    </html>
+  </example>
+  <example name="c_wspace" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\s</font><s/>
+    は空白文字（半角スペース、タブ、改行、垂直タブ、改ページ、復帰）に
+    マッチする。<br/>
+    <font color="highlight1">[ \t\n\x0B\f\r]</font><s/>と等価
+    </html>
+  </example>
+  <example name="c_no_wspace" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\S</font><s/>
+    は空白文字（半角スペース、タブ、改行、垂直タブ、改ページ、復帰）以外の
+    文字にマッチする。<br/>
+    <font color="highlight1">[^\s]</font><s/>と等価
+    </html>
+  </example>
+  <example name="c_word" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\w</font><s/>
+    はアスキーの単語構成文字（アルファベット大文字小文字と
+    半角数字とアンダースコア）にマッチする。<br/>
+    <font color="highlight1">[a-zA-Z_0-9]</font><s/>と等価
+    </html>
+  </example>
+  <example name="c_no_word" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\W</font><s/>
+    はアスキーの単語構成文字（アルファベット大文字小文字と
+    半角数字とアンダースコア）以外の文字にマッチする。<br/>
+    <font color="highlight1">[^\w]</font><s/>と等価
+    </html>
+  </example>
+  <example name="c_wordbounds" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\b</font><s/>
+    は単語と単語の
+    <link href="Example/t_boundary ">境界</link>にマッチする。<br/>
+    Java では単語境界は単語構成文字
+    <s/><font color="highlight1">\w</font><s/>と
+    非単語構成文字
+    <s/><font color="highlight1">\W</font><s/>との間の
+    ではなく、
+    ユニコードに対応した単語構成文字と非単語構成文字の間の境界が
+    単語境界となる。<br/>
+    ユニコードに対応した単語構成文字とは
+    <s/><link href="Example/p_letterordigit">\p{javaLetterOrDigit}</link>
+    <s/>とアンダースコア<s/><font color="highlight1">_</font><s/>を指す。<br/>
+    Java のコードの中では<s/><font color="code">\b</font><s/>
+    はバックスペースになるので単語境界を表す場合には必ず
+    <s/><font color="highlight1">\\b</font><s/>
+    と記述しなければならない。<br/>
+    例えば次のような Java のコードでは<br/>
+    <font color="code">Pattern pattern = Pattern.compile("[\b]");</font><br/>
+    文字クラス内の \b はバックスペースを表す。<br/>
+    正規表現でバックスペースを表したい場合には以下のように記述できる。<br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile("[\\cH]");</font><br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile("[\\010]");</font><br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile("[\\u0008]]");</font><br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile("[\\x08]");</font><br/>
+    このアプリケーションの正規表現に
+    <s/><font color="highlight1">[\b]</font><s/>
+    と入力するとJava のコードで<br/>
+    <font color="code">
+    Pattern pattern = Pattern.compile("[\\b]");</font><br/>
+    と記述する事になり、この
+    <s/><font color="code">\\b</font><s/>はバックスペースではなく
+    単語境界にマッチするメタ文字の
+    <s/><font color="highlight1">\b</font><s/>となるので
+    <s/><font color="code">java.util.regex.PatternSyntaxException</font>
+    <s/>が発生する。（文字クラス内では境界にマッチする正規表現は
+    使用できない為。）<br/>
+    
+    
+    <link href="Example/c_wordbounds_t1">
+  	単語境界にマッチする例
+  	</link><br/>
+    </html>
+  </example>
+  
+   <example name="c_wordbounds_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\b</font><s/>
+  	が単語と単語の境界にマッチする例<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>\b</regex>
+      <inputChars><![CDATA[ab cあいう　漢字12, .全角数字１２*def
+]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_no_wordbounds" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\B</font><s/>
+    は単語境界以外の
+    <link href="Example/t_boundary ">境界</link>にマッチする。<br/>
+    Java では単語境界は単語構成文字
+    <s/><font color="highlight1">\w</font><s/>と
+    非単語構成文字
+    <s/><font color="highlight1">\W</font><s/>との間の
+    ではなく、
+    ユニコードに対応した単語構成文字と非単語構成文字の間の位置が
+    単語境界となる。<br/>
+    ユニコードに対応した単語構成文字とは
+    <s/><link href="Example/p_letterordigit">\p{javaLetterOrDigit}</link>
+    <s/>とアンダースコア
+    <s/><font color="highlight1">_</font><s/>を指す。<br/>
+    単語境界以外の境界とは \b にマッチしない境界すべてで、
+    単語構成文字と単語構成文字の境界、または
+    非単語構成文字と非単語構成文字の境界となる。<br/>
+    <link href="Example/c_no_wordbounds_t1">
+  	非単語境界にマッチする例
+  	</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_no_wordbounds_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\B</font><s/>
+  	が非単語境界にマッチする例<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>\B</regex>
+      <inputChars><![CDATA[ab cあいう　漢字12, .全角数字１２*def
+]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_inputtop" tutorial="false">
+    <html>
+    正規表現<s/><font color="highlight1">\A</font><s/>
+    はマッチング対象の入力シーケンスの先頭の
+    <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+    
+    <font color="highlight1">^</font><s/>は
+    <s/><link href="Example/t_multiline">MULTILINE</link><s/>モードでは
+    入力シーケンスの先頭の位置の他、行末記号の直後の位置にもマッチするが
+    <s/><font color="highlight1">\A</font><s/>は MULTILINE モードでも
+    入力シーケンスの先頭の位置にしかマッチしない。<br/>
+    
+    <link href="Example/t_multiline_t3_1">
+    MULTILINE モードに設定した場合の<s/>^<s/>の例</link><br/>
+    <link href="Example/c_inputtop_t1">
+    MULTILINE モードに設定した場合の<s/>\A<s/>の例</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_inputtop_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\A</font><s/>
+  	が<s/><link href="Example/t_multiline">MULTILINE</link><s/>モード
+  	でも入力シーケンスの先頭の位置にしかマッチしない例<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?m)\A</regex>
+      <inputChars><![CDATA[abc
+def
+ghi]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_lastmatched_end" tutorial="false">
+    <html>
+     正規表現<s/><font color="highlight1">\G</font><s/>
+    は最初のマッチングでは入力シーケンスの先頭の
+    <link href="Example/t_boundary ">位置（境界）</link>に
+    マッチし、（引数を取らない方の） find メソッドに
+    よる２回目以降のマッチングでは前回マッチした文字列の
+    末尾の位置にマッチする。<br/>
+    前回マッチしたのが位置（境界）の場合には正規表現エンジンによって
+    自動的に検索開始位置が１つ進められる為に次回の呼び出しではこの
+    <s/><font color="highlight1">\G</font><s/>
+    から始まる正規表現には決してマッチしない。<br/>
+    <link href="Example/c_lastmatched_end_t1">
+    前回マッチした文字列の末尾から始まる文字にマッチする例</link><br/>
+    </html>
+  </example>
+  <example name="c_lastmatched_end_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\G</font><s/>
+  	を使った前回マッチした文字列の末尾から始まる文字にマッチする例。<br/>
+  	<font color="highlight1">\G</font><s/>は最初のマッチングでは
+  	行頭にマッチするがそれ以降の find メソッドによるマッチングでは
+  	前回マッチした文字列の末尾にマッチするので
+  	<s/><font color="highlight1">\G</font><s/>から始まる正規表現は
+  	前回マッチした文字列に続く部分にマッチする事になる。<br/>
+  	よって正規表現
+  	<s/><font color="highlight1">\Gab</font><s/>は
+  	入力シーケンス
+  	<s/><font color="highlight2">ababcab</font><s/>に
+  	マッチングを繰り返した場合に最後の
+  	<s/><font color="highlight2">ab</font><s/>にはマッチしない。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>\Gab</regex>
+      <inputChars><![CDATA[ababcab]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  
+  <example name="c_inputend_except_lineend" tutorial="false">
+    <html>
+    <font color="highlight1">\Z</font><s/>は
+      入力シーケンス全体の末尾の
+      <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+      入力シーケンスが
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      で終わっている場合にはその行末記号の直前直後の両方の位置に
+      マッチする。<br/>
+      <font color="highlight1">$</font><s/>とは
+      <link href="Example/t_multiline">MULTILINE モード</link>
+      に設定しても影響を受けない点で違う。
+      <br/>
+      <link href="Example/c_inputend_except_lineend_t1">
+      MULTILINE モードでも影響をうけない例</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_inputend_except_lineend_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\Z</font><s/>
+  	が MULTILINE モード	の影響を受けない例<br/>
+  	現在右のモードパネルで MULTILINE にチェックが
+      入っているので MULTILINE モードとなる。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>\Z</regex>
+      <inputChars><![CDATA[abc
+def
+ghi
+]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>MULTILINE</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_inputend" tutorial="false">
+    <html>
+    <font color="highlight1">\ｚ</font><s/>は
+      入力シーケンス全体の末尾の
+      <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+      <font color="highlight1">\Z</font><s/>が入力シーケンスが
+      <link href="Example/t_line_end_symbol">行末記号</link>
+      で終わっている場合にはその行末記号の直前直後の両方の位置にマッチする
+      のに対してこの<s/><font color="highlight1">\ｚ</font><s/>は
+      常に入力シーケンス全体の末尾の位置にしかマッチしない。
+      <br/>
+      <link href="Example/c_inputend_t1">
+      入力シーケンス全体の末尾の位置にしかマッチしない例</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_inputend_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\Z</font><s/>
+  	が MULTILINE モード
+  	の影響を受けない例<br/>
+  	現在右のモードパネルで MULTILINE にチェックが
+      入っているので MULTILINE モードとなる。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>\z</regex>
+      <inputChars><![CDATA[abc
+def
+ghi
+]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="true"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_escape" tutorial="false">
+    <html>
+    <font color="highlight1">\</font><s/>は
+    正規表現ではないが次にくるメタ文字をエスケープして
+    リテラル文字として評価させる。<br/>
+    例えば<s/><font color="highlight1">\s</font><s/>は
+    空白文字にマッチし、
+    <s/><font color="highlight1">[ \t\n\x0B\f\r]</font><s/>
+    と等価だがこの正規表現
+    <s/><font color="highlight1">[ \t\n\x0B\f\r]</font><s/>を
+    ただの文字列として評価させたい場合には
+    <s/><link href="Example/t_literal">LITERAL</link><s/>モード
+    を使うか<s/><font color="highlight1">\</font><s/>
+    を使ってメタ文字をエスケープする必要がある。<br/>
+    ただし、 LITERAL モードは埋め込みフラグは用意されておらず、
+     Java コードを使って正規表現全体に対してしか設定できない為、
+    正規表現の一部のみをリテラル化する事はできない。<br/>
+    <link href="Example/c_escape_t1">
+    リテラルモードを使う例</link><br/>
+    <link href="Example/c_escape_t2">
+    \ を使ってエスケープする例</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_escape_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">[ \t\n\x0B\f\r]</font><s/>
+  	を<s/><link href="Example/t_literal">LITERAL</link><s/>モード
+  	に設定する事でただの文字として評価する例<br/>
+  	現在右のモードパネルで LITERAL にチェックが
+      入っているので LITERAL モードとなる。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[ \t\n\x0B\f\r]</regex>
+      <inputChars><![CDATA[[ \t\n\x0B\f\r]]]></inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>LITERAL</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_escape_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">[ \t\n\x0B\f\r]</font><s/>
+  	をただの文字として評価させる為に
+  	<s/><font color="highlight1">\</font><s/>
+  	を使ってメタ文字をエスケープする例<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>\[ \\t\\n\\x0B\\f\\r\]</regex>
+      <inputChars><![CDATA[[ \t\n\x0B\f\r]]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_bounds_escape" tutorial="false">
+    <html>
+    <font color="highlight1">\</font><s/>は次に続くメタ文字をエスケープして
+    リテラル文字として評価させる事ができるがリテラル化したいメタ文字
+    すべてに設定しなければならない。<br/>
+    <font color="highlight1">\Q</font><s/>と
+    <s/><font color="highlight1">\E</font><s/>を使うと
+    範囲を指定してその中の正規表現をリテラルとして評価させる事ができる。<br/>
+    範囲の設定は<s/><font color="highlight1">\Q</font><s/>で始まり
+    <s/><font color="highlight1">\E</font><s/>で終了する。<br/>
+    <link href="Example/c_bounds_escape_t1">
+    \Q \E を使ってリテラル化する例</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_bounds_escape_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは正規表現
+  	<s/><font color="highlight1">\Q</font><s/>と
+    <s/><font color="highlight1">\E</font><s/>
+  	を使ってメタ文字をエスケープする例<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a+\Q[ \t\n]\Eb+\Q[\x0B\f\r]\E</regex>
+      <inputChars><![CDATA[aaa[ \t\n]bbb[\x0B\f\r]]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_class_simple" tutorial="false">
+    <html>
+    文字クラス<s/><font color="highlight1">[ ]</font><s/>
+    は文字の集合を表現し、
+    その集合に含まれるどれか１つの文字にマッチする。<br/>
+    文字クラス内ではほとんどのメタ文字が単なるリテラル文字と
+    して扱われるが
+    <s/><font color="highlight1">\</font><s/>
+    で始まる文字や文字クラスを表す正規表現は
+    有効で他に
+    <s/><font color="highlight1">-</font><s/>
+    <s/><font color="highlight1">^</font><s/>
+    <s/><font color="highlight1">&amp;&amp;</font><s/>
+    なども特別な意味を持つ。
+    <br/>
+    文字クラスは文字の集合を表すので位置（境界）に
+    マッチする正規表現を含める事はできない。
+    （
+    <s/><font color="highlight1">
+    ^ $ \b \B \A \Z \z</font><s/>などのアンカーを使った場合は<s/>
+    <font color="code">java.util.regex.PatternSyntaxException</font>
+    <s/>が発生する）<br/>
+    文字クラス演算子は、次の順で優先順位が高くなる。<br/>
+    1<s/>リテラルエスケープ<s/><s/>\x<br/>
+    2<s/>グループ化
+    <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+    [...]<br/>
+    3<s/>範囲
+    <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+    a-z<br/>
+    4<s/>結合
+    <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>	             
+    [a-e][i-u]<br/>
+    5<s/>交差
+    <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+    [a-z&amp;&amp;[aeiou]]<br/>
+    <br/>
+    <link href="Example/c_class_simple_t1">文字クラスの例１</link><br/>
+    <link href="Example/c_class_simple_t2">文字クラスの例２</link>
+    </html>
+  </example>
+  
+  <example name="c_class_simple_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは文字クラスを使った正規表現の例<br/>
+  	<font color="highlight1">[cdefgh]</font><s/>
+  	は c d e f g h のどれか１文字にマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[cdefgh]</regex>
+      <inputChars><![CDATA[abcdefghij]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_class_simple_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは文字クラスを使った正規表現の例<br/>
+  	<font color="highlight1">[ab]+</font><s/>
+  	は a か b の１回以上の繰り返しにマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[ab]+</regex>
+      <inputChars><![CDATA[abbbaacccbbccaaccabba]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_class_not" tutorial="false">
+    <html>
+    <s/><font color="highlight1">^</font><s/>は
+    <link href="Example/c_line_top">行の先頭の位置（境界）</link>にマッチするが
+    文字クラス内の最初にある場合には否定を表し、その文字クラスの
+    <s/><font color="highlight1">^</font><s/>以降が表す文字集合
+    に含まれない文字にマッチする。<br/>
+    文字クラス内の最初以外の部分に
+    <s/><font color="highlight1">^</font><s/>がある場合には
+    特別な意味を持たない単なるリテラル文字として扱われる。<br/>
+    <link href="Example/c_class_not_t1">
+    文字クラス内の先頭に ^ を使う例</link>
+    </html>
+  </example>
+  
+  <example name="c_class_not_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは文字クラスの先頭に
+  	<s/><font color="highlight1">^</font><s/>を置いた場合の例<br/>
+  	<font color="highlight1">[^ab]</font><s/>
+  	は a か b 以外の文字にマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[^ab]</regex>
+      <inputChars><![CDATA[abbbaacccbbccaaccabba]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_class_or" tutorial="false">
+    <html>
+    文字クラス内で文字と文字を
+    <s/><font color="highlight1">-</font><s/>で結んでいる場合には
+    ユニコード上の文字の範囲を表し、その範囲内の任意の文字に
+    マッチする。<br/>
+    通常同じユニコードブロック内の文字同士を使って範囲を設定する
+    がブロックを超えても \uhhhh で表す場合にコードポイントが小さい方を
+    範囲の開始文字として記述し、
+    <s/><font color="highlight1">-</font><s/>に続いて
+    開始文字以上のコードポイントを持つ文字を範囲の終了文字として
+    記述することができる。<br/>
+    （ユニコードの補助文字が絡む場合に関してはテストしていないので不明）
+    <br/>
+    コードポイントが大きい方を先に記述した場合には
+    <s/><font color="code">java.util.regex.PatternSyntaxException</font>
+    <s/>が発生する<br/>
+    <link href="Example/c_class_or_t1">
+    文字クラス内で - を使って範囲を設定する例</link>
+    
+    </html>
+  </example>
+  
+  <example name="c_class_or_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは文字クラス内で
+  	<s/><font color="highlight1">-</font><s/>を
+  	使って範囲を設定している例<br/>
+  	<font color="highlight1">[a-z0-9\p{InHiragana}０-９]+</font><s/>
+  	はアルファベットの小文字、半角数字、全角数字、
+  	ひらがなのどれかの文字が１つ以上続いている部分にマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-z0-9\p{InHiragana}０-９]+</regex>
+      <inputChars><![CDATA[abc, あいう543+０１２
+dえ2３]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_class_exept" tutorial="false">
+    <html>
+    文字クラス内の
+    <s/><font color="highlight1">&amp;&amp;</font><s/>
+    はその左右にある文字集合の論理積を取る。<br/>
+    <link href="Example/c_class_exept_t1">
+    文字クラス内で &amp;&amp; を使った例</link>
+    </html>
+  </example>
+  
+  <example name="c_class_exept_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは文字クラス内で
+  	<s/><font color="highlight1">&amp;&amp;</font><s/>を
+  	使っている例<br/>
+  	<font color="highlight1">[A-Z&amp;&amp;[^QE]]+</font><s/>
+  	はアルファベットの大文字という文字集合と Q E 以外の
+  	文字すべてという文字集合の両方に
+  	含まれる文字の集合となるので、
+  	結局 Q E を除いたアルファベットの大文字が１つ以上続いた部分
+  	にマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[A-Z&amp;&amp;[^QE]]+</regex>
+      <inputChars><![CDATA[ABCDEFGHIJKLMNOPQRSTUVWXYZ]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_one" tutorial="false">
+    <html>
+    <font color="highlight1">?</font><s/>は直前のパターン
+    の０回または１回の
+    繰り返しにマッチする。<br/>
+    ０回の繰り返しはすべての
+    <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+    <font color="highlight1">?</font><s/>は
+    <link href="Example/t_greedy_quantifiers">最長一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">??</font><s/>は
+    <link href="Example/t_reluctant_quantifiers">最短一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">?+</font><s/>は
+    <link href="Example/t_possessive_quantifiers">強欲な繰り返し</link>
+    を行う。<br/>
+    <link href="Example/c_zero_one_t1">
+    ０回の繰り返しにマッチする例</link><br/>
+    <link href="Example/c_zero_one_t2">
+    ? が最長一致繰り返し（欲張りマッチ）を行う例</link><br/>
+    <link href="Example/c_zero_one_t3">
+    ?? が最短一致繰り返し（ものぐさマッチ）を行う例</link><br/>
+    <link href="Example/c_zero_one_t4">
+    ?+ が強欲な繰り返しを行う例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_one_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">?</font><s/>による０回の
+  	繰り返しにマッチする例<br/>
+  	正規表現
+  	<s/><font color="highlight1">c?</font><s/>は０個の c または
+  	１つの c にマッチする。<br/>
+  	０個の c とは c が存在しない部分で、すべての位置（境界）に
+  	 マッチする。<br/>
+  	
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>c?</regex>
+      <inputChars><![CDATA[ab
+]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">?</font><s/>が最長一致繰り返し
+  	によるマッチング（欲張りマッチ）を行う例<br/>
+  	正規表現
+  	<s/><font color="highlight1">a?a</font><s/>は０個
+  	または１個の a の後に a が続く部分にマッチする。<br/>
+  	<link href="Example/c_zero_one_t2_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a?a</regex>
+      <inputChars><![CDATA[aaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t2_2" tutorial="true">
+  	<html>
+  	最長一致を試みるので可能な限り１個の a の
+  	後に a が続く部分、つまり aa にマッチする。<br/>
+  	<link href="Example/c_zero_one_t2_3">find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t2_3" tutorial="true">
+  	<html>
+  	最初の aa にマッチした後には a しか残っていないので a の０回の
+  	繰り返しの後に a が続く部分、つまり a にマッチしている。<br/>
+  	<font color="highlight2">
+    下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t3" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">??</font><s/>が最短一致繰り返し
+  	によるマッチング（ものぐさマッチ）を行う例<br/>
+  	正規表現
+  	<s/><font color="highlight1">a??a</font><s/>は０回
+  	または１回の a の後に a が続く部分にマッチするが、
+  	可能な限り０回の a の後に a が続く部分、つまり a に
+  	マッチしようとする。<br/>
+  	<link href="Example/c_zero_one_t3_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a??a</regex>
+      <inputChars><![CDATA[aaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t3_2" tutorial="true">
+  	<html>
+  	最短一致を試みるので aa にはマッチせずに a にマッチする。
+  	<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t4" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">?+</font><s/>
+  	が強欲な繰り返しによるマッチングを行う例<br/>
+  	<link href="Example/c_zero_one_t4_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a?+a</regex>
+      <inputChars><![CDATA[aaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t4_2" tutorial="true">
+  	<html>
+  	<font color="highlight1">a?+a</font><s/>は強欲な繰り返しを行うので
+  	最初に表れた a を１回の a の繰り返しの部分として決定し、
+  	続く a の出現でマッチしたとみなすので aa にマッチしている
+  	<br/>
+  	<link href="Example/c_zero_one_t4_3">find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_one_t4_3" tutorial="true">
+  	<html>
+  	最長一致<s/><font color="highlight1">a?a</font><s/>の
+  	場合と違い強欲な繰り返しの場合には
+  	バックトラックが行われないので
+  	１文字の a にはマッチしない。
+  	<br/>
+  	<font color="highlight2">
+    下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  
+  <example name="c_zero_more" tutorial="false">
+    <html>
+    <font color="highlight1">*</font><s/>は直前のパターン
+    の０回以上の繰り返しにマッチする。<br/>
+    ０回の繰り返しはすべての
+    <link href="Example/t_boundary ">位置（境界）</link>にマッチする。<br/>
+    <font color="highlight1">*</font><s/>は
+    <link href="Example/t_greedy_quantifiers">最長一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">*?</font><s/>は
+    <link href="Example/t_reluctant_quantifiers">最短一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">*+</font><s/>は
+    <link href="Example/t_possessive_quantifiers">強欲な繰り返し</link>
+    を行う。<br/>
+    <link href="Example/c_zero_more_t1">
+    ０回の繰り返しにマッチする例</link><br/>
+    <link href="Example/c_zero_more_t2">
+    * が最長一致繰り返し（欲張りマッチ）を行う例</link><br/>
+    <link href="Example/c_zero_more_t3">
+    *? が最短一致繰り返し（ものぐさマッチ）を行う例</link><br/>
+    <link href="Example/c_zero_more_t4">
+    *+ が強欲な繰り返しを行う例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_more_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">*</font><s/>による０回の
+  	繰り返しにマッチする例<br/>
+  	正規表現
+  	<s/><font color="highlight1">c*</font><s/>は０回以上の c の
+  	繰り返しにマッチする。<br/>
+  	０個の c とは c が存在しない部分で、すべての位置（境界）に
+  	 マッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>c*</regex>
+      <inputChars><![CDATA[ab
+]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_more_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">*</font><s/>が最長一致繰り返し
+  	によるマッチング（欲張りマッチ）を行う例<br/>
+  	正規表現
+  	<s/><font color="highlight1">[a-zA-Z]*</font><s/>は
+  	アルファベットの０回以上の繰り返しにマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-zA-Z]*</regex>
+      <inputChars><![CDATA[public static Pattern compile(String regex)]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_more_t3" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">*?</font><s/>が
+  	最短一致繰り返しによるマッチング（ものぐさマッチ）を行う例<br/>
+  	正規表現
+  	<s/><font color="highlight1">&amp;lt;.*?&amp;gt;</font><s/>
+  	は
+  	<s/><font color="highlight1">&amp;lt;</font><s/>
+  	の後に改行を除く任意の文字を繰り返して、最後に
+  	<s/><font color="highlight1">&amp;gt;</font><s/>
+  	が表れる部分にマッチする。<br/>
+  	改行を除く任意の文字を繰り返しは最短一致を試みるので
+  	<s/><font color="highlight1">&amp;gt;</font><s/>
+  	が表れた時点で繰り返しは終了してマッチする。<br/>
+  	正規表現が<s/><font color="highlight1">&amp;lt;.*&amp;gt;</font><s/>
+  	の場合には改行を除く任意の文字を繰り返しは最長一致を試みるので<br/>
+  	<font color="highlight2">&amp;lt;h1&amp;gt;タイトル&amp;lt;/h1&amp;gt;
+  	</font><br/>
+  	全体にマッチする。<br/>
+  	
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>&lt;.*?&gt;</regex>
+      <inputChars><![CDATA[<h1>タイトル</h1>]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_more_t4" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">*+</font><s/>が強欲な
+  	繰り返しによるマッチングを行う例<br/>
+  	<link href="Example/c_zero_more_t4_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-z]*+end</regex>
+      <inputChars><![CDATA[end]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_zero_more_t4_2" tutorial="true">
+  	<html>
+  	end にはマッチしない。<br/>
+  	正規表現
+  	<s/><font color="highlight1">[a-z]*+end</font><s/>は
+  	<s/><font color="highlight1">[a-z]*+</font><s/>の
+  	アルファベット小文字の０回以上の強欲な繰り返しを表す正規表現と
+  	<s/><font color="highlight1">end</font><s/>の end という
+  	リテラル文字列を表す正規表現から構成されている。<br/>
+  	入力シーケンス end は１つ目の正規表現
+  	<s/><font color="highlight1">[a-z]*+</font><s/>
+  	に全部の文字がマッチする。<br/>
+  	もし正規表現が最長一致繰り返しを行う
+  	<s/><font color="highlight1">[a-z]*end</font><s/>
+  	の場合には、ここで
+  	バックトラック
+  	を行い、マッチングの位置を３文字戻し、入力シーケンスの先頭の位置を０回の
+  	繰り返しにマッチさせ、続く文字列の end を２つ目の正規表現
+  	<s/><font color="highlight1">end</font><s/>に
+  	マッチさせる事で
+  	<s/><font color="highlight1">[a-z]*end</font><s/>
+  	全体に end がマッチする。<br/>
+  	しかし、強欲な繰り返しではバックトラックが行われないので
+  	マッチングは失敗する。
+  	<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_one_more" tutorial="false">
+    <html>
+    <font color="highlight1">+</font><s/>は直前のパターン
+    の１回以上の繰り返しにマッチする。<br/>
+    <font color="highlight1">+</font><s/>は
+    <link href="Example/t_greedy_quantifiers">最長一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">+?</font><s/>は
+    <link href="Example/t_reluctant_quantifiers">最短一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">++</font><s/>は
+    <link href="Example/t_possessive_quantifiers">強欲な繰り返し</link>
+    を行う。<br/>
+    <link href="Example/c_one_more_t2">
+    + が最長一致繰り返し（欲張りマッチ）を行う例</link><br/>
+    <link href="Example/c_one_more_t3">
+    +? が最短一致繰り返し（ものぐさマッチ）を行う例</link><br/>
+    <link href="Example/c_one_more_t4">
+    ++ が強欲な繰り返しを行う例</link>
+    </html>
+  </example>
+  
+  <example name="c_one_more_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">+</font><s/>が最長一致繰り返し
+  	によるマッチング（欲張りマッチ）を行う例<br/>
+  	正規表現
+  	<s/><font color="highlight1">[a-zA-Z]+</font><s/>は
+  	アルファベットの１回以上の繰り返しにマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-zA-Z]+</regex>
+      <inputChars><![CDATA[public static Pattern compile(String regex)]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_one_more_t3" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">+?</font><s/>が最短一致繰り返し
+  	によるマッチング（ものぐさマッチ）を行う例<br/>
+  	正規表現
+  	<s/><font color="highlight1">[a-zA-Z]+?</font><s/>
+  	はアルファベットの１回以上の繰り返しにマッチするが
+  	最短一致を試みるのでアルファベット１文字にマッチする。<br/>
+  	
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-zA-Z]+?</regex>
+      <inputChars><![CDATA[public static Pattern compile(String regex)]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_one_more_t4" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">++</font><s/>が強欲な
+  	繰り返しによるマッチングを行う例<br/>
+  	<link href="Example/c_one_more_t4_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-z]++end</regex>
+      <inputChars><![CDATA[abcdend]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_one_more_t4_2" tutorial="true">
+    <html>
+    <font color="highlight2">abcdend</font><s/>
+     にはマッチしない。<br/>
+  	正規表現
+  	<s/><font color="highlight1">[a-z]++end</font><s/>は
+  	<s/><font color="highlight1">[a-z]++</font><s/>の
+  	アルファベット小文字の強欲な繰り返しを表す正規表現と
+  	<s/><font color="highlight1">end</font><s/>の end という
+  	リテラル文字列を表す正規表現から構成されている。<br/>
+  	<font color="highlight2">abcdend</font><s/>
+  	は１つ目の正規表現
+  	<s/><font color="highlight1">[a-z]++</font><s/>
+  	に全部の文字がマッチする。<br/>
+  	もし正規表現が最長一致繰り返しを行う
+  	<s/><font color="highlight1">[a-z]*end</font><s/>
+  	の場合には、ここで
+  	バックトラック
+  	を行い、マッチングの位置を
+  	<s/><font color="highlight2">abcdend</font><s/>の末尾から
+  	３文字戻すことで２つ目の正規表現
+  	<s/><font color="highlight1">end</font><s/>にも
+  	マッチできるようにするが、
+  	強欲な繰り返しではバックトラックが行われないのでマッチングは失敗する。
+  	<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  
+  
+  <example name="c_repeat" tutorial="false">
+    <html>
+    <font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">}</font><s/>
+    は直前のパターンの<s/><font color="explain">n</font><s/>
+    回の繰り返しにマッチする。<br/>
+    繰り返し回数は int 値で 0 以上の数(0 から 2147483647)が指定可能。<br/>
+    繰り返し回数は<s/><font color="explain">n</font><s/>回に決定されるので
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">}</font>
+    （最長一致繰り返し）
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">}?</font>
+    （最短一致繰り返し）
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">}+</font>
+    （強欲な繰り返し）
+    はすべて同じ動作となる。<br/>
+    <font color="explain">n</font><s/>に 0 を設定した場合は０回の
+    繰り返しになるので、すべての位置（境界）にマッチする。<br/>
+    
+    <link href="Example/c_repeat_t1">
+    {n} を使った繰り返しの例</link><br/>
+    </html>
+  </example>
+  
+  <example name="c_repeat_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">}</font><s/>
+    を使った繰り返しの例<br/>
+    
+  	正規表現
+  	<s/><font color="highlight1">[a-z]{3}</font><s/>は
+  	アルファベット小文字の３回の繰り返しにマッチする。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>[a-z]{3}</regex>
+      <inputChars><![CDATA[abcdefghij]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_more" tutorial="false">
+    <html>
+    <font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}</font><s/>
+    は直前のパターンの<s/><font color="explain">n</font><s/>
+    回以上の繰り返しにマッチする。<br/>
+    繰り返し回数は int 値で 0 以上の数(0 から 2147483647)が指定可能。<br/>
+    <font color="highlight1">{0,}</font><s/>
+    は<s/><font color="highlight1">*</font><s/>
+    と等価で
+    <s/><font color="highlight1">{1,}</font><s/>
+    は<s/><font color="highlight1">+</font><s/>
+    と等価。<br/>
+    
+    <font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}</font><s/>
+    は
+    <link href="Example/t_greedy_quantifiers">最長一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}?</font><s/>
+    は
+    <link href="Example/t_reluctant_quantifiers">最短一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}+</font><s/>
+    は
+    <link href="Example/t_possessive_quantifiers">強欲な繰り返し</link>
+    を行う。<br/>
+    
+    <link href="Example/c_more_t1">
+    {n,} を使った最長一致繰り返しにマッチする例</link><br/>
+    <link href="Example/c_more_t2">
+    {n,}? を使った最短一致繰り返しにマッチする例</link><br/>
+    <link href="Example/c_more_t3">
+    {n,}+ を使った強欲な繰り返しにマッチする例</link>
+    </html>
+  </example>
+  
+  
+  <example name="c_more_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}</font><s/>
+    を使った直前のパターンの最長一致繰り返しにマッチする例<br/>
+    
+  	正規表現
+  	<s/><font color="highlight1">a{2,}a</font><s/>は２回以上の a の
+  	繰り返しの後に a が続く部分にマッチする。<br/>
+  	<link href="Example/c_more_t1_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a{2,}a</regex>
+      <inputChars><![CDATA[aaaaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_more_t1_2" tutorial="true">
+  	<html>
+  	繰り返しは最長一致を試みるので 4 回の a の繰り返しと、それに
+  	続く a にマッチしている。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+  	
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_more_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}?</font><s/>
+    を使った直前のパターンの最短一致繰り返しにマッチする例<br/>
+    
+  	正規表現
+  	<s/><font color="highlight1">a{2,}?a</font><s/>は２回以上の a の
+  	繰り返しの後に a が続く部分にマッチする。<br/>
+  	<link href="Example/c_more_t2_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a{2,}?a</regex>
+      <inputChars><![CDATA[aaaaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_more_t2_2" tutorial="true">
+  	<html>
+  	最短一致を試みるので２回以上の a の繰り返しは
+  	可能な限り少ない回数でマッチしようとする。<br/>
+  	上の場合は２回の a の繰り返しと、それに
+  	続く a にマッチしている。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_more_t3" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,}+</font><s/>
+    を使った直前のパターンの強欲な繰り返しにマッチする例<br/>
+  	正規表現
+  	<s/><font color="highlight1">a{2,}+a</font><s/>は２回以上の a の
+  	繰り返しの後に a が続く部分にマッチする。<br/>
+  	<link href="Example/c_more_t3_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a{2,}+a</regex>
+      <inputChars><![CDATA[aaaaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_more_t3_2" tutorial="true">
+  	<html>
+  	aaaaa にはマッチしない。<br/>
+  	この正規表現<s/><font color="highlight1">a{2,}+a</font><s/>は
+  	<s/><font color="highlight1">a{2,}+</font><s/>という a の２回
+  	以上の強欲な繰り返しを表す１つ目の正規表現と
+  	<s/><font color="highlight1">a</font><s/>というリテラル文字	a を
+  	表す２つ目の正規表現から構成されている。<br/>
+  	入力シーケンス aaaaa とのマッチングでは
+  	１つ目の正規表現
+  	<s/><font color="highlight1">a{2,}+</font><s/>
+  	に入力シーケンス全体がマッチする。<br/>
+  	強欲な繰り返しでは
+  	バックトラック
+  	が行われないので
+  	２つ目の正規表現
+  	<s/><font color="highlight1">a</font><s/>
+  	にマッチする a が見つからない為、マッチしないと判断される。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  
+  
+  
+  <example name="c_more_less" tutorial="false">
+    <html>
+    <font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}</font><s/>
+    は直前のパターンの<s/><font color="explain">n</font><s/>
+    回以上
+    <s/><font color="explain">m</font><s/>
+    回以下の繰り返しにマッチする。<br/>
+    <font color="explain">n</font><s/>
+    と 
+    <s/><font color="explain">m</font><s/>
+    は 0 以上の int 値(0 から 2147483647)で 
+    <s/><font color="explain">m</font><s/>
+    は
+    <s/><font color="explain">n</font><s/>
+    以上でなければならない。<br/>
+    
+    <font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}</font><s/>
+    は
+    <link href="Example/t_greedy_quantifiers">最長一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}?</font><s/>
+    は
+    <link href="Example/t_reluctant_quantifiers">最短一致繰り返し</link>
+    を試み、
+    <s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}+</font><s/>
+    は
+    <link href="Example/t_possessive_quantifiers">強欲な繰り返し</link>
+    を行う。<br/>
+    
+    <link href="Example/c_more_less_t1">
+    {n,m} を使った最長一致繰り返しにマッチする例</link><br/>
+    <link href="Example/c_more_less_t2">
+    {n,m}? を使った最短一致繰り返しにマッチする例</link><br/>
+    <link href="Example/c_more_less_t3">
+    {n,m}+ を使った強欲な繰り返しにマッチする例</link><br/>
+    </html>
+  </example>
+  
+  
+  <example name="c_more_less_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}</font><s/>
+    を使った直前のパターンの最長一致繰り返しにマッチする例<br/>
+    
+  	正規表現
+  	<s/><font color="highlight1">a{2,4}</font><s/>は２回以上４回以下
+  	の a の繰り返しにマッチする。<br/>
+  	繰り返しは最長一致を試みるのでできる限り a を４回繰り返そうとする。
+  	<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a{2,4}</regex>
+      <inputChars><![CDATA[aaaaaaaaaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  
+  <example name="c_more_less_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}?</font><s/>
+    を使った直前のパターンの最短一致繰り返しにマッチする例<br/>
+    繰り返しは最短一致を試みるので可能な限り a の繰り返しを少ない回数で
+    済まそうとする。
+    <br/>
+    <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a{2,4}?</regex>
+      <inputChars><![CDATA[aaaaaaa]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  
+  <example name="c_more_less_t3" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">{</font>
+    <font color="explain">n</font>
+    <font color="highlight1">,</font>
+    <font color="explain">m</font>
+    <font color="highlight1">}+</font><s/>
+    を使った直前のパターンの強欲な繰り返しにマッチする例<br/>
+  	正規表現
+  	<s/><font color="highlight1">a{2,4}+(?:ab|cd)</font><s/>は２回
+  	以上４回以下の a の
+  	繰り返しの後に ab または cd が続く部分にマッチする。<br/>
+  	<link href="Example/c_more_less_t3_1">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>a{2,4}+(?:ab|cd)</regex>
+      <inputChars><![CDATA[aaaaabaaacdaaaab]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_more_less_t3_1" tutorial="true">
+  	<html>
+    最初は開始部分の aaaaab にマッチする。<br/>
+  	この正規表現<s/><font color="highlight1">a{2,4}+(?:ab|cd)</font><s/>は
+  	<s/><font color="highlight1">a{2,4}+</font><s/>という a の２回
+  	以上４回以下の強欲な繰り返しにマッチする部分と
+  	<s/><font color="highlight1">(?:ab|cd)</font><s/>
+  	という ab または cd にマッチする部分で構成されている。<br/>
+  	現在マッチしているのは
+  	<s/><font color="highlight1">a{2,4}+</font><s/>
+  	に aaaa がマッチし、続く ab が
+  	<s/><font color="highlight1">(?:ab|cd)</font><s/>に
+  	マッチして aaaaab が
+  	<s/><font color="highlight1">a{2,4}+(?:ab|cd)</font><s/>
+  	にマッチしている。<br/>
+  	<link href="Example/c_more_less_t3_2">find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_more_less_t3_2" tutorial="true">
+  	<html>
+    次に aaacd にマッチする。<br/>
+  	<font color="highlight1">a{2,4}+</font><s/>
+  	に aaa がマッチし、続く cd が
+  	<s/><font color="highlight1">(?:ab|cd)</font><s/>に
+  	マッチして aaacd が
+  	<s/><font color="highlight1">a{2,4}+(?:ab|cd)</font><s/>
+  	にマッチしている。<br/>
+  	<link href="Example/c_more_less_t3_3">find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_more_less_t3_3" tutorial="true">
+  	<html>
+    最後の aaaab にはマッチしない<br/>
+  	正規表現
+  	<s/><font color="highlight1">a{2,4}+</font><s/>
+  	は強欲な繰り返しなので aaaa にマッチする。<br/>
+  	すると最後には b のみが残っている状態になる。<br/>
+  	強欲な繰り返しでは
+  	バックトラック
+  	が行われないので
+  	残りの正規表現
+  	<s/><font color="highlight1">(?:ab|cd)</font><s/>
+  	に b がマッチしない為、マッチングは失敗する。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_or" tutorial="false">
+    <html>
+    <font color="highlight1">|</font><s/>は
+    左右にある正規表現のどちらかにマッチすればマッチした事になる。<br/>
+    マッチングは一番左の正規表現から順に行われ、最初にマッチした時点で
+    マッチした事になり、それより右にある正規表現に対するマッチングは
+    行われない。<br/>
+    <link href="Example/c_or_t1">
+    どちらかにマッチすればよい例</link><br/>
+    <link href="Example/c_or_t2">
+    順番を考慮しなければならない例</link><br/>
+    <link href="Example/c_or_t3">
+    順番が間違っている例</link>
+    </html>
+  </example>
+  <example name="c_or_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">|</font><s/>を使って
+  	<font color="highlight2">（株）Hoge </font>または 
+  	<font color="highlight2">株式会社Hoge</font>にマッチさせる例。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?:（株）|株式会社)Hoge</regex>
+      <inputChars><![CDATA[（株）Hoge または 株式会社Hoge]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_or_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">|</font><s/>で
+  	複数の正規表現を並べる場合に順番を考慮しなければならない例<br/>
+  	
+  	入力シーケンス
+  	<s/><font color="highlight2">株または株式または株式会社</font><s/>
+  	に対して
+  	正規表現<s/><font color="highlight1">株式会社|株式|株</font><s/>で
+  	マッチングを行うとまず
+  	入力シーケンスの先頭位置で 
+  	１つ目の正規表現<s/><font color="highlight1">株式会社</font><s/>
+  	とのマッチングを行い、マッチしないので次の正規表現
+  	<s/><font color="highlight1">株式</font><s/>とマッチングを行い、
+  	マッチしないので次の正規表現
+  	<s/><font color="highlight1">株</font><s/>とマッチングを行い、
+  	マッチする。<br/>
+  	マッチした場合は入力シーケンスのマッチングを行う位置を
+  	マッチした文字の直後に
+  	移動してから同様にマッチングを行い、マッチしない場合には
+  	１文字ずつ位置を進めてマッチングを繰り返していく。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>株式会社|株式|株</regex>
+      <inputChars><![CDATA[株または株式または株式会社]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_or_t3" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">|</font><s/>で
+  	正規表現を並べる順番が間違っている例<br/>
+  	最初に
+  	<s/><font color="highlight1">株</font><s/>
+  	という正規表現とマッチングを行う為に
+  	入力シーケンス
+  	<s/><font color="highlight2">株または株式または株式会社</font><s/>
+  	の<font color="highlight2">株式</font>や
+  	<font color="highlight2">株式会社</font>には
+  	マッチしなくなる。<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>株|株式|株式会社</regex>
+      <inputChars><![CDATA[株または株式または株式会社]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_non_capturing" tutorial="false">
+    <html>
+    <font color="highlight1">(?:)</font><s/>
+    はグループを形成する。<br/>
+    グループは括弧内の
+    <s/><font color="highlight1">:</font><s/>
+    に続いて記述する正規表現を
+    １つのまとまりとして扱い、前後の正規表現との間に区切りを
+    つける事ができる。<br/>
+    <font color="highlight1">()</font><s/>もグルーピングを
+    行うが、こちらはマッチした文字列を後方参照（後続の正規表現や
+    置換を行う際の置換文字列からの参照）できるように記録する。<br/>
+    後方参照しないのであればキャプチャする処理が無駄になるだけなので
+    こちらの
+    <s/><font color="highlight1">(?:)</font><s/>
+    でキャプチャリングを行わないグループを作る。<br/>
+    <link href="Example/c_non_capturing_t1">グループの例</link>
+    </html>
+  </example>
+  <example name="c_non_capturing_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?:)</font><s/>を使って
+  	グループの作成する例<br/>
+  	<link href="Example/t_repeat_find_method">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>明日は(?:雨|晴れ|曇り)です。</regex>
+      <inputChars><![CDATA[明日は雨です。
+明日は晴れです。
+明日は曇りです。]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_capturing" tutorial="false">
+    <html>
+    <font color="highlight1">()</font><s/>
+    はキャプチャグループを形成する。<br/>
+    通常のグループ
+    <s/><font color="highlight1">(?:)</font><s/>
+    は括弧内の正規表現を１つのまとまりとして
+    扱い、前後の正規表現との間に区切りをつける事ができる。<br/>
+    キャプチャグループは通常のグループの機能に加え、
+    キャプチャリングを行う。<br/>
+    キャプチャリングは括弧内の正規表現にマッチした文字列を
+    記録しておく処理を指す。<br/>
+    キャプチャされた文字列は後続の正規表現からの後方参照や
+    置換を行う際の置換文字列から参照できる他、
+    プログラムに置いては Matcher#group メソッドで取得できる。<br/>
+    グルーピングを行う正規表現の中で
+    <s/><font color="highlight1">(? )</font><s/>のように
+    <s/><font color="highlight1">(</font><s/>
+    の直後に<s/><font color="highlight1">?</font><s/>が付いているものは
+    すべてキャプチャリングを行わない。<br/>
+    １つの正規表現の中には複数のキャプチャグループを作ることが可能で
+    それらは入れ子にすることもできる。<br/>
+    キャプチャグループはその出現順に正規表現エンジンによって番号が
+    振られ、後方参照する際にはその番号を使ってキャプチャグループを
+    指定する。<br/>
+    例えば
+    <s/><font color="highlight1">@((A)(B(C)))</font><s/>
+    という正規表現の場合には以下のように番号が割り振られる。<br/>
+    0<s/><s/><font color="highlight1">@((A)(B(C)))</font><br/>
+    1<s/><s/><font color="highlight1">((A)(B(C)))</font><br/>
+    2<s/><s/><font color="highlight1">(A)</font><br/>
+    3<s/><s/><font color="highlight1">(B(C))</font><br/>
+    4<s/><s/><font color="highlight1">(C)</font><br/>
+    0 番目のキャプチャグループはグルーピングを行っているか否かに関わらず
+    常に正規表現全体を指す。<br/>
+    後方参照する際には後続の正規表現からは
+    <s/><font color="highlight1">\1</font><s/>
+    のように<s/><font color="highlight1">\</font><s/>に
+    続いてキャプチャグループの番号を指定する事でその
+    キャプチャグループにマッチした文字列を表現できる。<br/>
+    置換の際の構文では
+    <s/><font color="highlight1">$1</font><s/>のように
+    <s/><font color="highlight1">\</font><s/>ではなく
+    <s/><font color="highlight1">$</font><s/>に
+    続いてキャプチャグループの番号を指定する。<br/>
+    
+    <link href="Example/c_capturing_t1">
+    後続の正規表現に後方参照される例</link><br/>
+    <link href="Example/c_capturing_t2">
+    置換構文から参照される例</link>
+    </html>
+  </example>
+  
+  <example name="c_capturing_t1" tutorial="true">
+  	<html>
+  	現在表示しているのはキャプチャグループとそれを後方参照する例。<br/>
+  	正規表現
+  	<s/><font color="highlight1">
+  	&amp;lt;(.+?)\s*.*?&amp;gt;(.*?)&amp;lt;/\1&amp;gt;
+  	</font><s/>
+  	の１番目のキャプチャグループは要素名にマッチし、
+  	２番目のキャプチャグループは要素の内容にマッチする。<br/>
+  	<font color="highlight1">\1</font><s/>
+  	の部分が１番目のキャプチャグループを参照しているので
+  	１番目のキャプチャグループと同じ文字列にマッチする。<br/>
+  	<link href="Example/c_capturing_t1_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>&lt;(.+?)\s*.*?&gt;(.*?)&lt;/\1&gt;</regex>
+      <inputChars><![CDATA[これが<font color="green"><b>２番目</b>のグループ</font>です。]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_capturing_t1_2" tutorial="true">
+  	<html>
+  	正規表現
+  	<s/><font color="highlight1">
+  	&amp;lt;(.+?)\s*.*?&amp;gt;(.*?)&amp;lt;/\1&amp;gt;
+  	</font><s/>
+  	の１番目のキャプチャグループは
+  	<s/><font color="highlight2">font</font><s/>
+  	にマッチしているので、１番目のキャプチャグループを参照している
+  	<s/><font color="highlight1">\1</font><s/>
+  	の部分も
+  	<s/><font color="highlight2">font</font><s/>
+	にマッチする。<br/>
+  	<link href="Example/c_capturing_t1_3">
+  	２番目のキャプチャグループを強調表示</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_capturing_t1_3" tutorial="true">
+  	<html>
+  	現在、正規表現
+  	<s/><font color="highlight1">
+  	&amp;lt;(.+?)\s*.*?&amp;gt;(.*?)&amp;lt;/\1&amp;gt;
+  	</font><s/>
+  	の２番目のキャプチャグループにマッチした部分を強調表示している。<br/>
+  	正規表現では２番目のキャプチャグループの出現以降に
+  	<s/><font color="highlight1">\2</font><s/>
+  	で参照し、プログラムでは Matcher#gropu(int) の引数に 2 を指定して
+  	マッチした文字列を取得できる。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+    GROUP2
+    </commands>
+  </example>
+  
+  
+  <example name="c_capturing_t2" tutorial="true">
+  	<html>
+  	現在表示しているのはキャプチャグループにマッチした文字列を
+  	置換構文の中で参照する例。<br/>
+  	置換構文ではキャプチャグループにマッチした文字列を
+  	<s/><font color="highlight1">$1</font><s/>
+  	のように<s/><font color="highlight1">$</font><s/>と
+  	それに続くキャプチャグループの番号によって参照する。<br/>
+  	<link href="Example/c_capturing_t2_2">find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(&lt;a href=&quot;).*?(&quot;&gt;Bits of Java&lt;/a&gt;)</regex>
+      <inputChars><![CDATA[ぜひお越しください。
+<a href="oldURL">Bits of Java</a>]]></inputChars>
+      <replacement>$1newURL$2</replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  
+  <example name="c_capturing_t2_2" tutorial="true">
+  	<html>
+  	正規表現
+  	<s/><font color="highlight1">(&amp;lt;a href=&amp;quot;).*?
+  	(&amp;quot;&amp;gt;Bits of Java&amp;lt;/a&amp;gt;)</font><s/>
+  	全体にマッチした部分を強調表示している。<br/>
+  	<link href="Example/c_capturing_t2_3">
+  	キャプチャグループ 1 を強調表示する</link>
+  	</html>
+  	
+    <commands>
+    FIND
+    </commands>
+  </example>
+  <example name="c_capturing_t2_3" tutorial="true">
+  	<html>
+  	１番目のキャプチャグループ
+  	<s/><font color="highlight1">(&amp;lt;a href=&amp;quot;)</font><s/>
+  	にマッチした文字列を強調表示している。<br/>
+  	<link href="Example/c_capturing_t2_4">
+  	キャプチャグループ 2 を強調表示する</link>
+  	</html>
+    <commands>
+    GROUP1
+    </commands>
+    
+  </example>
+  <example name="c_capturing_t2_4" tutorial="true">
+  	<html>
+  	２番目のキャプチャグループ
+  	<s/><font color="highlight1">
+  	(&amp;quot;&amp;gt;Bits of Java&amp;lt;/a&amp;gt;)</font><s/>
+  	にマッチした文字列を強調表示している。<br/>
+  	下のリンクで置換構文
+  	<s/><font color="highlight1">$1newURL$2</font><s/>
+  	を引数に Matcher#replaceAll メソッドを実行して結果を表示する。<br/>
+  	<link href="Example/c_capturing_t2_5">
+  	replaceAll ボタンを押す</link>
+  	</html>
+    <commands>
+    GROUP2
+    </commands>
+    
+  </example>
+  <example name="c_capturing_t2_5" tutorial="true">
+  	<html>
+  	正規表現
+  	<s/><font color="highlight1">(&amp;lt;a href=&amp;quot;).*?
+  	(&amp;quot;&amp;gt;Bits of Java&amp;lt;/a&amp;gt;)</font><s/>
+  	全体にマッチしていた部分が置換構文をもとに置き換えられている。<br/>
+  	置換構文
+  	<s/><font color="highlight1">$1newURL$2</font><s/>
+  	は<s/><font color="highlight1">$1</font><s/>
+  	が１番目のキャプチャグループにマッチした文字列を参照し、
+  	<s/><font color="highlight1">$2</font><s/>
+  	が２番目のキャプチャグループにマッチした文字列を参照している。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+    </html>
+    <commands>
+    RESET FIND REPLACE_ALL
+    </commands>
+    
+  </example>
+  
+  <example name="c_ref_capturing" tutorial="false">
+    <html>
+    <font color="highlight1">\</font>
+    &lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>
+    は<s/>&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>番目の
+    <link href="Example/c_capturing">
+    キャプチャグループ</link>にマッチした文字列をを
+    後方参照する。<br/>
+    つまり<s/>&lt;b&gt;<font color="highlight2">g</font>&lt;/b&gt;<s/>番目の
+    キャプチャグループにマッチした文字列に
+    マッチする。<br/>
+    <link href="Example/c_capturing_t1">
+    後方参照を行うマッチングの例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_positive_lookahead" tutorial="false">
+    <html>
+    <font color="highlight1">(?=</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    は後方に続く部分を正規表現
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    によって限定した
+    <link href="Example/t_boundary ">位置（境界）</link>
+    にマッチする。（肯定先読みと呼ばれる）<br/>
+    ある位置、もしくはその位置に続く文字列が
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    にマッチした場合に正規表現
+    <s/><font color="highlight1">(?=</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    全体にその位置がマッチする。<br/>
+    <link href="Example/c_zero_positive_lookahead_t1">
+    位置にマッチする例</link><br/>
+    <link href="Example/c_zero_positive_lookahead_t2">
+    他の正規表現と組み合わせて文字列にマッチする例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_positive_lookahead_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?=^|ef|$)</font><s/>
+  	が括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	にマッチする文字列の直前の位置（境界）にマッチする例。<br/>
+  	<link href="Example/c_zero_positive_lookahead_t1_2">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?=^|ef|$)</regex>
+      <inputChars><![CDATA[abcdefg]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookahead_t1_2" tutorial="true">
+  	<html>
+  	最初は括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	の<s/><font color="highlight1">^</font><s/>に行頭がマッチする。<br/>
+  	括弧内の正規表現に位置（境界）がマッチした場合には
+  	<s/><font color="highlight1">(?=^|ef|$)</font><s/>
+  	全体もその位置にマッチする。<br/>
+  	<link href="Example/c_zero_positive_lookahead_t1_3">
+  	find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookahead_t1_3" tutorial="true">
+  	<html>
+  	次は括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	の<s/><font color="highlight1">ef</font><s/>にマッチする。<br/>
+  	括弧内の正規表現に文字列がマッチした場合には
+  	<s/><font color="highlight1">(?=^|ef|$)</font><s/>
+  	全体ではその文字列の直前の位置（境界）にマッチする。<br/>
+  	よって<s/><font color="highlight2">ef</font><s/>
+  	自体にはマッチせずにその直前の位置にマッチする。<br/>
+  	<link href="Example/c_zero_positive_lookahead_t1_4">
+  	find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookahead_t1_4" tutorial="true">
+  	<html>
+  	最後は括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	の<s/><font color="highlight1">$</font><s/>が行末にマッチする。<br/>
+  	位置（境界）にマッチしているので
+  	<s/><font color="highlight1">(?=^|ef|$)</font><s/>
+  	自体もその位置にマッチする。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_positive_lookahead_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?=ef)</font><s/>
+  	が括弧内の正規表現
+  	<s/><font color="highlight1">ef</font><s/>
+  	にマッチする文字列の直前の位置（境界）にマッチする例。<br/>
+  	<link href="Example/c_zero_positive_lookahead_t2_2">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>cd(?=ef)|efgh</regex>
+      <inputChars><![CDATA[abcdeabcdefgh]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookahead_t2_2" tutorial="true">
+  	<html>
+  	<font color="highlight1">cd(?=ef)</font><s/>
+  	は<s/><font color="highlight2">cd</font><s/>
+  	にマッチするが、その
+  	<s/><font color="highlight2">cd</font><s/>
+  	の直後の位置（境界）は
+  	<s/><font color="highlight1">(?=ef)</font><s/>
+  	にマッチしていなければならない。<br/>
+  	
+  	つまり
+  	<s/><font color="highlight2">cdef</font><s/>
+  	という文字列の
+  	<s/><font color="highlight2">cd</font><s/>
+  	の部分にマッチする。<br/>
+  	find メソッドによるマッチングの場合には次の検索開始位置は
+  	文字列（文字）にマッチした場合はその直後の位置になり、位置（境界）に
+  	マッチした場合にはその次の位置にシフトされるので、
+  	この場合は
+  	<s/><font color="highlight2">cd</font><s/>
+  	の直後の位置から find メソッドによる次のマッチングが行われる。
+  	（<font color="highlight2">ef</font><s/>の直後の位置ではない）<br/>
+  	<link href="Example/c_zero_positive_lookahead_t2_3">
+  	find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookahead_t2_3" tutorial="true">
+  	<html>
+  	<font color="highlight2">cd</font><s/>
+  	の直後の位置からマッチングを行うので
+  	<s/><font color="highlight2">efgh</font><s/>
+  	にマッチしている。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_negative_lookahead" tutorial="false">
+    <html>
+    <font color="highlight1">(?!</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    は後方に続く部分を正規表現
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    によって限定した
+    <link href="Example/t_boundary ">位置（境界）</link>
+    にマッチする。（否定先読みと呼ばれる）<br/>
+    ある位置、もしくはその位置に続く文字列が
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    にマッチしない場合に正規表現
+    <s/><font color="highlight1">(?!</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    全体にその位置がマッチする。<br/>
+    <link href="Example/c_zero_negative_lookahead_t1">
+    位置にマッチする例</link><br/>
+    <link href="Example/c_zero_negative_lookahead_t2">
+    他の正規表現と組み合わせて文字列にマッチする例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_negative_lookahead_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?!\w|$)</font><s/>
+  	が括弧内の正規表現
+  	<s/><font color="highlight1">\w|$</font><s/>
+  	にマッチしない部分の直前の位置（境界）にマッチする例。<br/>
+  	<font color="highlight1">\w</font><s/>
+  	は<s/><font color="highlight1">[a-zA-Z_0-9]</font><s/>と等価。<br/>
+  	
+  	<font color="highlight1">\w|$</font><s/>
+  	は英数字もしくは行末にマッチするので
+  	<s/><font color="highlight1">(?!\w|$)</font><s/>
+  	は英数字の直前の位置と行末以外のすべての位置にマッチする。<br/>
+  	
+  	<link href="Example/t_repeat_find_method">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?!\w|$)</regex>
+      <inputChars><![CDATA[public static Pattern compile(String regex)]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+
+  <example name="c_zero_negative_lookahead_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?!ef)</font><s/>
+  	が括弧内の正規表現にマッチしない部分の直前の位置（境界）
+  	にマッチする例。<br/>
+  	<link href="Example/c_zero_negative_lookahead_t2_2">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>cd(?!ef)</regex>
+      <inputChars><![CDATA[abcdefcdhi]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_zero_negative_lookahead_t2_2" tutorial="true">
+  	<html>
+  	<font color="highlight1">cd(?!ef)</font><s/>
+  	は<s/><font color="highlight2">cd</font><s/>
+  	にマッチするがその
+  	<s/><font color="highlight2">cd</font><s/>
+  	の直後の位置（境界）は
+  	<s/><font color="highlight1">(?!ef)</font><s/>
+  	にマッチしていなければならない。<br/>
+  	つまり
+  	<s/><font color="highlight2">ef</font><s/>
+  	が後ろに続かない
+  	<s/><font color="highlight2">cd</font><s/>
+  	にマッチする。<br/>
+  	
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_positive_lookbehind" tutorial="false">
+    <html>
+    <font color="highlight1">(?&amp;lt;=</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    は直前に存在しなければならない部分を正規表現
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    によって限定した
+    <link href="Example/t_boundary ">位置（境界）</link>
+    にマッチする。（肯定戻り読みと呼ばれる）<br/>
+    ある位置、もしくはその位置の直前の文字列が
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    にマッチした場合に正規表現
+    <s/><font color="highlight1">(?&amp;lt;=</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    全体にその位置がマッチする。<br/>
+    <link href="Example/c_zero_positive_lookbehind_t1">
+    位置にマッチする例</link><br/>
+    <link href="Example/c_zero_positive_lookbehind_t2">
+    他の正規表現と組み合わせて文字列にマッチする例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_positive_lookbehind_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?&amp;lt;=^|ef|$)</font><s/>
+  	が括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	にマッチする文字列の直後の位置（境界）にマッチする例。<br/>
+  	<link href="Example/c_zero_positive_lookbehind_t1_2">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?&lt;=^|ef|$)</regex>
+      <inputChars><![CDATA[abcdefgh]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookbehind_t1_2" tutorial="true">
+  	<html>
+  	最初は括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	の<s/><font color="highlight1">^</font><s/>に行頭がマッチする。<br/>
+  	括弧内の正規表現に位置（境界）がマッチした場合には
+  	<s/><font color="highlight1">(?&amp;lt;=^|ef|$)</font><s/>
+  	全体もその位置にマッチする。<br/>
+  	<link href="Example/c_zero_positive_lookbehind_t1_3">
+  	find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookbehind_t1_3" tutorial="true">
+  	<html>
+  	次は括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	の<s/><font color="highlight1">ef</font><s/>にマッチする。<br/>
+  	括弧内の正規表現に文字列がマッチした場合には
+  	<s/><font color="highlight1">(?&amp;lt;=^|ef|$)</font><s/>
+  	全体ではその文字列の直後の位置（境界）にマッチする。<br/>
+  	よって<s/><font color="highlight2">ef</font><s/>
+  	自体にはマッチせずにその直後の位置にマッチする。<br/>
+  	<link href="Example/c_zero_positive_lookbehind_t1_4">
+  	find ボタンを押す</link>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookbehind_t1_4" tutorial="true">
+  	<html>
+  	最後は括弧内の正規表現
+  	<s/><font color="highlight1">^|ef|$</font><s/>
+  	の<s/><font color="highlight1">$</font><s/>が行末にマッチする。<br/>
+  	位置（境界）にマッチしているので
+  	<s/><font color="highlight1">(?&amp;lt;=^|ef|$)</font><s/>
+  	自体もその位置にマッチする。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_positive_lookbehind_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?&amp;lt;=ef)</font><s/>
+  	が括弧内の正規表現
+  	<s/><font color="highlight1">ef</font><s/>
+  	にマッチする文字列の直後の位置（境界）にマッチする例。<br/>
+  	<link href="Example/c_zero_positive_lookbehind_t2_2">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?&lt;=ef)gh</regex>
+      <inputChars><![CDATA[abcdefabcdefgh]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_zero_positive_lookbehind_t2_2" tutorial="true">
+  	<html>
+  	<font color="highlight1">(?&amp;lt;=ef)gh</font><s/>
+  	は<s/><font color="highlight2">gh</font><s/>
+  	にマッチするが、その
+  	<s/><font color="highlight2">gh</font><s/>
+  	の直前の位置（境界）は
+  	<s/><font color="highlight1">(?&amp;lt;=ef)</font><s/>
+  	にマッチしていなければならない。<br/>
+  	
+  	つまり
+  	<s/><font color="highlight2">efgh</font><s/>
+  	という文字列の
+  	<s/><font color="highlight2">gh</font><s/>
+  	の部分にマッチする。<br/>
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_zero_negative_lookbehind" tutorial="false">
+    <html>
+    <font color="highlight1">(?&amp;lt;!</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    は直前に存在しなければならない部分を正規表現
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    によって限定した
+    <link href="Example/t_boundary ">位置（境界）</link>
+    にマッチする。（否定戻り読みと呼ばれる）<br/>
+    ある位置、もしくはその位置に続く文字列が
+    <s/><font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font><s/>
+    にマッチしない場合に正規表現
+    <s/><font color="highlight1">(?&amp;lt;!</font>
+    <font color="highlight2">&lt;b&gt;X&lt;/b&gt;</font>
+    <font color="highlight1">)</font><s/>
+    全体にその位置がマッチする。<br/>
+    <link href="Example/c_zero_negative_lookbehind_t1">
+    位置にマッチする例</link><br/>
+    <link href="Example/c_zero_negative_lookbehind_t2">
+    他の正規表現と組み合わせて文字列にマッチする例</link>
+    </html>
+  </example>
+  
+  <example name="c_zero_negative_lookbehind_t1" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?&amp;lt;!\w|$)</font><s/>
+  	が括弧内の正規表現
+  	<s/><font color="highlight1">\w|$</font><s/>
+  	にマッチしない部分の直後の位置（境界）にマッチする例。<br/>
+  	<font color="highlight1">\w</font><s/>
+  	は<s/><font color="highlight1">[a-zA-Z_0-9]</font><s/>と等価。<br/>
+  	
+  	<font color="highlight1">\w|$</font><s/>
+  	は英数字もしくは行末にマッチするので
+  	<s/><font color="highlight1">(?&amp;lt;!\w|$)</font><s/>
+  	は英数字の直後の位置と行末以外のすべての位置にマッチする。<br/>
+  	
+  	<link href="Example/t_repeat_find_method">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?&lt;!\w|$)</regex>
+      <inputChars><![CDATA[public static Pattern compile(String regex)]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+
+  <example name="c_zero_negative_lookbehind_t2" tutorial="true">
+  	<html>
+  	現在表示しているのは
+  	<s/><font color="highlight1">(?&amp;lt;!ef)</font><s/>
+  	が括弧内の正規表現にマッチしない部分の直後の位置（境界）
+  	にマッチする例。<br/>
+  	<link href="Example/c_zero_negative_lookbehind_t2_2">
+  	find ボタンを押す</link>
+  	</html>
+  	<appstate>
+      <regex>(?&lt;!ef)ab</regex>
+      <inputChars><![CDATA[cdefabcdefghab]]></inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="c_zero_negative_lookbehind_t2_2" tutorial="true">
+  	<html>
+  	<font color="highlight1">(?&amp;lt;!ef)ab</font><s/>
+  	は<s/><font color="highlight2">ab</font><s/>
+  	にマッチするがその
+  	<s/><font color="highlight2">ab</font><s/>
+  	の直前の位置（境界）は
+  	<s/><font color="highlight1">(?&amp;lt;!ef)</font><s/>
+  	にマッチしていなければならない。<br/>
+  	つまり
+  	<s/><font color="highlight2">ef</font><s/>
+  	が直前に存在しない
+  	<s/><font color="highlight2">ab</font><s/>
+  	にマッチする。<br/>
+  	
+  	<font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+  	</html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="c_atomic_group" tutorial="false">
+    <html>
+    <font color="highlight1">(?&amp;gt;)</font><s/>は
+    <link href="Example/t_backtracking">バックトラック</link>
+    を行わないグループを形成する。<br/>
+    グループは括弧内の
+    <s/><font color="highlight1">&amp;gt;</font><s/>
+    に続いて記述する正規表現を
+    １つのまとまりとして扱い、
+    前後の正規表現との間に区切りをつける事ができる。<br/>
+    キャプチャリングは行われない。<br/>
+    バックトラックは非常に重たい処理となる場合があるので、
+    マッチした部分へのバックトラックが不必要な事が分かっている場合には
+    <link href="Example/t_possessive_quantifiers">
+    強欲な繰り返し
+    </link>
+    やこのアトミックなグループを使って無駄なバックトラックを
+    抑制する事で最適化を行う事ができる。
+    </html>
+  </example>
+  
+  
+  
+  <!--
+  
+   
+  <example name="" tutorial="false">
+    <html>
+      　未実装
+    </html>
+  </example>
+   -->
+  
+  
+</examples>

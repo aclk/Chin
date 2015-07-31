@@ -1,0 +1,1176 @@
+<examples>
+  <example name="m_group" tutorial="true">
+    <html>
+      現在表示しているのは start end group などのメソッドで
+      マッチに関する情報を取得する例<br/>
+      現在入力シーケンス
+      <s/><font color="highlight2">0123456789</font><s/>
+      に対して正規表現
+      <s/><font color="highlight1">3(4567)(0*)8</font><s/>
+      で find メソッドを実行した結果を表示している。<br/>
+      強調表示されているのはマッチした部分の文字列で
+      これは group メソッドで取得できる。<br/>
+      マッチしたのが位置の場合には group メソッドは
+      空の文字列を返す。<br/>
+      右パネルの状態の start に 3 が end に 9 が表示されているが
+      これは start end 両メソッドの戻り値でマッチした文字列の
+      先頭と末尾の位置を返す。<br/>
+      マッチしたのが位置の場合には start end 共にその位置を
+      返す。<br/>
+      start や end メソッドの戻り値を位置ではなく入力シーケンスの文字の
+      インデックスと解釈した場合には end メソッドの戻り値は
+      マッチした文字列の最後の文字の次のインデックスになるので
+      注意が必要。<br/>
+      <link href="Example/m_group_t1">グループ 1 を選択</link>
+      
+    </html>
+    <appstate>
+      <regex>3(4567)(0*)8</regex>
+      <inputChars>0123456789</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET FIND
+    </commands>
+  </example>
+  <example name="m_group_t1" tutorial="true">
+    <html>
+      現在右パネルの状態の group で 1 を選択しているのでマッチした文字列
+      全体ではなく、キャプチャグループ 1 にマッチした部分を
+      強調表示している。<br/>
+      正規表現
+      <s/><font color="highlight1">3(4567)(0*)8</font><s/>は
+      キャプチャグループを２つ含んでいる。<br/>
+      キャプチャグループ 1 が
+      <s/><font color="highlight1">(4567)</font><s/>
+      の部分で、キャプチャグループ 2 が
+      <s/><font color="highlight1">(0*)</font><s/>
+      の部分となる。<br/>
+      キャプチャグループに対しては正規表現エンジンによって
+      その出現順に 1 から番号が割り振られ、それぞれの
+      キャプチャグループにマッチした部分に関する情報が保持される。<br/>
+      キャプチャグループにマッチした部分は
+      正規表現における後方参照や置換文字列内で
+      を参照する事ができる。<br/>
+      
+      キャプチャグループ 1 にマッチした部分の文字列を取得するには
+      引数に int 値を取る方の group メソッドを 1 を引数に呼びだす。<br/>
+      キャプチャグループ 0 は常にマッチした文字列全体
+      となるので group() と　group(0) は等価<br/>
+      右パネルの状態の start end にそれぞれ 4 と 8 が表示されているが
+      これらの値は引数を取る start end メソッドを 1 を引数に
+      呼び出した戻り値。<br/>
+      start end の引数には group と同様にキャプチャグループの番号を
+      指定し、 start(0) や end(0) は start() や end() と等価。<br/>
+      <link href="Example/m_group_t1_2">グループ 2 を選択</link>
+    </html>
+    <commands>
+      GROUP1
+    </commands>
+  </example>
+  <example name="m_group_t1_2" tutorial="true">
+    <html>
+      現在右パネルの状態の group で 2 を選択しているのでマッチした文字列
+      全体ではなく、キャプチャグループ 2 にマッチした部分を
+      強調表示している。<br/>
+      0 の０回の繰り返しに位置がマッチしている。<br/>
+      引数を取る group メソッドは指定したキャプチャグループに
+      マッチしたのが位置の場合に
+      引数の無い group メソッドと同様に空の文字列を返す。<br/>
+      引数を取る  start や end メソッドも指定したキャプチャグループが
+      位置にマッチしていた場合には両メソッド共に
+      マッチした位置（つまり同じ値）を返す。<br/>
+      
+      右パネルの状態の groupCount の値は Matcher#groupCount メソッドの
+      戻り値でこのメソッドは正規表現に含まれるキャプチャグループの数を
+      返す。<br/>
+      キャプチャグループ 0 は常にマッチした文字列全体となるが
+      これは groupCount メソッドの戻り値には含まれず、正規表現
+      で<s/><font color="highlight1">()</font><s/>によって
+      設定されたキャプチャグループの数の合計が groupCount メソッドの
+      戻り値となる。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      GROUP2
+    </commands>
+  </example>
+  
+  <example name="m_useAnchoringBounds" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#useAnchoringBounds メソッドに
+      よる anchoring 境界の設定とその動作に関する例<br/>
+      現在入力シーケンス
+      <s/><font color="highlight2">0123456789</font><s/>
+      に対して 1 の直前から 9 の直前（8 の直後）まで
+      の範囲に領域を設定している。<br/>
+      正規表現
+      <s/><font color="highlight1">^|$</font><s/>
+      はデフォルト（DOTALLモードではない場合）では
+      入力シーケンスの先頭と末尾にマッチするが領域の
+      境界が anchoring 境界に設定されている場合には
+      <s/><font color="highlight1">^</font><s/>は
+      領域の先頭にマッチし、
+      <s/><font color="highlight1">$</font><s/>は
+      領域の末尾にマッチする。<br/>
+      Matcher オブジェクトは生成された初期状態では anchoring 境界
+      に設定されており、 useAnchoringBounds メソッドで
+      この設定を変更できる。<br/>
+      現在右パネルの 領域と境界 の anchoringBounds の設定で true に
+      チェックが入っているのでデフォルトの anchoring 境界に
+      設定されている。<br/>
+      <link href="Example/m_useAnchoringBounds_t1">find ボタンを押す</link>
+      
+    </html>
+    <appstate>
+      <regex>^|$</regex>
+      <inputChars>0123456789</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="9"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  <example name="m_useAnchoringBounds_t1" tutorial="true">
+    <html>
+      anchoring 境界に設定されているので領域の先頭が
+      <s/><font color="highlight1">^</font><s/>にマッチする。<br/>
+      <link href="Example/m_useAnchoringBounds_t1_2">find ボタンを押す</link>
+      
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="m_useAnchoringBounds_t1_2" tutorial="true">
+    <html>
+      anchoring 境界に設定されているので領域の末尾が
+      <s/><font color="highlight1">$</font><s/>にマッチする。<br/>
+      <link href="Example/m_useAnchoringBounds_t1_3">
+      非 anchoring 境界に設定する</link>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="m_useAnchoringBounds_t1_3" tutorial="true">
+    <html>
+      現在右パネルの 領域と境界 の anchoringBounds の設定で false に
+      チェックが入っているので非 anchoring 境界に設定されている。<br/>
+      anchoring 境界の設定はMatcher#useAnchoringBounds メソッドで行う。<br/>
+      <link href="Example/m_useAnchoringBounds_t1_4">find ボタンを押す</link>
+      
+    </html>
+    <appstate>
+      <regex>^|$</regex>
+      <inputChars>0123456789</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="9"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="false"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  <example name="m_useAnchoringBounds_t1_4" tutorial="true">
+    <html>
+      非 anchoring 境界に設定されているので領域の先頭や末尾が
+      <s/><font color="highlight1">^</font><s/>や
+      <s/><font color="highlight1">$</font><s/>にマッチしない。<br/>
+      
+      <link href="Example/m_useAnchoringBounds_t1_5">
+      領域境界と入力シーケンスの先頭や末尾が重なっている場合</link>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="m_useAnchoringBounds_t1_5" tutorial="true">
+    <html>
+      現在右パネルの 領域と境界 の anchoringBounds の設定で false に
+      チェックが入っているので非 anchoring 境界に設定されている。<br/>
+      また領域の末尾は入力シーケンスの末尾が重なっている。<br/>
+      <link href="Example/m_useAnchoringBounds_t1_6">find ボタンを押す</link>
+      
+    </html>
+    <appstate>
+      <regex>^|$</regex>
+      <inputChars>0123456789</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="10"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="false"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  <example name="m_useAnchoringBounds_t1_6" tutorial="true">
+    <html>
+      入力シーケンスの先頭や末尾は領域境界の設定に関わらず
+      常に
+      <s/><font color="highlight1">^</font><s/>や
+      <s/><font color="highlight1">$</font><s/>にマッチする。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="m_useTransparentBounds" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#useTransparentBounds メソッドに
+      よる領域境界の透明性の設定とその動作に関する例<br/>
+      正規表現
+      <s/><font color="highlight1">123(?=4)</font><s/>
+      は<s/><font color="highlight2">4</font><s/>が直後に続く 
+      <s/><font color="highlight2">123</font><s/>にマッチする。<br/>
+      入力シーケンス
+      <s/><font color="highlight2">012345</font><s/>
+      に対して find メソッドを実行した結果を表示している。<br/>
+      <link href="Example/m_useTransparentBounds_t1">領域を設定する</link>
+      
+    </html>
+    <appstate>
+      <regex>123(?=4)</regex>
+      <inputChars>012345</inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET FIND
+    </commands>
+  </example>
+  
+  <example name="m_useTransparentBounds_t1" tutorial="true">
+    <html>
+      1 の直前から 4 の直前までの範囲を領域に設定している。<br/>
+      現在右パネルの領域と境界の transparentBounds の false に
+      チェックが入っているので領域境界の透明性は不透明に設定されている。<br/>
+      Matcher オブジェクトの生成時の初期状態では領域境界の透明性は
+      不透明に設定されている。<br/>
+      <link href="Example/m_useTransparentBounds_t1_1">find ボタンを押す</link>
+      
+    </html>
+    <appstate>
+      <regex>123(?=4)</regex>
+      <inputChars>012345</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="4"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  <example name="m_useTransparentBounds_t1_1" tutorial="true">
+    <html>
+      領域境界は透明性は不透明に設定されているので
+      領域の外にある 4 は
+      正規表現エンジンから見えないので
+      <s/><font color="highlight1">123(?=4)</font><s/>
+      にはマッチしない。<br/>
+     
+      <link href="Example/m_useTransparentBounds_t1_2">
+      領域境界を透明に設定する
+      </link>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="m_useTransparentBounds_t1_2" tutorial="true">
+    <html>
+      現在右パネルの領域と境界の transparentBounds の true に
+      チェックが入っているので領域境界の透明性は透明に設定されている。<br/>
+      領域境界の透明性の設定は Matcher#useTransparentBounds メソッドで
+      行う。<br/>
+      <link href="Example/m_useTransparentBounds_t1_3">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>123(?=4)</regex>
+      <inputChars>012345</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="4"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="true"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  <example name="m_useTransparentBounds_t1_3" tutorial="true">
+    <html>
+      今回は領域境界が透明に設定されているため
+      領域の外にある 4 が正規表現エンジンから見える為に
+      <s/><font color="highlight1">123(?=4)</font><s/>に
+      マッチする。<br/>
+      <link href="Example/m_useTransparentBounds_t1_4">
+      領域を 12 に設定する</link>
+      
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="m_useTransparentBounds_t1_4" tutorial="true">
+    <html>
+      領域を 1 の直前から 3 の直前に変更した。<br/>
+      現在右パネルの領域と境界の transparentBounds の true に
+      チェックが入っているので領域境界の透明性は透明に設定されている。<br/>
+      <link href="Example/m_useTransparentBounds_t1_5">find ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>123(?=4)</regex>
+      <inputChars>012345</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="3"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="true"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  <example name="m_useTransparentBounds_t1_5" tutorial="true">
+    <html>
+      この場合はマッチしない。<br/>
+      領域境界が透明に設定されていても
+      マッチした部分が領域の外にはみ出ている
+      （この場合は
+      <s/><font color="highlight2">3</font><s/>が領域外）場合には
+      マッチした事にはならない。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+      
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <!--  
+  <example name="m_useAnchoringBounds" tutorial="true">
+    <html>
+      
+      <link href="Example/m_useAnchoringBounds_t1">find ボタンを押す</link>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <appstate>
+      <regex>^|$</regex>
+      <inputChars>0123456789</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="1"/>
+      <regionEnd value="9"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET REGION
+    </commands>
+  </example>
+  --> 
+  
+  <example name="m_find" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#find メソッドの使用例<br/>
+      正規表現
+      <s/><font color="highlight1">ab</font><s/>
+      で入力シーケンス
+      <s/><font color="highlight2">abcabcabc</font><s/>
+      に対してマッチしなくなるまで find メソッドを
+      繰り返し呼び出し、マッチした文字列の位置を表示する。<br/>
+      <link href="Example/t_repeat_find_method">find ボタンを押す</link>
+      <br/><br/>
+      Java コードは以下のようになる。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/> 
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test {<br/> 
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;ab&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcabcabc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      StringBuilder buffer = new StringBuilder
+      (&amp;quot;start:<s/>&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      while (matcher.find()) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      buffer.setLength(7);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      buffer.append(matcher.start())<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      buffer.append(&amp;quot;<s/><s/>end:<s/>&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      buffer.append(matcher.end());<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(buffer);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      }<br/>
+      <s/><s/><s/><s/>
+      }<br/>
+      }
+      </font>
+      <br/>
+      <font color="error">
+      実行結果は以下<br/>
+      start: 0  end: 2<br/>
+      start: 3  end: 5<br/>
+      start: 6  end: 8</font>
+    </html>
+    <appstate>
+      <regex>ab</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+	
+  <example name="m_find_int" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#find(int) メソッドの使用例<br/>
+      正規表現
+      <s/><font color="highlight1">ab</font><s/>
+      で入力シーケンス
+      <s/><font color="highlight2">abcabcabc</font><s/>
+      に対して find メソッドを 2 を引数に呼び出し
+      マッチした位置を表示する。<br/>
+      入力シーケンスには現在、領域が設定されているが
+      引数を取る方の find メソッドはリセットしてからマッチングを
+      始めるので、この領域は無効になる。<br/>
+      <link href="Example/m_find_int_t1">find(int) ボタンを押す</link>
+      <br/><br/>
+      Java コードは以下のようになる。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/> 
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test {<br/> 
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;ab&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcabcabc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      matcher.region(5, 8);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      if (matcher.find(2)) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(&amp;quot;start:<s/>&amp;quot; + matcher.start() +<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      <s/><s/><s/><s/><s/><s/><s/>
+      &amp;quot;<s/><s/>end:<s/>&amp;quot; + matcher.end());<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      }<br/>
+      <s/><s/><s/><s/>
+      }<br/>
+      }
+      </font>
+      <br/>
+      実行結果は以下<br/>
+      <font color="error">
+      start: 3  end: 5</font>
+    </html>
+    <appstate>
+      <regex>ab</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement></replacement>
+      <findIndex value="2"/>
+      <regionStart value="5"/>
+      <regionEnd value="8"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      REGION
+    </commands>
+  </example>
+  <example name="m_find_int_t1" tutorial="true">
+    <html>
+    リセットした上で引数の位置 2 （最初の b と c の間の位置）から
+    マッチングを始めるので２つ目の ab の部分にマッチしている。<br/>
+    <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+    </html>
+    <commands>
+      FIND_INT
+    </commands>
+  </example>
+  
+  <example name="m_lookingat" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#lookingAt メソッドの使用例<br/>
+      正規表現
+      <s/><font color="highlight1">ab</font><s/>
+      で入力シーケンス
+      <s/><font color="highlight2">abcabcabc</font><s/>
+      に対して lookingAt メソッドを呼び出し
+      マッチングの結果の boolean 値を表示する。<br/>
+      入力シーケンスには現在 3 から 8 の範囲に領域が設定されている。<br/>
+      lookingAt メソッドは領域の最初の部分がマッチするかどうかを
+      判定する。<br/>
+      <link href="Example/m_lookingat_t1">lookingAt ボタンを押す</link>
+      <br/><br/>
+      Java コードは以下のようになる。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/> 
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test {<br/> 
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;ab&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcabcabc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      matcher.region(3, 8);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.lookingAt());<br/>
+      <s/><s/><s/><s/>
+      }<br/>
+      }
+      </font>
+      <br/>
+      実行結果は以下<br/>
+      <font color="error">
+      true
+      </font>
+    </html>
+    <appstate>
+      <regex>ab</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="3"/>
+      <regionEnd value="8"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      REGION
+    </commands>
+  </example>
+  <example name="m_lookingat_t1" tutorial="true">
+    <html>
+    領域の先頭部分が ab から始まっているので true を返す。<br/>
+    region メソッドで領域を設定していない場合には入力シーケンス全体が
+    領域となるので入力シーケンスの先頭部分がマッチするかどうかを
+    判定する事になる。<br/>
+    <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+    </html>
+    <commands>
+      LOOKING_AT
+    </commands>
+  </example>
+  
+  <example name="m_matches" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#matches メソッドの使用例<br/>
+      正規表現
+      <s/><font color="highlight1">ab</font><s/>
+      で入力シーケンス
+      <s/><font color="highlight2">abcabcabc</font><s/>
+      に対して matches メソッドを呼び出し
+      マッチングの結果の boolean 値を表示する。<br/>
+      <link href="Example/m_matches_t1">matches ボタンを押す</link>
+      <br/><br/>
+      Java コードは以下のようになる。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/> 
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test {<br/> 
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;ab&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcabcabc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.matches());<br/>
+      <s/><s/><s/><s/>
+      }<br/>
+      }
+      </font>
+      <br/>
+      実行結果は以下<br/>
+      <font color="error">
+      false
+      </font>
+    </html>
+    <appstate>
+      <regex>ab</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement></replacement>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+  <example name="m_matches_t1" tutorial="true">
+    <html>
+    region メソッドで領域を設定していないので入力シーケンス全体が
+    領域となる。<br/>
+    入力シーケンス全体は 
+    <s/><font color="highlight1">ab</font><s/>にマッチしない。<br/>
+    <link href="Example/m_matches_t1_2">領域を設定した場合の例</link>
+    </html>
+    <commands>
+      MATCHES
+    </commands>
+  </example>
+  
+  <example name="m_matches_t1_2" tutorial="true">
+    <html>
+    現在、入力シーケンス
+      <s/><font color="highlight2">abcabcabc</font><s/>
+    の 6 から 8 の範囲に領域を設定している。<br/>
+    <link href="Example/m_matches_t1_3">matches ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>ab</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement></replacement>
+      <findIndex value="-1"/>
+      <regionStart value="6"/>
+      <regionEnd value="8"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      REGION
+    </commands>
+  </example>
+  <example name="m_matches_t1_3" tutorial="true">
+    <html>
+    領域全体の文字シーケンスは ab なのでマッチする。<br/>
+    <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+    </font>
+    </html>
+    <commands>
+      MATCHES
+    </commands>
+  </example>
+  
+  <example name="m_replace_first" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#replaceFirst メソッドの使用例<br/>
+      replaceFirst メソッドは次のように宣言されている。<br/>
+      <font color="code">
+      public String replaceFirst(String replacement)
+      </font>
+      <br/>
+      この例では正規表現
+      <s/><font color="highlight1">bc</font><s/>
+      で入力シーケンスの先頭からマッチングを行い
+      最初にマッチした部分を
+      <s/><font color="highlight2">BC</font><s/>
+      に置換する。<br/>
+      置換する部分以外は入力シーケンスと同じままの文字列を
+      表示する。<br/>
+      
+      <link href="Example/m_replace_first_t1">
+      replaceFirst ボタンを押す</link>
+      <br/>
+      Java コードは以下のようになる。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/> 
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test {<br/>
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;bc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcabcabc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceFirst(&amp;quot;BC&amp;quot;));<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceFirst(&amp;quot;ビーシー&amp;quot;));
+      <br/><s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceFirst(&amp;quot;&amp;quot;));<br/>
+      <s/><s/><s/><s/>}<br/>
+      }
+      </font><br/>
+      実行結果は以下<br/>
+      <font color="error">
+      aBCabcabc<br/>
+      aビーシーabcabc<br/>
+      aabcabc</font>
+    </html>
+    <appstate>
+      <regex>bc</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement>BC</replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET CLEAR_REPLACEMENT_BUF
+    </commands>
+  </example>
+  <example name="m_replace_first_t1" tutorial="true">
+    <html>
+      Matcher#replaceFirst で置換した文字列を表示している。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      REPLACE_FIRST
+    </commands>
+  </example>
+  
+  <example name="m_replace_all" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#replaceAll メソッドの使用例<br/>
+      replaceAll メソッドは次のように宣言されている。<br/>
+      <font color="code">
+      public String replaceAll(String replacement)
+      </font>
+      <br/>
+      この例では正規表現
+      <s/><font color="highlight1">bc</font><s/>
+      で入力シーケンスの先頭からマッチングを繰り返し、
+      マッチした部分すべてを
+      <s/><font color="highlight2">BC</font><s/>
+      に置換する。<br/>
+      置換する部分以外は入力シーケンスと同じままの文字列を
+      表示する。<br/>
+      
+      <link href="Example/m_replace_all_t1">
+      replaceFirst ボタンを押す</link>
+      <br/>
+      Java コードは以下のようになる。<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/> 
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test {<br/>
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;bc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcabcabc&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceAll(&amp;quot;BC&amp;quot;));<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceAll(&amp;quot;ビーシー&amp;quot;));
+      <br/><s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceAll(&amp;quot;&amp;quot;));<br/>
+      <s/><s/><s/><s/>}<br/>
+      }
+      </font><br/>
+      実行結果は以下<br/>
+      <font color="error">
+      aBCaBCaBC<br/>
+      aビーシーaビーシーaビーシー<br/>
+      aaa
+      </font>
+    </html>
+    <appstate>
+      <regex>bc</regex>
+      <inputChars>abcabcabc</inputChars>
+      <replacement>BC</replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET CLEAR_REPLACEMENT_BUF
+    </commands>
+  </example>
+  <example name="m_replace_all_t1" tutorial="true">
+    <html>
+      Matcher#replaceAll で置換した文字列を表示している。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      REPLACE_ALL
+    </commands>
+  </example>
+  
+  <example name="m_append_replacement" tutorial="true">
+    <html>
+      現在表示しているのは Matcher#appendReplacement メソッドの使用例<br/>
+      appendReplacement メソッドは次のように宣言されている。<br/>
+      <font color="code">
+      public Matcher appendReplacement(StringBuffer sb, String replacement)
+      </font><br/>
+      appendReplacement メソッドは
+      入力シーケンスのアペンドポジション（初期状態では
+      入力シーケンスの先頭）から
+      前回マッチした部分の直前の位置の範囲の文字列を
+      引数の StringBuffer オブジェクトに書き込んでからアペンドポジションを
+      前回マッチした部分の末尾に移す。<br/>
+      appendReplacement メソッドは
+      マッチしていない状態で呼び出すと例外をスローする。<br/>
+      find メソッドや appendTail メソッドと組み合わせて使う。<br/>
+      
+      <link href="Example/m_append_replacement_t1">
+      find ボタンを押す</link>
+      <br/><br/>
+      この例の Java コードは以下。（下のコードはこの例に合わせたコード
+      なので置換部分を文字リテラルで指定しているが、実際のプログラムでは
+      マッチした部分を加工するなど、動的に置換文字列を生成する事で
+      柔軟な置換が行える）<br/>
+      <font color="code">
+      import java.util.regex.Matcher;<br/>
+      import java.util.regex.Pattern;<br/>
+      <br/>
+      public class Test{ <br/>
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(&amp;quot;cde&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(&amp;quot;abcdefg\nabcdefg\nabcdefg&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      StringBuffer buf = new StringBuffer();<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      if (!matcher.find()) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(&amp;quot;マッチしませんでした。&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      System.exit(0);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      }<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      matcher.appendReplacement(buf, &amp;quot;CDE&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      if (matcher.find()) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      matcher.appendReplacement(buf, &amp;quot;シーデーイー&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      }<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      matcher.appendTail(buf);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(buf.toString());<br/>
+      <s/><s/><s/><s/>
+      }<br/>
+      }      
+      </font><br/>
+      実行結果は以下<br/>
+      <font color="error">
+      abCDEfg<br/>
+      abシーデーイーfg<br/>
+      abcdefg
+      </font>
+    </html>
+    <appstate>
+      <regex>cde</regex>
+      <inputChars><![CDATA[abcdefg
+abcdefg
+abcdefg]]></inputChars>
+      <replacement>CDE</replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET CLEAR_REPLACEMENT_BUF
+    </commands>
+  </example>
+  <example name="m_append_replacement_t1" tutorial="true">
+    <html>
+      find メソッドにより最初の 
+      <s/><font color="highlight2">cde</font><s/>
+      にマッチしている。<br/>
+      現在のアペンドポジションは初期状態の入力シーケンスの先頭にある。<br/>
+      <link href="Example/m_append_replacement_t1_2">
+      appendReplacement ボタンを押す</link>
+    </html>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  
+  <example name="m_append_replacement_t1_2" tutorial="true">
+    <html>
+      appendReplacement メソッドの引数とした StringBuffer オブジェクトの
+      内容を中央のテキストエリアに表示している。<br/>
+      appendReplacement メソッドが行ったのはアペンドポジション
+      （入力シーケンスの先頭）から前回マッチした
+      <s/><font color="highlight2">cde</font><s/>
+      の直前の位置まで引数の StringBuffer オブジェクトに
+      書き込み、それから置換文字列の
+      <s/><font color="highlight2">CDE</font><s/>
+      を書き込み、最後にアペンドポジションをマッチした部分
+      <s/><font color="highlight2">cde</font><s/>の
+      直後の位置（次の<s/><font color="highlight2">f</font><s/>との
+      境界の位置でこれは end メソッドの戻り値の位置であり、
+      次回の find メソッドに
+      よるマッチングを開始する位置でもある）に移動させるという処理。<br/>
+      <link href="Example/m_append_replacement_t1_3">
+      find ボタンを押す</link>
+    </html>
+    <commands>
+      APPEND_REPLACEMENT
+    </commands>
+  </example>
+  <example name="m_append_replacement_t1_3" tutorial="true">
+    <html>
+      次の<s/><font color="highlight2">cde</font><s/>に
+      マッチする。<br/>
+      現在のアペンドポジションは前々回にマッチした
+      １行目の<s/><font color="highlight2">cde</font><s/>
+      の直後の位置にある。<br/>
+      置換文字列は
+      <s/><font color="highlight2">シーデーイー</font><s/>に
+      変更している。<br/>
+      <link href="Example/m_append_replacement_t1_4">
+      appendReplacement ボタンを押す</link>
+    </html>
+    <appstate>
+      <regex>cde</regex>
+      <inputChars><![CDATA[abcdefg
+abcdefg
+abcdefg]]></inputChars>
+      <replacement>シーデーイー</replacement>
+    </appstate>
+    <commands>
+      FIND
+    </commands>
+  </example>
+  <example name="m_append_replacement_t1_4" tutorial="true">
+    <html>
+      アペンドポジション（１行目の
+      <s/><font color="highlight2">cde</font><s/>の直後の位置）
+      から今回マッチした部分の直前までと置換文字列
+      <s/><font color="highlight2">シーデーイー</font><s/>を
+      書き込んでいる。<br/>
+      appendTail メソッドは appendReplacement メソッドと組み合わせて
+      使用される事が多いメソッドでアペンドポジション以降の
+      入力シーケンスの残りを引数の StringBuffer オブジェクトに書き込む。<br/>
+      appendTail メソッドは次のように宣言されている。<br/>
+      <font color="code">
+      public StringBuffer appendTail(StringBuffer sb)
+      </font><br/>
+      <link href="Example/m_append_replacement_t1_5">
+      appendTail ボタンを押す</link>
+    </html>
+    <commands>
+      APPEND_REPLACEMENT
+    </commands>
+  </example>
+  <example name="m_append_replacement_t1_5" tutorial="true">
+    <html>
+      appendTail メソッドにより
+      アペンドポジションから入力シーケンスの末尾まで
+      書き込まれている。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      APPEND_TAIL
+    </commands>
+  </example>
+  
+  <example name="m_replace_backref" tutorial="true">
+    <html>
+      現在表示しているのはキャプチャグループにマッチした
+      文字列を置換文字列の中で参照する例。<br/>
+      置換文字列の中でキャプチャグループにマッチした文字列を参照するには
+      <s/><font color="highlight1">$</font><s/>に続いて
+      キャプチャグループの番号を指定する。<br/>
+      キャプチャグループの番号は 0 が常に正規表現にマッチした
+      文字列全体でそれ以外は正規表現に出現したキャプチャグループの
+      順に 1 から番号が割り振られる。<br/>
+      置換文字列の中で
+      文字<s/><font color="highlight2">$</font><s/>自体を
+      表す場合にはバックスラッシュを付けて
+      <s/><font color="highlight2">\$</font><s/>
+      とするが、これは Java コードのでは<br/>
+      <font color="code">
+      matcher.replaceAll(&amp;quot;\\$&amp;quot;);
+      </font><br/>
+      のように記述し、バックスラッシュはエスケープシーケンス
+      <s/><font color="code">\\</font><s/>
+      を使わなければならない。<br/>
+      正規表現
+      <s/><font color="highlight1">(\d{4})/(\d?\d)/(\d?\d)</font><s/>
+      は４桁の数字、スラッシュ、１または２桁の数字、スラッシュ、
+      １または２桁の数字で構成されている文字列にマッチする。
+      （実際に yyyy/mm/dd 形式の日付にマッチさせる場合には
+      <s/><font color="highlight1">
+      (?&amp;lt;=\D?)(\d{4})/(1[012]|[0]?[1-9])/(3[01]|[12]\d|[0]?[1-9])(?=\D?)
+      </font><s/>の方が厳密
+      ）<br/>
+      
+      
+      <link href="Example/m_replace_backref_t1">
+      replaceAll ボタンを押す</link>
+      <br/>
+      この例の Java コードは以下。<br/>
+      <font color="code">
+      import java.util.regex.Pattern;<br/>
+      import java.util.regex.Matcher;<br/>
+      <br/>
+      public class Test {<br/>
+      <s/><s/><s/><s/>
+      public static void main(String[]args) {<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Pattern pattern = Pattern.compile(<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      &amp;quot;(\\d{4})/(\\d?\\d)/(\\d?\\d)&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      Matcher matcher = pattern.matcher(<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      &amp;quot;２１世紀は2001/01/01から2100/12/31まで&amp;quot;);<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/>
+      System.out.println(matcher.replaceAll(<br/>
+      <s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/><s/>
+      &amp;quot;$1年$2月$3日[$0]&amp;quot;));<br/>
+      <s/><s/><s/><s/>
+      }<br/> 
+      }
+      </font>
+    </html>
+    <appstate>
+      <regex>(\d{4})/(\d?\d)/(\d?\d)</regex>
+      <inputChars>２１世紀は2001/01/01から2100/12/31まで</inputChars>
+      <replacement>$1年$2月$3日[$0]</replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET CLEAR_REPLACEMENT_BUF
+    </commands>
+  </example>
+  <example name="m_replace_backref_t1" tutorial="true">
+    <html>
+      replaceAll メソッドにより置換後の文字列を
+      中央のテキストエリアに表示している。<br/>
+      <font color="highlight2">
+      下のボタンでページ移動、あるいはチュートリアルモードを解除。
+      </font>
+    </html>
+    <commands>
+      REPLACE_ALL
+    </commands>
+  </example>
+  
+  
+  
+  
+  
+	<!--
+  <example name="" tutorial="true">
+    <html>
+      <link href="Example/testtutorial2">testtutorial2</link>
+    </html>
+    <appstate>
+      <regex>aaa</regex>
+      <inputChars>123aaa456</inputChars>
+      <replacement>bbb</replacement>
+      <findIndex value="-1"/>
+      <regionStart value="-1"/>
+      <regionEnd value="-1"/>
+      <modemusk>DEFAULT</modemusk>
+      <anchoringBounds value="true"/>
+      <transparentBounds value="false"/>
+      <crlf value="false"/>
+    </appstate>
+    <commands>
+      RESET
+    </commands>
+  </example>
+	 
+  <example name="" tutorial="false">
+		<html>
+			　未実装
+		</html>
+	</example>
+	 -->
+	
+	
+</examples>

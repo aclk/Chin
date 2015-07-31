@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC  "-//SPRING//DTD BEAN//EN"
+   "http://www.springframework.org/dtd/spring-beans.dtd">
+
+<beans default-lazy-init="true">
+  <!-- DataSource definitions -->
+
+  <bean id="dataSource" class="murata.co.test.jdbc.SustainableConnectionDataSource" destroy-method="close">
+  <constructor-arg>
+  	<ref bean="dataSourceSource"/>
+  </constructor-arg>
+  </bean>
+
+  <bean id="dataSourceSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close">
+      <property name="driverClass" value="oracle.jdbc.driver.OracleDriver"/>
+
+      <property name="jdbcUrl"     value="jdbc:oracle:thin:@(DESCRIPTION =
+                    (ADDRESS_LIST =
+                      (ADDRESS = (PROTOCOL = TCP)(HOST = m0tudb10)(PORT = 1521))
+                      (ADDRESS = (PROTOCOL = TCP)(HOST = m0tudb20)(PORT = 1521))
+                      (LOAD_BALANCE = yes)
+                    )
+                    (CONNECT_DATA =
+                      (SERVICE_NAME = m0tudb.murata.co.jp)
+                    )
+                  )"/>
+      <property name="user"                     value="A1B5MEMB"/>
+      <property name="password"                 value="ss"/>
+      <property name="minPoolSize"              value="1"/>
+      <property name="maxPoolSize"              value="50"/>
+      <property name="loginTimeout"             value="1800"/>
+      <property name="maxStatements"            value="50"/>
+      <property name="idleConnectionTestPeriod" value="3000"/>
+  </bean>
+
+</beans>
